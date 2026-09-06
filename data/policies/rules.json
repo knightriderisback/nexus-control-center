@@ -1,0 +1,82 @@
+[
+  {
+    "id": "pol-000",
+    "name": "Absolute Legacy Project Isolation",
+    "action_pattern": "(?i)(protyourfolio|whatsapp-autopost-by-termux|gen-lang-client-0352285705)",
+    "risk_level": "CRITICAL",
+    "requires_approval": true,
+    "description": "Legacy projects are strictly isolated and protected from mutation."
+  },
+  {
+    "id": "pol-001",
+    "name": "Destructive File System / Database Wipe",
+    "action_pattern": "(?i)(rm\\s+-rf|drop\\s+database|wipe|format|truncate\\s+table)",
+    "risk_level": "CRITICAL",
+    "requires_approval": true,
+    "description": "Destructive deletion or database drop requires explicit human approval."
+  },
+  {
+    "id": "pol-002",
+    "name": "Billing Changes & Account Linking",
+    "action_pattern": "(?i)(billing\\s+accounts\\s+link|billing\\s+update|modify\\s+billing)",
+    "risk_level": "CRITICAL",
+    "requires_approval": true,
+    "description": "Billing configuration changes have direct financial implications."
+  },
+  {
+    "id": "pol-003",
+    "name": "Credential & Secret Key Creation",
+    "action_pattern": "(?i)(service-accounts\\s+keys\\s+create|generate\\s+private\\s+key|export\\s+secret)",
+    "risk_level": "CRITICAL",
+    "requires_approval": true,
+    "description": "Static key creation violates zero-trust posture and requires explicit signoff."
+  },
+  {
+    "id": "pol-004",
+    "name": "Production Cloud Run / GCP Deployment",
+    "action_pattern": "(?i)(run\\s+deploy|deploy\\s+production|push\\s+image|terraform\\s+apply|deploy)",
+    "risk_level": "HIGH",
+    "requires_approval": true,
+    "description": "Production infrastructure deployments must be verified and cleared by the operator."
+  },
+  {
+    "id": "pol-005",
+    "name": "IAM Role & Policy Modification",
+    "action_pattern": "(?i)(add-iam-policy-binding|set-iam-policy|grant\\s+permission|roles/owner)",
+    "risk_level": "HIGH",
+    "requires_approval": true,
+    "description": "Privilege escalations and policy changes require review."
+  },
+  {
+    "id": "pol-006",
+    "name": "Git Force Push / Branch Deletion",
+    "action_pattern": "(?i)(git\\s+push\\s+--force|git\\s+branch\\s+-D|git\\s+reset\\s+--hard)",
+    "risk_level": "HIGH",
+    "requires_approval": true,
+    "description": "Destructive git operations may overwrite history."
+  },
+  {
+    "id": "pol-007",
+    "name": "Git Commit / Branch Creation / PR",
+    "action_pattern": "(?i)(git\\s+commit|git\\s+checkout\\s+-b|create\\s+pr|git\\s+push)",
+    "risk_level": "MEDIUM",
+    "requires_approval": false,
+    "description": "Normal development workflow actions run within guardrails."
+  },
+  {
+    "id": "pol-008",
+    "name": "Dependency Installation",
+    "action_pattern": "(?i)(pip\\s+install|npm\\s+install|apt-get\\s+install)",
+    "risk_level": "MEDIUM",
+    "requires_approval": false,
+    "description": "Installing packages locally runs with medium risk."
+  },
+  {
+    "id": "pol-009",
+    "name": "Read-Only Audits, Inspections, Tests",
+    "action_pattern": "(?i)(status|test|audit|list|describe|get|view|cat|curl|scan)",
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "description": "Read-only operations and telemetry queries execute autonomously."
+  }
+]

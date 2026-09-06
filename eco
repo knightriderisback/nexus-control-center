@@ -1,0 +1,222 @@
+#!/usr/bin/env python3
+"""
+ECO // Personal Engineering OS Command Line Interface
+Connected to NEXUS Control API (http://127.0.0.1:8000/api/v1)
+"""
+
+import sys
+import json
+import urllib.request
+import urllib.error
+
+API_BASE = "http://127.0.0.1:8000/api/v1"
+
+# ANSI Terminal Colors
+CYAN = "\033[96m"
+GREEN = "\033[92m"
+YELLOW = "\033[93m"
+RED = "\033[91m"
+MAGENTA = "\033[95m"
+BOLD = "\033[1m"
+RESET = "\033[0m"
+
+def api_get(endpoint: str):
+    url = f"{API_BASE}{endpoint}"
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "eco-cli/1.0"})
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            return json.loads(resp.read().decode())
+    except urllib.error.URLError as e:
+        print(f"{RED}[ECO ERROR]{RESET} Cannot connect to Control API at {url}")
+        print(f"Details: {e}")
+        sys.exit(1)
+
+def api_post(endpoint: str, payload: dict):
+    url = f"{API_BASE}{endpoint}"
+    try:
+        data = json.dumps(payload).encode()
+        req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json", "User-Agent": "eco-cli/1.0"})
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            return json.loads(resp.read().decode())
+    except urllib.error.URLError as e:
+        print(f"{RED}[ECO ERROR]{RESET} Failed POST {url}: {e}")
+        sys.exit(1)
+
+def print_banner():
+    print(f"{CYAN}{BOLD}⚡ ECO // PERSONAL ENGINEERING OS CLI{RESET} [API: {GREEN}ONLINE{RESET}]")
+
+def cmd_status():
+    print_banner()
+    data = api_get("/overview")
+    print(f"System: {BOLD}{data.get('system')}{RESET}")
+    print(f"Cloud Project: {CYAN}{data.get('cloud_project')}{RESET}")
+    print(f"Fleet Status: {GREEN}{data['fleet']['active']} active{RESET}, {data['fleet']['idle']} idle (Total: {data['fleet']['total_agents']})")
+    print(f"Projects Registered: {BOLD}{data.get('projects_count')}{RESET}")
+    print(f"Pending Approvals: {YELLOW}{BOLD}{data.get('pending_approvals')}{RESET}")
+    telem = data.get('telemetry', {})
+    print(f"Host Load: CPU {telem.get('cpu_load')}% | RAM {telem.get('ram_used_gb')}/{telem.get('ram_total_gb')} GB ({telem.get('ram_percent')}%)")
+
+def cmd_projects():
+    print_banner()
+    projects = api_get("/projects")
+    print(f"\n{BOLD}{'PROJECT ID':<30} {'ENVIRONMENT':<15} {'HEALTH':<10} {'PROVIDER':<25}{RESET}")
+    print("=" * 80)
+    for p in projects:
+        health_color = GREEN if p.get("health_score", 0) > 90 else YELLOW
+        print(f"{CYAN}{p['id']:<30}{RESET} {p['environment']:<15} {health_color}{p.get('health_score', 100)}%{RESET:<6} {p['deployment_provider']:<25}")
+
+def cmd_agents():
+    print_banner()
+    agents = api_get("/agents")
+    print(f"\n{BOLD}{'AGENT':<18} {'ROLE':<35} {'TIER':<14} {'RISK':<10}{RESET}")
+    print("=" * 80)
+    for a in agents:
+        risk_color = GREEN if a["risk_level"] == "LOW" else (YELLOW if a["risk_level"] == "MEDIUM" else RED)
+        print(f"{a['avatar']} {a['name']:<14} {a['role'][:33]:<35} {a['autonomy_tier']:<14} {risk_color}{a['risk_level']:<10}{RESET}")
+
+def cmd_audit(project_id: str):
+    print(f"{CYAN}[ECO]{RESET} Initiating comprehensive audit for '{BOLD}{project_id}{RESET}'...")
+    res = api_post(f"/projects/{project_id}/audit", {})
+    print(f"{GREEN}✓ Audit completed at {res['timestamp']}{RESET}")
+    for c in res.get("checks", []):
+        mark = f"{GREEN}PASS{RESET}" if c["passed"] else f"{RED}FAIL{RESET}"
+        print(f"  [{mark}] {c['check']:<25} : {c['detail']}")
+
+def cmd_test(project_id: str):
+    print(f"{CYAN}[ECO]{RESET} Running test suites for '{BOLD}{project_id}{RESET}'...")
+    res = api_post(f"/projects/{project_id}/test", {})
+    print(f"{GREEN}✓ Test Results: {res.get('status')} | {res.get('passed')}/{res.get('tests_total')} passed in {res.get('duration')}{RESET}")
+
+def cmd_security(project_id: str):
+    print(f"{CYAN}[ECO]{RESET} Executing AST & Secret Security sweep for '{BOLD}{project_id}{RESET}'...")
+    res = api_post(f"/projects/{project_id}/security", {})
+    print(f"{GREEN}✓ Security Sweep: {res.get('status')} | CVEs: {res.get('cves_found')} | Leaked Secrets: {res.get('secrets_leaked')}{RESET}")
+
+def cmd_deploy(project_id: str):
+    print(f"{YELLOW}[ECO WARNING]{RESET} Requesting deployment for '{BOLD}{project_id}{RESET}'...")
+    res = api_post(f"/projects/{project_id}/deploy", {})
+    if res.get("approval_required"):
+        print(f"{RED}{BOLD}🛑 [HUMAN APPROVAL GATE ENFORCED]{RESET}")
+        print(f"Risk Level: {RED}{res.get('risk_level')}{RESET}")
+        print(f"Approval Request ID: {CYAN}{res.get('approval_id')}{RESET}")
+        print(f"Reason: {res.get('message')}")
+        print(f"\nTo approve, run: {BOLD}eco approvals approve {res.get('approval_id')}{RESET}")
+    else:
+        print(f"{GREEN}✓ Deployment initialized: {res}{RESET}")
+
+def cmd_approvals(args):
+    if len(args) == 0 or args[0] == "list":
+        apprs = api_get("/approvals")
+        print(f"{BOLD}{'ID':<12} {'RISK':<10} {'ACTION':<35} {'STATUS':<12}{RESET}")
+        print("=" * 70)
+        for a in apprs:
+            scolor = YELLOW if a["status"] == "PENDING" else (GREEN if a["status"] == "APPROVED" else RED)
+            print(f"{CYAN}{a['id']:<12}{RESET} {a['risk_level']:<10} {a['action'][:33]:<35} {scolor}{a['status']:<12}{RESET}")
+    elif args[0] in ["approve", "reject"] and len(args) > 1:
+        appr_id = args[1]
+        decision = "APPROVED" if args[0] == "approve" else "REJECTED"
+        res = api_post(f"/approvals/{appr_id}/decide", {"decision": decision, "user": "cli_operator"})
+        print(f"{GREEN if decision=='APPROVED' else RED}✓ Request {appr_id} {decision}. Current status: {res.get('status')}{RESET}")
+
+def cmd_brief():
+    data = api_get("/automations/brief")
+    print(data.get("markdown_brief", "No brief available."))
+
+def cmd_cost():
+    print_banner()
+    c = api_get("/cost/status")
+    print(f"\n{BOLD}COST GUARDRAIL STATUS:{RESET}")
+    print(f"Billing Account Linked: {RED if not c.get('billing_account_linked') else GREEN}{c.get('billing_account_linked')}{RESET}")
+    print(f"Monthly Incurred Spend: {GREEN}${c.get('current_month_spend_usd', 0.0):.2f}{RESET}")
+    print(f"Monthly Budget Ceiling: ${c.get('monthly_budget_cap_usd', 0.0):.2f}")
+    print(f"Strict Zero-Cost Guard: {GREEN}{c.get('strict_zero_cost_enforced')}{RESET}")
+    print(f"\n{BOLD}FREE TIER UTILIZATION:{RESET}")
+    for svc, details in c.get("free_tier_status", {}).items():
+        used = details.get("used_requests", details.get("used_gb", details.get("used_minutes", details.get("used_queries_tb", 0))))
+        print(f"  - {svc:<20} : {used} / {details.get('limit')} {details.get('unit')}")
+
+def cmd_secrets():
+    print_banner()
+    sec = api_get("/secrets")
+    print(f"\n{BOLD}{'SECRET NAME':<24} {'STATUS':<15} {'SOURCE':<15} {'PREVIEW':<10}{RESET}")
+    print("=" * 70)
+    for s in sec:
+        scolor = GREEN if s["configured"] else YELLOW
+        print(f"{CYAN}{s['name']:<24}{RESET} {scolor}{s['status']:<15}{RESET} {s['source']:<15} {s['preview']:<10}")
+
+def cmd_automations(args):
+    if len(args) == 0:
+        jobs = api_get("/automations/jobs")
+        print(f"\n{BOLD}{'JOB ID':<24} {'CRON':<14} {'LAST STATUS':<12} {'DESCRIPTION':<35}{RESET}")
+        print("=" * 85)
+        for j in jobs:
+            st_color = GREEN if j["last_status"] == "SUCCESS" else RED
+            print(f"{CYAN}{j['id']:<24}{RESET} {j['cron']:<14} {st_color}{j['last_status']:<12}{RESET} {j['description'][:33]:<35}")
+    elif args[0] == "run" and len(args) > 1:
+        job_id = args[1]
+        print(f"{CYAN}[ECO]{RESET} Triggering automation routine '{job_id}'...")
+        res = api_post(f"/automations/run/{job_id}", {})
+        print(f"{GREEN}✓ Completed: {res.get('status')} | Timestamp: {res.get('timestamp')}{RESET}")
+
+def cmd_traces():
+    print_banner()
+    traces = api_get("/traces?limit=15")
+    print(f"\n{BOLD}{'METHOD':<8} {'STATUS':<8} {'LATENCY':<12} {'TRACE ID':<22} {'PATH':<25}{RESET}")
+    print("=" * 80)
+    for t in traces:
+        scolor = GREEN if t["status_code"] < 400 else RED
+        print(f"{t['method']:<8} {scolor}{t['status_code']:<8}{RESET} {t['duration_ms']}ms{'':<6} {CYAN}{t['trace_id']:<22}{RESET} {t['path']:<25}")
+
+def cmd_natural_language(prompt: str):
+    print(f"{CYAN}[ECO AI ROUTER]{RESET} Evaluating directive: {BOLD}\"{prompt}\"{RESET}")
+    res = api_post("/eco/execute", {"prompt": prompt})
+    if res.get("status") == "AWAITING_APPROVAL":
+        print(f"\n{RED}{BOLD}🛑 [HUMAN APPROVAL REQUIRED]{RESET}")
+        print(f"Risk Tier: {RED}{res.get('risk_level')}{RESET}")
+        print(f"Approval Request: {CYAN}{res.get('approval_id')}{RESET}")
+        print(f"Directive: {res.get('message')}")
+        print(f"\nApprove with: {BOLD}eco approvals approve {res.get('approval_id')}{RESET}")
+    else:
+        print(f"\n{GREEN}✓ {res.get('result')}{RESET}")
+
+def main():
+    if len(sys.argv) < 2:
+        cmd_status()
+        sys.exit(0)
+
+    subcmd = sys.argv[1]
+
+    if subcmd == "status":
+        cmd_status()
+    elif subcmd == "projects":
+        cmd_projects()
+    elif subcmd == "agents":
+        cmd_agents()
+    elif subcmd == "audit" and len(sys.argv) > 2:
+        cmd_audit(sys.argv[2])
+    elif subcmd == "test" and len(sys.argv) > 2:
+        cmd_test(sys.argv[2])
+    elif subcmd == "security" and len(sys.argv) > 2:
+        cmd_security(sys.argv[2])
+    elif subcmd == "deploy" and len(sys.argv) > 2:
+        cmd_deploy(sys.argv[2])
+    elif subcmd == "approvals":
+        cmd_approvals(sys.argv[2:])
+    elif subcmd == "brief":
+        cmd_brief()
+    elif subcmd == "cost":
+        cmd_cost()
+    elif subcmd == "secrets":
+        cmd_secrets()
+    elif subcmd == "automations":
+        cmd_automations(sys.argv[2:])
+    elif subcmd == "traces":
+        cmd_traces()
+    elif subcmd in ["help", "--help", "-h"]:
+        print("Usage: eco <status|projects|agents|audit|test|security|deploy|approvals|brief|cost|secrets|automations|traces|\"prompt\">")
+    else:
+        prompt = " ".join(sys.argv[1:])
+        cmd_natural_language(prompt)
+
+if __name__ == "__main__":
+    main()
