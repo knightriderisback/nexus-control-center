@@ -9,11 +9,12 @@ from typing import Dict, Any, List
 # Ensure backend root is on Python path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Depends, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from core.config import config
+from core.auth import require_auth, authenticate_websocket
 from orchestrator.agents import get_agent_list
 from registry.projects import load_projects
 from core.approvals import load_approvals
@@ -48,32 +49,49 @@ app = FastAPI(
 )
 
 app.add_middleware(TracingMiddleware)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=config.allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Mount Version 1 API
+# Mount Version 1 API protected by provider-neutral auth
 API_V1_PREFIX = "/api/v1"
-app.include_router(overview_router, prefix=API_V1_PREFIX)
-app.include_router(projects_router, prefix=API_V1_PREFIX)
-app.include_router(agents_router, prefix=API_V1_PREFIX)
-app.include_router(approvals_router, prefix=API_V1_PREFIX)
-app.include_router(policy_router, prefix=API_V1_PREFIX)
-app.include_router(audit_router, prefix=API_V1_PREFIX)
-app.include_router(github_router, prefix=API_V1_PREFIX)
-app.include_router(cloud_router, prefix=API_V1_PREFIX)
-app.include_router(eco_nl_router, prefix=API_V1_PREFIX)
-app.include_router(docs_router, prefix=API_V1_PREFIX)
-app.include_router(secrets_router, prefix=API_V1_PREFIX)
-app.include_router(metrics_router, prefix=API_V1_PREFIX)
-app.include_router(traces_router, prefix=API_V1_PREFIX)
-app.include_router(cost_router, prefix=API_V1_PREFIX)
-app.include_router(automations_router, prefix=API_V1_PREFIX)
-app.include_router(adapters_router, prefix=API_V1_PREFIX)
+app.include_router(overview_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(projects_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(agents_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(approvals_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(policy_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(audit_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(github_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(cloud_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(eco_nl_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(docs_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(secrets_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(metrics_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(traces_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(cost_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(automations_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(adapters_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+
+
+@app.on_event("startup")
+async def start_background_workers():
+    async def scheduler_loop():
+        from core.automations import automations_engine
+        while True:
+            try:
+                await asyncio.sleep(300) # 5-minute background tick
+                automations_engine.execute_job("auto-repo-sweep")
+                automations_engine.execute_job("auto-nightly-health")
+            except asyncio.CancelledError:
+                break
+            except Exception:
+                pass
+    asyncio.create_task(scheduler_loop())
 
 # Legacy aliases for direct frontend backwards compatibility
 @app.get("/api/health")
@@ -191,6 +209,11 @@ def panic_protocol():
 
 @app.websocket("/ws")
 async def websocket_telemetry(websocket: WebSocket):
+    user = await authenticate_websocket(websocket)
+    if not user:
+        await websocket.close(code=status.WS_1008_POLICY_VIOLATION, reason="Unauthorized")
+        return
+
     await websocket.accept()
     try:
         while True:

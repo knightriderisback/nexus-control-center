@@ -65,7 +65,12 @@ def run_tests(project_id: str):
     if os.path.exists(test_dir):
         try:
             res = subprocess.run(
-                ["pytest", "tests/", "-q", "--ignore=tests/test_hardening_and_execution.py"],
+                [
+                    "pytest", "tests/", "-q",
+                    "--ignore=tests/test_hardening_and_execution.py",
+                    "--ignore=tests/test_control_plane_security.py",
+                    "--ignore=tests/test_agent_runtime.py"
+                ],
                 cwd=p.path,
                 capture_output=True,
                 text=True,

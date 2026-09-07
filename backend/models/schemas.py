@@ -82,6 +82,7 @@ class ApprovalStatus(str, Enum):
     APPROVED = "APPROVED"
     REJECTED = "REJECTED"
     EXECUTED = "EXECUTED"
+    EXPIRED = "EXPIRED"
 
 class ApprovalRequest(BaseModel):
     id: str
@@ -96,6 +97,12 @@ class ApprovalRequest(BaseModel):
     status: ApprovalStatus = ApprovalStatus.PENDING
     approved_by: Optional[str] = None
     decided_at: Optional[str] = None
+    token_hash: Optional[str] = None
+    token: Optional[str] = None
+    created_at: Optional[str] = None
+    expires_at: Optional[str] = None
+    ttl_seconds: int = 3600
+    executed_at: Optional[str] = None
 
 class AuditEvent(BaseModel):
     id: str

@@ -11,6 +11,8 @@ from core.config import config
 from models.schemas import RiskLevel
 from core.audit import record_audit
 
+from core.storage import atomic_save_json, load_json_safe
+
 class CostGuard:
     def __init__(self):
         self.state_file = config.cost_guard_file
@@ -35,17 +37,12 @@ class CostGuard:
                 },
                 "anomalies": []
             }
-            os.makedirs(os.path.dirname(self.state_file), exist_ok=True)
-            with open(self.state_file, "w") as f:
-                json.dump(state, f, indent=2)
+            atomic_save_json(self.state_file, state)
 
     def get_status(self) -> Dict[str, Any]:
-        if os.path.exists(self.state_file):
-            try:
-                with open(self.state_file, "r") as f:
-                    return json.load(f)
-            except Exception:
-                pass
+        data = load_json_safe(self.state_file, default=None)
+        if data:
+            return data
         return {
             "billing_account_linked": self.billing_linked,
             "current_month_spend_usd": 0.00,

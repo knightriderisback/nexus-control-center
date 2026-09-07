@@ -99,3 +99,48 @@ def get_ai_adapter(provider_name: Optional[str] = None) -> AIProviderAdapter:
         return AnthropicProviderAdapter()
 
     return MockProviderAdapter()
+
+class AIRouter:
+    """
+    Provider-neutral AI Router.
+    Routes high-level directives to appropriate models or deterministic mock synthesis.
+    """
+    def __init__(self, default_provider: Optional[str] = None):
+        self.default_provider = default_provider
+
+    async def route_directive(self, prompt: str, context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        adapter = get_ai_adapter(self.default_provider)
+        response = await adapter.generate_response(prompt, context=context)
+
+        # Classify intent for agent mapping
+        prompt_lower = prompt.lower()
+        if any(w in prompt_lower for w in ["search", "find", "grep", "ast", "research"]):
+            target_agent = "agent-research"
+            suggested_tool = "codebase_search"
+        elif any(w in prompt_lower for w in ["refactor", "code", "dev", "fix", "modify", "patch", "feature"]):
+            target_agent = "agent-dev"
+            suggested_tool = "generate_git_diff"
+        elif any(w in prompt_lower for w in ["test", "verify", "qa", "pytest"]):
+            target_agent = "agent-qa"
+            suggested_tool = "test.pytest"
+        elif any(w in prompt_lower for w in ["security", "secret", "scan", "cve"]):
+            target_agent = "agent-security"
+            suggested_tool = "security.secret_scan"
+        elif any(w in prompt_lower for w in ["doc", "adr", "markdown", "chronicler"]):
+            target_agent = "agent-docs"
+            suggested_tool = "create_adr"
+        else:
+            target_agent = "agent-research"
+            suggested_tool = "read_file"
+
+        return {
+            "provider": response["provider"],
+            "model": response["model"],
+            "target_agent": target_agent,
+            "suggested_tool": suggested_tool,
+            "synthesized_response": response["content"],
+            "tokens_used": response.get("tokens_used", 0)
+        }
+
+ai_router = AIRouter()
+

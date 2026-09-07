@@ -63,22 +63,20 @@ DEFAULT_PROJECTS: List[ProjectRegistryItem] = [
     )
 ]
 
+from core.storage import atomic_save_json, load_json_safe
+
 def load_projects() -> List[ProjectRegistryItem]:
-    os.makedirs(os.path.dirname(config.projects_file), exist_ok=True)
     if not os.path.exists(config.projects_file):
-        with open(config.projects_file, "w") as f:
-            json.dump([p.model_dump() for p in DEFAULT_PROJECTS], f, indent=2)
+        atomic_save_json(config.projects_file, [p.model_dump() for p in DEFAULT_PROJECTS])
         return DEFAULT_PROJECTS
+    raw = load_json_safe(config.projects_file, default=[])
     try:
-        with open(config.projects_file, "r") as f:
-            raw = json.load(f)
-            return [ProjectRegistryItem(**item) for item in raw]
+        return [ProjectRegistryItem(**item) for item in raw]
     except Exception:
         return DEFAULT_PROJECTS
 
 def save_projects(projects: List[ProjectRegistryItem]):
-    with open(config.projects_file, "w") as f:
-        json.dump([p.model_dump() for p in projects], f, indent=2)
+    atomic_save_json(config.projects_file, [p.model_dump() for p in projects])
 
 def get_project_by_id(project_id: str) -> Optional[ProjectRegistryItem]:
     projects = load_projects()

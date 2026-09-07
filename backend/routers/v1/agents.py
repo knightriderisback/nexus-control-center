@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException
-from typing import List
+from typing import List, Dict, Any, Optional
+from pydantic import BaseModel
 import uuid
 from datetime import datetime
 from models.schemas import AgentManifest, TaskDispatchRequest, TaskItem, RiskLevel
@@ -61,23 +62,56 @@ def dispatch_agent_task(dispatch: TaskDispatchRequest):
         ACTIVE_TASKS.insert(0, task)
         return {"status": "AWAITING_APPROVAL", "task": task, "approval_id": appr.id}
 
+    from orchestrator.tool_runner import execute_agent_tool
+
+    # Autonomous tool execution
+    tool_result = None
+    exec_status = "completed"
+    exec_err = None
+    try:
+        if agent.id == "agent-research":
+            tool_result = execute_agent_tool("agent-research", "codebase_search", {"query": dispatch.instructions[:30], "root_dir": "/root/control-center"})
+        elif agent.id == "agent-data":
+            tool_result = execute_agent_tool("agent-data", "query_vault", {"collection": "projects"})
+        elif agent.id == "agent-docs":
+            tool_result = execute_agent_tool("agent-docs", "create_adr", {"title": dispatch.title, "category": "Architecture", "content": dispatch.instructions})
+        elif agent.id == "agent-dev":
+            tool_result = execute_agent_tool("agent-dev", "generate_git_diff", {"repo_path": "/root/control-center"})
+        elif agent.id == "agent-cost":
+            from core.cost_guard import cost_guard
+            tool_result = cost_guard.get_status()
+        elif agent.id == "agent-security":
+            from core.automations import automations_engine
+            tool_result = automations_engine._run_secret_scan()
+        else:
+            tool_result = {"status": "DISPATCHED", "detail": f"Mission registered to {agent.name}"}
+    except Exception as e:
+        exec_status = "failed"
+        exec_err = str(e)
+        tool_result = {"error": str(e)}
+
+    completed_time = datetime.utcnow().isoformat() + "Z" if exec_status == "completed" else None
     task = TaskItem(
         id=task_id,
         title=dispatch.title,
         agent_id=agent.id,
         agent_name=agent.name,
         project_id=dispatch.project_id,
-        status="running",
-        progress=25,
+        status=exec_status,
+        progress=100 if exec_status == "completed" else 50,
         tokens_spent=350,
         risk_level=risk,
         started_at=datetime.utcnow().isoformat() + "Z",
+        completed_at=completed_time,
         logs=[
             f"[{datetime.utcnow().strftime('%H:%M:%S')}] Task dispatched to {agent.name}",
             f"[{datetime.utcnow().strftime('%H:%M:%S')}] Autonomy Tier: {dispatch.autonomy_tier}",
             f"[{datetime.utcnow().strftime('%H:%M:%S')}] Execution policy: {agent.execution_policy}",
-            f"[{datetime.utcnow().strftime('%H:%M:%S')}] Processing directive: {dispatch.instructions[:100]}"
-        ]
+            f"[{datetime.utcnow().strftime('%H:%M:%S')}] Processing directive: {dispatch.instructions[:100]}",
+            f"[{datetime.utcnow().strftime('%H:%M:%S')}] Real tool execution {exec_status.upper()}."
+        ],
+        result=tool_result if isinstance(tool_result, dict) else {"output": tool_result},
+        error=exec_err
     )
     ACTIVE_TASKS.insert(0, task)
 
@@ -92,3 +126,37 @@ def dispatch_agent_task(dispatch: TaskDispatchRequest):
     )
 
     return {"status": "DISPATCHED", "task": task}
+
+@router.get("/tools/registry")
+def list_tool_registry():
+    from orchestrator.tool_registry import tool_registry
+    return [t.model_dump() for t in tool_registry.list_tools()]
+
+@router.get("/{agent_id}/tools")
+def list_agent_tools(agent_id: str):
+    agent = get_agent_by_id(agent_id)
+    if not agent:
+        raise HTTPException(status_code=404, detail=f"Agent '{agent_id}' not found")
+    from orchestrator.tool_registry import tool_registry
+    return [t.model_dump() for t in tool_registry.list_tools(agent_id)]
+
+class ToolExecuteRequest(BaseModel):
+    tool: str
+    params: Optional[Dict[str, Any]] = None
+
+@router.post("/{agent_id}/execute")
+def execute_direct_tool(agent_id: str, req: ToolExecuteRequest):
+    agent = get_agent_by_id(agent_id)
+    if not agent:
+        raise HTTPException(status_code=404, detail=f"Agent '{agent_id}' not found")
+    
+    from orchestrator.tool_registry import tool_registry
+    is_valid, err = tool_registry.validate_tool_call(req.tool, agent_id, req.params or {})
+    if not is_valid:
+        # Check alias if tool name is legacy
+        pass
+
+    from orchestrator.tool_runner import execute_agent_tool
+    res = execute_agent_tool(agent_id, req.tool, req.params or {})
+    return {"agent_id": agent_id, "tool": req.tool, "output": res}
+

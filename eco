@@ -20,10 +20,17 @@ MAGENTA = "\033[95m"
 BOLD = "\033[1m"
 RESET = "\033[0m"
 
+import os
+OPERATOR_TOKEN = os.getenv("NEXUS_OPERATOR_TOKEN", "nexus-dev-operator-key-2026")
+
 def api_get(endpoint: str):
     url = f"{API_BASE}{endpoint}"
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": "eco-cli/1.0"})
+        headers = {
+            "User-Agent": "eco-cli/1.0",
+            "Authorization": f"Bearer {OPERATOR_TOKEN}"
+        }
+        req = urllib.request.Request(url, headers=headers)
         with urllib.request.urlopen(req, timeout=10) as resp:
             return json.loads(resp.read().decode())
     except urllib.error.URLError as e:
@@ -35,7 +42,12 @@ def api_post(endpoint: str, payload: dict):
     url = f"{API_BASE}{endpoint}"
     try:
         data = json.dumps(payload).encode()
-        req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json", "User-Agent": "eco-cli/1.0"})
+        headers = {
+            "Content-Type": "application/json",
+            "User-Agent": "eco-cli/1.0",
+            "Authorization": f"Bearer {OPERATOR_TOKEN}"
+        }
+        req = urllib.request.Request(url, data=data, headers=headers)
         with urllib.request.urlopen(req, timeout=15) as resp:
             return json.loads(resp.read().decode())
     except urllib.error.URLError as e:

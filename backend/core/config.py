@@ -19,7 +19,17 @@ class SystemConfig(BaseModel):
     approvals_file: str = "/root/control-center/data/approvals.json"
     memory_file: str = "/root/control-center/data/memory_vault.json"
     cost_guard_file: str = "/root/control-center/data/cost_guard.json"
-    auth_enabled: bool = False # Local first, extensible to Bearer tokens
+    auth_enabled: bool = os.getenv("NEXUS_AUTH_ENABLED", "false").lower() in ("true", "1")
     api_key_header: str = "X-NEXUS-KEY"
+    token_ttl_seconds: int = int(os.getenv("APPROVAL_TTL_SECONDS", "3600"))
+    allowed_origins: list[str] = [
+        origin.strip()
+        for origin in os.getenv(
+            "CORS_ALLOWED_ORIGINS",
+            "http://localhost:8000,http://127.0.0.1:8000,http://localhost:5173,http://127.0.0.1:5173"
+        ).split(",")
+        if origin.strip()
+    ]
 
 config = SystemConfig()
+
