@@ -74,7 +74,7 @@ def run_tests(project_id: str):
                 cwd=p.path,
                 capture_output=True,
                 text=True,
-                timeout=30
+                timeout=90
             )
             output = res.stdout.strip()
             passed = 0

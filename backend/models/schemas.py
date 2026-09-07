@@ -110,6 +110,9 @@ class AuditEvent(BaseModel):
     timestamp: str
     actor: str
     agent: Optional[str] = None
+    agent_id: Optional[str] = None
+    execution_id: Optional[str] = None
+    tool_id: Optional[str] = None
     user: str = "operator"
     action: str
     project: str
@@ -118,7 +121,60 @@ class AuditEvent(BaseModel):
     risk_level: RiskLevel
     approval_id: Optional[str] = None
     result: str # SUCCESS, FAILURE, REJECTED, PENDING_APPROVAL
+    status: Optional[str] = None
+    result_summary: Optional[str] = None
     error: Optional[str] = None
+
+class ToolCall(BaseModel):
+    call_id: str
+    tool_id: str
+    params: Dict[str, Any] = {}
+    risk_level: RiskLevel = RiskLevel.LOW
+    requires_approval: bool = False
+
+class ToolResult(BaseModel):
+    call_id: str
+    tool_id: str
+    success: bool
+    output: Any
+    error: Optional[str] = None
+    duration_ms: float = 0.0
+
+class AgentObservation(BaseModel):
+    step_num: int
+    observation_text: str
+    tool_result: Optional[ToolResult] = None
+
+class AgentPlan(BaseModel):
+    plan_id: str
+    steps: List[str]
+    rationale: str
+
+class AgentStep(BaseModel):
+    step_num: int
+    action: str
+    tool_call: Optional[ToolCall] = None
+    observation: Optional[AgentObservation] = None
+    status: str = "COMPLETED"
+
+class ExecutionLimits(BaseModel):
+    max_steps: int = 10
+    max_tool_calls: int = 20
+    max_runtime_seconds: int = 120
+    max_file_modifications: int = 10
+    max_output_size_bytes: int = 500_000
+
+class AgentResult(BaseModel):
+    task_id: str
+    execution_id: str
+    agent_id: str
+    status: str
+    steps: List[AgentStep] = []
+    final_output: Any = None
+    tool_calls_count: int = 0
+    duration_ms: float = 0.0
+    tokens_used: int = 0
+
 
 class MacroRunRequest(BaseModel):
     macro_id: str

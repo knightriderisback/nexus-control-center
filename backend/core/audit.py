@@ -26,6 +26,11 @@ def record_audit(
     result: str = "SUCCESS",
     actor: str = "operator",
     agent: Optional[str] = None,
+    agent_id: Optional[str] = None,
+    execution_id: Optional[str] = None,
+    tool_id: Optional[str] = None,
+    status: Optional[str] = None,
+    result_summary: Optional[str] = None,
     user: str = "operator",
     approval_id: Optional[str] = None,
     error: Optional[str] = None,
@@ -33,12 +38,18 @@ def record_audit(
 ) -> AuditEvent:
     os.makedirs(os.path.dirname(config.audit_log_file), exist_ok=True)
     
+    effective_agent = agent or agent_id
+    effective_status = status or result
+
     event = AuditEvent(
         id=f"audit-{uuid.uuid4().hex[:8]}",
         correlation_id=correlation_id or f"corr-{uuid.uuid4().hex[:6]}",
         timestamp=datetime.utcnow().isoformat() + "Z",
         actor=actor,
-        agent=agent,
+        agent=effective_agent,
+        agent_id=agent_id or agent,
+        execution_id=execution_id,
+        tool_id=tool_id,
         user=user,
         action=sanitize_text(action),
         project=project,
@@ -47,6 +58,8 @@ def record_audit(
         risk_level=risk_level,
         approval_id=approval_id,
         result=result,
+        status=effective_status,
+        result_summary=sanitize_text(result_summary) if result_summary else None,
         error=sanitize_text(error) if error else None
     )
 

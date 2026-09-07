@@ -265,7 +265,19 @@ SPECIALIZED_AGENTS: List[AgentManifest] = [
 ]
 
 def get_agent_list() -> List[AgentManifest]:
+    from core.observability import collector
+    for a in SPECIALIZED_AGENTS:
+        if a.id in collector.agent_runs:
+            m = collector.agent_runs[a.id]
+            # Add live executions to base count
+            base_count = getattr(a, "_base_task_count", None)
+            if base_count is None:
+                a._base_task_count = a.task_count
+                base_count = a.task_count
+            a.task_count = base_count + m.get("execution_count", 0)
     return SPECIALIZED_AGENTS
 
 def get_agent_by_id(agent_id: str) -> Optional[AgentManifest]:
-    return next((a for a in SPECIALIZED_AGENTS if a.id == agent_id), None)
+    agents = get_agent_list()
+    return next((a for a in agents if a.id == agent_id), None)
+

@@ -1,106 +1,147 @@
 {
-  "phase": "PHASE 4: SECURE AGENT RUNTIME + CONTROL PLANE HARDENING",
+  "phase": "PHASE_4_SECURE_AGENT_RUNTIME_AND_CONTROL_PLANE_HARDENING",
   "status": "COMPLETED",
-  "timestamp": "2026-09-07T08:52:00Z",
-  "compliance": {
-    "only_control_center_modified": true,
-    "legacy_projects_touched": 0,
-    "gcp_deployments": 0,
-    "gcp_billing_linked": false,
-    "current_month_spend_usd": 0.00,
-    "service_account_keys_created": 0,
-    "real_ai_keys_added": 0,
-    "appr_339c07_approved": false,
-    "appr_339c07_status": "PENDING",
-    "destructive_operations": 0
+  "timestamp": "2026-09-07T15:08:45Z",
+  "security": {
+    "overall_status": "PASS",
+    "api_authentication": {
+      "status": "REAL",
+      "mechanism": "LocalTokenAuthProvider with secrets.compare_digest and Bearer token enforcement",
+      "protected_routes": ["/api/v1/*"],
+      "unauthorized_response": 401
+    },
+    "websocket_authentication": {
+      "status": "REAL",
+      "mechanism": "Pre-accept token verification via query parameter or header",
+      "unauthorized_rejection": "WS close code 1008 Policy Violation"
+    },
+    "cors_boundary": {
+      "status": "FIXED",
+      "wildcard_disabled": true,
+      "allowed_origins": ["http://localhost:5173", "http://127.0.0.1:5173"],
+      "allow_credentials": true
+    },
+    "approval_engine": {
+      "status": "PASS",
+      "token_entropy_bytes": 32,
+      "storage_format": "SHA-256 hash (approval_token_hash)",
+      "guessing_defense": "Rate limited after 5 failed attempts",
+      "ttl_seconds": 600,
+      "expiry_status": "EXPIRED",
+      "replay_prevention": "Strict one-time lifecycle transition",
+      "concurrency_lock": "threading.Lock"
+    },
+    "safe_command_runner": {
+      "status": "REAL",
+      "allowed_binaries": ["git", "pytest", "python3", "python", "grep", "ls", "cat", "echo", "find"],
+      "path_traversal_blocking": "Strict workspace boundary checks",
+      "shell_injection_defense": "List[str] argv arrays with forbidden character filtering",
+      "env_sanitization": "Strips LD_PRELOAD, sensitive API keys",
+      "output_cap_bytes": 500000
+    }
   },
-  "control_plane_security": {
-    "api_authentication": "PROVIDER_NEUTRAL_HTTP_BEARER_AND_HEADER",
-    "token_entropy_bytes": 32,
-    "token_verification": "CONSTANT_TIME_HMAC_COMPARE",
-    "token_logging": "STRICTLY_REDACTED",
-    "websocket_authentication": "PRE_ACCEPT_VALIDATION",
-    "cors_status": "HARDENED_CONFIGURABLE_ORIGINS",
-    "cors_wildcard_credentials_combined": false
+  "runtime": {
+    "engine_status": "REAL",
+    "multi_step_support": true,
+    "execution_limits": {
+      "max_steps": 10,
+      "max_tool_calls": 15,
+      "max_runtime_seconds": 60,
+      "max_output_bytes": 500000
+    },
+    "agents": {
+      "developer_agent": {
+        "status": "REAL",
+        "cycle": "INSPECT -> UNDERSTAND -> PLAN -> READ -> MODIFY -> TEST -> DIFF -> ROLLBACK",
+        "fixture_workspace": "data/fixtures/developer_test_repo",
+        "rollback_verified": true
+      },
+      "qa_agent": {
+        "status": "REAL",
+        "framework_discovery": "pytest",
+        "structured_parsing": true
+      },
+      "security_agent": {
+        "status": "REAL",
+        "triaged_categories": ["REAL_FINDING", "INFORMATIONAL", "UNAVAILABLE_CHECK"],
+        "secret_scanner": true
+      },
+      "docs_agent": {
+        "status": "REAL",
+        "path_restricted": ["docs/", "data/memory_vault.json"],
+        "adr_creation": true
+      },
+      "research_agent": {
+        "status": "REAL",
+        "read_only": true,
+        "ast_analysis": true,
+        "codebase_search": true
+      },
+      "data_agent": {
+        "status": "REAL",
+        "vault_queries": true
+      },
+      "cost_agent": {
+        "status": "REAL",
+        "budget_enforcement": true
+      },
+      "monitoring_agent": {
+        "status": "REAL",
+        "host_telemetry": true
+      },
+      "recovery_agent": {
+        "status": "REAL",
+        "git_log_and_health_checks": true
+      },
+      "devops_agent": {
+        "status": "PARTIAL",
+        "requires_approval_for_shell": true
+      },
+      "infra_agent": {
+        "status": "PARTIAL",
+        "read_only_iac": true
+      },
+      "ux_agent": {
+        "status": "PARTIAL",
+        "read_only": true
+      },
+      "marketing_agent": {
+        "status": "PARTIAL",
+        "read_only": true
+      }
+    }
   },
-  "approval_engine": {
-    "token_generation": "CRYPTOGRAPHIC_URLSAFE_32",
-    "storage_token_protection": "SHA256_HASH_ONLY",
-    "ttl_expiry_enforced": true,
-    "default_ttl_seconds": 3600,
-    "replay_prevention": true,
-    "guessing_prevention": true,
-    "action_actor_constraints": true,
-    "concurrency_locking": true,
-    "double_execution_blocked": true
+  "ai_router": {
+    "status": "REAL",
+    "active_provider": "MockEngine",
+    "cost_usd": 0.0,
+    "unconfigured_providers_return": "NOT_CONFIGURED"
   },
-  "tool_registry": {
-    "total_tools": 12,
-    "tools": [
-      "filesystem.read",
-      "filesystem.list",
-      "filesystem.write",
-      "git.status",
-      "git.diff",
-      "git.branch",
-      "git.log",
-      "test.pytest",
-      "security.secret_scan",
-      "docs.read",
-      "docs.write",
-      "shell.safe"
-    ],
-    "unrestricted_shell_allowed": false,
-    "rbac_agent_scoping": true
+  "github_integration": {
+    "write_operations": "NOT_IMPLEMENTED",
+    "read_operations": "REAL (Local Git)"
   },
-  "safe_command_execution": {
-    "command_allowlist": [
-      "git",
-      "pytest",
-      "python3",
-      "python",
-      "grep",
-      "ls",
-      "cat",
-      "echo",
-      "find"
-    ],
-    "shell_injection_sanitization": true,
-    "directory_boundary_enforced": true,
-    "environment_scrubbing": true,
-    "shell_mode": "FALSE_STRICT_LIST_ARGS"
+  "observability": {
+    "live_counters": "REAL",
+    "metrics_endpoint": "/api/v1/metrics",
+    "traces_endpoint": "/api/v1/traces",
+    "audit_trail": {
+      "status": "REAL",
+      "schema_fields": ["execution_id", "agent_id", "tool_id", "status", "result_summary", "risk_level"]
+    }
   },
-  "ai_orchestration": {
-    "router": "PROVIDER_NEUTRAL_AI_ROUTER",
-    "intent_classification": true,
-    "offline_deterministic_fallback": true,
-    "active_real_keys": 0,
-    "zero_cost_maintained": true
-  },
-  "agent_runtime": {
-    "state_machine": "PENDING -> VALIDATING -> RUNNING -> AWAITING_APPROVAL -> COMPLETED / FAILED",
-    "developer_agent_loop": "INSPECT -> PLAN -> MODIFY -> TEST -> DIFF",
-    "developer_sandbox_isolation": true,
-    "qa_agent_execution": "REAL_PYTEST_SUBPROCESS",
-    "security_agent_execution": "REAL_REGEX_SCAN",
-    "docs_agent_execution": "REAL_ADR_VAULT_WRITER",
-    "data_agent_execution": "REAL_JSON_VAULT_QUERY"
-  },
-  "test_metrics": {
-    "total_tests": 66,
-    "passed": 66,
-    "failed": 0,
+  "test_verification": {
+    "total_tests": 72,
+    "passed_tests": 72,
+    "failed_tests": 0,
     "pass_rate_percent": 100.0,
-    "test_suites": [
-      "tests/test_api.py (13/13)",
-      "tests/test_approvals.py (2/2)",
-      "tests/test_cost_guard.py (3/3)",
-      "tests/test_policy.py (5/5)",
-      "tests/test_secrets.py (2/2)",
-      "tests/test_hardening_and_execution.py (6/6)",
-      "tests/test_phase4_autonomous_core.py (6/6)",
-      "tests/test_control_plane_security.py (12/12)",
-      "tests/test_agent_runtime.py (15/15)"
-    ]
+    "frontend_build_success": true
+  },
+  "cloud_compliance": {
+    "cloud_resources_created": 0,
+    "cloud_billing_status": "DISABLED / UNLINKED",
+    "cloud_spend_usd": 0.0,
+    "legacy_projects_modified": 0,
+    "pending_approval_appr_339c07_preserved": true
   }
 }

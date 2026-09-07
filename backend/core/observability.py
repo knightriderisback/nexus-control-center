@@ -80,14 +80,52 @@ class ObservabilityCollector:
             self.endpoint_latencies[path].pop(0)
         self.endpoint_latencies[path].append(round(duration_ms, 2))
 
-    def record_agent_metric(self, agent_id: str, status: str):
+    def record_agent_metric(
+        self,
+        agent_id: str,
+        status: str,
+        duration_ms: float = 0.0,
+        tool_calls: int = 0,
+        approval_waits: int = 0,
+        rejected_executions: int = 0,
+        errors: int = 0,
+        provider_used: str = "MockEngine"
+    ):
         if agent_id not in self.agent_runs:
-            self.agent_runs[agent_id] = {"success": 0, "failed": 0, "total": 0}
-        self.agent_runs[agent_id]["total"] += 1
-        if status == "COMPLETED":
-            self.agent_runs[agent_id]["success"] += 1
+            self.agent_runs[agent_id] = {
+                "execution_count": 0,
+                "success_count": 0,
+                "failure_count": 0,
+                "total_duration_ms": 0.0,
+                "tool_calls": 0,
+                "approval_waits": 0,
+                "rejected_executions": 0,
+                "errors": 0,
+                "providers_used": {},
+                # Backward compatibility keys
+                "total": 0,
+                "success": 0,
+                "failed": 0
+            }
+
+        rec = self.agent_runs[agent_id]
+        rec["execution_count"] += 1
+        rec["total"] += 1
+        rec["total_duration_ms"] += round(duration_ms, 2)
+        rec["tool_calls"] += tool_calls
+        rec["approval_waits"] += approval_waits
+        rec["rejected_executions"] += rejected_executions
+        rec["errors"] += errors
+
+        prov_counts = rec["providers_used"]
+        prov_counts[provider_used] = prov_counts.get(provider_used, 0) + 1
+
+        if status.upper() in ["COMPLETED", "SUCCESS"]:
+            rec["success_count"] += 1
+            rec["success"] += 1
         else:
-            self.agent_runs[agent_id]["failed"] += 1
+            rec["failure_count"] += 1
+            rec["failed"] += 1
 
     def get_metrics(self) -> Dict[str, Any]:
         uptime_seconds = round(time.time() - self.start_time, 1)

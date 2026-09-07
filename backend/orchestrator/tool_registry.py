@@ -164,14 +164,56 @@ STANDARD_TOOLS: List[ToolDefinition] = [
         requires_approval=True,
         execution_mode="safe_subprocess",
         timeout=30
+    ),
+    ToolDefinition(
+        tool_id="codebase_search",
+        name="Codebase AST & Content Searcher",
+        description="Searches codebases for pattern matches and definitions.",
+        input_schema={"query": "str", "root_dir": "Optional[str]"},
+        output_schema={"query": "str", "match_count": "int", "matches": "List[Dict[str, Any]]"},
+        risk_level=RiskLevel.LOW,
+        allowed_agents=["agent-research", "agent-dev"],
+        requires_approval=False,
+        execution_mode="read_only",
+        timeout=15
     )
 ]
+
+AGENT_PERMISSION_PROFILES: Dict[str, List[str]] = {
+    # Research: read-only
+    "agent-research": ["filesystem.read", "filesystem.list", "git.log", "docs.read", "codebase_search"],
+    # Developer: read + controlled write + tests + git diff
+    "agent-dev": ["filesystem.read", "filesystem.list", "filesystem.write", "git.status", "git.diff", "git.branch", "git.log", "test.pytest", "shell.safe"],
+    # QA: read + test execution
+    "agent-qa": ["filesystem.read", "filesystem.list", "git.diff", "test.pytest"],
+    # Security: read + security tools
+    "agent-security": ["filesystem.read", "filesystem.list", "security.secret_scan"],
+    # Documentation: read + docs-only write
+    "agent-docs": ["filesystem.read", "filesystem.list", "docs.read", "docs.write"],
+    # DevOps: read-only initially (+ shell.safe requiring approval)
+    "agent-devops": ["filesystem.read", "filesystem.list", "git.status", "git.log", "shell.safe"],
+    # Infrastructure: read-only initially
+    "agent-infra": ["filesystem.read", "git.status"],
+    # Data: read-only initially
+    "agent-data": ["filesystem.read", "filesystem.list", "docs.read"],
+    # UX: read-only initially
+    "agent-ux": ["filesystem.read", "filesystem.list"],
+    # SEO: read-only initially
+    "agent-seo": ["filesystem.read", "filesystem.list"],
+    # Cost: read-only
+    "agent-cost": ["filesystem.read"],
+    # Monitoring: read-only
+    "agent-mon": ["filesystem.read"],
+    # Recovery: read-only + approved recovery actions
+    "agent-recovery": ["filesystem.read", "git.status", "git.log"]
+}
 
 class ToolRegistry:
     """Central repository and policy enforcement point for agent tools."""
 
     def __init__(self):
         self._tools: Dict[str, ToolDefinition] = {t.tool_id: t for t in STANDARD_TOOLS}
+        self.profiles = AGENT_PERMISSION_PROFILES
 
     def get_tool(self, tool_id: str) -> Optional[ToolDefinition]:
         return self._tools.get(tool_id)
@@ -179,7 +221,8 @@ class ToolRegistry:
     def list_tools(self, agent_id: Optional[str] = None) -> List[ToolDefinition]:
         if not agent_id:
             return list(self._tools.values())
-        return [t for t in self._tools.values() if agent_id in t.allowed_agents]
+        allowed_tool_ids = self.profiles.get(agent_id, [])
+        return [t for t in self._tools.values() if t.tool_id in allowed_tool_ids or agent_id in t.allowed_agents]
 
     def register_tool(self, tool: ToolDefinition):
         self._tools[tool.tool_id] = tool
@@ -190,9 +233,11 @@ class ToolRegistry:
         if not tool:
             return False, f"Unknown tool: '{tool_id}'"
 
-        if agent_id not in tool.allowed_agents:
-            return False, f"Agent '{agent_id}' is not authorized to use tool '{tool_id}'. Allowed: {tool.allowed_agents}"
+        allowed_ids = self.profiles.get(agent_id, tool.allowed_agents)
+        if tool_id not in allowed_ids and agent_id not in tool.allowed_agents:
+            return False, f"Agent '{agent_id}' is not authorized to use tool '{tool_id}'. Permitted tools: {allowed_ids}"
 
         return True, None
 
 tool_registry = ToolRegistry()
+

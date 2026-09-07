@@ -199,76 +199,67 @@ def execute_agent_tool(agent_id: str, tool_name: str, params: Dict[str, Any]) ->
     canonical_tool = tool_name.lower().strip()
 
     try:
-        if agent_id == "agent-research":
-            if canonical_tool in ["codebase_search", "grep"]:
-                result = ResearchRunner.search_codebase(params.get("query", ""), params.get("root_dir", "/root/control-center"))
-            elif canonical_tool in ["ast_search", "list_symbols"]:
-                result = ResearchRunner.list_symbols(params.get("file_path", ""))
-            elif canonical_tool in ["filesystem.read", "read_file", "doc_reader"]:
-                result = ResearchRunner.read_file_safe(params.get("file_path", ""))
-            elif canonical_tool in ["filesystem.list", "list_dir"]:
-                dir_path = params.get("dir_path", "/root/control-center")
-                if is_safe_path(dir_path) and os.path.exists(dir_path):
-                    result = {"dir": dir_path, "entries": sorted(os.listdir(dir_path))[:50], "count": len(os.listdir(dir_path))}
-                else:
-                    result = {"error": "Path outside workspace or not found", "entries": []}
+        # 1. Universal Standard Tools
+        if canonical_tool in ["filesystem.read", "read_file", "doc_reader"]:
+            result = ResearchRunner.read_file_safe(params.get("file_path", ""))
+        elif canonical_tool in ["filesystem.list", "list_dir"]:
+            dir_path = params.get("dir_path", "/root/control-center")
+            if is_safe_path(dir_path) and os.path.exists(dir_path):
+                entries = sorted(os.listdir(dir_path))
+                result = {"dir": dir_path, "entries": entries[:50], "count": len(entries)}
             else:
-                result = {"error": f"Tool '{tool_name}' not mapped for Research Agent"}
-
-        elif agent_id == "agent-data":
-            if canonical_tool in ["query_vault", "json_vault_query", "docs.read"]:
-                result = DataRunner.query_vault(params.get("collection", "projects"), params.get("filter_key"), params.get("filter_val"))
-            elif canonical_tool in ["audit_tail", "audit_query"]:
-                result = DataRunner.get_audit_tail(params.get("limit", 20))
+                result = {"error": "Path outside workspace or not found", "entries": []}
+        elif canonical_tool in ["filesystem.write", "write_file"]:
+            file_path = params.get("file_path", "")
+            content = params.get("content", "")
+            if is_safe_path(file_path):
+                with open(file_path, "w", encoding="utf-8") as f:
+                    f.write(content)
+                result = {"file": file_path, "bytes_written": len(content), "status": "WRITTEN"}
             else:
-                result = {"error": f"Tool '{tool_name}' not mapped for Data Agent"}
-
-        elif agent_id == "agent-docs":
-            if canonical_tool in ["docs.write", "create_adr", "doc_writer"]:
-                result = DocsRunner.create_adr(params.get("title", ""), params.get("category", "General"), params.get("content", ""), params.get("tags"))
-            elif canonical_tool in ["docs.read", "read_docs"]:
-                result = DataRunner.query_vault("memory")
-            else:
-                result = {"error": f"Tool '{tool_name}' not mapped for Docs Agent"}
-
-        elif agent_id == "agent-dev":
-            if canonical_tool in ["git.diff", "generate_git_diff", "git_diff"]:
-                result = DevRunner.generate_git_diff(params.get("repo_path", "/root/control-center"))
-            elif canonical_tool in ["git.branch", "create_feature_branch", "git_branch"]:
-                result = DevRunner.create_feature_branch(params.get("branch_name", "patch"), params.get("repo_path", "/root/control-center"))
-            elif canonical_tool in ["git.status", "git_status"]:
-                cmd_res = SafeCommandExecutor.execute(["git", "status", "-s"], cwd=params.get("repo_path", "/root/control-center"))
-                result = {"repo": params.get("repo_path", "/root/control-center"), "dirty_files": cmd_res.stdout.splitlines(), "clean": cmd_res.exit_code == 0 and not cmd_res.stdout.strip()}
-            elif canonical_tool in ["git.log", "git_log"]:
-                cmd_res = SafeCommandExecutor.execute(["git", "log", "-n", str(params.get("limit", 5)), "--oneline"], cwd=params.get("repo_path", "/root/control-center"))
-                result = {"repo": params.get("repo_path", "/root/control-center"), "log": cmd_res.stdout.splitlines()}
-            elif canonical_tool in ["shell.safe", "safe_shell"]:
-                cmd_res = SafeCommandExecutor.execute(params.get("cmd_args", ["pwd"]), cwd=params.get("cwd", "/root/control-center"))
-                result = cmd_res.to_dict()
-            else:
-                result = {"error": f"Tool '{tool_name}' not mapped for Dev Agent"}
-
-        elif agent_id == "agent-qa":
-            if canonical_tool in ["test.pytest", "pytest_runner"]:
-                proj_path = params.get("project_path", "/root/control-center")
+                result = {"error": "Path outside workspace", "status": "FAILED"}
+        elif canonical_tool in ["git.diff", "generate_git_diff", "git_diff"]:
+            result = DevRunner.generate_git_diff(params.get("repo_path", "/root/control-center"))
+        elif canonical_tool in ["git.branch", "create_feature_branch", "git_branch"]:
+            result = DevRunner.create_feature_branch(params.get("branch_name", "patch"), params.get("repo_path", "/root/control-center"))
+        elif canonical_tool in ["git.status", "git_status"]:
+            cmd_res = SafeCommandExecutor.execute(["git", "status", "-s"], cwd=params.get("repo_path", "/root/control-center"))
+            result = {"repo": params.get("repo_path", "/root/control-center"), "dirty_files": cmd_res.stdout.splitlines(), "clean": cmd_res.exit_code == 0 and not cmd_res.stdout.strip()}
+        elif canonical_tool in ["git.log", "git_log"]:
+            cmd_res = SafeCommandExecutor.execute(["git", "log", "-n", str(params.get("limit", 5)), "--oneline"], cwd=params.get("repo_path", "/root/control-center"))
+            result = {"repo": params.get("repo_path", "/root/control-center"), "log": cmd_res.stdout.splitlines()}
+        elif canonical_tool in ["test.pytest", "pytest_runner"]:
+            proj_path = params.get("project_path", "/root/control-center")
+            has_tests_dir = os.path.exists(os.path.join(proj_path, "tests"))
+            if has_tests_dir:
                 cmd_args = [
                     "pytest", "tests/", "-q",
                     "--ignore=tests/test_hardening_and_execution.py",
                     "--ignore=tests/test_control_plane_security.py",
                     "--ignore=tests/test_agent_runtime.py"
                 ]
-                cmd_res = SafeCommandExecutor.execute(cmd_args, cwd=proj_path)
-                result = {"project": proj_path, "status": "PASSED" if cmd_res.exit_code == 0 else "FAILED", "output": cmd_res.stdout.strip(), "duration_ms": cmd_res.duration_ms}
             else:
-                result = {"error": f"Tool '{tool_name}' not mapped for QA Agent"}
-
-        elif agent_id == "agent-security":
-            if canonical_tool in ["security.secret_scan", "secret_scan", "regex_audit"]:
-                from routers.v1.projects import run_security_scan
-                result = run_security_scan(params.get("project_id", "control-center"))
-            else:
-                result = {"error": f"Tool '{tool_name}' not mapped for Security Agent"}
-
+                cmd_args = ["pytest", "-q"]
+            cmd_res = SafeCommandExecutor.execute(cmd_args, cwd=proj_path)
+            result = {"project": proj_path, "status": "PASSED" if cmd_res.exit_code == 0 and "ERRORS" not in cmd_res.stdout and "FAILED" not in cmd_res.stdout else "FAILED", "output": cmd_res.stdout.strip(), "duration_ms": cmd_res.duration_ms}
+        elif canonical_tool in ["security.secret_scan", "secret_scan", "regex_audit"]:
+            from routers.v1.projects import run_security_scan
+            result = run_security_scan(params.get("project_id", "control-center"))
+        elif canonical_tool in ["docs.write", "create_adr", "doc_writer"]:
+            result = DocsRunner.create_adr(params.get("title", ""), params.get("category", "General"), params.get("content", ""), params.get("tags"))
+        elif canonical_tool in ["docs.read", "read_docs"]:
+            result = DataRunner.query_vault(params.get("collection", "memory"))
+        elif canonical_tool in ["shell.safe", "safe_shell"]:
+            cmd_res = SafeCommandExecutor.execute(params.get("cmd_args", ["pwd"]), cwd=params.get("cwd", "/root/control-center"))
+            result = cmd_res.to_dict()
+        elif canonical_tool in ["codebase_search", "grep"]:
+            result = ResearchRunner.search_codebase(params.get("query", ""), params.get("root_dir", "/root/control-center"))
+        elif canonical_tool in ["ast_search", "list_symbols"]:
+            result = ResearchRunner.list_symbols(params.get("file_path", ""))
+        elif canonical_tool in ["query_vault", "json_vault_query"]:
+            result = DataRunner.query_vault(params.get("collection", "projects"), params.get("filter_key"), params.get("filter_val"))
+        elif canonical_tool in ["audit_tail", "audit_query"]:
+            result = DataRunner.get_audit_tail(params.get("limit", 20))
         else:
             result = {"status": "STANDBY", "detail": f"Agent '{agent_id}' execution simulated for tool '{tool_name}'"}
 
