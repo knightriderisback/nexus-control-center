@@ -73,15 +73,18 @@ def decide_approval(approval_id: str, decision: str, user: str = "human_operator
     if not appr:
         raise ValueError(f"Approval request {approval_id} not found")
 
+    if appr.status != ApprovalStatus.PENDING:
+        raise ValueError(f"Approval request {approval_id} is already {appr.status.value}. Replay blocked.")
+
     if decision.upper() == "APPROVED":
         appr.status = ApprovalStatus.APPROVED
         appr.approved_by = effective_user
         appr.decided_at = datetime.utcnow().isoformat() + "Z"
         
-        # Execute action if command exists
+        # Execute action if executable non-comment command exists
         exec_output = ""
         exec_err = None
-        if appr.command:
+        if appr.command and not appr.command.strip().startswith("#"):
             try:
                 res = subprocess.run(appr.command, shell=True, capture_output=True, text=True, timeout=60)
                 exec_output = res.stdout

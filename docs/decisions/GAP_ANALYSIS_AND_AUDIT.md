@@ -184,3 +184,22 @@
 | **Termux Phone Node** | Android heartbeat sync | `PARTIALLY IMPLEMENTED` | Endpoint ready; send heartbeat from phone to activate |
 | **GCP Secret Manager**| Cloud Secret Manager API | `DEVIATION` | Fallback to `.env` + template due to unlinked billing |
 | **WIF OIDC Condition**| Unrestricted GitHub OIDC | `DEVIATION` | Hardened with mandatory repository owner condition |
+| **AI Swarm Execution**| Autonomous Agent Swarm   | `PARTIALLY IMPLEMENTED` | Swarm manifests declarative; wired live local tools (pytest, regex scan, cost, telem) |
+| **Automated Tests**   | Full Test Verification   | `TESTED (EXPANDED)`| Expanded test suite from 27 to 33 tests; 100% passing |
+
+---
+
+## 4. Phase 3 Execution Capability Audit & Hardening Addendum
+
+### Key Phase 3 Audit Findings:
+1. **The Swarm Is Declarative**: The 13 agents defined in `backend/orchestrator/agents.py` exist as Pydantic schemas. Tool strings (`ast_search`, `file_editor`) did not have backend execution bindings.
+2. **Real vs. Simulated Capabilities**:
+   - **Real Execution**: Host telemetry (`psutil`), request tracing (`ObservabilityCollector`), cost guardrail enforcement (`CostGuard`), secret leakage scanning (`_run_secret_scan`), git repo status (`get_git_repo_info`), and bash rollback (`rollback.sh`).
+   - **Simulated Execution**: Agent dispatch returned static `progress: 25`; `POST /projects/{id}/test` previously returned mock 24/24; provider adapters route to `MockProviderAdapter`.
+3. **Hardening Applied**:
+   - **Live Pytest Execution**: Wired `POST /projects/{id}/test` to run real `pytest tests/ -q` via subprocess, parsing live test counts (33 passed) and runtime.
+   - **Live Secret Scanning**: Wired `POST /projects/{id}/security` to scan real PEM blocks, catching test private key leaks.
+   - **Approval Replay Defense**: Enforced status check in `core/approvals.py` blocking replay of decided approvals.
+   - **Eco CLI Expansion**: Added native support for `eco jobs`, `eco docs`, and `eco logs`.
+   - **Test Suite Expansion**: Added `tests/test_hardening_and_execution.py`, expanding test coverage to 33 passing tests.
+

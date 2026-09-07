@@ -167,6 +167,23 @@ def cmd_traces():
         scolor = GREEN if t["status_code"] < 400 else RED
         print(f"{t['method']:<8} {scolor}{t['status_code']:<8}{RESET} {t['duration_ms']}ms{'':<6} {CYAN}{t['trace_id']:<22}{RESET} {t['path']:<25}")
 
+def cmd_docs():
+    print_banner()
+    docs = api_get("/docs")
+    print(f"\n{BOLD}{'DOC ID':<15} {'CATEGORY':<15} {'TITLE':<45}{RESET}")
+    print("=" * 80)
+    for d in docs:
+        print(f"{CYAN}{d.get('id', ''):<15}{RESET} {d.get('category', ''):<15} {BOLD}{d.get('title', '')[:43]:<45}{RESET}")
+
+def cmd_logs():
+    print_banner()
+    audit_events = api_get("/audit")
+    print(f"\n{BOLD}{'TIMESTAMP':<24} {'RISK':<10} {'ACTION':<35} {'ACTOR':<15}{RESET}")
+    print("=" * 85)
+    for e in audit_events[:15]:
+        rcolor = GREEN if e.get("risk_level") == "LOW" else (YELLOW if e.get("risk_level") == "MEDIUM" else RED)
+        print(f"{e.get('timestamp', '')[:23]:<24} {rcolor}{e.get('risk_level', 'LOW'):<10}{RESET} {e.get('action', '')[:33]:<35} {e.get('actor', '')[:14]:<15}")
+
 def cmd_natural_language(prompt: str):
     print(f"{CYAN}[ECO AI ROUTER]{RESET} Evaluating directive: {BOLD}\"{prompt}\"{RESET}")
     res = api_post("/eco/execute", {"prompt": prompt})
@@ -192,14 +209,18 @@ def main():
         cmd_projects()
     elif subcmd == "agents":
         cmd_agents()
-    elif subcmd == "audit" and len(sys.argv) > 2:
-        cmd_audit(sys.argv[2])
-    elif subcmd == "test" and len(sys.argv) > 2:
-        cmd_test(sys.argv[2])
-    elif subcmd == "security" and len(sys.argv) > 2:
-        cmd_security(sys.argv[2])
-    elif subcmd == "deploy" and len(sys.argv) > 2:
-        cmd_deploy(sys.argv[2])
+    elif subcmd == "audit":
+        project_id = sys.argv[2] if len(sys.argv) > 2 else "control-center"
+        cmd_audit(project_id)
+    elif subcmd == "test":
+        project_id = sys.argv[2] if len(sys.argv) > 2 else "control-center"
+        cmd_test(project_id)
+    elif subcmd == "security":
+        project_id = sys.argv[2] if len(sys.argv) > 2 else "control-center"
+        cmd_security(project_id)
+    elif subcmd == "deploy":
+        project_id = sys.argv[2] if len(sys.argv) > 2 else "control-center"
+        cmd_deploy(project_id)
     elif subcmd == "approvals":
         cmd_approvals(sys.argv[2:])
     elif subcmd == "brief":
@@ -208,12 +229,16 @@ def main():
         cmd_cost()
     elif subcmd == "secrets":
         cmd_secrets()
-    elif subcmd == "automations":
+    elif subcmd in ["automations", "jobs"]:
         cmd_automations(sys.argv[2:])
     elif subcmd == "traces":
         cmd_traces()
+    elif subcmd == "docs":
+        cmd_docs()
+    elif subcmd == "logs":
+        cmd_logs()
     elif subcmd in ["help", "--help", "-h"]:
-        print("Usage: eco <status|projects|agents|audit|test|security|deploy|approvals|brief|cost|secrets|automations|traces|\"prompt\">")
+        print("Usage: eco <status|projects|agents|audit|test|security|deploy|approvals|brief|cost|secrets|jobs|docs|logs|traces|\"prompt\">")
     else:
         prompt = " ".join(sys.argv[1:])
         cmd_natural_language(prompt)
