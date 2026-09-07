@@ -19,6 +19,8 @@ class ToolDefinition(BaseModel):
     requires_approval: bool
     execution_mode: str # read_only, sandboxed, safe_subprocess, approval_gated
     timeout: int = 30
+    write_capability: bool = False
+    workspace_restriction: Optional[str] = "read_only"
 
 STANDARD_TOOLS: List[ToolDefinition] = [
     ToolDefinition(
@@ -31,7 +33,9 @@ STANDARD_TOOLS: List[ToolDefinition] = [
         allowed_agents=["agent-research", "agent-dev", "agent-docs", "agent-qa"],
         requires_approval=False,
         execution_mode="read_only",
-        timeout=10
+        timeout=10,
+        write_capability=False,
+        workspace_restriction="workspace_boundary"
     ),
     ToolDefinition(
         tool_id="filesystem.list",
@@ -43,7 +47,9 @@ STANDARD_TOOLS: List[ToolDefinition] = [
         allowed_agents=["agent-research", "agent-dev", "agent-data"],
         requires_approval=False,
         execution_mode="read_only",
-        timeout=10
+        timeout=10,
+        write_capability=False,
+        workspace_restriction="workspace_boundary"
     ),
     ToolDefinition(
         tool_id="filesystem.write",
@@ -55,7 +61,9 @@ STANDARD_TOOLS: List[ToolDefinition] = [
         allowed_agents=["agent-dev", "agent-docs"],
         requires_approval=True,
         execution_mode="sandboxed",
-        timeout=15
+        timeout=15,
+        write_capability=True,
+        workspace_restriction="project_workspace"
     ),
     ToolDefinition(
         tool_id="git.status",
@@ -67,7 +75,9 @@ STANDARD_TOOLS: List[ToolDefinition] = [
         allowed_agents=["agent-dev", "agent-research", "agent-recovery"],
         requires_approval=False,
         execution_mode="read_only",
-        timeout=10
+        timeout=10,
+        write_capability=False,
+        workspace_restriction="repo_root"
     ),
     ToolDefinition(
         tool_id="git.diff",
@@ -79,7 +89,9 @@ STANDARD_TOOLS: List[ToolDefinition] = [
         allowed_agents=["agent-dev", "agent-qa"],
         requires_approval=False,
         execution_mode="read_only",
-        timeout=15
+        timeout=15,
+        write_capability=False,
+        workspace_restriction="repo_root"
     ),
     ToolDefinition(
         tool_id="git.branch",
@@ -91,7 +103,9 @@ STANDARD_TOOLS: List[ToolDefinition] = [
         allowed_agents=["agent-dev"],
         requires_approval=False,
         execution_mode="sandboxed",
-        timeout=10
+        timeout=10,
+        write_capability=True,
+        workspace_restriction="repo_root"
     ),
     ToolDefinition(
         tool_id="git.log",
@@ -103,7 +117,9 @@ STANDARD_TOOLS: List[ToolDefinition] = [
         allowed_agents=["agent-dev", "agent-research", "agent-recovery"],
         requires_approval=False,
         execution_mode="read_only",
-        timeout=10
+        timeout=10,
+        write_capability=False,
+        workspace_restriction="repo_root"
     ),
     ToolDefinition(
         tool_id="test.pytest",
@@ -115,7 +131,9 @@ STANDARD_TOOLS: List[ToolDefinition] = [
         allowed_agents=["agent-qa", "agent-dev"],
         requires_approval=False,
         execution_mode="safe_subprocess",
-        timeout=60
+        timeout=60,
+        write_capability=False,
+        workspace_restriction="project_root"
     ),
     ToolDefinition(
         tool_id="security.secret_scan",
@@ -127,7 +145,9 @@ STANDARD_TOOLS: List[ToolDefinition] = [
         allowed_agents=["agent-security"],
         requires_approval=False,
         execution_mode="safe_subprocess",
-        timeout=30
+        timeout=30,
+        write_capability=False,
+        workspace_restriction="target_boundary"
     ),
     ToolDefinition(
         tool_id="docs.read",
@@ -139,7 +159,9 @@ STANDARD_TOOLS: List[ToolDefinition] = [
         allowed_agents=["agent-docs", "agent-research"],
         requires_approval=False,
         execution_mode="read_only",
-        timeout=10
+        timeout=10,
+        write_capability=False,
+        workspace_restriction="memory_vault"
     ),
     ToolDefinition(
         tool_id="docs.write",
@@ -151,7 +173,9 @@ STANDARD_TOOLS: List[ToolDefinition] = [
         allowed_agents=["agent-docs"],
         requires_approval=False,
         execution_mode="sandboxed",
-        timeout=15
+        timeout=15,
+        write_capability=True,
+        workspace_restriction="docs_vault"
     ),
     ToolDefinition(
         tool_id="shell.safe",
@@ -163,7 +187,9 @@ STANDARD_TOOLS: List[ToolDefinition] = [
         allowed_agents=["agent-devops", "agent-dev"],
         requires_approval=True,
         execution_mode="safe_subprocess",
-        timeout=30
+        timeout=30,
+        write_capability=True,
+        workspace_restriction="approved_cwd"
     ),
     ToolDefinition(
         tool_id="codebase_search",
@@ -175,7 +201,9 @@ STANDARD_TOOLS: List[ToolDefinition] = [
         allowed_agents=["agent-research", "agent-dev"],
         requires_approval=False,
         execution_mode="read_only",
-        timeout=15
+        timeout=15,
+        write_capability=False,
+        workspace_restriction="workspace_boundary"
     )
 ]
 
@@ -238,6 +266,40 @@ class ToolRegistry:
             return False, f"Agent '{agent_id}' is not authorized to use tool '{tool_id}'. Permitted tools: {allowed_ids}"
 
         return True, None
+
+    def export_matrix_dict(self) -> Dict[str, Any]:
+        """Generates machine-readable tool capability and permission matrix."""
+        tools_data = []
+        for t in self._tools.values():
+            tools_data.append({
+                "tool_id": t.tool_id,
+                "name": t.name,
+                "description": t.description,
+                "risk_level": t.risk_level.value,
+                "execution_mode": t.execution_mode,
+                "write_capability": t.write_capability,
+                "workspace_restriction": t.workspace_restriction,
+                "requires_approval": t.requires_approval,
+                "timeout_seconds": t.timeout,
+                "allowed_agents": t.allowed_agents,
+                "input_schema": t.input_schema,
+                "output_schema": t.output_schema
+            })
+
+        agent_permissions = {}
+        for agent_id, allowed_tool_ids in self.profiles.items():
+            agent_permissions[agent_id] = {
+                "permitted_tool_ids": allowed_tool_ids,
+                "has_write_permission": any(self._tools[tid].write_capability for tid in allowed_tool_ids if tid in self._tools),
+                "high_risk_tools": [tid for tid in allowed_tool_ids if tid in self._tools and self._tools[tid].risk_level == RiskLevel.HIGH]
+            }
+
+        return {
+            "version": "1.0.0",
+            "total_tools": len(tools_data),
+            "tools": tools_data,
+            "agent_permissions": agent_permissions
+        }
 
 tool_registry = ToolRegistry()
 

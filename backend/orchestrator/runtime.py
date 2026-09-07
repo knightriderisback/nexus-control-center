@@ -58,6 +58,7 @@ from orchestrator.agents import get_agent_by_id
 from orchestrator.tool_registry import tool_registry
 from orchestrator.safe_runner import SafeCommandExecutor
 from orchestrator.tool_runner import ResearchRunner, DataRunner, DocsRunner, DevRunner, execute_agent_tool
+from orchestrator.circuit_breaker import circuit_breaker
 from orchestrator.base import ai_router
 from core.policy import evaluate_action
 from core.approvals import request_approval
@@ -297,8 +298,29 @@ class AgentRuntimeEngine:
         execution_id: str
     ) -> Tuple[AgentStep, ToolResult]:
         t_start = time.time()
+        cb_key = f"{agent_id}:{tool_id}"
 
-        # RBAC Check
+        # 1. Circuit Breaker Check
+        can_exec, cb_err = circuit_breaker.can_execute(cb_key)
+        if not can_exec:
+            t_res = ToolResult(
+                call_id=f"call-{uuid.uuid4().hex[:6]}",
+                tool_id=tool_id,
+                success=False,
+                output=None,
+                error=cb_err,
+                duration_ms=0.0
+            )
+            step = AgentStep(
+                step_num=step_num,
+                action=action_name,
+                tool_call=ToolCall(call_id=t_res.call_id, tool_id=tool_id, params=params),
+                observation=AgentObservation(step_num=step_num, observation_text=cb_err or "Circuit Breaker Tripped", tool_result=t_res),
+                status="FAILED"
+            )
+            return step, t_res
+
+        # 2. RBAC Check
         is_authorized, auth_err = tool_registry.validate_tool_call(tool_id, agent_id, params)
         if not is_authorized:
             t_res = ToolResult(
@@ -318,10 +340,15 @@ class AgentRuntimeEngine:
             )
             return step, t_res
 
-        # Execute tool
+        # 3. Execute tool
         out = execute_agent_tool(agent_id, tool_id, params)
         t_dur = (time.time() - t_start) * 1000.0
-        success = "error" not in out
+        success = "error" not in out and out.get("status") != "FAILED"
+
+        if success:
+            circuit_breaker.record_success(cb_key)
+        else:
+            circuit_breaker.record_failure(cb_key)
 
         t_res = ToolResult(
             call_id=f"call-{uuid.uuid4().hex[:6]}",
@@ -373,6 +400,11 @@ class AgentRuntimeEngine:
 
         # Dedicated isolated local fixture repository for Developer Agent
         fixture_repo = "/root/control-center/data/fixtures/developer_test_repo"
+        if task.project_id and os.path.exists(task.project_id):
+            fixture_repo = task.project_id
+        elif task.project_id and os.path.exists(os.path.join("/root/control-center/data/fixtures", task.project_id)):
+            fixture_repo = os.path.join("/root/control-center/data/fixtures", task.project_id)
+
         target_file = os.path.join(fixture_repo, "calculator.py")
         test_file = os.path.join(fixture_repo, "test_calculator.py")
 
@@ -445,8 +477,9 @@ class AgentRuntimeEngine:
         # Step 7: FAILURE HANDLING & ROLLBACK DEMONSTRATION
         did_rollback = False
         if rollback_on_test_failure or not r5.success:
-            # Revert fixture modifications via git checkout
+            # Revert fixture modifications via git checkout and clean untracked artifacts
             SafeCommandExecutor.execute(["git", "checkout", "."], cwd=fixture_repo)
+            SafeCommandExecutor.execute(["git", "clean", "-fd"], cwd=fixture_repo)
             did_rollback = True
             steps.append(AgentStep(
                 step_num=7,
@@ -478,9 +511,13 @@ class AgentRuntimeEngine:
     ) -> Tuple[Dict[str, Any], List[AgentStep], int]:
         steps: List[AgentStep] = []
         proj_path = "/root/control-center"
+        if task.project_id and os.path.exists(task.project_id):
+            proj_path = task.project_id
+        elif task.project_id and os.path.exists(os.path.join("/root/control-center/data/fixtures", task.project_id)):
+            proj_path = os.path.join("/root/control-center/data/fixtures", task.project_id)
 
         # Step 1: INSPECT & IDENTIFY TEST FRAMEWORK
-        has_tests_dir = os.path.exists(os.path.join(proj_path, "tests"))
+        has_tests_dir = os.path.exists(os.path.join(proj_path, "tests")) or any(f.startswith("test_") or f.endswith("_test.py") for f in os.listdir(proj_path) if os.path.isfile(os.path.join(proj_path, f)))
         framework = "pytest" if has_tests_dir else "unknown"
 
         steps.append(AgentStep(
@@ -494,7 +531,7 @@ class AgentRuntimeEngine:
         steps.append(s2)
 
         # Step 3: PARSE RESULTS
-        output_str = r2.output.get("output", "")
+        output_str = r2.output.get("output", "") if r2.output else ""
         passed_m = re.search(r"(\d+)\s+passed", output_str)
         failed_m = re.search(r"(\d+)\s+failed", output_str)
         passed_count = int(passed_m.group(1)) if passed_m else 0
@@ -528,9 +565,16 @@ class AgentRuntimeEngine:
         limits: ExecutionLimits
     ) -> Tuple[Dict[str, Any], List[AgentStep], int]:
         steps: List[AgentStep] = []
+        target_project = "control-center"
+        if task.project_id and os.path.exists(task.project_id):
+            target_project = task.project_id
+        elif task.project_id and os.path.exists(os.path.join("/root/control-center/data/fixtures", task.project_id)):
+            target_project = os.path.join("/root/control-center/data/fixtures", task.project_id)
+        elif task.project_id:
+            target_project = task.project_id
 
         # Step 1: SECRET SCANNING
-        s1, r1 = self._run_step_tool("agent-security", "security.secret_scan", {"project_id": "control-center"}, 1, "SECRET_SCAN", execution_id)
+        s1, r1 = self._run_step_tool("agent-security", "security.secret_scan", {"project_id": target_project, "target_path": target_project}, 1, "SECRET_SCAN", execution_id)
         steps.append(s1)
 
         # Step 2: DANGEROUS CONFIGURATION AUDIT

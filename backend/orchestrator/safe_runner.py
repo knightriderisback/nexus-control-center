@@ -56,20 +56,39 @@ class CommandExecutionResult:
         }
 
 def is_safe_cwd(cwd: str) -> bool:
-    """Validates that working directory is within allowed workspace boundaries."""
-    abs_path = os.path.abspath(cwd)
-    return any(abs_path == r or abs_path.startswith(r + "/") for r in ALLOWED_ROOTS)
+    """Validates that working directory is within allowed workspace boundaries, resolving symlinks."""
+    if not cwd or not isinstance(cwd, str):
+        return False
+    real_cwd = os.path.realpath(os.path.abspath(cwd))
+    real_roots = [os.path.realpath(r) for r in ALLOWED_ROOTS]
+    return any(real_cwd == r or real_cwd.startswith(r + "/") for r in real_roots)
 
-def sanitize_environment() -> Dict[str, str]:
-    """Creates a clean environment dict scrubbing secrets and credentials."""
-    safe_keys = {"PATH", "LANG", "LC_ALL", "HOME", "USER", "TERM", "PYTHONPATH"}
+def sanitize_environment(env_override: Optional[Dict[str, str]] = None) -> Dict[str, str]:
+    """Creates a clean environment dict scrubbing secrets, credentials, and injection vectors."""
+    safe_keys = {"PATH", "LANG", "LC_ALL", "HOME", "USER", "TERM", "TMPDIR", "PYTHONIOENCODING"}
     clean_env = {}
     for k, v in os.environ.items():
         if k in safe_keys:
             clean_env[k] = v
-        # Ensure no token or secret keys are passed to subprocess
-        elif not any(secret_term in k.upper() for secret_term in ["KEY", "SECRET", "TOKEN", "PASS", "CRED"]):
+
+    raw_pythonpath = os.environ.get("PYTHONPATH", "")
+    if raw_pythonpath:
+        approved_parts = [
+            p for p in raw_pythonpath.split(":")
+            if any(os.path.realpath(p).startswith(os.path.realpath(r)) for r in ALLOWED_ROOTS)
+        ]
+        if approved_parts:
+            clean_env["PYTHONPATH"] = ":".join(approved_parts)
+
+    if env_override:
+        dangerous_vars = {"LD_PRELOAD", "LD_LIBRARY_PATH", "BASH_ENV", "IFS", "SHELLOPTS", "PS4"}
+        for k, v in env_override.items():
+            if k.upper() in dangerous_vars:
+                continue
+            if any(secret_term in k.upper() for secret_term in ["KEY", "SECRET", "TOKEN", "PASS", "CRED"]):
+                continue
             clean_env[k] = v
+
     return clean_env
 
 Tuple_Validation = tuple[bool, Optional[str]]
@@ -89,6 +108,9 @@ def validate_command(cmd_args: List[str], cwd: str) -> Tuple_Validation:
         if not isinstance(arg, str):
             return False, f"Invalid argument type: {type(arg)}"
 
+        if "\x00" in arg:
+            return False, f"Null byte '\\x00' detected in argument: {arg}"
+
         for dangerous in DANGEROUS_ARG_CHARS:
             if dangerous in arg:
                 return False, f"Dangerous shell character '{dangerous}' detected in argument: {arg}"
@@ -97,14 +119,17 @@ def validate_command(cmd_args: List[str], cwd: str) -> Tuple_Validation:
         if ".." in arg and ("../" in arg or "/.." in arg or arg == ".."):
             return False, f"Path traversal attempt '..' detected in argument: {arg}"
 
-        # Check absolute path argument does not escape allowed roots
-        if arg.startswith("/") and not arg.startswith("--") and not any(arg == r or arg.startswith(r + "/") for r in ALLOWED_ROOTS):
-            return False, f"Path '{arg}' escapes permitted workspace boundaries: {ALLOWED_ROOTS}"
+        # Check absolute path argument does not escape allowed roots (including via symlinks)
+        if arg.startswith("/") and not arg.startswith("--"):
+            real_arg = os.path.realpath(arg)
+            real_roots = [os.path.realpath(r) for r in ALLOWED_ROOTS]
+            if not any(real_arg == r or real_arg.startswith(r + "/") for r in real_roots):
+                return False, f"Path '{arg}' escapes permitted workspace boundaries: {ALLOWED_ROOTS}"
 
     return True, None
 
 class SafeCommandExecutor:
-    """Safely executes allowlisted commands with timeout and directory checks."""
+    """Safely executes allowlisted commands with timeout, process group isolation, and directory checks."""
 
     @staticmethod
     def execute(
@@ -144,23 +169,26 @@ class SafeCommandExecutor:
                 execution_id=exec_id
             )
 
-        env = sanitize_environment()
-        if env_override:
-            env.update(env_override)
+        env = sanitize_environment(env_override)
 
         import time
+        import signal
         start_time = time.time()
+        proc = None
         try:
-            # Strictly shell=False to prevent shell injection
-            res = subprocess.run(
+            # Strictly shell=False, start_new_session=True for process group isolation
+            proc = subprocess.Popen(
                 cmd_args,
                 cwd=cwd,
-                capture_output=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
                 text=True,
-                timeout=timeout,
                 shell=False,
-                env=env
+                env=env,
+                start_new_session=True,
+                close_fds=True
             )
+            stdout_str, stderr_str = proc.communicate(timeout=timeout)
             duration = (time.time() - start_time) * 1000.0
 
             record_audit(
@@ -169,20 +197,30 @@ class SafeCommandExecutor:
                 target=cwd,
                 reason="Subprocess executed via SafeCommandExecutor",
                 risk_level=RiskLevel.LOW,
-                result="SUCCESS" if res.returncode == 0 else "ERROR",
+                result="SUCCESS" if proc.returncode == 0 else "ERROR",
                 actor=actor,
                 execution_id=exec_id
             )
 
             return CommandExecutionResult(
-                stdout=res.stdout,
-                stderr=res.stderr,
-                exit_code=res.returncode,
+                stdout=stdout_str,
+                stderr=stderr_str,
+                exit_code=proc.returncode,
                 duration_ms=round(duration, 2),
                 execution_id=exec_id
             )
         except subprocess.TimeoutExpired:
             duration = (time.time() - start_time) * 1000.0
+            if proc:
+                try:
+                    os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+                except (ProcessLookupError, OSError):
+                    pass
+                try:
+                    proc.communicate(timeout=2)
+                except Exception:
+                    pass
+
             record_audit(
                 action=f"SAFE_EXEC_TIMEOUT: {cmd_args[0]}",
                 project="control-center",

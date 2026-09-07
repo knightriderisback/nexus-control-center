@@ -149,7 +149,7 @@ def run_security_scan(project_id: str):
     if os.path.exists(p.path):
         try:
             res = subprocess.run(
-                ["grep", "-rnE", "--exclude-dir=.git", "--exclude-dir=node_modules", "--exclude-dir=__pycache__", "--exclude-dir=.pytest_cache", "--exclude-dir=docs", "-----BEGIN [A-Z ]*PRIVATE KEY-----", p.path],
+                ["grep", "-rnE", "--exclude-dir=.git", "--exclude-dir=node_modules", "--exclude-dir=__pycache__", "--exclude-dir=.pytest_cache", "--exclude-dir=docs", "-e", "-----BEGIN [A-Z ]*PRIVATE KEY-----", p.path],
                 capture_output=True,
                 text=True,
                 timeout=10

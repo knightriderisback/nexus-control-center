@@ -103,6 +103,7 @@ class ApprovalRequest(BaseModel):
     expires_at: Optional[str] = None
     ttl_seconds: int = 3600
     executed_at: Optional[str] = None
+    failed_attempts: int = 0
 
 class AuditEvent(BaseModel):
     id: str

@@ -140,18 +140,34 @@ def decide_approval(
                 if "has expired" in str(parse_err):
                     raise parse_err
 
+        # Check failed attempts threshold (lock after 5 attempts)
+        if getattr(appr, "failed_attempts", 0) >= 5:
+            record_audit(
+                action=f"APPROVAL_LOCKED: {appr.action}",
+                project=appr.target_project,
+                target=appr.id,
+                reason="Approval request locked due to excessive failed token attempts (rate limit exceeded)",
+                risk_level=RiskLevel.CRITICAL,
+                result="RATE_LIMITED",
+                actor=effective_user,
+                approval_id=appr.id
+            )
+            raise ValueError(f"Approval request {approval_id} is locked due to excessive failed token attempts (rate limit exceeded).")
+
         # 3. Token verification & Guessing defense
         if require_token or token is not None:
-            if not token:
+            if not token or not token.strip():
                 raise ValueError(f"Approval token required for request {approval_id}")
             if appr.token_hash:
                 calc_hash = hashlib.sha256(token.encode("utf-8")).hexdigest()
                 if not hmac.compare_digest(calc_hash, appr.token_hash):
+                    appr.failed_attempts = getattr(appr, "failed_attempts", 0) + 1
+                    save_approvals(all_apprs)
                     record_audit(
                         action=f"APPROVAL_TOKEN_MISMATCH: {appr.action}",
                         project=appr.target_project,
                         target=appr.id,
-                        reason="Invalid approval token submitted - potential guessing attack",
+                        reason=f"Invalid approval token submitted - attempt {appr.failed_attempts}/5",
                         risk_level=RiskLevel.HIGH,
                         result="SECURITY_VIOLATION",
                         actor=effective_user,
@@ -177,15 +193,23 @@ def decide_approval(
             appr.approved_by = effective_user
             appr.decided_at = now_str
 
-            # Execute action if non-comment command exists
+            # Execute action if non-comment command exists via SafeCommandExecutor
             exec_output = ""
             exec_err = None
             if appr.command and not appr.command.strip().startswith("#"):
+                import shlex
+                from orchestrator.safe_runner import SafeCommandExecutor
                 try:
-                    res = subprocess.run(appr.command, shell=True, capture_output=True, text=True, timeout=60)
-                    exec_output = res.stdout
-                    if res.returncode != 0:
-                        exec_err = res.stderr
+                    cmd_tokens = shlex.split(appr.command.strip())
+                    cmd_res = SafeCommandExecutor.execute(
+                        cmd_tokens,
+                        cwd=config.base_dir,
+                        timeout=60,
+                        actor=effective_user
+                    )
+                    exec_output = cmd_res.stdout
+                    if cmd_res.exit_code != 0:
+                        exec_err = cmd_res.stderr or f"Exit code {cmd_res.exit_code}"
                     appr.status = ApprovalStatus.EXECUTED
                     appr.executed_at = now_str
                 except Exception as e:

@@ -1,0 +1,445 @@
+{
+  "version": "1.0.0",
+  "total_tools": 13,
+  "tools": [
+    {
+      "tool_id": "filesystem.read",
+      "name": "Filesystem Safe Reader",
+      "description": "Reads file contents within permitted workspace boundaries with size capping.",
+      "risk_level": "LOW",
+      "execution_mode": "read_only",
+      "write_capability": false,
+      "workspace_restriction": "workspace_boundary",
+      "requires_approval": false,
+      "timeout_seconds": 10,
+      "allowed_agents": [
+        "agent-research",
+        "agent-dev",
+        "agent-docs",
+        "agent-qa"
+      ],
+      "input_schema": {
+        "file_path": "str",
+        "max_lines": "Optional[int]"
+      },
+      "output_schema": {
+        "file": "str",
+        "lines_read": "int",
+        "content": "str"
+      }
+    },
+    {
+      "tool_id": "filesystem.list",
+      "name": "Filesystem Safe Directory Lister",
+      "description": "Lists directory entries within permitted workspace paths.",
+      "risk_level": "LOW",
+      "execution_mode": "read_only",
+      "write_capability": false,
+      "workspace_restriction": "workspace_boundary",
+      "requires_approval": false,
+      "timeout_seconds": 10,
+      "allowed_agents": [
+        "agent-research",
+        "agent-dev",
+        "agent-data"
+      ],
+      "input_schema": {
+        "dir_path": "str",
+        "max_depth": "Optional[int]"
+      },
+      "output_schema": {
+        "dir": "str",
+        "entries": "List[str]",
+        "count": "int"
+      }
+    },
+    {
+      "tool_id": "filesystem.write",
+      "name": "Filesystem Sandboxed Writer",
+      "description": "Writes or patches files in designated project workspaces with change tracking.",
+      "risk_level": "MEDIUM",
+      "execution_mode": "sandboxed",
+      "write_capability": true,
+      "workspace_restriction": "project_workspace",
+      "requires_approval": true,
+      "timeout_seconds": 15,
+      "allowed_agents": [
+        "agent-dev",
+        "agent-docs"
+      ],
+      "input_schema": {
+        "file_path": "str",
+        "content": "str",
+        "overwrite": "Optional[bool]"
+      },
+      "output_schema": {
+        "file": "str",
+        "bytes_written": "int",
+        "status": "str"
+      }
+    },
+    {
+      "tool_id": "git.status",
+      "name": "Git Status Inspector",
+      "description": "Inspects git working tree state and uncommitted changes.",
+      "risk_level": "LOW",
+      "execution_mode": "read_only",
+      "write_capability": false,
+      "workspace_restriction": "repo_root",
+      "requires_approval": false,
+      "timeout_seconds": 10,
+      "allowed_agents": [
+        "agent-dev",
+        "agent-research",
+        "agent-recovery"
+      ],
+      "input_schema": {
+        "repo_path": "str"
+      },
+      "output_schema": {
+        "repo": "str",
+        "dirty_files": "List[str]",
+        "clean": "bool"
+      }
+    },
+    {
+      "tool_id": "git.diff",
+      "name": "Git Diff Extractor",
+      "description": "Computes unstaged or staged diff against git HEAD.",
+      "risk_level": "LOW",
+      "execution_mode": "read_only",
+      "write_capability": false,
+      "workspace_restriction": "repo_root",
+      "requires_approval": false,
+      "timeout_seconds": 15,
+      "allowed_agents": [
+        "agent-dev",
+        "agent-qa"
+      ],
+      "input_schema": {
+        "repo_path": "str",
+        "staged": "Optional[bool]"
+      },
+      "output_schema": {
+        "repo": "str",
+        "diff": "str",
+        "has_diff": "bool"
+      }
+    },
+    {
+      "tool_id": "git.branch",
+      "name": "Git Safe Feature Branch Creator",
+      "description": "Creates isolated feature or bugfix branches following strict naming rules.",
+      "risk_level": "MEDIUM",
+      "execution_mode": "sandboxed",
+      "write_capability": true,
+      "workspace_restriction": "repo_root",
+      "requires_approval": false,
+      "timeout_seconds": 10,
+      "allowed_agents": [
+        "agent-dev"
+      ],
+      "input_schema": {
+        "branch_name": "str",
+        "repo_path": "Optional[str]"
+      },
+      "output_schema": {
+        "branch": "str",
+        "status": "str"
+      }
+    },
+    {
+      "tool_id": "git.log",
+      "name": "Git Log Inspector",
+      "description": "Retrieves recent commit metadata and hashes.",
+      "risk_level": "LOW",
+      "execution_mode": "read_only",
+      "write_capability": false,
+      "workspace_restriction": "repo_root",
+      "requires_approval": false,
+      "timeout_seconds": 10,
+      "allowed_agents": [
+        "agent-dev",
+        "agent-research",
+        "agent-recovery"
+      ],
+      "input_schema": {
+        "repo_path": "str",
+        "limit": "Optional[int]"
+      },
+      "output_schema": {
+        "repo": "str",
+        "commits": "List[Dict[str, str]]"
+      }
+    },
+    {
+      "tool_id": "test.pytest",
+      "name": "Pytest Test Runner",
+      "description": "Executes project test suites in safe subprocess isolation.",
+      "risk_level": "LOW",
+      "execution_mode": "safe_subprocess",
+      "write_capability": false,
+      "workspace_restriction": "project_root",
+      "requires_approval": false,
+      "timeout_seconds": 60,
+      "allowed_agents": [
+        "agent-qa",
+        "agent-dev"
+      ],
+      "input_schema": {
+        "project_path": "str",
+        "test_file": "Optional[str]"
+      },
+      "output_schema": {
+        "status": "str",
+        "passed": "int",
+        "failed": "int",
+        "duration": "str"
+      }
+    },
+    {
+      "tool_id": "security.secret_scan",
+      "name": "Secret Leak Scanner",
+      "description": "Executes regex scanner across workspace for exposed PEM keys and credentials.",
+      "risk_level": "LOW",
+      "execution_mode": "safe_subprocess",
+      "write_capability": false,
+      "workspace_restriction": "target_boundary",
+      "requires_approval": false,
+      "timeout_seconds": 30,
+      "allowed_agents": [
+        "agent-security"
+      ],
+      "input_schema": {
+        "target_path": "str"
+      },
+      "output_schema": {
+        "status": "str",
+        "secrets_leaked": "int",
+        "leaked_locations": "List[str]"
+      }
+    },
+    {
+      "tool_id": "docs.read",
+      "name": "Documentation & Memory Vault Reader",
+      "description": "Reads architectural documentation and memory vault records.",
+      "risk_level": "LOW",
+      "execution_mode": "read_only",
+      "write_capability": false,
+      "workspace_restriction": "memory_vault",
+      "requires_approval": false,
+      "timeout_seconds": 10,
+      "allowed_agents": [
+        "agent-docs",
+        "agent-research"
+      ],
+      "input_schema": {
+        "collection": "Optional[str]"
+      },
+      "output_schema": {
+        "records": "List[Dict[str, Any]]",
+        "count": "int"
+      }
+    },
+    {
+      "tool_id": "docs.write",
+      "name": "ADR & Documentation Chronicler",
+      "description": "Persists Architecture Decision Records and Markdown documentation.",
+      "risk_level": "LOW",
+      "execution_mode": "sandboxed",
+      "write_capability": true,
+      "workspace_restriction": "docs_vault",
+      "requires_approval": false,
+      "timeout_seconds": 15,
+      "allowed_agents": [
+        "agent-docs"
+      ],
+      "input_schema": {
+        "title": "str",
+        "category": "str",
+        "content": "str",
+        "tags": "Optional[List[str]]"
+      },
+      "output_schema": {
+        "status": "str",
+        "adr": "Dict[str, Any]"
+      }
+    },
+    {
+      "tool_id": "shell.safe",
+      "name": "Controlled Allowlisted Shell Runner",
+      "description": "Executes strictly allowlisted commands in controlled working directories. Unrestricted shell is forbidden.",
+      "risk_level": "HIGH",
+      "execution_mode": "safe_subprocess",
+      "write_capability": true,
+      "workspace_restriction": "approved_cwd",
+      "requires_approval": true,
+      "timeout_seconds": 30,
+      "allowed_agents": [
+        "agent-devops",
+        "agent-dev"
+      ],
+      "input_schema": {
+        "cmd_args": "List[str]",
+        "cwd": "str"
+      },
+      "output_schema": {
+        "stdout": "str",
+        "stderr": "str",
+        "exit_code": "int"
+      }
+    },
+    {
+      "tool_id": "codebase_search",
+      "name": "Codebase AST & Content Searcher",
+      "description": "Searches codebases for pattern matches and definitions.",
+      "risk_level": "LOW",
+      "execution_mode": "read_only",
+      "write_capability": false,
+      "workspace_restriction": "workspace_boundary",
+      "requires_approval": false,
+      "timeout_seconds": 15,
+      "allowed_agents": [
+        "agent-research",
+        "agent-dev"
+      ],
+      "input_schema": {
+        "query": "str",
+        "root_dir": "Optional[str]"
+      },
+      "output_schema": {
+        "query": "str",
+        "match_count": "int",
+        "matches": "List[Dict[str, Any]]"
+      }
+    }
+  ],
+  "agent_permissions": {
+    "agent-research": {
+      "permitted_tool_ids": [
+        "filesystem.read",
+        "filesystem.list",
+        "git.log",
+        "docs.read",
+        "codebase_search"
+      ],
+      "has_write_permission": false,
+      "high_risk_tools": []
+    },
+    "agent-dev": {
+      "permitted_tool_ids": [
+        "filesystem.read",
+        "filesystem.list",
+        "filesystem.write",
+        "git.status",
+        "git.diff",
+        "git.branch",
+        "git.log",
+        "test.pytest",
+        "shell.safe"
+      ],
+      "has_write_permission": true,
+      "high_risk_tools": [
+        "shell.safe"
+      ]
+    },
+    "agent-qa": {
+      "permitted_tool_ids": [
+        "filesystem.read",
+        "filesystem.list",
+        "git.diff",
+        "test.pytest"
+      ],
+      "has_write_permission": false,
+      "high_risk_tools": []
+    },
+    "agent-security": {
+      "permitted_tool_ids": [
+        "filesystem.read",
+        "filesystem.list",
+        "security.secret_scan"
+      ],
+      "has_write_permission": false,
+      "high_risk_tools": []
+    },
+    "agent-docs": {
+      "permitted_tool_ids": [
+        "filesystem.read",
+        "filesystem.list",
+        "docs.read",
+        "docs.write"
+      ],
+      "has_write_permission": true,
+      "high_risk_tools": []
+    },
+    "agent-devops": {
+      "permitted_tool_ids": [
+        "filesystem.read",
+        "filesystem.list",
+        "git.status",
+        "git.log",
+        "shell.safe"
+      ],
+      "has_write_permission": true,
+      "high_risk_tools": [
+        "shell.safe"
+      ]
+    },
+    "agent-infra": {
+      "permitted_tool_ids": [
+        "filesystem.read",
+        "git.status"
+      ],
+      "has_write_permission": false,
+      "high_risk_tools": []
+    },
+    "agent-data": {
+      "permitted_tool_ids": [
+        "filesystem.read",
+        "filesystem.list",
+        "docs.read"
+      ],
+      "has_write_permission": false,
+      "high_risk_tools": []
+    },
+    "agent-ux": {
+      "permitted_tool_ids": [
+        "filesystem.read",
+        "filesystem.list"
+      ],
+      "has_write_permission": false,
+      "high_risk_tools": []
+    },
+    "agent-seo": {
+      "permitted_tool_ids": [
+        "filesystem.read",
+        "filesystem.list"
+      ],
+      "has_write_permission": false,
+      "high_risk_tools": []
+    },
+    "agent-cost": {
+      "permitted_tool_ids": [
+        "filesystem.read"
+      ],
+      "has_write_permission": false,
+      "high_risk_tools": []
+    },
+    "agent-mon": {
+      "permitted_tool_ids": [
+        "filesystem.read"
+      ],
+      "has_write_permission": false,
+      "high_risk_tools": []
+    },
+    "agent-recovery": {
+      "permitted_tool_ids": [
+        "filesystem.read",
+        "git.status",
+        "git.log"
+      ],
+      "has_write_permission": false,
+      "high_risk_tools": []
+    }
+  }
+}
