@@ -38,3 +38,6 @@ htmlcov/
 # OS specific
 .DS_Store
 Thumbs.db
+
+# Test Fixtures Internal Git
+data/fixtures/developer_test_repo/.git/

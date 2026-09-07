@@ -376,6 +376,15 @@ class AgentRuntimeEngine:
         target_file = os.path.join(fixture_repo, "calculator.py")
         test_file = os.path.join(fixture_repo, "test_calculator.py")
 
+        # Initialize git repo if not present in fixture
+        os.makedirs(fixture_repo, exist_ok=True)
+        if not os.path.exists(os.path.join(fixture_repo, ".git")):
+            SafeCommandExecutor.execute(["git", "init"], cwd=fixture_repo)
+            SafeCommandExecutor.execute(["git", "config", "user.name", "NEXUS"], cwd=fixture_repo)
+            SafeCommandExecutor.execute(["git", "config", "user.email", "nexus@local"], cwd=fixture_repo)
+            SafeCommandExecutor.execute(["git", "add", "."], cwd=fixture_repo)
+            SafeCommandExecutor.execute(["git", "commit", "-m", "init fixture"], cwd=fixture_repo)
+
         # Reset fixture repo to clean state before starting lifecycle
         SafeCommandExecutor.execute(["git", "checkout", "."], cwd=fixture_repo)
         SafeCommandExecutor.execute(["git", "clean", "-fd"], cwd=fixture_repo)
