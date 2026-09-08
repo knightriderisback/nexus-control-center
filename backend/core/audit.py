@@ -88,3 +88,6 @@ def get_recent_audit_events(limit: int = 100, project: Optional[str] = None) -> 
     except Exception as e:
         print(f"Error reading audit log: {e}")
     return events
+
+get_recent_audits = get_recent_audit_events
+

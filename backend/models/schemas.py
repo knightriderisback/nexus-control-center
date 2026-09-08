@@ -163,7 +163,8 @@ class ExecutionLimits(BaseModel):
     max_tool_calls: int = 20
     max_runtime_seconds: int = 120
     max_file_modifications: int = 10
-    max_output_size_bytes: int = 500_000
+    max_output_size_bytes: int = 1_000_000
+    recursion_depth: int = 0
 
 class AgentResult(BaseModel):
     task_id: str

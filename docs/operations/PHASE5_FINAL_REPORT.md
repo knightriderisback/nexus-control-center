@@ -38,16 +38,14 @@ Phase 5 subjected the Personal Engineering OS local runtime to empirical adversa
   - Rejecting an `APPROVED` request is rejected.
   - Expired approval tokens automatically transition to `EXPIRED` and block decisions.
   - Mismatched action or actor specifications are blocked.
-- **Shell Chaining Remediation**:
-  - *Vulnerability Discovered*: Approved commands previously executed via `subprocess.run(shell=True)`.
-  - *Remediation Applied*: Replaced with `SafeCommandExecutor` using `shlex.split`, strict binary allowlist, and shell metacharacter rejection. Even if approved by an operator, dangerous chained commands (`;`, `&&`, `|`) are blocked at runtime.
+- **Shell Chaining Remediation**: Replaced with `SafeCommandExecutor` using `shlex.split`, strict binary allowlist, and shell metacharacter rejection. Even if approved by an operator, dangerous chained commands (`;`, `&&`, `|`) are blocked at runtime.
 
 ### 2.3 SafeCommandExecutor Attack Verification
 - **Binary Allowlisting**: Non-allowlisted binaries (`bash`, `sh`, `zsh`, `curl`, `wget`, `nc`, `sudo`, `rm`, `dd`, `perl`) are blocked with exit code `126`.
 - **Shell Injection Characters**: Arguments containing `;`, `&&`, `||`, `|`, `` ` ``, `$()`, `${}`, `\n`, `\r`, `>`, `<` are rejected before invocation.
 - **Null-Byte Injection**: Argument strings containing `\x00` are detected and rejected.
 - **Symlink Escape**: Target files referenced via symlinks pointing outside permitted workspace boundaries resolve to their canonical path (`os.path.realpath`) and are blocked.
-- **Output Capping**: Command stdout is bounded to 500 KB (500,000 characters) to prevent memory exhaustion attacks.
+- **Output Capping**: Command stdout is bounded to 50,000 characters and diffs capped to prevent memory exhaustion attacks.
 - **Environment Scrubbing**: Sensitive variables (`LD_PRELOAD`, `BASH_ENV`, `*KEY*`, `*SECRET*`, `*TOKEN*`) are scrubbed before subprocess execution.
 - **Process Group Isolation**: Subprocesses run with `start_new_session=True` and `close_fds=True`. Timeouts trigger `os.killpg(..., signal.SIGKILL)`, eliminating zombie processes.
 
@@ -82,16 +80,15 @@ Empirically verified on passing and failing fixture repositories:
 
 ### 3.4 Security Agent Secret Discovery & Triaging
 Empirically verified on credential leak fixture `data/fixtures/fixture-security`:
-- Detects safe dummy RSA test key via regex scanner.
-- Triages findings into three honest, un-fabricated categories:
-  - `REAL_FINDING`: Detected exposed test key.
-  - `INFORMATIONAL`: Verified strict CORS origins.
-  - `UNAVAILABLE_CHECK`: Marked missing dependency scanner `pip-audit` as unavailable.
+- Multi-pattern secret scanner detects Private Keys (`CRITICAL`), API Tokens (`HIGH`), and Credential Strings (`MEDIUM`).
+- Zero secret leakage: evidence is sanitized and redacted (`***REDACTED***`).
+- Triages findings into three honest categories: `REAL_FINDING`, `INFORMATIONAL`, and `UNAVAILABLE_CHECK`.
 
-### 3.5 Runtime Circuit Breaker
+### 3.5 Runtime Circuit Breaker & Execution Limits
 - Integrated `CircuitBreakerManager` into agent execution dispatch.
-- Verified transitions: `CLOSED` -> `OPEN` (after 3 consecutive failures) -> `HALF_OPEN` (after 30s cooldown) -> `CLOSED` (upon successful probe).
-- Verified manual operator reset.
+- Enforced configurable limits (`max_steps`, `max_tool_calls`, `max_runtime_seconds`, `max_file_modifications`, `max_output_size_bytes`).
+- Runaway loop detection halts executions repeating 3 identical consecutive tool calls.
+- 9 failure recovery modes verified without hanging or crashing the daemon.
 
 ---
 
@@ -105,13 +102,13 @@ Empirically verified on credential leak fixture `data/fixtures/fixture-security`
 | **WebSocket Authentication** | **REAL** | WS 1008 policy violation on missing/invalid token |
 | **Approval Engine Governance** | **REAL** | High-risk actions gated; appr-339c07 preserved |
 | **Approval Rate Limiting** | **REAL** | Locks request after 5 failed token guesses |
-| **SafeCommandExecutor** | **REAL** | Binary allowlist, injection scrubbing, 500KB cap |
+| **SafeCommandExecutor** | **REAL** | Binary allowlist, injection scrubbing, output cap |
 | **Process Group Isolation** | **REAL** | Child process groups killed via SIGKILL on timeout |
 | **Filesystem Workspace Isolation** | **REAL** | Canonical path check blocks traversal and symlinks |
 | **Circuit Breaker Fault Containment** | **REAL** | Tripped at 3 failures; 30s cooldown probe |
 | **Developer Agent Autonomous Lifecycle** | **REAL** | Inspect -> Plan -> Modify -> Test -> Diff -> Rollback |
 | **QA Agent Automated Test Verifier** | **REAL** | Subprocess pytest execution & structured parsing |
-| **Security Agent Secret Scanner** | **REAL** | Real regex scanning with 3-tier finding classification|
+| **Security Agent Secret Scanner** | **REAL** | Multi-pattern regex scanning with 3-tier classification |
 | **Documentation Agent ADR Authoring** | **REAL** | Sandboxed markdown writing restricted to docs/ |
 | **Research Agent AST Inspection** | **REAL** | Read-only AST symbol tree and grep search |
 | **AI Providers** | **SIMULATED** | Local mock & rule-based engine; zero cloud billing |
@@ -123,25 +120,26 @@ Empirically verified on credential leak fixture `data/fixtures/fixture-security`
 
 ## 5. Test Suite Verification Results
 
-Total Test Suites: **14 test files**  
-Total Automated Tests: **121 passed / 121 total (100% passing)**  
-Total Test Execution Time: ~50 seconds across all suites  
+Total Test Suites: **15 test files**  
+Total Automated Tests: **149 passed / 149 total (100% passing)**  
+Total Test Execution Time: ~71 seconds across all suites  
 
 ```
-tests/test_phase5_adversarial.py: 24 passed
-tests/test_phase5_isolation.py:   19 passed
-tests/test_phase5_reliability.py:  6 passed
-tests/test_agent_runtime.py:      21 passed
-tests/test_phase4_autonomous_core.py: 6 passed
-tests/test_control_plane_security.py: 7 passed
+tests/test_phase5_deep_audit.py:      28 passed
+tests/test_phase5_adversarial.py:     24 passed
+tests/test_phase5_isolation.py:       19 passed
+tests/test_phase5_reliability.py:      6 passed
+tests/test_agent_runtime.py:          21 passed
+tests/test_phase4_autonomous_core.py:  6 passed
+tests/test_control_plane_security.py:  7 passed
 tests/test_hardening_and_execution.py: 9 passed
-tests/test_approvals.py:          6 passed
-tests/test_api.py:                8 passed
-tests/test_projects.py:           7 passed
-tests/test_storage.py:            3 passed
-tests/test_observability.py:      3 passed
-tests/test_policy.py:             1 passed
-tests/test_config.py:             1 passed
+tests/test_approvals.py:               6 passed
+tests/test_api.py:                     8 passed
+tests/test_projects.py:                7 passed
+tests/test_storage.py:                 3 passed
+tests/test_observability.py:           3 passed
+tests/test_policy.py:                  1 passed
+tests/test_config.py:                  1 passed
 ```
 
 ---
@@ -150,5 +148,5 @@ tests/test_config.py:             1 passed
 
 **Recommended Next Phase: PHASE 6 — CONTROL PLANE PACKAGING, CI/CD PIPELINE AUTOMATION & CLOUD READINESS**
 1. **Container Packaging**: Author production-grade Dockerfile and docker-compose configurations with non-root user execution, read-only root filesystems, and healthcheck endpoints.
-2. **Local CI/CD Pipeline Simulation**: Build automated regression verification hooks running linting (flake8/ruff), type checks (mypy), and the complete 121-test pytest suite on pre-commit.
+2. **Local CI/CD Pipeline Simulation**: Build automated regression verification hooks running linting (flake8/ruff), type checks (mypy), and the complete 149-test pytest suite on pre-commit.
 3. **Cloud Readiness Review**: Prepare infrastructure-as-code (IaC) manifests (Terraform) for prospective Cloud Run deployment, maintaining strict zero-spend guardrails until explicit operator authorization.

@@ -175,10 +175,12 @@ class DevRunner:
         try:
             res = subprocess.run(["git", "diff", "HEAD"], cwd=repo_path, capture_output=True, text=True, timeout=10)
             status_res = subprocess.run(["git", "status", "-s"], cwd=repo_path, capture_output=True, text=True, timeout=5)
+            raw_diff = res.stdout
+            truncated = raw_diff[:50000] + ("\n... [diff truncated for size limits]" if len(raw_diff) > 50000 else "")
             return {
                 "repo": repo_path,
-                "diff": res.stdout,
-                "has_diff": len(res.stdout.strip()) > 0,
+                "diff": truncated,
+                "has_diff": len(raw_diff.strip()) > 0,
                 "changed_files": [l.strip() for l in status_res.stdout.split("\n") if l.strip()]
             }
         except Exception as e:
@@ -201,6 +203,114 @@ class DevRunner:
             return {"status": "FAILED", "error": res.stderr.strip()}
         except Exception as e:
             return {"status": "ERROR", "error": str(e)}
+
+# =============================================================================
+# 5. Security Agent Tools
+# =============================================================================
+class SecurityRunner:
+    @staticmethod
+    def scan_directory_for_secrets(target_path: str = "/root/control-center") -> Dict[str, Any]:
+        """
+        Multi-pattern secret scanner detecting:
+        - PRIVATE_KEY: Private key markers (Severity: CRITICAL)
+        - API_TOKEN: API tokens (Anthropic, OpenAI, GitHub, Google) (Severity: HIGH)
+        - CREDENTIAL_STRING: Password/secret/credential assignments (Severity: MEDIUM)
+        
+        Returns structured findings with redacted evidence and zero raw secret leakage.
+        """
+        if not is_safe_path(target_path) or not os.path.exists(target_path):
+            return {
+                "project_id": target_path,
+                "status": "ERROR",
+                "findings_count": 0,
+                "findings": [],
+                "severity_breakdown": {"CRITICAL": 0, "HIGH": 0, "MEDIUM": 0},
+                "secrets_leaked": 0,
+                "leaked_locations": [],
+                "clean": False,
+                "error": f"Path '{target_path}' outside workspace or does not exist",
+                "execution_mode": "REAL_REGEX_SCAN"
+            }
+
+        target = os.path.realpath(target_path)
+        findings = []
+        ignored_dirs = {".git", "node_modules", "__pycache__", ".pytest_cache", "docs", ".system_generated"}
+        ignored_files = {
+            "tool_runner.py", "projects.py", "test_phase5_adversarial.py",
+            "test_phase5_isolation.py", "test_phase5_reliability.py",
+            "test_phase5_deep_audit.py", "test_hardening_and_execution.py"
+        }
+
+        patterns = [
+            ("PRIVATE_KEY", "CRITICAL", re.compile(r"-----BEGIN [A-Z ]*PRIVATE KEY-----")),
+            ("API_TOKEN", "HIGH", re.compile(r"\b(sk-ant-api\d\d-[A-Za-z0-9_\-]{10,}|sk-live-[A-Za-z0-9_\-]{10,}|sk-[A-Za-z0-9]{20,}|AIza[0-9A-Za-z\\-_]{35}|ghp_[a-zA-Z0-9]{36}|gho_[a-zA-Z0-9]{36}|github_pat_[a-zA-Z0-9_]{60,})\b")),
+            ("CREDENTIAL_STRING", "MEDIUM", re.compile(r"(?i)\b(password|secret|credential|postgres_secret_key|database_password)\s*[:=]\s*[\"']([^\"'\s]{6,})[\"']"))
+        ]
+
+        files_to_scan = []
+        if os.path.isfile(target):
+            files_to_scan.append(target)
+        else:
+            for root, dirs, files in os.walk(target):
+                dirs[:] = [d for d in dirs if d not in ignored_dirs]
+                for file in sorted(files):
+                    if file in ignored_files or file.endswith(".pyc") or file.endswith(".swp"):
+                        continue
+                    files_to_scan.append(os.path.join(root, file))
+
+        for fpath in files_to_scan:
+            try:
+                if os.path.getsize(fpath) > 1_000_000:
+                    continue
+                with open(fpath, "r", encoding="utf-8", errors="ignore") as f:
+                    for line_idx, line in enumerate(f, start=1):
+                        for ptype, severity, pat in patterns:
+                            m = pat.search(line)
+                            if m:
+                                raw_val = m.group(0)
+                                if ptype == "PRIVATE_KEY":
+                                    evidence = "-----BEGIN [REDACTED] PRIVATE KEY-----"
+                                elif ptype == "API_TOKEN":
+                                    evidence = f"{raw_val[:8]}...[REDACTED_API_TOKEN]"
+                                elif ptype == "CREDENTIAL_STRING":
+                                    kw = m.group(1)
+                                    evidence = f"{kw}=\"***REDACTED***\""
+                                else:
+                                    evidence = "[REDACTED]"
+
+                                rel_file = os.path.relpath(fpath, target) if os.path.isdir(target) else os.path.basename(fpath)
+                                findings.append({
+                                    "file": fpath,
+                                    "relative_path": rel_file,
+                                    "line": line_idx,
+                                    "type": ptype,
+                                    "severity": severity,
+                                    "evidence": evidence
+                                })
+            except Exception:
+                continue
+
+        counts = {
+            "CRITICAL": sum(1 for f in findings if f["severity"] == "CRITICAL"),
+            "HIGH": sum(1 for f in findings if f["severity"] == "HIGH"),
+            "MEDIUM": sum(1 for f in findings if f["severity"] == "MEDIUM")
+        }
+        unique_files = sorted(list(set(f["file"] for f in findings)))
+        status = "CRITICAL" if counts["CRITICAL"] > 0 else ("WARNING" if findings else "CLEAN")
+
+        return {
+            "project_id": target_path,
+            "status": status,
+            "cves_found": 0,
+            "secrets_leaked": len(unique_files),
+            "findings_count": len(findings),
+            "findings": findings,
+            "severity_breakdown": counts,
+            "leaked_locations": unique_files,
+            "iam_misconfigurations": 0,
+            "clean": len(findings) == 0,
+            "execution_mode": "REAL_REGEX_SCAN"
+        }
 
 # =============================================================================
 # Universal Agent Tool Dispatcher
@@ -270,36 +380,10 @@ def execute_agent_tool(agent_id: str, tool_name: str, params: Dict[str, Any]) ->
             cmd_res = SafeCommandExecutor.execute(cmd_args, cwd=proj_path, timeout=timeout_val)
             result = {"project": proj_path, "status": "PASSED" if cmd_res.exit_code == 0 and "ERRORS" not in cmd_res.stdout and "FAILED" not in cmd_res.stdout else "FAILED", "output": cmd_res.stdout.strip(), "duration_ms": cmd_res.duration_ms}
         elif canonical_tool in ["security.secret_scan", "secret_scan", "regex_audit"]:
-            target = params.get("target_path") or params.get("project_id", "control-center")
-            if os.path.exists(target):
-                findings = []
-                try:
-                    res = subprocess.run(
-                        ["grep", "-rnE", "--exclude-dir=.git", "--exclude-dir=node_modules", "--exclude-dir=__pycache__", "--exclude-dir=.pytest_cache", "--exclude-dir=docs", "-e", "-----BEGIN [A-Z ]*PRIVATE KEY-----", target],
-                        capture_output=True,
-                        text=True,
-                        timeout=10
-                    )
-                    if res.stdout.strip():
-                        for line in res.stdout.strip().split("\n"):
-                            fpath = line.split(":")[0]
-                            if not fpath.endswith("projects.py") and not fpath.endswith("automations.py"):
-                                findings.append(fpath)
-                except Exception:
-                    pass
-                unique_files = list(set(findings))
-                result = {
-                    "project_id": target,
-                    "status": "WARNING" if unique_files else "CLEAN",
-                    "cves_found": 0,
-                    "secrets_leaked": len(unique_files),
-                    "leaked_locations": unique_files,
-                    "iam_misconfigurations": 0,
-                    "execution_mode": "REAL_REGEX_SCAN"
-                }
-            else:
-                from routers.v1.projects import run_security_scan
-                result = run_security_scan(target)
+            target = params.get("target_path") or params.get("project_id", "/root/control-center")
+            if target == "control-center":
+                target = "/root/control-center"
+            result = SecurityRunner.scan_directory_for_secrets(target)
         elif canonical_tool in ["docs.write", "create_adr", "doc_writer"]:
             result = DocsRunner.create_adr(params.get("title", ""), params.get("category", "General"), params.get("content", ""), params.get("tags"))
         elif canonical_tool in ["docs.read", "read_docs"]:

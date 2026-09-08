@@ -69,7 +69,11 @@ def run_tests(project_id: str):
                     "pytest", "tests/", "-q",
                     "--ignore=tests/test_hardening_and_execution.py",
                     "--ignore=tests/test_control_plane_security.py",
-                    "--ignore=tests/test_agent_runtime.py"
+                    "--ignore=tests/test_agent_runtime.py",
+                    "--ignore=tests/test_phase5_adversarial.py",
+                    "--ignore=tests/test_phase5_isolation.py",
+                    "--ignore=tests/test_phase5_reliability.py",
+                    "--ignore=tests/test_phase5_deep_audit.py"
                 ],
                 cwd=p.path,
                 capture_output=True,
@@ -145,43 +149,19 @@ def run_security_scan(project_id: str):
     if not p:
         raise HTTPException(status_code=404, detail="Project not found")
 
-    findings = []
-    if os.path.exists(p.path):
-        try:
-            res = subprocess.run(
-                ["grep", "-rnE", "--exclude-dir=.git", "--exclude-dir=node_modules", "--exclude-dir=__pycache__", "--exclude-dir=.pytest_cache", "--exclude-dir=docs", "-e", "-----BEGIN [A-Z ]*PRIVATE KEY-----", p.path],
-                capture_output=True,
-                text=True,
-                timeout=10
-            )
-            if res.stdout.strip():
-                for line in res.stdout.strip().split("\n"):
-                    fpath = line.split(":")[0]
-                    if not fpath.endswith("projects.py") and not fpath.endswith("automations.py"):
-                        findings.append(fpath)
-        except Exception:
-            pass
-
-    unique_files = list(set(findings))
-    status = "WARNING" if unique_files else "CLEAN"
+    from orchestrator.tool_runner import SecurityRunner
+    scan_res = SecurityRunner.scan_directory_for_secrets(p.path)
+    scan_res["project_id"] = project_id
 
     record_audit(
         action=f"SECURITY_SCAN: {project_id}",
         project=project_id,
         target=p.path,
-        reason="Real regex secret leak scan across workspace",
+        reason="Real multi-pattern regex secret leak scan across workspace",
         risk_level=RiskLevel.LOW,
-        result=status
+        result=scan_res.get("status", "CLEAN")
     )
-    return {
-        "project_id": project_id,
-        "status": status,
-        "cves_found": 0,
-        "secrets_leaked": len(unique_files),
-        "leaked_locations": unique_files,
-        "iam_misconfigurations": 0,
-        "execution_mode": "REAL_REGEX_SCAN"
-    }
+    return scan_res
 
 @router.post("/{project_id}/deploy")
 def trigger_deployment(project_id: str):

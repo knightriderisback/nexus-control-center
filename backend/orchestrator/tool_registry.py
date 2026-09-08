@@ -86,7 +86,7 @@ STANDARD_TOOLS: List[ToolDefinition] = [
         input_schema={"repo_path": "str", "staged": "Optional[bool]"},
         output_schema={"repo": "str", "diff": "str", "has_diff": "bool"},
         risk_level=RiskLevel.LOW,
-        allowed_agents=["agent-dev", "agent-qa"],
+        allowed_agents=["agent-dev", "agent-qa", "agent-docs"],
         requires_approval=False,
         execution_mode="read_only",
         timeout=15,
@@ -216,8 +216,8 @@ AGENT_PERMISSION_PROFILES: Dict[str, List[str]] = {
     "agent-qa": ["filesystem.read", "filesystem.list", "git.diff", "test.pytest"],
     # Security: read + security tools
     "agent-security": ["filesystem.read", "filesystem.list", "security.secret_scan"],
-    # Documentation: read + docs-only write
-    "agent-docs": ["filesystem.read", "filesystem.list", "docs.read", "docs.write"],
+    # Documentation: read + docs-only write + git diff
+    "agent-docs": ["filesystem.read", "filesystem.list", "docs.read", "docs.write", "git.diff"],
     # DevOps: read-only initially (+ shell.safe requiring approval)
     "agent-devops": ["filesystem.read", "filesystem.list", "git.status", "git.log", "shell.safe"],
     # Infrastructure: read-only initially
