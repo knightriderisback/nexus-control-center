@@ -221,9 +221,21 @@
         "expected_state": "Clean working tree",
         "observed_state": "Dirty working tree with uncommitted modifications",
         "diff": "M data/approvals.json\n M data/audit/audit_trail.jsonl\n M data/deployment_snapshots/control-center_LOCAL.json\n M data/deployments_registry.json\n M data/knowledge/knowledge_nodes.json\n M data/mcp_servers.json\n M data/mission_knowledge.json\n M data/project_operations/operations_records.json\n M data/pro",
+        "remediated": true,
+        "remediated_at": "2026-09-18T18:00:31.608449+00:00",
+        "timestamp": "2026-09-18T18:00:28.890941+00:00"
+      },
+      {
+        "drift_id": "drift-9f21bbad",
+        "project_id": "personal-engineering-os-2026",
+        "drift_type": "CONFIG_DRIFT",
+        "severity": "LOW",
+        "expected_state": "Clean working tree",
+        "observed_state": "Dirty working tree with uncommitted modifications",
+        "diff": "M data/audit/audit_trail.jsonl\n M data/command_control/directives_journal.json\n M data/command_control/event_stream.json\n M data/command_control/operations_timeline.json\n M data/knowledge/knowledge_nodes.json\n M data/project_operations/operations_records.json\n M data/projects/projects_registry.json",
         "remediated": false,
         "remediated_at": null,
-        "timestamp": "2026-09-18T18:00:28.890941+00:00"
+        "timestamp": "2026-09-18T18:00:34.590419+00:00"
       }
     ],
     "maintenance_history": [],
@@ -235,7 +247,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.201849+00:00",
-    "updated_at": "2026-09-18T18:00:28.891068+00:00"
+    "updated_at": "2026-09-18T18:00:34.590493+00:00"
   },
   "control-center": {
     "project_id": "control-center",
@@ -1756,38 +1768,5 @@
     "tombstone": null,
     "created_at": "2026-09-18T15:13:51.066645+00:00",
     "updated_at": "2026-09-18T15:13:51.066653+00:00"
-  },
-  "c2-alpha-service": {
-    "project_id": "c2-alpha-service",
-    "project_name": "c2-alpha-service",
-    "project_path": "/tmp/nexus-test-c2-j2eafz2c/c2-alpha-service",
-    "lifecycle_state": "ACTIVE",
-    "health_score": 100.0,
-    "current_version": "0.1.0",
-    "active_release_id": null,
-    "releases": [],
-    "sla": {
-      "uptime_target_pct": 99.9,
-      "observed_uptime_pct": 100.0,
-      "p95_latency_target_ms": 150.0,
-      "observed_p95_latency_ms": 12.0,
-      "max_error_rate_pct": 0.1,
-      "observed_error_rate_pct": 0.0,
-      "error_budget_remaining_pct": 100.0,
-      "burn_rate": 0.0,
-      "sla_status": "COMPLIANT",
-      "last_evaluated": "2026-09-18T18:00:28.169308+00:00"
-    },
-    "active_drifts": [],
-    "maintenance_history": [],
-    "resource_governance": {
-      "max_local_memory_mb": 512,
-      "max_cpu_cores": 1.0,
-      "zero_cloud_cost": true,
-      "finops_spend_usd": 0.0
-    },
-    "tombstone": null,
-    "created_at": "2026-09-18T18:00:28.169699+00:00",
-    "updated_at": "2026-09-18T18:00:28.169728+00:00"
   }
 }

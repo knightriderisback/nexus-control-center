@@ -344,7 +344,7 @@
   {
     "id": "c2-alpha-service",
     "name": "c2-alpha-service",
-    "path": "/tmp/nexus-test-c2-j2eafz2c/c2-alpha-service",
+    "path": "/tmp/nexus-test-c2-fsrh_0xs/c2-alpha-service",
     "github_repo": null,
     "environment": "production",
     "deployment_provider": "Cloud Run / Local",

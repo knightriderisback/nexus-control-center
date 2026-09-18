@@ -5583,5 +5583,59 @@
       ],
       "artifacts": []
     }
+  },
+  "kn-4eebd310": {
+    "node_id": "kn-4eebd310",
+    "tier": "EPISODIC",
+    "category": "TOOL_USAGE",
+    "title": "Command Executed: SELF_HEALING_DRIFT_RECONCILE",
+    "content": "Executed command 'Inspect fleet health' targeting ['personal-engineering-os-2026', 'control-center', 'portfolio', 'project-analytics-ingestion-engine', 'project-api-micro-service-test', 'project-quick-telemetry-ping', 'project-quick-ping-health', 'rate-limiter-service', 'mem-storage-unit', 'auth-sec-service', 'math-calc-service', 'inventory-catalog-api', 'eval-dynamic-svc', 'broken-unit-test', 'payment-tx-processor', 'cache-store-engine', 'beta-frontend', 'project-alpha', 'project-beta', 'c2-alpha-service']. Result: COMPLETED.",
+    "tags": [
+      "c2",
+      "command",
+      "self_healing_drift_reconcile",
+      "personal-engineering-os-2026",
+      "control-center",
+      "portfolio",
+      "project-analytics-ingestion-engine",
+      "project-api-micro-service-test",
+      "project-quick-telemetry-ping",
+      "project-quick-ping-health",
+      "rate-limiter-service",
+      "mem-storage-unit",
+      "auth-sec-service",
+      "math-calc-service",
+      "inventory-catalog-api",
+      "eval-dynamic-svc",
+      "broken-unit-test",
+      "payment-tx-processor",
+      "cache-store-engine",
+      "beta-frontend",
+      "project-alpha",
+      "project-beta",
+      "c2-alpha-service"
+    ],
+    "fingerprint": "51cf63120a19d72a",
+    "status": "ACTIVE",
+    "source_mission_id": null,
+    "source_incident_id": null,
+    "source_finding_id": null,
+    "confidence": "HIGH",
+    "success_score": 1.0,
+    "access_count": 1,
+    "decay_factor": 1.0,
+    "revalidated_at": null,
+    "contradicted_by": null,
+    "created_at": "2026-09-18T18:00:31.648219+00:00",
+    "updated_at": "2026-09-18T18:00:31.648249+00:00",
+    "metadata": {
+      "command_id": "cmd-78e53c26",
+      "actions": [
+        "inspect_filesystem_drift",
+        "restore_baseline_config",
+        "verify_git_cleanliness"
+      ],
+      "artifacts": []
+    }
   }
 }
