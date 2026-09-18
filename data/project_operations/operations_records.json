@@ -269,9 +269,21 @@
         "expected_state": "Clean working tree",
         "observed_state": "Dirty working tree with uncommitted modifications",
         "diff": "M backend/orchestrator/command_control_kernel.py\n M data/audit/audit_trail.jsonl\n M data/command_control/directives_journal.json\n M data/command_control/event_stream.json\n M data/command_control/operations_timeline.json\n M data/knowledge/knowledge_nodes.json\n M data/project_operations/operations_rec",
+        "remediated": true,
+        "remediated_at": "2026-09-18T19:14:33.245385+00:00",
+        "timestamp": "2026-09-18T19:12:51.774597+00:00"
+      },
+      {
+        "drift_id": "drift-305e819f",
+        "project_id": "personal-engineering-os-2026",
+        "drift_type": "CONFIG_DRIFT",
+        "severity": "LOW",
+        "expected_state": "Clean working tree",
+        "observed_state": "Dirty working tree with uncommitted modifications",
+        "diff": "M data/audit/audit_trail.jsonl\n M data/command_control/operations_timeline.json\n M data/project_operations/operations_records.json",
         "remediated": false,
         "remediated_at": null,
-        "timestamp": "2026-09-18T19:12:51.774597+00:00"
+        "timestamp": "2026-09-18T19:14:33.837384+00:00"
       }
     ],
     "maintenance_history": [],
@@ -283,7 +295,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.201849+00:00",
-    "updated_at": "2026-09-18T19:12:51.774650+00:00"
+    "updated_at": "2026-09-18T19:14:33.837469+00:00"
   },
   "control-center": {
     "project_id": "control-center",
