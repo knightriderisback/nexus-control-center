@@ -44,5 +44,174 @@
     "evidence": null,
     "replayed": false,
     "timestamp": "2026-09-18T17:54:34.883977+00:00"
+  },
+  {
+    "entry_id": "tl-735359a3",
+    "command_id": "cmd-59558bae",
+    "stage": "COMMAND",
+    "action": "intake_command",
+    "actor": "nexus-operator",
+    "target_projects": [],
+    "risk_level": "LOW",
+    "data": {
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "dry_run": true
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-18T17:58:48.415401+00:00"
+  },
+  {
+    "entry_id": "tl-6314c417",
+    "command_id": "cmd-59558bae",
+    "stage": "DECISION",
+    "action": "dry_run_plan_approved",
+    "actor": "nexus-operator",
+    "target_projects": [
+      "personal-engineering-os-2026",
+      "control-center",
+      "portfolio",
+      "project-analytics-ingestion-engine",
+      "project-api-micro-service-test",
+      "project-quick-telemetry-ping",
+      "project-quick-ping-health",
+      "rate-limiter-service",
+      "mem-storage-unit",
+      "auth-sec-service",
+      "math-calc-service",
+      "inventory-catalog-api",
+      "eval-dynamic-svc",
+      "broken-unit-test",
+      "payment-tx-processor",
+      "cache-store-engine",
+      "beta-frontend",
+      "project-alpha",
+      "project-beta"
+    ],
+    "risk_level": "LOW",
+    "data": {
+      "plan_id": "plan-9e1de212",
+      "command_id": "cmd-79cf37c3",
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "resolved_intent": "SELF_HEALING_DRIFT_RECONCILE",
+      "target_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta"
+      ],
+      "planned_actions": [
+        "inspect_filesystem_drift",
+        "restore_baseline_config",
+        "verify_git_cleanliness"
+      ],
+      "dependencies": [
+        "project_operations_engine",
+        "self_healing_engine"
+      ],
+      "risk_level": "LOW",
+      "required_approvals": [],
+      "affected_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta"
+      ],
+      "expected_artifacts": [],
+      "rollback_recovery_path": [
+        "restore_git_stash"
+      ],
+      "is_safe_to_execute": true,
+      "block_reason": null,
+      "created_at": "2026-09-18T17:58:48.432731+00:00"
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-18T17:58:48.440579+00:00"
+  },
+  {
+    "entry_id": "tl-9c63e776",
+    "command_id": "cmd-5ad2496c",
+    "stage": "COMMAND",
+    "action": "intake_command",
+    "actor": "nexus-operator",
+    "target_projects": [],
+    "risk_level": "LOW",
+    "data": {
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "dry_run": false
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-18T17:58:48.487012+00:00"
+  },
+  {
+    "entry_id": "tl-f6ad1c90",
+    "command_id": "cmd-5ad2496c",
+    "stage": "DECISION",
+    "action": "authorize_execution",
+    "actor": "nexus-operator",
+    "target_projects": [
+      "personal-engineering-os-2026",
+      "control-center",
+      "portfolio",
+      "project-analytics-ingestion-engine",
+      "project-api-micro-service-test",
+      "project-quick-telemetry-ping",
+      "project-quick-ping-health",
+      "rate-limiter-service",
+      "mem-storage-unit",
+      "auth-sec-service",
+      "math-calc-service",
+      "inventory-catalog-api",
+      "eval-dynamic-svc",
+      "broken-unit-test",
+      "payment-tx-processor",
+      "cache-store-engine",
+      "beta-frontend",
+      "project-alpha",
+      "project-beta"
+    ],
+    "risk_level": "LOW",
+    "data": {
+      "planned_actions": [
+        "inspect_filesystem_drift",
+        "restore_baseline_config",
+        "verify_git_cleanliness"
+      ]
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-18T17:58:48.515821+00:00"
   }
 ]

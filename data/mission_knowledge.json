@@ -8669,5 +8669,167 @@
     },
     "outcome": "SUCCESS",
     "timestamp": "2026-09-18T15:23:37.335751+00:00"
+  },
+  {
+    "knowledge_id": "know-bc878fd5",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-core v1.16.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-914e6886",
+      "project_id": "control-center",
+      "service_name": "nexus-core",
+      "version": "v1.16.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.5
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T17:58:07.054181+00:00"
+  },
+  {
+    "knowledge_id": "know-f159f9da",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-hud v1.16.1 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-4af4f0eb",
+      "project_id": "control-center",
+      "service_name": "nexus-hud",
+      "version": "v1.16.1",
+      "environment": "LOCAL",
+      "target_type": "STATIC_BUNDLE",
+      "deployed_url": "http://localhost:8000/dist",
+      "duration_seconds": 3.89
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T17:58:11.119236+00:00"
+  },
+  {
+    "knowledge_id": "know-5edeb0e2",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: portfolio-app v2.1.0 -> PREVIEW",
+    "details": {
+      "deployment_id": "dep-6b15a668",
+      "project_id": "portfolio",
+      "service_name": "portfolio-app",
+      "version": "v2.1.0",
+      "environment": "PREVIEW",
+      "target_type": "VERCEL_EDGE",
+      "deployed_url": "https://portfolio-app-v2-1-0.vercel.app",
+      "duration_seconds": 3.92
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T17:58:15.213310+00:00"
+  },
+  {
+    "knowledge_id": "know-7cb3a682",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: mobile-receiver v1.0.5 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-ebb62355",
+      "project_id": "termux-node",
+      "service_name": "mobile-receiver",
+      "version": "v1.0.5",
+      "environment": "LOCAL",
+      "target_type": "TERMUX_NODE",
+      "deployed_url": "http://127.0.0.1:8080/termux",
+      "duration_seconds": 3.77
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T17:58:19.158746+00:00"
+  },
+  {
+    "knowledge_id": "know-795edf9a",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-api v1.17.0 -> STAGING",
+    "details": {
+      "deployment_id": "dep-0b3829cf",
+      "project_id": "control-center",
+      "service_name": "nexus-api",
+      "version": "v1.17.0",
+      "environment": "STAGING",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.18
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T17:58:23.604581+00:00"
+  },
+  {
+    "knowledge_id": "know-7625977f",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: sample-svc v1.0.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-fa3e0ef9",
+      "project_id": "sample-app",
+      "service_name": "sample-svc",
+      "version": "v1.0.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.16
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T17:58:28.094095+00:00"
+  },
+  {
+    "knowledge_id": "know-079ad34f",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: sample-svc v1.1.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-9dd372a6",
+      "project_id": "sample-app",
+      "service_name": "sample-svc",
+      "version": "v1.1.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.85
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T17:58:33.242628+00:00"
+  },
+  {
+    "knowledge_id": "know-d6a376e4",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-core-prod v2.0.0-prod -> PRODUCTION",
+    "details": {
+      "deployment_id": "dep-43f75e88",
+      "project_id": "control-center",
+      "service_name": "nexus-core-prod",
+      "version": "v2.0.0-prod",
+      "environment": "PRODUCTION",
+      "target_type": "GCP_CLOUD_RUN",
+      "deployed_url": "https://nexus-core-prod-582208055065.asia-south1.run.app",
+      "duration_seconds": 4.31
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T17:58:42.215472+00:00"
+  },
+  {
+    "knowledge_id": "know-847c95e3",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-tool-svc v1.200.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-052501c4",
+      "project_id": "control-center",
+      "service_name": "nexus-tool-svc",
+      "version": "v1.200.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 5.43
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T17:58:47.885370+00:00"
   }
 ]

@@ -26514,5 +26514,1381 @@
       "rollback_reason": "API test rollback",
       "rolled_back_at": "2026-09-18T15:22:27.604271+00:00"
     }
+  },
+  "dep-914e6886": {
+    "deployment_id": "dep-914e6886",
+    "project_id": "control-center",
+    "service_name": "nexus-core",
+    "version": "v1.16.0",
+    "commit_sha": "HEAD",
+    "environment": "LOCAL",
+    "target_type": "LOCAL_PROCESS",
+    "strategy": "DIRECT_REPLACE",
+    "status": "LIVE",
+    "current_stage": "PROMOTE_CANARY",
+    "stages": [
+      {
+        "stage_name": "PRE_FLIGHT",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:02.485940+00:00",
+        "completed_at": "2026-09-18T17:58:02.486872+00:00",
+        "duration_ms": 0.8,
+        "logs": [
+          "Verifying pre-flight conditions for project 'control-center'...",
+          "Target: LOCAL_PROCESS | Env: LOCAL | Strategy: DIRECT_REPLACE",
+          "Validating local host runtime environment...",
+          "[PASS] Server entrypoint verified: /root/control-center/backend/server.py",
+          "[PASS] Pre-flight validation passed."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "BUILD_PACKAGING",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:02.546701+00:00",
+        "completed_at": "2026-09-18T17:58:02.953359+00:00",
+        "duration_ms": 406.56,
+        "logs": [
+          "Executing packaging strategy for target 'LOCAL_PROCESS'...",
+          "Verifying Python runtime and compiling bytecode for 'nexus-core'...",
+          "[PASS] Bytecode compilation verified. Runtime package ready."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "POLICY_FINOPS",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:03.024808+00:00",
+        "completed_at": "2026-09-18T17:58:06.505326+00:00",
+        "duration_ms": 3480.43,
+        "logs": [
+          "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+          "Security Gate dep-ev-da203f30: 5 findings, decision=BLOCK",
+          "Current incurred cost: $0.00. Budget limit: $0.00.",
+          "[PASS] Strict zero-spend policy & Security Gate verified."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "APPROVAL_GATE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:06.580102+00:00",
+        "completed_at": "2026-09-18T17:58:06.580165+00:00",
+        "duration_ms": 0.02,
+        "logs": [
+          "Evaluating approval policy (Risk Level: LOW)...",
+          "[PASS] Auto-approved for LOCAL deployment tier."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "DISPATCH_DEPLOY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:06.640056+00:00",
+        "completed_at": "2026-09-18T17:58:06.640275+00:00",
+        "duration_ms": 0.13,
+        "logs": [
+          "Dispatching payload to target 'LOCAL_PROCESS'...",
+          "Verifying local port 8000 availability and host binding...",
+          "Bound local service endpoint: http://localhost:8000",
+          "[PASS] Host process supervisor established live binding."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "HEALTH_PROBE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:06.701620+00:00",
+        "completed_at": "2026-09-18T17:58:06.817503+00:00",
+        "duration_ms": 115.77,
+        "logs": [
+          "Executing synthetic SLA health probe on http://localhost:8000...",
+          "Executing real health probe against http://localhost:8000/api/health...",
+          "[PASS] Health probe returned HTTP 200 OK (latency: 8.5ms)."
+        ],
+        "error": null,
+        "metrics": {
+          "probe_status": 200,
+          "latency_ms": 8.5
+        }
+      },
+      {
+        "stage_name": "PROMOTE_CANARY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:06.919547+00:00",
+        "completed_at": "2026-09-18T17:58:06.919619+00:00",
+        "duration_ms": 0.02,
+        "logs": [
+          "Applying deployment strategy: DIRECT_REPLACE...",
+          "100% traffic switched to active release v1.16.0.",
+          "[PASS] Traffic routing table updated."
+        ],
+        "error": null,
+        "metrics": {}
+      }
+    ],
+    "deployed_url": "http://localhost:8000",
+    "canary_percentage": 100,
+    "active_instances": 1,
+    "health_status": "HEALTHY",
+    "error": null,
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "approval_id": null,
+    "created_by": "test-suite",
+    "created_at": "2026-09-18T17:58:02.424370+00:00",
+    "completed_at": "2026-09-18T17:58:06.984074+00:00",
+    "duration_seconds": 4.5,
+    "rollback_target_id": null,
+    "changelog": [],
+    "dora_lead_time_seconds": 4.5,
+    "metadata": {
+      "notes": null,
+      "health_check_path": "/api/health",
+      "auto_rollback": true
+    }
+  },
+  "dep-4af4f0eb": {
+    "deployment_id": "dep-4af4f0eb",
+    "project_id": "control-center",
+    "service_name": "nexus-hud",
+    "version": "v1.16.1",
+    "commit_sha": "HEAD",
+    "environment": "LOCAL",
+    "target_type": "STATIC_BUNDLE",
+    "strategy": "DIRECT_REPLACE",
+    "status": "LIVE",
+    "current_stage": "PROMOTE_CANARY",
+    "stages": [
+      {
+        "stage_name": "PRE_FLIGHT",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:07.159177+00:00",
+        "completed_at": "2026-09-18T17:58:07.159827+00:00",
+        "duration_ms": 0.57,
+        "logs": [
+          "Verifying pre-flight conditions for project 'control-center'...",
+          "Target: STATIC_BUNDLE | Env: LOCAL | Strategy: DIRECT_REPLACE",
+          "Checking frontend directory: /root/control-center/frontend",
+          "[PASS] Frontend source structure validated."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "BUILD_PACKAGING",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:07.246033+00:00",
+        "completed_at": "2026-09-18T17:58:07.248264+00:00",
+        "duration_ms": 2.09,
+        "logs": [
+          "Executing packaging strategy for target 'STATIC_BUNDLE'...",
+          "Verifying static output bundle at: /root/control-center/frontend/dist",
+          "Found existing production bundle. SHA-256: 6eb8b2fa3553",
+          "[PASS] Static bundle packaging verified."
+        ],
+        "error": null,
+        "metrics": {
+          "bundle_hash": "6eb8b2fa3553"
+        }
+      },
+      {
+        "stage_name": "POLICY_FINOPS",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:07.326647+00:00",
+        "completed_at": "2026-09-18T17:58:10.701582+00:00",
+        "duration_ms": 3374.86,
+        "logs": [
+          "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+          "Security Gate dep-ev-35a1776a: 5 findings, decision=BLOCK",
+          "Current incurred cost: $0.00. Budget limit: $0.00.",
+          "[PASS] Strict zero-spend policy & Security Gate verified."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "APPROVAL_GATE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:10.761572+00:00",
+        "completed_at": "2026-09-18T17:58:10.761630+00:00",
+        "duration_ms": 0.02,
+        "logs": [
+          "Evaluating approval policy (Risk Level: LOW)...",
+          "[PASS] Auto-approved for LOCAL deployment tier."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "DISPATCH_DEPLOY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:10.820564+00:00",
+        "completed_at": "2026-09-18T17:58:10.820846+00:00",
+        "duration_ms": 0.05,
+        "logs": [
+          "Dispatching payload to target 'STATIC_BUNDLE'...",
+          "Static assets mounted at: http://localhost:8000/dist",
+          "[PASS] Asset routes configured on static server."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "HEALTH_PROBE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:10.913542+00:00",
+        "completed_at": "2026-09-18T17:58:10.914646+00:00",
+        "duration_ms": 0.98,
+        "logs": [
+          "Executing synthetic SLA health probe on http://localhost:8000/dist...",
+          "[PASS] Static bundle entrypoint accessible (latency: 1.8ms)."
+        ],
+        "error": null,
+        "metrics": {
+          "probe_status": 200,
+          "latency_ms": 1.8
+        }
+      },
+      {
+        "stage_name": "PROMOTE_CANARY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:10.986226+00:00",
+        "completed_at": "2026-09-18T17:58:10.986297+00:00",
+        "duration_ms": 0.02,
+        "logs": [
+          "Applying deployment strategy: DIRECT_REPLACE...",
+          "100% traffic switched to active release v1.16.1.",
+          "[PASS] Traffic routing table updated."
+        ],
+        "error": null,
+        "metrics": {}
+      }
+    ],
+    "deployed_url": "http://localhost:8000/dist",
+    "canary_percentage": 100,
+    "active_instances": 1,
+    "health_status": "HEALTHY",
+    "error": null,
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "approval_id": null,
+    "created_by": "test-suite",
+    "created_at": "2026-09-18T17:58:07.097085+00:00",
+    "completed_at": "2026-09-18T17:58:11.046302+00:00",
+    "duration_seconds": 3.89,
+    "rollback_target_id": null,
+    "changelog": [],
+    "dora_lead_time_seconds": 3.89,
+    "metadata": {
+      "notes": null,
+      "health_check_path": "/api/health",
+      "auto_rollback": true
+    }
+  },
+  "dep-6b15a668": {
+    "deployment_id": "dep-6b15a668",
+    "project_id": "portfolio",
+    "service_name": "portfolio-app",
+    "version": "v2.1.0",
+    "commit_sha": "HEAD",
+    "environment": "PREVIEW",
+    "target_type": "VERCEL_EDGE",
+    "strategy": "BLUE_GREEN",
+    "status": "LIVE",
+    "current_stage": "PROMOTE_CANARY",
+    "stages": [
+      {
+        "stage_name": "PRE_FLIGHT",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:11.219666+00:00",
+        "completed_at": "2026-09-18T17:58:11.219729+00:00",
+        "duration_ms": 0.02,
+        "logs": [
+          "Verifying pre-flight conditions for project 'portfolio'...",
+          "Target: VERCEL_EDGE | Env: PREVIEW | Strategy: BLUE_GREEN",
+          "Validating Vercel ecosystem configuration & Hobby Tier bounds...",
+          "Checking vercel.json routing and API headers...",
+          "[PASS] Edge configuration verified. Cost profile: $0.00 / month."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "BUILD_PACKAGING",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:11.279599+00:00",
+        "completed_at": "2026-09-18T17:58:11.279689+00:00",
+        "duration_ms": 0.03,
+        "logs": [
+          "Executing packaging strategy for target 'VERCEL_EDGE'...",
+          "Synthesizing edge serverless artifacts for 'portfolio-app' (v2.1.0)...",
+          "Packaged serverless routes: /api/* -> Edge Functions.",
+          "[PASS] Edge package bundle synthesized."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "POLICY_FINOPS",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:11.341158+00:00",
+        "completed_at": "2026-09-18T17:58:14.712754+00:00",
+        "duration_ms": 3371.49,
+        "logs": [
+          "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+          "Security Gate dep-ev-3871bfe9: 5 findings, decision=BLOCK",
+          "Current incurred cost: $0.00. Budget limit: $0.00.",
+          "[PASS] Strict zero-spend policy & Security Gate verified."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "APPROVAL_GATE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:14.838205+00:00",
+        "completed_at": "2026-09-18T17:58:14.838285+00:00",
+        "duration_ms": 0.02,
+        "logs": [
+          "Evaluating approval policy (Risk Level: LOW)...",
+          "[PASS] Auto-approved for PREVIEW deployment tier."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "DISPATCH_DEPLOY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:14.897447+00:00",
+        "completed_at": "2026-09-18T17:58:14.897523+00:00",
+        "duration_ms": 0.03,
+        "logs": [
+          "Dispatching payload to target 'VERCEL_EDGE'...",
+          "Vercel deployment dispatched. Live Edge URL: https://portfolio-app-v2-1-0.vercel.app",
+          "[PASS] CDN edge propagation complete across regions: iad1, bom1."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "HEALTH_PROBE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:14.957172+00:00",
+        "completed_at": "2026-09-18T17:58:14.957275+00:00",
+        "duration_ms": 0.04,
+        "logs": [
+          "Executing synthetic SLA health probe on https://portfolio-app-v2-1-0.vercel.app...",
+          "Verifying Vercel edge endpoint status for https://portfolio-app-v2-1-0.vercel.app...",
+          "[PASS] Vercel Edge health verified (status: READY, SSL: ACTIVE)."
+        ],
+        "error": null,
+        "metrics": {
+          "probe_status": 200,
+          "latency_ms": 24.5
+        }
+      },
+      {
+        "stage_name": "PROMOTE_CANARY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:15.061526+00:00",
+        "completed_at": "2026-09-18T17:58:15.061604+00:00",
+        "duration_ms": 0.02,
+        "logs": [
+          "Applying deployment strategy: BLUE_GREEN...",
+          "100% traffic switched to active release v2.1.0.",
+          "[PASS] Traffic routing table updated."
+        ],
+        "error": null,
+        "metrics": {}
+      }
+    ],
+    "deployed_url": "https://portfolio-app-v2-1-0.vercel.app",
+    "canary_percentage": 100,
+    "active_instances": 1,
+    "health_status": "HEALTHY",
+    "error": null,
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "approval_id": null,
+    "created_by": "test-suite",
+    "created_at": "2026-09-18T17:58:11.159822+00:00",
+    "completed_at": "2026-09-18T17:58:15.141282+00:00",
+    "duration_seconds": 3.92,
+    "rollback_target_id": null,
+    "changelog": [],
+    "dora_lead_time_seconds": 3.92,
+    "metadata": {
+      "notes": null,
+      "health_check_path": "/api/health",
+      "auto_rollback": true
+    }
+  },
+  "dep-ebb62355": {
+    "deployment_id": "dep-ebb62355",
+    "project_id": "termux-node",
+    "service_name": "mobile-receiver",
+    "version": "v1.0.5",
+    "commit_sha": "HEAD",
+    "environment": "LOCAL",
+    "target_type": "TERMUX_NODE",
+    "strategy": "DIRECT_REPLACE",
+    "status": "LIVE",
+    "current_stage": "PROMOTE_CANARY",
+    "stages": [
+      {
+        "stage_name": "PRE_FLIGHT",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:15.322334+00:00",
+        "completed_at": "2026-09-18T17:58:15.322471+00:00",
+        "duration_ms": 0.06,
+        "logs": [
+          "Verifying pre-flight conditions for project 'termux-node'...",
+          "Target: TERMUX_NODE | Env: LOCAL | Strategy: DIRECT_REPLACE",
+          "Inspecting Termux mobile node telemetry and battery status...",
+          "Termux device online (Mobile Android (Termux Node)) \u2022 Battery: 84%",
+          "[PASS] Mobile node preflight confirmed."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "BUILD_PACKAGING",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:15.383536+00:00",
+        "completed_at": "2026-09-18T17:58:15.383638+00:00",
+        "duration_ms": 0.04,
+        "logs": [
+          "Executing packaging strategy for target 'TERMUX_NODE'...",
+          "Packaging OTA distribution archive for 'mobile-receiver'...",
+          "Synthesized Termux shell launcher and socket listener.",
+          "[PASS] Mobile package ready for dispatch."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "POLICY_FINOPS",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:15.447684+00:00",
+        "completed_at": "2026-09-18T17:58:18.704508+00:00",
+        "duration_ms": 3256.75,
+        "logs": [
+          "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+          "Security Gate dep-ev-c238b74e: 5 findings, decision=BLOCK",
+          "Current incurred cost: $0.00. Budget limit: $0.00.",
+          "[PASS] Strict zero-spend policy & Security Gate verified."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "APPROVAL_GATE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:18.847631+00:00",
+        "completed_at": "2026-09-18T17:58:18.847685+00:00",
+        "duration_ms": 0.01,
+        "logs": [
+          "Evaluating approval policy (Risk Level: LOW)...",
+          "[PASS] Auto-approved for LOCAL deployment tier."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "DISPATCH_DEPLOY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:18.909282+00:00",
+        "completed_at": "2026-09-18T17:58:18.909393+00:00",
+        "duration_ms": 0.04,
+        "logs": [
+          "Dispatching payload to target 'TERMUX_NODE'...",
+          "Dispatched OTA package to Termux endpoint: http://127.0.0.1:8080/termux",
+          "[PASS] Mobile node receiver acknowledged payload."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "HEALTH_PROBE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:18.970633+00:00",
+        "completed_at": "2026-09-18T17:58:18.970739+00:00",
+        "duration_ms": 0.04,
+        "logs": [
+          "Executing synthetic SLA health probe on http://127.0.0.1:8080/termux...",
+          "Checking Termux node heartbeat acknowledgment...",
+          "[PASS] Mobile node heartbeat active."
+        ],
+        "error": null,
+        "metrics": {
+          "probe_status": 200,
+          "latency_ms": 18.2
+        }
+      },
+      {
+        "stage_name": "PROMOTE_CANARY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:19.029914+00:00",
+        "completed_at": "2026-09-18T17:58:19.029969+00:00",
+        "duration_ms": 0.01,
+        "logs": [
+          "Applying deployment strategy: DIRECT_REPLACE...",
+          "100% traffic switched to active release v1.0.5.",
+          "[PASS] Traffic routing table updated."
+        ],
+        "error": null,
+        "metrics": {}
+      }
+    ],
+    "deployed_url": "http://127.0.0.1:8080/termux",
+    "canary_percentage": 100,
+    "active_instances": 1,
+    "health_status": "HEALTHY",
+    "error": null,
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "approval_id": null,
+    "created_by": "test-suite",
+    "created_at": "2026-09-18T17:58:15.257282+00:00",
+    "completed_at": "2026-09-18T17:58:19.090072+00:00",
+    "duration_seconds": 3.77,
+    "rollback_target_id": null,
+    "changelog": [],
+    "dora_lead_time_seconds": 3.77,
+    "metadata": {
+      "notes": null,
+      "health_check_path": "/api/health",
+      "auto_rollback": true
+    }
+  },
+  "dep-0b3829cf": {
+    "deployment_id": "dep-0b3829cf",
+    "project_id": "control-center",
+    "service_name": "nexus-api",
+    "version": "v1.17.0",
+    "commit_sha": "HEAD",
+    "environment": "STAGING",
+    "target_type": "LOCAL_PROCESS",
+    "strategy": "CANARY",
+    "status": "LIVE",
+    "current_stage": "PROMOTE_CANARY",
+    "stages": [
+      {
+        "stage_name": "PRE_FLIGHT",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:19.288495+00:00",
+        "completed_at": "2026-09-18T17:58:19.289682+00:00",
+        "duration_ms": 1.06,
+        "logs": [
+          "Verifying pre-flight conditions for project 'control-center'...",
+          "Target: LOCAL_PROCESS | Env: STAGING | Strategy: CANARY",
+          "Validating local host runtime environment...",
+          "[PASS] Server entrypoint verified: /root/control-center/backend/server.py",
+          "[PASS] Pre-flight validation passed."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "BUILD_PACKAGING",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:19.381577+00:00",
+        "completed_at": "2026-09-18T17:58:19.739362+00:00",
+        "duration_ms": 357.72,
+        "logs": [
+          "Executing packaging strategy for target 'LOCAL_PROCESS'...",
+          "Verifying Python runtime and compiling bytecode for 'nexus-api'...",
+          "[PASS] Bytecode compilation verified. Runtime package ready."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "POLICY_FINOPS",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:19.804826+00:00",
+        "completed_at": "2026-09-18T17:58:23.037008+00:00",
+        "duration_ms": 3232.09,
+        "logs": [
+          "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+          "Security Gate dep-ev-4b8600f5: 5 findings, decision=BLOCK",
+          "Current incurred cost: $0.00. Budget limit: $0.00.",
+          "[PASS] Strict zero-spend policy & Security Gate verified."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "APPROVAL_GATE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:23.118464+00:00",
+        "completed_at": "2026-09-18T17:58:23.118529+00:00",
+        "duration_ms": 0.01,
+        "logs": [
+          "Evaluating approval policy (Risk Level: MEDIUM)...",
+          "[PASS] Auto-approved for STAGING deployment tier."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "DISPATCH_DEPLOY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:23.216858+00:00",
+        "completed_at": "2026-09-18T17:58:23.216942+00:00",
+        "duration_ms": 0.04,
+        "logs": [
+          "Dispatching payload to target 'LOCAL_PROCESS'...",
+          "Verifying local port 8000 availability and host binding...",
+          "Bound local service endpoint: http://localhost:8000",
+          "[PASS] Host process supervisor established live binding."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "HEALTH_PROBE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:23.304427+00:00",
+        "completed_at": "2026-09-18T17:58:23.335438+00:00",
+        "duration_ms": 30.94,
+        "logs": [
+          "Executing synthetic SLA health probe on http://localhost:8000...",
+          "Executing real health probe against http://localhost:8000/api/health...",
+          "[PASS] Health probe returned HTTP 200 OK (latency: 8.5ms)."
+        ],
+        "error": null,
+        "metrics": {
+          "probe_status": 200,
+          "latency_ms": 8.5
+        }
+      },
+      {
+        "stage_name": "PROMOTE_CANARY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:23.406423+00:00",
+        "completed_at": "2026-09-18T17:58:23.406496+00:00",
+        "duration_ms": 0.02,
+        "logs": [
+          "Applying deployment strategy: CANARY...",
+          "Canary routing activated: 25% traffic routed to v1.17.0, 75% to baseline.",
+          "[PASS] Traffic routing table updated."
+        ],
+        "error": null,
+        "metrics": {}
+      }
+    ],
+    "deployed_url": "http://localhost:8000",
+    "canary_percentage": 100,
+    "active_instances": 1,
+    "health_status": "HEALTHY",
+    "error": null,
+    "risk_level": "MEDIUM",
+    "requires_approval": false,
+    "approval_id": null,
+    "created_by": "test-suite",
+    "created_at": "2026-09-18T17:58:19.203750+00:00",
+    "completed_at": "2026-09-18T17:58:23.471483+00:00",
+    "duration_seconds": 4.18,
+    "rollback_target_id": null,
+    "changelog": [],
+    "dora_lead_time_seconds": 4.18,
+    "metadata": {
+      "notes": null,
+      "health_check_path": "/api/health",
+      "auto_rollback": true
+    }
+  },
+  "dep-fa3e0ef9": {
+    "deployment_id": "dep-fa3e0ef9",
+    "project_id": "sample-app",
+    "service_name": "sample-svc",
+    "version": "v1.0.0",
+    "commit_sha": "HEAD",
+    "environment": "LOCAL",
+    "target_type": "LOCAL_PROCESS",
+    "strategy": "DIRECT_REPLACE",
+    "status": "LIVE",
+    "current_stage": "PROMOTE_CANARY",
+    "stages": [
+      {
+        "stage_name": "PRE_FLIGHT",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:23.847611+00:00",
+        "completed_at": "2026-09-18T17:58:23.848104+00:00",
+        "duration_ms": 0.44,
+        "logs": [
+          "Verifying pre-flight conditions for project 'sample-app'...",
+          "Target: LOCAL_PROCESS | Env: LOCAL | Strategy: DIRECT_REPLACE",
+          "Validating local host runtime environment...",
+          "[PASS] Server entrypoint verified: /root/control-center/backend/server.py",
+          "[PASS] Pre-flight validation passed."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "BUILD_PACKAGING",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:23.910481+00:00",
+        "completed_at": "2026-09-18T17:58:24.295830+00:00",
+        "duration_ms": 385.24,
+        "logs": [
+          "Executing packaging strategy for target 'LOCAL_PROCESS'...",
+          "Verifying Python runtime and compiling bytecode for 'sample-svc'...",
+          "[PASS] Bytecode compilation verified. Runtime package ready."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "POLICY_FINOPS",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:24.378772+00:00",
+        "completed_at": "2026-09-18T17:58:27.629167+00:00",
+        "duration_ms": 3250.32,
+        "logs": [
+          "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+          "Security Gate dep-ev-c1299d01: 5 findings, decision=BLOCK",
+          "Current incurred cost: $0.00. Budget limit: $0.00.",
+          "[PASS] Strict zero-spend policy & Security Gate verified."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "APPROVAL_GATE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:27.711156+00:00",
+        "completed_at": "2026-09-18T17:58:27.711307+00:00",
+        "duration_ms": 0.03,
+        "logs": [
+          "Evaluating approval policy (Risk Level: LOW)...",
+          "[PASS] Auto-approved for LOCAL deployment tier."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "DISPATCH_DEPLOY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:27.797383+00:00",
+        "completed_at": "2026-09-18T17:58:27.797458+00:00",
+        "duration_ms": 0.03,
+        "logs": [
+          "Dispatching payload to target 'LOCAL_PROCESS'...",
+          "Verifying local port 8000 availability and host binding...",
+          "Bound local service endpoint: http://localhost:8000",
+          "[PASS] Host process supervisor established live binding."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "HEALTH_PROBE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:27.856551+00:00",
+        "completed_at": "2026-09-18T17:58:27.878782+00:00",
+        "duration_ms": 22.13,
+        "logs": [
+          "Executing synthetic SLA health probe on http://localhost:8000...",
+          "Executing real health probe against http://localhost:8000/api/health...",
+          "[PASS] Health probe returned HTTP 200 OK (latency: 8.5ms)."
+        ],
+        "error": null,
+        "metrics": {
+          "probe_status": 200,
+          "latency_ms": 8.5
+        }
+      },
+      {
+        "stage_name": "PROMOTE_CANARY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:27.943498+00:00",
+        "completed_at": "2026-09-18T17:58:27.943580+00:00",
+        "duration_ms": 0.02,
+        "logs": [
+          "Applying deployment strategy: DIRECT_REPLACE...",
+          "100% traffic switched to active release v1.0.0.",
+          "[PASS] Traffic routing table updated."
+        ],
+        "error": null,
+        "metrics": {}
+      }
+    ],
+    "deployed_url": "http://localhost:8000",
+    "canary_percentage": 100,
+    "active_instances": 1,
+    "health_status": "HEALTHY",
+    "error": null,
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "approval_id": null,
+    "created_by": "test-suite",
+    "created_at": "2026-09-18T17:58:23.784533+00:00",
+    "completed_at": "2026-09-18T17:58:28.011158+00:00",
+    "duration_seconds": 4.16,
+    "rollback_target_id": null,
+    "changelog": [],
+    "dora_lead_time_seconds": 4.16,
+    "metadata": {
+      "notes": null,
+      "health_check_path": "/api/health",
+      "auto_rollback": true
+    }
+  },
+  "dep-9dd372a6": {
+    "deployment_id": "dep-9dd372a6",
+    "project_id": "sample-app",
+    "service_name": "sample-svc",
+    "version": "v1.1.0",
+    "commit_sha": "HEAD",
+    "environment": "LOCAL",
+    "target_type": "LOCAL_PROCESS",
+    "strategy": "DIRECT_REPLACE",
+    "status": "ROLLED_BACK",
+    "current_stage": "PROMOTE_CANARY",
+    "stages": [
+      {
+        "stage_name": "PRE_FLIGHT",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:28.325273+00:00",
+        "completed_at": "2026-09-18T17:58:28.327237+00:00",
+        "duration_ms": 1.24,
+        "logs": [
+          "Verifying pre-flight conditions for project 'sample-app'...",
+          "Target: LOCAL_PROCESS | Env: LOCAL | Strategy: DIRECT_REPLACE",
+          "Validating local host runtime environment...",
+          "[PASS] Server entrypoint verified: /root/control-center/backend/server.py",
+          "[PASS] Pre-flight validation passed."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "BUILD_PACKAGING",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:28.441937+00:00",
+        "completed_at": "2026-09-18T17:58:28.920150+00:00",
+        "duration_ms": 478.14,
+        "logs": [
+          "Executing packaging strategy for target 'LOCAL_PROCESS'...",
+          "Verifying Python runtime and compiling bytecode for 'sample-svc'...",
+          "[PASS] Bytecode compilation verified. Runtime package ready."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "POLICY_FINOPS",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:28.984545+00:00",
+        "completed_at": "2026-09-18T17:58:32.675734+00:00",
+        "duration_ms": 3691.13,
+        "logs": [
+          "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+          "Security Gate dep-ev-6217b648: 5 findings, decision=BLOCK",
+          "Current incurred cost: $0.00. Budget limit: $0.00.",
+          "[PASS] Strict zero-spend policy & Security Gate verified."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "APPROVAL_GATE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:32.811297+00:00",
+        "completed_at": "2026-09-18T17:58:32.811363+00:00",
+        "duration_ms": 0.01,
+        "logs": [
+          "Evaluating approval policy (Risk Level: LOW)...",
+          "[PASS] Auto-approved for LOCAL deployment tier."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "DISPATCH_DEPLOY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:32.889697+00:00",
+        "completed_at": "2026-09-18T17:58:32.889782+00:00",
+        "duration_ms": 0.03,
+        "logs": [
+          "Dispatching payload to target 'LOCAL_PROCESS'...",
+          "Verifying local port 8000 availability and host binding...",
+          "Bound local service endpoint: http://localhost:8000",
+          "[PASS] Host process supervisor established live binding."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "HEALTH_PROBE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:32.981618+00:00",
+        "completed_at": "2026-09-18T17:58:33.023313+00:00",
+        "duration_ms": 41.57,
+        "logs": [
+          "Executing synthetic SLA health probe on http://localhost:8000...",
+          "Executing real health probe against http://localhost:8000/api/health...",
+          "[PASS] Health probe returned HTTP 200 OK (latency: 8.5ms)."
+        ],
+        "error": null,
+        "metrics": {
+          "probe_status": 200,
+          "latency_ms": 8.5
+        }
+      },
+      {
+        "stage_name": "PROMOTE_CANARY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:33.098910+00:00",
+        "completed_at": "2026-09-18T17:58:33.098987+00:00",
+        "duration_ms": 0.02,
+        "logs": [
+          "Applying deployment strategy: DIRECT_REPLACE...",
+          "100% traffic switched to active release v1.1.0.",
+          "[PASS] Traffic routing table updated."
+        ],
+        "error": null,
+        "metrics": {}
+      }
+    ],
+    "deployed_url": "http://localhost:8000",
+    "canary_percentage": 100,
+    "active_instances": 1,
+    "health_status": "ROLLED_BACK",
+    "error": null,
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "approval_id": null,
+    "created_by": "test-suite",
+    "created_at": "2026-09-18T17:58:28.195311+00:00",
+    "completed_at": "2026-09-18T17:58:33.177384+00:00",
+    "duration_seconds": 4.85,
+    "rollback_target_id": "dep-9dd372a6",
+    "changelog": [],
+    "dora_lead_time_seconds": 4.85,
+    "metadata": {
+      "notes": null,
+      "health_check_path": "/api/health",
+      "auto_rollback": true,
+      "rollback_reason": "Canary metrics degradation",
+      "rolled_back_at": "2026-09-18T17:58:33.287673+00:00"
+    }
+  },
+  "dep-43f75e88": {
+    "deployment_id": "dep-43f75e88",
+    "project_id": "control-center",
+    "service_name": "nexus-core-prod",
+    "version": "v2.0.0-prod",
+    "commit_sha": "HEAD",
+    "environment": "PRODUCTION",
+    "target_type": "GCP_CLOUD_RUN",
+    "strategy": "BLUE_GREEN",
+    "status": "LIVE",
+    "current_stage": "PROMOTE_CANARY",
+    "stages": [
+      {
+        "stage_name": "PRE_FLIGHT",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:37.826248+00:00",
+        "completed_at": "2026-09-18T17:58:37.827920+00:00",
+        "duration_ms": 1.62,
+        "logs": [
+          "Verifying pre-flight conditions for project 'control-center'...",
+          "Target: GCP_CLOUD_RUN | Env: PRODUCTION | Strategy: BLUE_GREEN",
+          "Executing GCP Isolation & FinOps Zero-Cost verification...",
+          "[PASS] Target project is safe. Protected legacy projects isolated.",
+          "[PASS] Free Tier quota verified. No billable resources required.",
+          "Verifying pre-flight conditions for project 'control-center'...",
+          "Target: GCP_CLOUD_RUN | Env: PRODUCTION | Strategy: BLUE_GREEN",
+          "Executing GCP Isolation & FinOps Zero-Cost verification...",
+          "[PASS] Target project is safe. Protected legacy projects isolated.",
+          "[PASS] Free Tier quota verified. No billable resources required."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "BUILD_PACKAGING",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:37.889274+00:00",
+        "completed_at": "2026-09-18T17:58:37.889369+00:00",
+        "duration_ms": 0.04,
+        "logs": [
+          "Executing packaging strategy for target 'GCP_CLOUD_RUN'...",
+          "Synthesizing keyless Cloud Build container image: asia-south1-docker.pkg.dev/personal-engineering-os-2026/nexus-repo/nexus-core-prod:v2.0.0-prod",
+          "Validated Dockerfile multi-stage build manifest & keyless WIF credentials.",
+          "[PASS] Container image packaging complete.",
+          "Executing packaging strategy for target 'GCP_CLOUD_RUN'...",
+          "Synthesizing keyless Cloud Build container image: asia-south1-docker.pkg.dev/personal-engineering-os-2026/nexus-repo/nexus-core-prod:v2.0.0-prod",
+          "Validated Dockerfile multi-stage build manifest & keyless WIF credentials.",
+          "[PASS] Container image packaging complete."
+        ],
+        "error": null,
+        "metrics": {
+          "image_tag": "asia-south1-docker.pkg.dev/personal-engineering-os-2026/nexus-repo/nexus-core-prod:v2.0.0-prod"
+        }
+      },
+      {
+        "stage_name": "POLICY_FINOPS",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:37.948296+00:00",
+        "completed_at": "2026-09-18T17:58:41.560229+00:00",
+        "duration_ms": 3611.85,
+        "logs": [
+          "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+          "Security Gate dep-ev-8bb805b3: 5 findings, decision=BLOCK",
+          "Current incurred cost: $0.00. Budget limit: $0.00.",
+          "[PASS] Strict zero-spend policy & Security Gate verified.",
+          "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+          "Security Gate dep-ev-88a26949: 5 findings, decision=BLOCK",
+          "Current incurred cost: $0.00. Budget limit: $0.00.",
+          "[PASS] Strict zero-spend policy & Security Gate verified."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "APPROVAL_GATE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:41.665942+00:00",
+        "completed_at": "2026-09-18T17:58:41.666007+00:00",
+        "duration_ms": 0.02,
+        "logs": [
+          "Evaluating approval policy (Risk Level: CRITICAL)...",
+          "[HOLD] Requesting Human Approval for CRITICAL PRODUCTION deployment...",
+          "Registered pending Approval Request: appr-e1dfd2",
+          "Evaluating approval policy (Risk Level: CRITICAL)...",
+          "[PASS] Auto-approved for PRODUCTION deployment tier."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "DISPATCH_DEPLOY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:41.828740+00:00",
+        "completed_at": "2026-09-18T17:58:41.828859+00:00",
+        "duration_ms": 0.05,
+        "logs": [
+          "Dispatching payload to target 'GCP_CLOUD_RUN'...",
+          "Dispatched container rollout to Cloud Run asia-south1: https://nexus-core-prod-582208055065.asia-south1.run.app",
+          "[PASS] Cloud Run revision provisioned (0 static keys used)."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "HEALTH_PROBE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:41.933404+00:00",
+        "completed_at": "2026-09-18T17:58:41.933564+00:00",
+        "duration_ms": 0.05,
+        "logs": [
+          "Executing synthetic SLA health probe on https://nexus-core-prod-582208055065.asia-south1.run.app...",
+          "Probing Cloud Run container SLA health on https://nexus-core-prod-582208055065.asia-south1.run.app...",
+          "[PASS] Cloud Run container health probe verified (latency: 32.0ms)."
+        ],
+        "error": null,
+        "metrics": {
+          "probe_status": 200,
+          "latency_ms": 32.0
+        }
+      },
+      {
+        "stage_name": "PROMOTE_CANARY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:42.034579+00:00",
+        "completed_at": "2026-09-18T17:58:42.034696+00:00",
+        "duration_ms": 0.03,
+        "logs": [
+          "Applying deployment strategy: BLUE_GREEN...",
+          "100% traffic switched to active release v2.0.0-prod.",
+          "[PASS] Traffic routing table updated."
+        ],
+        "error": null,
+        "metrics": {}
+      }
+    ],
+    "deployed_url": "https://nexus-core-prod-582208055065.asia-south1.run.app",
+    "canary_percentage": 100,
+    "active_instances": 1,
+    "health_status": "HEALTHY",
+    "error": null,
+    "risk_level": "CRITICAL",
+    "requires_approval": false,
+    "approval_id": "appr-e1dfd2",
+    "created_by": "test-suite",
+    "created_at": "2026-09-18T17:58:33.358124+00:00",
+    "completed_at": "2026-09-18T17:58:42.132850+00:00",
+    "duration_seconds": 4.31,
+    "rollback_target_id": null,
+    "changelog": [],
+    "dora_lead_time_seconds": 4.31,
+    "metadata": {
+      "notes": null,
+      "health_check_path": "/api/health",
+      "auto_rollback": true
+    }
+  },
+  "dep-052501c4": {
+    "deployment_id": "dep-052501c4",
+    "project_id": "control-center",
+    "service_name": "nexus-tool-svc",
+    "version": "v1.200.0",
+    "commit_sha": "HEAD",
+    "environment": "LOCAL",
+    "target_type": "LOCAL_PROCESS",
+    "strategy": "DIRECT_REPLACE",
+    "status": "LIVE",
+    "current_stage": "PROMOTE_CANARY",
+    "stages": [
+      {
+        "stage_name": "PRE_FLIGHT",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:42.349014+00:00",
+        "completed_at": "2026-09-18T17:58:42.351004+00:00",
+        "duration_ms": 1.86,
+        "logs": [
+          "Verifying pre-flight conditions for project 'control-center'...",
+          "Target: LOCAL_PROCESS | Env: LOCAL | Strategy: DIRECT_REPLACE",
+          "Validating local host runtime environment...",
+          "[PASS] Server entrypoint verified: /root/control-center/backend/server.py",
+          "[PASS] Pre-flight validation passed."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "BUILD_PACKAGING",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:42.430851+00:00",
+        "completed_at": "2026-09-18T17:58:43.064523+00:00",
+        "duration_ms": 633.62,
+        "logs": [
+          "Executing packaging strategy for target 'LOCAL_PROCESS'...",
+          "Verifying Python runtime and compiling bytecode for 'nexus-tool-svc'...",
+          "[PASS] Bytecode compilation verified. Runtime package ready."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "POLICY_FINOPS",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:43.139881+00:00",
+        "completed_at": "2026-09-18T17:58:47.240644+00:00",
+        "duration_ms": 4100.67,
+        "logs": [
+          "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+          "Security Gate dep-ev-ebfcf394: 5 findings, decision=BLOCK",
+          "Current incurred cost: $0.00. Budget limit: $0.00.",
+          "[PASS] Strict zero-spend policy & Security Gate verified."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "APPROVAL_GATE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:47.317034+00:00",
+        "completed_at": "2026-09-18T17:58:47.317096+00:00",
+        "duration_ms": 0.01,
+        "logs": [
+          "Evaluating approval policy (Risk Level: LOW)...",
+          "[PASS] Auto-approved for LOCAL deployment tier."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "DISPATCH_DEPLOY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:47.458926+00:00",
+        "completed_at": "2026-09-18T17:58:47.459059+00:00",
+        "duration_ms": 0.05,
+        "logs": [
+          "Dispatching payload to target 'LOCAL_PROCESS'...",
+          "Verifying local port 8000 availability and host binding...",
+          "Bound local service endpoint: http://localhost:8000",
+          "[PASS] Host process supervisor established live binding."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "HEALTH_PROBE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:47.536650+00:00",
+        "completed_at": "2026-09-18T17:58:47.565896+00:00",
+        "duration_ms": 29.16,
+        "logs": [
+          "Executing synthetic SLA health probe on http://localhost:8000...",
+          "Executing real health probe against http://localhost:8000/api/health...",
+          "[PASS] Health probe returned HTTP 200 OK (latency: 8.5ms)."
+        ],
+        "error": null,
+        "metrics": {
+          "probe_status": 200,
+          "latency_ms": 8.5
+        }
+      },
+      {
+        "stage_name": "PROMOTE_CANARY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:47.701561+00:00",
+        "completed_at": "2026-09-18T17:58:47.701665+00:00",
+        "duration_ms": 0.02,
+        "logs": [
+          "Applying deployment strategy: DIRECT_REPLACE...",
+          "100% traffic switched to active release v1.200.0.",
+          "[PASS] Traffic routing table updated."
+        ],
+        "error": null,
+        "metrics": {}
+      }
+    ],
+    "deployed_url": "http://localhost:8000",
+    "canary_percentage": 100,
+    "active_instances": 1,
+    "health_status": "HEALTHY",
+    "error": null,
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "approval_id": null,
+    "created_by": "test-agent",
+    "created_at": "2026-09-18T17:58:42.274222+00:00",
+    "completed_at": "2026-09-18T17:58:47.778770+00:00",
+    "duration_seconds": 5.43,
+    "rollback_target_id": null,
+    "changelog": [],
+    "dora_lead_time_seconds": 5.43,
+    "metadata": {
+      "notes": "Triggered via Universal Tool Engine",
+      "health_check_path": "/api/health",
+      "auto_rollback": true
+    }
+  },
+  "dep-14ab6e76": {
+    "deployment_id": "dep-14ab6e76",
+    "project_id": "control-center",
+    "service_name": "nexus-tool-canary",
+    "version": "v1.201.0",
+    "commit_sha": "HEAD",
+    "environment": "LOCAL",
+    "target_type": "LOCAL_PROCESS",
+    "strategy": "CANARY",
+    "status": "BUILDING",
+    "current_stage": "BUILD_PACKAGING",
+    "stages": [
+      {
+        "stage_name": "PRE_FLIGHT",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:48.021057+00:00",
+        "completed_at": "2026-09-18T17:58:48.022014+00:00",
+        "duration_ms": 0.87,
+        "logs": [
+          "Verifying pre-flight conditions for project 'control-center'...",
+          "Target: LOCAL_PROCESS | Env: LOCAL | Strategy: CANARY",
+          "Validating local host runtime environment...",
+          "[PASS] Server entrypoint verified: /root/control-center/backend/server.py",
+          "[PASS] Pre-flight validation passed."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "BUILD_PACKAGING",
+        "status": "SUCCESS",
+        "started_at": "2026-09-18T17:58:48.094241+00:00",
+        "completed_at": "2026-09-18T17:58:48.827921+00:00",
+        "duration_ms": 733.61,
+        "logs": [
+          "Executing packaging strategy for target 'LOCAL_PROCESS'...",
+          "Verifying Python runtime and compiling bytecode for 'nexus-tool-canary'...",
+          "[PASS] Bytecode compilation verified. Runtime package ready."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "POLICY_FINOPS",
+        "status": "PENDING",
+        "started_at": null,
+        "completed_at": null,
+        "duration_ms": 0.0,
+        "logs": [],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "APPROVAL_GATE",
+        "status": "PENDING",
+        "started_at": null,
+        "completed_at": null,
+        "duration_ms": 0.0,
+        "logs": [],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "DISPATCH_DEPLOY",
+        "status": "PENDING",
+        "started_at": null,
+        "completed_at": null,
+        "duration_ms": 0.0,
+        "logs": [],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "HEALTH_PROBE",
+        "status": "PENDING",
+        "started_at": null,
+        "completed_at": null,
+        "duration_ms": 0.0,
+        "logs": [],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "PROMOTE_CANARY",
+        "status": "PENDING",
+        "started_at": null,
+        "completed_at": null,
+        "duration_ms": 0.0,
+        "logs": [],
+        "error": null,
+        "metrics": {}
+      }
+    ],
+    "deployed_url": null,
+    "canary_percentage": 30,
+    "active_instances": 1,
+    "health_status": "UNKNOWN",
+    "error": null,
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "approval_id": null,
+    "created_by": "developer",
+    "created_at": "2026-09-18T17:58:47.951084+00:00",
+    "completed_at": null,
+    "duration_seconds": 0.0,
+    "rollback_target_id": null,
+    "changelog": [],
+    "dora_lead_time_seconds": 0.0,
+    "metadata": {
+      "notes": null,
+      "health_check_path": "/api/health",
+      "auto_rollback": true
+    }
   }
 }

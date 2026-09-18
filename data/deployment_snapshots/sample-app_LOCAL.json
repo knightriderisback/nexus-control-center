@@ -1,5 +1,5 @@
 {
-  "deployment_id": "dep-ed8b6289",
+  "deployment_id": "dep-9dd372a6",
   "project_id": "sample-app",
   "service_name": "sample-svc",
   "version": "v1.1.0",
@@ -13,9 +13,9 @@
     {
       "stage_name": "PRE_FLIGHT",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T15:20:39.610679+00:00",
-      "completed_at": "2026-09-18T15:20:39.619486+00:00",
-      "duration_ms": 8.73,
+      "started_at": "2026-09-18T17:58:28.325273+00:00",
+      "completed_at": "2026-09-18T17:58:28.327237+00:00",
+      "duration_ms": 1.24,
       "logs": [
         "Verifying pre-flight conditions for project 'sample-app'...",
         "Target: LOCAL_PROCESS | Env: LOCAL | Strategy: DIRECT_REPLACE",
@@ -29,9 +29,9 @@
     {
       "stage_name": "BUILD_PACKAGING",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T15:20:39.771609+00:00",
-      "completed_at": "2026-09-18T15:20:41.629246+00:00",
-      "duration_ms": 1857.56,
+      "started_at": "2026-09-18T17:58:28.441937+00:00",
+      "completed_at": "2026-09-18T17:58:28.920150+00:00",
+      "duration_ms": 478.14,
       "logs": [
         "Executing packaging strategy for target 'LOCAL_PROCESS'...",
         "Verifying Python runtime and compiling bytecode for 'sample-svc'...",
@@ -43,12 +43,12 @@
     {
       "stage_name": "POLICY_FINOPS",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T15:20:41.813034+00:00",
-      "completed_at": "2026-09-18T15:20:50.109704+00:00",
-      "duration_ms": 8296.58,
+      "started_at": "2026-09-18T17:58:28.984545+00:00",
+      "completed_at": "2026-09-18T17:58:32.675734+00:00",
+      "duration_ms": 3691.13,
       "logs": [
         "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
-        "Security Gate dep-ev-ac130924: 5 findings, decision=BLOCK",
+        "Security Gate dep-ev-6217b648: 5 findings, decision=BLOCK",
         "Current incurred cost: $0.00. Budget limit: $0.00.",
         "[PASS] Strict zero-spend policy & Security Gate verified."
       ],
@@ -58,9 +58,9 @@
     {
       "stage_name": "APPROVAL_GATE",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T15:20:50.244664+00:00",
-      "completed_at": "2026-09-18T15:20:50.244748+00:00",
-      "duration_ms": 0.02,
+      "started_at": "2026-09-18T17:58:32.811297+00:00",
+      "completed_at": "2026-09-18T17:58:32.811363+00:00",
+      "duration_ms": 0.01,
       "logs": [
         "Evaluating approval policy (Risk Level: LOW)...",
         "[PASS] Auto-approved for LOCAL deployment tier."
@@ -71,9 +71,9 @@
     {
       "stage_name": "DISPATCH_DEPLOY",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T15:20:50.488416+00:00",
-      "completed_at": "2026-09-18T15:20:50.488522+00:00",
-      "duration_ms": 0.04,
+      "started_at": "2026-09-18T17:58:32.889697+00:00",
+      "completed_at": "2026-09-18T17:58:32.889782+00:00",
+      "duration_ms": 0.03,
       "logs": [
         "Dispatching payload to target 'LOCAL_PROCESS'...",
         "Verifying local port 8000 availability and host binding...",
@@ -86,9 +86,9 @@
     {
       "stage_name": "HEALTH_PROBE",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T15:20:50.733015+00:00",
-      "completed_at": "2026-09-18T15:20:50.814661+00:00",
-      "duration_ms": 81.54,
+      "started_at": "2026-09-18T17:58:32.981618+00:00",
+      "completed_at": "2026-09-18T17:58:33.023313+00:00",
+      "duration_ms": 41.57,
       "logs": [
         "Executing synthetic SLA health probe on http://localhost:8000...",
         "Executing real health probe against http://localhost:8000/api/health...",
@@ -103,8 +103,8 @@
     {
       "stage_name": "PROMOTE_CANARY",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T15:20:51.004029+00:00",
-      "completed_at": "2026-09-18T15:20:51.004121+00:00",
+      "started_at": "2026-09-18T17:58:33.098910+00:00",
+      "completed_at": "2026-09-18T17:58:33.098987+00:00",
       "duration_ms": 0.02,
       "logs": [
         "Applying deployment strategy: DIRECT_REPLACE...",
@@ -124,12 +124,12 @@
   "requires_approval": false,
   "approval_id": null,
   "created_by": "test-suite",
-  "created_at": "2026-09-18T15:20:39.306423+00:00",
-  "completed_at": "2026-09-18T15:20:51.621421+00:00",
-  "duration_seconds": 12.01,
+  "created_at": "2026-09-18T17:58:28.195311+00:00",
+  "completed_at": "2026-09-18T17:58:33.177384+00:00",
+  "duration_seconds": 4.85,
   "rollback_target_id": null,
   "changelog": [],
-  "dora_lead_time_seconds": 12.01,
+  "dora_lead_time_seconds": 4.85,
   "metadata": {
     "notes": null,
     "health_check_path": "/api/health",

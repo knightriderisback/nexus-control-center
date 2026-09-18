@@ -185,9 +185,21 @@
         "expected_state": "Clean working tree",
         "observed_state": "Dirty working tree with uncommitted modifications",
         "diff": "M .dockerignore\n M .github/workflows/production-pipeline.yml\n M .gitignore\n M SYSTEM_MANIFEST.md\n M backend/core/approvals.py\n M backend/core/audit.py\n M backend/core/automations.py\n M backend/core/config.py\n M backend/core/cost_guard.py\n M backend/core/observability.py\n M backend/core/storage.py\n M",
+        "remediated": true,
+        "remediated_at": "2026-09-18T17:57:32.303343+00:00",
+        "timestamp": "2026-09-18T17:57:21.244065+00:00"
+      },
+      {
+        "drift_id": "drift-1f8c1396",
+        "project_id": "personal-engineering-os-2026",
+        "drift_type": "CONFIG_DRIFT",
+        "severity": "LOW",
+        "expected_state": "Clean working tree",
+        "observed_state": "Dirty working tree with uncommitted modifications",
+        "diff": "M data/approvals.json\n M data/audit/audit_trail.jsonl\n M data/command_control/directives_journal.json\n M data/command_control/event_stream.json\n M data/command_control/operations_timeline.json\n M data/deployment_snapshots/control-center_LOCAL.json\n M data/deployment_snapshots/control-center_PRODUCTI",
         "remediated": false,
         "remediated_at": null,
-        "timestamp": "2026-09-18T17:57:21.244065+00:00"
+        "timestamp": "2026-09-18T17:58:49.251977+00:00"
       }
     ],
     "maintenance_history": [],
@@ -199,7 +211,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.201849+00:00",
-    "updated_at": "2026-09-18T17:57:21.274161+00:00"
+    "updated_at": "2026-09-18T17:58:49.252069+00:00"
   },
   "control-center": {
     "project_id": "control-center",

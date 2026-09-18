@@ -84795,5 +84795,215 @@
       "status": "PASSED"
     },
     "session_id": null
+  },
+  "pol-eval-24b25695": {
+    "eval_id": "pol-eval-24b25695",
+    "rule_id": "SEC-POL-001",
+    "decision": "BLOCK",
+    "target": "/root/control-center",
+    "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001.",
+    "actor": "nexus-system",
+    "evaluated_at": "2026-09-18T17:58:06.120911+00:00",
+    "finding_ids": [
+      "sec-00cd6343",
+      "sec-c735de7c",
+      "sec-d935fa73",
+      "sec-5121913b",
+      "sec-c7fe6f2d"
+    ],
+    "evidence": {
+      "blocked_by": "Zero-Leakage Secret Guard",
+      "action": "deploy.LOCAL"
+    },
+    "session_id": null
+  },
+  "pol-eval-9b803389": {
+    "eval_id": "pol-eval-9b803389",
+    "rule_id": "SEC-POL-001",
+    "decision": "BLOCK",
+    "target": "/root/control-center",
+    "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001.",
+    "actor": "nexus-system",
+    "evaluated_at": "2026-09-18T17:58:10.404539+00:00",
+    "finding_ids": [
+      "sec-eabbae15",
+      "sec-40b9a3c9",
+      "sec-4f21ad50",
+      "sec-f23e5bbb",
+      "sec-ed73dfce"
+    ],
+    "evidence": {
+      "blocked_by": "Zero-Leakage Secret Guard",
+      "action": "deploy.LOCAL"
+    },
+    "session_id": null
+  },
+  "pol-eval-5b46c618": {
+    "eval_id": "pol-eval-5b46c618",
+    "rule_id": "SEC-POL-001",
+    "decision": "BLOCK",
+    "target": "/root/control-center",
+    "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001.",
+    "actor": "nexus-system",
+    "evaluated_at": "2026-09-18T17:58:14.414275+00:00",
+    "finding_ids": [
+      "sec-619fbba8",
+      "sec-d52ad812",
+      "sec-a288e363",
+      "sec-1f681c63",
+      "sec-3709cebc"
+    ],
+    "evidence": {
+      "blocked_by": "Zero-Leakage Secret Guard",
+      "action": "deploy.PREVIEW"
+    },
+    "session_id": null
+  },
+  "pol-eval-c4c9fb23": {
+    "eval_id": "pol-eval-c4c9fb23",
+    "rule_id": "SEC-POL-001",
+    "decision": "BLOCK",
+    "target": "/root/control-center",
+    "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001.",
+    "actor": "nexus-system",
+    "evaluated_at": "2026-09-18T17:58:18.287480+00:00",
+    "finding_ids": [
+      "sec-5ff02832",
+      "sec-f9f9ad42",
+      "sec-f731c93e",
+      "sec-100bec42",
+      "sec-24279e7f"
+    ],
+    "evidence": {
+      "blocked_by": "Zero-Leakage Secret Guard",
+      "action": "deploy.LOCAL"
+    },
+    "session_id": null
+  },
+  "pol-eval-ef390a99": {
+    "eval_id": "pol-eval-ef390a99",
+    "rule_id": "SEC-POL-001",
+    "decision": "BLOCK",
+    "target": "/root/control-center",
+    "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001.",
+    "actor": "nexus-system",
+    "evaluated_at": "2026-09-18T17:58:22.666425+00:00",
+    "finding_ids": [
+      "sec-adfb412d",
+      "sec-c833675a",
+      "sec-ac8e942b",
+      "sec-550b9c95",
+      "sec-89b8d3b5"
+    ],
+    "evidence": {
+      "blocked_by": "Zero-Leakage Secret Guard",
+      "action": "deploy.STAGING"
+    },
+    "session_id": null
+  },
+  "pol-eval-48b1014b": {
+    "eval_id": "pol-eval-48b1014b",
+    "rule_id": "SEC-POL-001",
+    "decision": "BLOCK",
+    "target": "/root/control-center",
+    "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001.",
+    "actor": "nexus-system",
+    "evaluated_at": "2026-09-18T17:58:27.321165+00:00",
+    "finding_ids": [
+      "sec-ad090c8f",
+      "sec-3ad31ba2",
+      "sec-4e76f0e9",
+      "sec-c9845d5f",
+      "sec-b9450a61"
+    ],
+    "evidence": {
+      "blocked_by": "Zero-Leakage Secret Guard",
+      "action": "deploy.LOCAL"
+    },
+    "session_id": null
+  },
+  "pol-eval-ce4bee73": {
+    "eval_id": "pol-eval-ce4bee73",
+    "rule_id": "SEC-POL-001",
+    "decision": "BLOCK",
+    "target": "/root/control-center",
+    "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001.",
+    "actor": "nexus-system",
+    "evaluated_at": "2026-09-18T17:58:32.349343+00:00",
+    "finding_ids": [
+      "sec-0e90b3ed",
+      "sec-a2de8e4a",
+      "sec-ed69aba1",
+      "sec-7179155a",
+      "sec-1231e545"
+    ],
+    "evidence": {
+      "blocked_by": "Zero-Leakage Secret Guard",
+      "action": "deploy.LOCAL"
+    },
+    "session_id": null
+  },
+  "pol-eval-d476ab97": {
+    "eval_id": "pol-eval-d476ab97",
+    "rule_id": "SEC-POL-001",
+    "decision": "BLOCK",
+    "target": "/root/control-center",
+    "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001.",
+    "actor": "nexus-system",
+    "evaluated_at": "2026-09-18T17:58:36.800217+00:00",
+    "finding_ids": [
+      "sec-4aaef003",
+      "sec-0a497ce9",
+      "sec-3f1291c0",
+      "sec-995102ae",
+      "sec-40423b81"
+    ],
+    "evidence": {
+      "blocked_by": "Zero-Leakage Secret Guard",
+      "action": "deploy.PRODUCTION"
+    },
+    "session_id": null
+  },
+  "pol-eval-6768428f": {
+    "eval_id": "pol-eval-6768428f",
+    "rule_id": "SEC-POL-001",
+    "decision": "BLOCK",
+    "target": "/root/control-center",
+    "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001.",
+    "actor": "nexus-system",
+    "evaluated_at": "2026-09-18T17:58:41.037513+00:00",
+    "finding_ids": [
+      "sec-35e5831a",
+      "sec-00066034",
+      "sec-b1df3964",
+      "sec-1f842cbe",
+      "sec-5f613c74"
+    ],
+    "evidence": {
+      "blocked_by": "Zero-Leakage Secret Guard",
+      "action": "deploy.PRODUCTION"
+    },
+    "session_id": null
+  },
+  "pol-eval-0c4d8978": {
+    "eval_id": "pol-eval-0c4d8978",
+    "rule_id": "SEC-POL-001",
+    "decision": "BLOCK",
+    "target": "/root/control-center",
+    "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001.",
+    "actor": "nexus-system",
+    "evaluated_at": "2026-09-18T17:58:46.897843+00:00",
+    "finding_ids": [
+      "sec-2491ad2d",
+      "sec-4be05dde",
+      "sec-a9343417",
+      "sec-aeaeecfa",
+      "sec-21ae7697"
+    ],
+    "evidence": {
+      "blocked_by": "Zero-Leakage Secret Guard",
+      "action": "deploy.LOCAL"
+    },
+    "session_id": null
   }
 }

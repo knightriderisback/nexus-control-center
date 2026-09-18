@@ -1,5 +1,5 @@
 {
-  "deployment_id": "dep-2e3a0311",
+  "deployment_id": "dep-0b3829cf",
   "project_id": "control-center",
   "service_name": "nexus-api",
   "version": "v1.17.0",
@@ -13,9 +13,9 @@
     {
       "stage_name": "PRE_FLIGHT",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T15:20:08.742467+00:00",
-      "completed_at": "2026-09-18T15:20:08.744662+00:00",
-      "duration_ms": 1.93,
+      "started_at": "2026-09-18T17:58:19.288495+00:00",
+      "completed_at": "2026-09-18T17:58:19.289682+00:00",
+      "duration_ms": 1.06,
       "logs": [
         "Verifying pre-flight conditions for project 'control-center'...",
         "Target: LOCAL_PROCESS | Env: STAGING | Strategy: CANARY",
@@ -29,9 +29,9 @@
     {
       "stage_name": "BUILD_PACKAGING",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T15:20:08.923741+00:00",
-      "completed_at": "2026-09-18T15:20:10.957260+00:00",
-      "duration_ms": 2033.32,
+      "started_at": "2026-09-18T17:58:19.381577+00:00",
+      "completed_at": "2026-09-18T17:58:19.739362+00:00",
+      "duration_ms": 357.72,
       "logs": [
         "Executing packaging strategy for target 'LOCAL_PROCESS'...",
         "Verifying Python runtime and compiling bytecode for 'nexus-api'...",
@@ -43,12 +43,12 @@
     {
       "stage_name": "POLICY_FINOPS",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T15:20:11.144327+00:00",
-      "completed_at": "2026-09-18T15:20:19.017583+00:00",
-      "duration_ms": 7873.18,
+      "started_at": "2026-09-18T17:58:19.804826+00:00",
+      "completed_at": "2026-09-18T17:58:23.037008+00:00",
+      "duration_ms": 3232.09,
       "logs": [
         "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
-        "Security Gate dep-ev-38f8c50e: 5 findings, decision=BLOCK",
+        "Security Gate dep-ev-4b8600f5: 5 findings, decision=BLOCK",
         "Current incurred cost: $0.00. Budget limit: $0.00.",
         "[PASS] Strict zero-spend policy & Security Gate verified."
       ],
@@ -58,9 +58,9 @@
     {
       "stage_name": "APPROVAL_GATE",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T15:20:19.078017+00:00",
-      "completed_at": "2026-09-18T15:20:19.078159+00:00",
-      "duration_ms": 0.04,
+      "started_at": "2026-09-18T17:58:23.118464+00:00",
+      "completed_at": "2026-09-18T17:58:23.118529+00:00",
+      "duration_ms": 0.01,
       "logs": [
         "Evaluating approval policy (Risk Level: MEDIUM)...",
         "[PASS] Auto-approved for STAGING deployment tier."
@@ -71,9 +71,9 @@
     {
       "stage_name": "DISPATCH_DEPLOY",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T15:20:19.140834+00:00",
-      "completed_at": "2026-09-18T15:20:19.141005+00:00",
-      "duration_ms": 0.07,
+      "started_at": "2026-09-18T17:58:23.216858+00:00",
+      "completed_at": "2026-09-18T17:58:23.216942+00:00",
+      "duration_ms": 0.04,
       "logs": [
         "Dispatching payload to target 'LOCAL_PROCESS'...",
         "Verifying local port 8000 availability and host binding...",
@@ -86,9 +86,9 @@
     {
       "stage_name": "HEALTH_PROBE",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T15:20:19.259222+00:00",
-      "completed_at": "2026-09-18T15:20:19.319163+00:00",
-      "duration_ms": 59.87,
+      "started_at": "2026-09-18T17:58:23.304427+00:00",
+      "completed_at": "2026-09-18T17:58:23.335438+00:00",
+      "duration_ms": 30.94,
       "logs": [
         "Executing synthetic SLA health probe on http://localhost:8000...",
         "Executing real health probe against http://localhost:8000/api/health...",
@@ -103,9 +103,9 @@
     {
       "stage_name": "PROMOTE_CANARY",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T15:20:19.403589+00:00",
-      "completed_at": "2026-09-18T15:20:19.403746+00:00",
-      "duration_ms": 0.05,
+      "started_at": "2026-09-18T17:58:23.406423+00:00",
+      "completed_at": "2026-09-18T17:58:23.406496+00:00",
+      "duration_ms": 0.02,
       "logs": [
         "Applying deployment strategy: CANARY...",
         "Canary routing activated: 25% traffic routed to v1.17.0, 75% to baseline.",
@@ -124,12 +124,12 @@
   "requires_approval": false,
   "approval_id": null,
   "created_by": "test-suite",
-  "created_at": "2026-09-18T15:20:08.672519+00:00",
-  "completed_at": "2026-09-18T15:20:19.473051+00:00",
-  "duration_seconds": 10.73,
+  "created_at": "2026-09-18T17:58:19.203750+00:00",
+  "completed_at": "2026-09-18T17:58:23.471483+00:00",
+  "duration_seconds": 4.18,
   "rollback_target_id": null,
   "changelog": [],
-  "dora_lead_time_seconds": 10.73,
+  "dora_lead_time_seconds": 4.18,
   "metadata": {
     "notes": null,
     "health_check_path": "/api/health",
