@@ -74,24 +74,21 @@ def temp_c2_environment():
     subprocess.run(["git", "commit", "-m", "Initial commit"], cwd=project_ws, capture_output=True)
 
     from orchestrator.project_operations_engine import project_operations_engine
-    from models.schemas import RegisterProjectRequest
 
-    project_operations_engine.register_project(RegisterProjectRequest(
-        project_id="c2-alpha-service",
-        project_name="c2-alpha-service",
-        project_path=project_ws,
-        repo_url=None,
-        project_type="python_fastapi",
+    project_operations_engine.register_project(ProjectRegistryItem(
+        id="c2-alpha-service",
+        name="c2-alpha-service",
+        path=project_ws,
+        status=ProjectStatus.HEALTHY,
+        health_score=100,
         description="Test c2 service"
     ))
 
     c2_kernel = CommandControlKernel(data_dir=c2_data_dir)
 
     yield c2_kernel, project_ws, temp_dir
-    try:
-        project_operations_engine.unregister_project("c2-alpha-service")
-    except Exception:
-        pass
+    with project_operations_engine._lock:
+        project_operations_engine._records.pop("c2-alpha-service", None)
     shutil.rmtree(temp_dir, ignore_errors=True)
 
 

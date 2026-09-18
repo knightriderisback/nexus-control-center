@@ -818,7 +818,7 @@ class CommandControlKernel:
         worktrees = [{"worktree": w.worktree_path, "session_id": w.session_id, "branch": w.branch} for w in worktree_manager.list_worktrees()]
 
         # 11. Knowledge Nodes
-        knowledge_nodes = [n.model_dump() for n in knowledge_learning_engine.list_knowledge_nodes()[:20]]
+        knowledge_nodes = [n.model_dump() for n in knowledge_learning_engine.list_nodes()[:20]]
 
         # 12. Approvals
         approvals = [a.model_dump() for a in load_approvals()]

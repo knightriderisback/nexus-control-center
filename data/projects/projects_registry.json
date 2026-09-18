@@ -340,5 +340,23 @@
     "owner": "knightriderisback",
     "risk": "LOW",
     "description": ""
+  },
+  {
+    "id": "c2-alpha-service",
+    "name": "c2-alpha-service",
+    "path": "/tmp/nexus-test-c2-nr7tn6jq/c2-alpha-service",
+    "github_repo": null,
+    "environment": "production",
+    "deployment_provider": "Cloud Run / Local",
+    "domain": null,
+    "status": "HEALTHY",
+    "health_score": 100,
+    "last_audit": null,
+    "last_test": null,
+    "last_security_scan": null,
+    "documentation_url": null,
+    "owner": "knightriderisback",
+    "risk": "LOW",
+    "description": "Test c2 service"
   }
 ]

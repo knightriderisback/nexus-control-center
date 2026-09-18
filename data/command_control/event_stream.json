@@ -227,5 +227,20 @@
     },
     "provenance_hash": "dd1e3c32e09508da",
     "timestamp": "2026-09-18T17:58:48.521831+00:00"
+  },
+  {
+    "event_id": "evt-f8cc50af",
+    "event_type": "COMMAND_COMPLETED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-5ad2496c",
+    "payload": {
+      "command_id": "cmd-5ad2496c",
+      "state": "COMPLETED",
+      "duration_ms": 3808.4
+    },
+    "provenance_hash": "5a13e4cd278dc0a6",
+    "timestamp": "2026-09-18T17:58:52.299151+00:00"
   }
 ]
