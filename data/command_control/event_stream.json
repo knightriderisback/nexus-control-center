@@ -1098,30 +1098,143 @@
     "timestamp": "2026-09-18T18:07:31.137786+00:00"
   },
   {
-    "event_id": "evt-3e2bde18",
+    "event_id": "evt-c771081e",
     "event_type": "COMMAND_RECEIVED",
     "source_subsystem": "c2_kernel",
     "project_id": null,
     "mission_id": null,
-    "command_id": "cmd-243ac635",
+    "command_id": "cmd-3a0027cd",
     "payload": {
-      "command_id": "cmd-243ac635",
+      "command_id": "cmd-3a0027cd",
+      "raw_prompt": "Inspect drift and test project-alpha",
+      "dry_run": true
+    },
+    "provenance_hash": "d1c433d6e085a83a",
+    "timestamp": "2026-09-18T19:08:04.970651+00:00"
+  },
+  {
+    "event_id": "evt-6c9309e3",
+    "event_type": "COMMAND_PLANNED",
+    "source_subsystem": "c2_kernel",
+    "project_id": "project-alpha",
+    "mission_id": null,
+    "command_id": "cmd-7514c3a7",
+    "payload": {
+      "plan_id": "plan-9b41d5e8",
+      "command_id": "cmd-7514c3a7",
+      "raw_prompt": "Inspect drift and test project-alpha",
+      "resolved_intent": "SELF_HEALING_DRIFT_RECONCILE",
+      "target_projects": [
+        "project-alpha"
+      ],
+      "planned_actions": [
+        "inspect_filesystem_drift",
+        "restore_baseline_config",
+        "verify_git_cleanliness"
+      ],
+      "dependencies": [
+        "project_operations_engine",
+        "self_healing_engine"
+      ],
+      "risk_level": "LOW",
+      "required_approvals": [],
+      "affected_projects": [
+        "project-alpha"
+      ],
+      "expected_artifacts": [],
+      "rollback_recovery_path": [
+        "restore_git_stash"
+      ],
+      "is_safe_to_execute": true,
+      "block_reason": null,
+      "created_at": "2026-09-18T19:08:04.982714+00:00"
+    },
+    "provenance_hash": "7b3e6f0d90348919",
+    "timestamp": "2026-09-18T19:08:04.982823+00:00"
+  },
+  {
+    "event_id": "evt-d7f93d17",
+    "event_type": "COMMAND_RECEIVED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-2caae83c",
+    "payload": {
+      "command_id": "cmd-2caae83c",
+      "raw_prompt": "Synthesize adaptive DAG mission for LRU cache",
+      "dry_run": false
+    },
+    "provenance_hash": "209f704ea649b77c",
+    "timestamp": "2026-09-18T19:08:45.097035+00:00"
+  },
+  {
+    "event_id": "evt-bab0ce63",
+    "event_type": "COMMAND_FAILED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-2caae83c",
+    "payload": {
+      "command_id": "cmd-2caae83c",
+      "reason": "Could not unambiguously resolve target project. Please specify target_project_ids."
+    },
+    "provenance_hash": "bc873c73fcc8f22e",
+    "timestamp": "2026-09-18T19:08:45.119363+00:00"
+  },
+  {
+    "event_id": "evt-dd8d5cee",
+    "event_type": "COMMAND_RECEIVED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-1286ea97",
+    "payload": {
+      "command_id": "cmd-1286ea97",
+      "raw_prompt": "Synthesize adaptive DAG mission for LRU cache",
+      "dry_run": false
+    },
+    "provenance_hash": "3be12a07ca1ecf7f",
+    "timestamp": "2026-09-18T19:11:37.097578+00:00"
+  },
+  {
+    "event_id": "evt-592896cd",
+    "event_type": "COMMAND_FAILED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-1286ea97",
+    "payload": {
+      "command_id": "cmd-1286ea97",
+      "reason": "Could not unambiguously resolve target project. Please specify target_project_ids."
+    },
+    "provenance_hash": "c19af489d76e7623",
+    "timestamp": "2026-09-18T19:11:37.122988+00:00"
+  },
+  {
+    "event_id": "evt-d01b578a",
+    "event_type": "COMMAND_RECEIVED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-9350f7f7",
+    "payload": {
+      "command_id": "cmd-9350f7f7",
       "raw_prompt": "Inspect fleet health and drift status across all projects",
       "dry_run": false
     },
-    "provenance_hash": "88c405c484a44f6a",
-    "timestamp": "2026-09-18T19:07:51.858193+00:00"
+    "provenance_hash": "7ddb87d96e2b2292",
+    "timestamp": "2026-09-18T19:12:51.007162+00:00"
   },
   {
-    "event_id": "evt-e194b26f",
+    "event_id": "evt-b8425b46",
     "event_type": "COMMAND_PLANNED",
     "source_subsystem": "c2_kernel",
     "project_id": "personal-engineering-os-2026",
     "mission_id": null,
-    "command_id": "cmd-3a7fd8e1",
+    "command_id": "cmd-2876b399",
     "payload": {
-      "plan_id": "plan-2146db27",
-      "command_id": "cmd-3a7fd8e1",
+      "plan_id": "plan-fd75f1f9",
+      "command_id": "cmd-2876b399",
       "raw_prompt": "Inspect fleet health and drift status across all projects",
       "resolved_intent": "FLEET_HEALTH_INSPECTION",
       "target_projects": [
@@ -1184,69 +1297,69 @@
       "rollback_recovery_path": [],
       "is_safe_to_execute": true,
       "block_reason": null,
-      "created_at": "2026-09-18T19:07:51.865887+00:00"
+      "created_at": "2026-09-18T19:12:51.017734+00:00"
     },
-    "provenance_hash": "e02e82618f2835d2",
-    "timestamp": "2026-09-18T19:07:51.866014+00:00"
+    "provenance_hash": "9a8003b764e2818d",
+    "timestamp": "2026-09-18T19:12:51.017836+00:00"
   },
   {
-    "event_id": "evt-1efa58fe",
+    "event_id": "evt-e9b1c343",
     "event_type": "COMMAND_STARTED",
     "source_subsystem": "c2_kernel",
     "project_id": null,
     "mission_id": null,
-    "command_id": "cmd-243ac635",
+    "command_id": "cmd-9350f7f7",
     "payload": {
-      "command_id": "cmd-243ac635",
+      "command_id": "cmd-9350f7f7",
       "actions": [
         "evaluate_git_status",
         "run_local_pytest",
         "inspect_sla_meters"
       ]
     },
-    "provenance_hash": "d436af0fa2b1bd3f",
-    "timestamp": "2026-09-18T19:07:51.882987+00:00"
+    "provenance_hash": "270bb65934743aa6",
+    "timestamp": "2026-09-18T19:12:51.069137+00:00"
   },
   {
-    "event_id": "evt-a0451ecd",
+    "event_id": "evt-e78039ed",
     "event_type": "COMMAND_COMPLETED",
     "source_subsystem": "c2_kernel",
     "project_id": null,
     "mission_id": null,
-    "command_id": "cmd-243ac635",
+    "command_id": "cmd-9350f7f7",
     "payload": {
-      "command_id": "cmd-243ac635",
+      "command_id": "cmd-9350f7f7",
       "state": "COMPLETED",
-      "duration_ms": 195.55
+      "duration_ms": 235.59
     },
-    "provenance_hash": "147a7a44c81892df",
-    "timestamp": "2026-09-18T19:07:52.055216+00:00"
+    "provenance_hash": "b8abdb02bf12c1c9",
+    "timestamp": "2026-09-18T19:12:51.233863+00:00"
   },
   {
-    "event_id": "evt-850b000d",
+    "event_id": "evt-a2ce51da",
     "event_type": "COMMAND_RECEIVED",
     "source_subsystem": "c2_kernel",
     "project_id": null,
     "mission_id": null,
-    "command_id": "cmd-a6562568",
+    "command_id": "cmd-a6789240",
     "payload": {
-      "command_id": "cmd-a6562568",
+      "command_id": "cmd-a6789240",
       "raw_prompt": "Query knowledge graph for procedural self-healing patterns",
       "dry_run": false
     },
-    "provenance_hash": "2f7c22f437103859",
-    "timestamp": "2026-09-18T19:07:52.088799+00:00"
+    "provenance_hash": "0551d66d160b65c4",
+    "timestamp": "2026-09-18T19:12:51.257051+00:00"
   },
   {
-    "event_id": "evt-b19c49ff",
+    "event_id": "evt-01471907",
     "event_type": "COMMAND_PLANNED",
     "source_subsystem": "c2_kernel",
     "project_id": "personal-engineering-os-2026",
     "mission_id": null,
-    "command_id": "cmd-38e97aaa",
+    "command_id": "cmd-88999500",
     "payload": {
-      "plan_id": "plan-ff216c4a",
-      "command_id": "cmd-38e97aaa",
+      "plan_id": "plan-d1de0ddb",
+      "command_id": "cmd-88999500",
       "raw_prompt": "Query knowledge graph for procedural self-healing patterns",
       "resolved_intent": "SELF_HEALING_DRIFT_RECONCILE",
       "target_projects": [
@@ -1310,27 +1423,27 @@
       ],
       "is_safe_to_execute": true,
       "block_reason": null,
-      "created_at": "2026-09-18T19:07:52.097601+00:00"
+      "created_at": "2026-09-18T19:12:51.267715+00:00"
     },
-    "provenance_hash": "c90b5885c553533c",
-    "timestamp": "2026-09-18T19:07:52.097725+00:00"
+    "provenance_hash": "b7f115a715be17c2",
+    "timestamp": "2026-09-18T19:12:51.267804+00:00"
   },
   {
-    "event_id": "evt-502fe8c0",
+    "event_id": "evt-008ec852",
     "event_type": "COMMAND_STARTED",
     "source_subsystem": "c2_kernel",
     "project_id": null,
     "mission_id": null,
-    "command_id": "cmd-a6562568",
+    "command_id": "cmd-a6789240",
     "payload": {
-      "command_id": "cmd-a6562568",
+      "command_id": "cmd-a6789240",
       "actions": [
         "inspect_filesystem_drift",
         "restore_baseline_config",
         "verify_git_cleanliness"
       ]
     },
-    "provenance_hash": "8ecb1de0a864553e",
-    "timestamp": "2026-09-18T19:07:52.116210+00:00"
+    "provenance_hash": "d487813b86fc94e9",
+    "timestamp": "2026-09-18T19:12:51.287381+00:00"
   }
 ]

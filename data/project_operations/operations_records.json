@@ -257,9 +257,21 @@
         "expected_state": "Clean working tree",
         "observed_state": "Dirty working tree with uncommitted modifications",
         "diff": "M .github/workflows/production-pipeline.yml\n M backend/models/schemas.py\n M backend/orchestrator/command_control_kernel.py\n M backend/orchestrator/tool_runner.py\n M data/adaptive_missions/adaptation_events.json\n M data/adaptive_missions/adaptive_missions.json\n M data/adaptive_missions/adaptive_telem",
+        "remediated": true,
+        "remediated_at": "2026-09-18T19:07:57.291452+00:00",
+        "timestamp": "2026-09-18T19:07:52.634190+00:00"
+      },
+      {
+        "drift_id": "drift-8c970120",
+        "project_id": "personal-engineering-os-2026",
+        "drift_type": "CONFIG_DRIFT",
+        "severity": "LOW",
+        "expected_state": "Clean working tree",
+        "observed_state": "Dirty working tree with uncommitted modifications",
+        "diff": "M backend/orchestrator/command_control_kernel.py\n M data/audit/audit_trail.jsonl\n M data/command_control/directives_journal.json\n M data/command_control/event_stream.json\n M data/command_control/operations_timeline.json\n M data/knowledge/knowledge_nodes.json\n M data/project_operations/operations_rec",
         "remediated": false,
         "remediated_at": null,
-        "timestamp": "2026-09-18T19:07:52.634190+00:00"
+        "timestamp": "2026-09-18T19:12:51.774597+00:00"
       }
     ],
     "maintenance_history": [],
@@ -271,7 +283,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.201849+00:00",
-    "updated_at": "2026-09-18T19:07:52.634321+00:00"
+    "updated_at": "2026-09-18T19:12:51.774650+00:00"
   },
   "control-center": {
     "project_id": "control-center",
@@ -1866,7 +1878,20 @@
       "sla_status": "COMPLIANT",
       "last_evaluated": "2026-09-18T18:57:29.646810+00:00"
     },
-    "active_drifts": [],
+    "active_drifts": [
+      {
+        "drift_id": "drift-2c11e290",
+        "project_id": "project-alpha",
+        "drift_type": "ENVIRONMENT_DRIFT",
+        "severity": "CRITICAL",
+        "expected_state": "Directory '/tmp/nexus-phase23-e2e-i2rpj8o2/project-alpha' exists",
+        "observed_state": "Directory missing",
+        "diff": "Missing project workspace on disk",
+        "remediated": true,
+        "remediated_at": "2026-09-18T19:07:58.911952+00:00",
+        "timestamp": "2026-09-18T19:07:58.653793+00:00"
+      }
+    ],
     "maintenance_history": [],
     "resource_governance": {
       "max_local_memory_mb": 512,
@@ -1876,7 +1901,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T18:57:29.646922+00:00",
-    "updated_at": "2026-09-18T18:57:29.646935+00:00"
+    "updated_at": "2026-09-18T19:07:58.912021+00:00"
   },
   "project-beta": {
     "project_id": "project-beta",

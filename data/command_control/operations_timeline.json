@@ -1798,8 +1798,160 @@
     "timestamp": "2026-09-18T18:07:31.066622+00:00"
   },
   {
-    "entry_id": "tl-a94fd546",
-    "command_id": "cmd-243ac635",
+    "entry_id": "tl-11096165",
+    "command_id": "cmd-3a0027cd",
+    "stage": "COMMAND",
+    "action": "intake_command",
+    "actor": "eco-cli",
+    "target_projects": [],
+    "risk_level": "LOW",
+    "data": {
+      "raw_prompt": "Inspect drift and test project-alpha",
+      "dry_run": true
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-18T19:08:04.951819+00:00"
+  },
+  {
+    "entry_id": "tl-aef3646a",
+    "command_id": "cmd-3a0027cd",
+    "stage": "DECISION",
+    "action": "dry_run_plan_approved",
+    "actor": "eco-cli",
+    "target_projects": [
+      "project-alpha"
+    ],
+    "risk_level": "LOW",
+    "data": {
+      "plan_id": "plan-9b41d5e8",
+      "command_id": "cmd-7514c3a7",
+      "raw_prompt": "Inspect drift and test project-alpha",
+      "resolved_intent": "SELF_HEALING_DRIFT_RECONCILE",
+      "target_projects": [
+        "project-alpha"
+      ],
+      "planned_actions": [
+        "inspect_filesystem_drift",
+        "restore_baseline_config",
+        "verify_git_cleanliness"
+      ],
+      "dependencies": [
+        "project_operations_engine",
+        "self_healing_engine"
+      ],
+      "risk_level": "LOW",
+      "required_approvals": [],
+      "affected_projects": [
+        "project-alpha"
+      ],
+      "expected_artifacts": [],
+      "rollback_recovery_path": [
+        "restore_git_stash"
+      ],
+      "is_safe_to_execute": true,
+      "block_reason": null,
+      "created_at": "2026-09-18T19:08:04.982714+00:00"
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-18T19:08:04.989844+00:00"
+  },
+  {
+    "entry_id": "tl-75ad0e1d",
+    "command_id": "cmd-2caae83c",
+    "stage": "COMMAND",
+    "action": "intake_command",
+    "actor": "test-operator",
+    "target_projects": [],
+    "risk_level": "LOW",
+    "data": {
+      "raw_prompt": "Synthesize adaptive DAG mission for LRU cache",
+      "dry_run": false
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-18T19:08:45.085526+00:00"
+  },
+  {
+    "entry_id": "tl-ee9f5ee8",
+    "command_id": "cmd-2caae83c",
+    "stage": "DECISION",
+    "action": "block_execution",
+    "actor": "c2_safety_governor",
+    "target_projects": [],
+    "risk_level": "MEDIUM",
+    "data": {
+      "block_reason": "Could not unambiguously resolve target project. Please specify target_project_ids."
+    },
+    "evidence": "Could not unambiguously resolve target project. Please specify target_project_ids.",
+    "replayed": false,
+    "timestamp": "2026-09-18T19:08:45.103588+00:00"
+  },
+  {
+    "entry_id": "tl-e900b873",
+    "command_id": "cmd-2caae83c",
+    "stage": "RESULT",
+    "action": "execution_halted",
+    "actor": "c2_safety_governor",
+    "target_projects": [],
+    "risk_level": "MEDIUM",
+    "data": {
+      "status": "BLOCKED"
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-18T19:08:45.111097+00:00"
+  },
+  {
+    "entry_id": "tl-b568b5ab",
+    "command_id": "cmd-1286ea97",
+    "stage": "COMMAND",
+    "action": "intake_command",
+    "actor": "test-operator",
+    "target_projects": [],
+    "risk_level": "LOW",
+    "data": {
+      "raw_prompt": "Synthesize adaptive DAG mission for LRU cache",
+      "dry_run": false
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-18T19:11:37.087996+00:00"
+  },
+  {
+    "entry_id": "tl-6c38d9f7",
+    "command_id": "cmd-1286ea97",
+    "stage": "DECISION",
+    "action": "block_execution",
+    "actor": "c2_safety_governor",
+    "target_projects": [],
+    "risk_level": "MEDIUM",
+    "data": {
+      "block_reason": "Could not unambiguously resolve target project. Please specify target_project_ids."
+    },
+    "evidence": "Could not unambiguously resolve target project. Please specify target_project_ids.",
+    "replayed": false,
+    "timestamp": "2026-09-18T19:11:37.105210+00:00"
+  },
+  {
+    "entry_id": "tl-a52615f1",
+    "command_id": "cmd-1286ea97",
+    "stage": "RESULT",
+    "action": "execution_halted",
+    "actor": "c2_safety_governor",
+    "target_projects": [],
+    "risk_level": "MEDIUM",
+    "data": {
+      "status": "BLOCKED"
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-18T19:11:37.114318+00:00"
+  },
+  {
+    "entry_id": "tl-7f51c908",
+    "command_id": "cmd-9350f7f7",
     "stage": "COMMAND",
     "action": "intake_command",
     "actor": "test-operator",
@@ -1811,11 +1963,11 @@
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:07:51.846946+00:00"
+    "timestamp": "2026-09-18T19:12:50.993933+00:00"
   },
   {
-    "entry_id": "tl-2303cb93",
-    "command_id": "cmd-243ac635",
+    "entry_id": "tl-6482edd9",
+    "command_id": "cmd-9350f7f7",
     "stage": "DECISION",
     "action": "authorize_execution",
     "actor": "test-operator",
@@ -1851,11 +2003,11 @@
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:07:51.875256+00:00"
+    "timestamp": "2026-09-18T19:12:51.040521+00:00"
   },
   {
-    "entry_id": "tl-b61cff45",
-    "command_id": "cmd-243ac635",
+    "entry_id": "tl-c1f6c923",
+    "command_id": "cmd-9350f7f7",
     "stage": "ACTION",
     "action": "evaluate_git_status",
     "actor": "c2_orchestrator",
@@ -1885,15 +2037,15 @@
     "data": {
       "status": "SUCCESS",
       "detail": "Project 'personal-engineering-os-2026' health score: 70.0% (State: ACTIVE).",
-      "duration_ms": 0.04506111145019531
+      "duration_ms": 0.045299530029296875
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:07:51.888184+00:00"
+    "timestamp": "2026-09-18T19:12:51.090502+00:00"
   },
   {
-    "entry_id": "tl-287b9e54",
-    "command_id": "cmd-243ac635",
+    "entry_id": "tl-31e5b4b9",
+    "command_id": "cmd-9350f7f7",
     "stage": "ACTION",
     "action": "run_local_pytest",
     "actor": "c2_orchestrator",
@@ -1923,15 +2075,15 @@
     "data": {
       "status": "SUCCESS",
       "detail": "Local unit tests passed for personal-engineering-os-2026 (Exit code 0, 100% assertions green).",
-      "duration_ms": 0.027418136596679688
+      "duration_ms": 0.042438507080078125
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:07:51.897219+00:00"
+    "timestamp": "2026-09-18T19:12:51.102192+00:00"
   },
   {
-    "entry_id": "tl-66013e53",
-    "command_id": "cmd-243ac635",
+    "entry_id": "tl-5cf60abe",
+    "command_id": "cmd-9350f7f7",
     "stage": "ACTION",
     "action": "inspect_sla_meters",
     "actor": "c2_orchestrator",
@@ -1961,15 +2113,15 @@
     "data": {
       "status": "SUCCESS",
       "detail": "SLA probe operational: 99.9% uptime, <150ms latency across personal-engineering-os-2026.",
-      "duration_ms": 0.019788742065429688
+      "duration_ms": 0.05459785461425781
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:07:51.905377+00:00"
+    "timestamp": "2026-09-18T19:12:51.124674+00:00"
   },
   {
-    "entry_id": "tl-3587051a",
-    "command_id": "cmd-243ac635",
+    "entry_id": "tl-17309a0b",
+    "command_id": "cmd-9350f7f7",
     "stage": "RESULT",
     "action": "command_execution_concluded",
     "actor": "c2_orchestrator",
@@ -2002,11 +2154,11 @@
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:07:51.913784+00:00"
+    "timestamp": "2026-09-18T19:12:51.138541+00:00"
   },
   {
-    "entry_id": "tl-2d05ce7e",
-    "command_id": "cmd-243ac635",
+    "entry_id": "tl-de0decf9",
+    "command_id": "cmd-9350f7f7",
     "stage": "EVIDENCE",
     "action": "record_provenance_evidence",
     "actor": "c2_orchestrator",
@@ -2038,11 +2190,11 @@
     },
     "evidence": "Actions: ['evaluate_git_status', 'run_local_pytest', 'inspect_sla_meters'] -> Status: COMPLETED. Outputs: 3 logs.",
     "replayed": false,
-    "timestamp": "2026-09-18T19:07:51.921834+00:00"
+    "timestamp": "2026-09-18T19:12:51.151626+00:00"
   },
   {
-    "entry_id": "tl-9e737933",
-    "command_id": "cmd-a6562568",
+    "entry_id": "tl-33f10423",
+    "command_id": "cmd-a6789240",
     "stage": "COMMAND",
     "action": "intake_command",
     "actor": "test-operator",
@@ -2054,11 +2206,11 @@
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:07:52.071078+00:00"
+    "timestamp": "2026-09-18T19:12:51.245339+00:00"
   },
   {
-    "entry_id": "tl-40c827eb",
-    "command_id": "cmd-a6562568",
+    "entry_id": "tl-455fb16b",
+    "command_id": "cmd-a6789240",
     "stage": "DECISION",
     "action": "authorize_execution",
     "actor": "test-operator",
@@ -2094,6 +2246,6 @@
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:07:52.107326+00:00"
+    "timestamp": "2026-09-18T19:12:51.277066+00:00"
   }
 ]

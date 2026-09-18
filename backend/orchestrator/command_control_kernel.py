@@ -279,7 +279,8 @@ class CommandControlKernel:
             "drift", "reconcile", "heal", "remediate",
             "security", "secret scan", "compliance", "ast", "audit",
             "knowledge", "learn", "insight", "query", "optimize", "graph",
-            "fleet", "status", "overview", "health", "global", "telemetry", "inspect"
+            "fleet", "status", "overview", "health", "global", "telemetry", "inspect",
+            "mission", "dag", "goal", "build", "scaffold", "factory", "product"
         ])
 
         # Route target projects using project_operations_engine
@@ -675,12 +676,12 @@ class CommandControlKernel:
                     stdout_parts.append(step_detail)
 
                 elif act == "check_quarantine_directory":
-                    quars = security_compliance_engine.list_quarantines()
+                    quars = security_compliance_engine.list_quarantine_records()
                     step_detail = f"Security quarantine verified with {len(quars)} isolated threats stored at 0600."
                     stdout_parts.append(step_detail)
 
                 elif act == "verify_zero_leakage":
-                    findings = [f for f in security_compliance_engine.list_findings() if getattr(f.finding_type, "value", str(f.finding_type)) == "LEAKED_SECRET"]
+                    findings = [f for f in security_compliance_engine.list_findings() if getattr(f.category, "value", str(f.category)) == "LEAKED_SECRET"]
                     step_detail = f"Zero secret leakage verified. Active secret findings: {len(findings)}."
                     stdout_parts.append(step_detail)
 
@@ -697,7 +698,7 @@ class CommandControlKernel:
                 elif act == "restore_baseline_config":
                     pid = plan.target_projects[0] if plan.target_projects else None
                     if pid:
-                        project_operations_engine.reconcile_project(pid)
+                        project_operations_engine.detect_drift(DetectDriftRequest(project_id=pid, auto_reconcile=True))
                     step_detail = f"Baseline configuration restored and verified on '{pid or 'fleet'}'."
                     stdout_parts.append(step_detail)
 
