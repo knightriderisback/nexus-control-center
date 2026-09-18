@@ -85005,5 +85005,26 @@
       "action": "deploy.LOCAL"
     },
     "session_id": null
+  },
+  "pol-eval-b510d61d": {
+    "eval_id": "pol-eval-b510d61d",
+    "rule_id": "SEC-POL-001",
+    "decision": "BLOCK",
+    "target": "/root/control-center",
+    "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001.",
+    "actor": "nexus-system",
+    "evaluated_at": "2026-09-18T18:00:24.321221+00:00",
+    "finding_ids": [
+      "sec-d20a7dd7",
+      "sec-01529767",
+      "sec-bf65ec70",
+      "sec-b0df3a54",
+      "sec-b98e5948"
+    ],
+    "evidence": {
+      "blocked_by": "Zero-Leakage Secret Guard",
+      "action": "deploy.LOCAL"
+    },
+    "session_id": null
   }
 }

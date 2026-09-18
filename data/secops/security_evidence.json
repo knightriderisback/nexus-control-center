@@ -2276,5 +2276,22 @@
       "policy_decision": "BLOCK",
       "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
     }
+  },
+  "dep-ev-b8b27806": {
+    "evidence_id": "dep-ev-b8b27806",
+    "session_id": "dep-f6b9760d",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-81e451c8",
+    "timestamp": "2026-09-18T18:00:24.474253+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
   }
 }

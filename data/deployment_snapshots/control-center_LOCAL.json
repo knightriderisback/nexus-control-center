@@ -1,8 +1,8 @@
 {
-  "deployment_id": "dep-052501c4",
+  "deployment_id": "dep-f6b9760d",
   "project_id": "control-center",
-  "service_name": "nexus-tool-svc",
-  "version": "v1.200.0",
+  "service_name": "nexus-core",
+  "version": "v1.16.0",
   "commit_sha": "HEAD",
   "environment": "LOCAL",
   "target_type": "LOCAL_PROCESS",
@@ -13,9 +13,9 @@
     {
       "stage_name": "PRE_FLIGHT",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:42.349014+00:00",
-      "completed_at": "2026-09-18T17:58:42.351004+00:00",
-      "duration_ms": 1.86,
+      "started_at": "2026-09-18T18:00:19.985129+00:00",
+      "completed_at": "2026-09-18T18:00:19.987048+00:00",
+      "duration_ms": 1.73,
       "logs": [
         "Verifying pre-flight conditions for project 'control-center'...",
         "Target: LOCAL_PROCESS | Env: LOCAL | Strategy: DIRECT_REPLACE",
@@ -29,12 +29,12 @@
     {
       "stage_name": "BUILD_PACKAGING",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:42.430851+00:00",
-      "completed_at": "2026-09-18T17:58:43.064523+00:00",
-      "duration_ms": 633.62,
+      "started_at": "2026-09-18T18:00:20.080338+00:00",
+      "completed_at": "2026-09-18T18:00:20.842355+00:00",
+      "duration_ms": 761.94,
       "logs": [
         "Executing packaging strategy for target 'LOCAL_PROCESS'...",
-        "Verifying Python runtime and compiling bytecode for 'nexus-tool-svc'...",
+        "Verifying Python runtime and compiling bytecode for 'nexus-core'...",
         "[PASS] Bytecode compilation verified. Runtime package ready."
       ],
       "error": null,
@@ -43,12 +43,12 @@
     {
       "stage_name": "POLICY_FINOPS",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:43.139881+00:00",
-      "completed_at": "2026-09-18T17:58:47.240644+00:00",
-      "duration_ms": 4100.67,
+      "started_at": "2026-09-18T18:00:20.910887+00:00",
+      "completed_at": "2026-09-18T18:00:24.634765+00:00",
+      "duration_ms": 3723.8,
       "logs": [
         "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
-        "Security Gate dep-ev-ebfcf394: 5 findings, decision=BLOCK",
+        "Security Gate dep-ev-b8b27806: 5 findings, decision=BLOCK",
         "Current incurred cost: $0.00. Budget limit: $0.00.",
         "[PASS] Strict zero-spend policy & Security Gate verified."
       ],
@@ -58,9 +58,9 @@
     {
       "stage_name": "APPROVAL_GATE",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:47.317034+00:00",
-      "completed_at": "2026-09-18T17:58:47.317096+00:00",
-      "duration_ms": 0.01,
+      "started_at": "2026-09-18T18:00:24.702312+00:00",
+      "completed_at": "2026-09-18T18:00:24.702385+00:00",
+      "duration_ms": 0.02,
       "logs": [
         "Evaluating approval policy (Risk Level: LOW)...",
         "[PASS] Auto-approved for LOCAL deployment tier."
@@ -71,9 +71,9 @@
     {
       "stage_name": "DISPATCH_DEPLOY",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:47.458926+00:00",
-      "completed_at": "2026-09-18T17:58:47.459059+00:00",
-      "duration_ms": 0.05,
+      "started_at": "2026-09-18T18:00:24.770431+00:00",
+      "completed_at": "2026-09-18T18:00:24.770549+00:00",
+      "duration_ms": 0.08,
       "logs": [
         "Dispatching payload to target 'LOCAL_PROCESS'...",
         "Verifying local port 8000 availability and host binding...",
@@ -86,9 +86,9 @@
     {
       "stage_name": "HEALTH_PROBE",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:47.536650+00:00",
-      "completed_at": "2026-09-18T17:58:47.565896+00:00",
-      "duration_ms": 29.16,
+      "started_at": "2026-09-18T18:00:24.837630+00:00",
+      "completed_at": "2026-09-18T18:00:24.884054+00:00",
+      "duration_ms": 46.34,
       "logs": [
         "Executing synthetic SLA health probe on http://localhost:8000...",
         "Executing real health probe against http://localhost:8000/api/health...",
@@ -103,12 +103,12 @@
     {
       "stage_name": "PROMOTE_CANARY",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:47.701561+00:00",
-      "completed_at": "2026-09-18T17:58:47.701665+00:00",
-      "duration_ms": 0.02,
+      "started_at": "2026-09-18T18:00:24.991045+00:00",
+      "completed_at": "2026-09-18T18:00:24.991259+00:00",
+      "duration_ms": 0.06,
       "logs": [
         "Applying deployment strategy: DIRECT_REPLACE...",
-        "100% traffic switched to active release v1.200.0.",
+        "100% traffic switched to active release v1.16.0.",
         "[PASS] Traffic routing table updated."
       ],
       "error": null,
@@ -123,15 +123,15 @@
   "risk_level": "LOW",
   "requires_approval": false,
   "approval_id": null,
-  "created_by": "test-agent",
-  "created_at": "2026-09-18T17:58:42.274222+00:00",
-  "completed_at": "2026-09-18T17:58:47.778770+00:00",
-  "duration_seconds": 5.43,
+  "created_by": "test-suite",
+  "created_at": "2026-09-18T18:00:19.919222+00:00",
+  "completed_at": "2026-09-18T18:00:25.094080+00:00",
+  "duration_seconds": 5.11,
   "rollback_target_id": null,
   "changelog": [],
-  "dora_lead_time_seconds": 5.43,
+  "dora_lead_time_seconds": 5.11,
   "metadata": {
-    "notes": "Triggered via Universal Tool Engine",
+    "notes": null,
     "health_check_path": "/api/health",
     "auto_rollback": true
   }

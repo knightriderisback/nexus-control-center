@@ -8831,5 +8831,23 @@
     },
     "outcome": "SUCCESS",
     "timestamp": "2026-09-18T17:58:47.885370+00:00"
+  },
+  {
+    "knowledge_id": "know-6feddbb0",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-core v1.16.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-f6b9760d",
+      "project_id": "control-center",
+      "service_name": "nexus-core",
+      "version": "v1.16.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 5.11
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:00:25.171240+00:00"
   }
 ]
