@@ -1,0 +1,138 @@
+{
+  "deployment_id": "dep-7ffc4cc7",
+  "project_id": "portfolio",
+  "service_name": "portfolio-app",
+  "version": "v2.1.0",
+  "commit_sha": "HEAD",
+  "environment": "PREVIEW",
+  "target_type": "VERCEL_EDGE",
+  "strategy": "BLUE_GREEN",
+  "status": "LIVE",
+  "current_stage": "PROMOTE_CANARY",
+  "stages": [
+    {
+      "stage_name": "PRE_FLIGHT",
+      "status": "SUCCESS",
+      "started_at": "2026-09-18T15:19:30.105029+00:00",
+      "completed_at": "2026-09-18T15:19:30.105162+00:00",
+      "duration_ms": 0.05,
+      "logs": [
+        "Verifying pre-flight conditions for project 'portfolio'...",
+        "Target: VERCEL_EDGE | Env: PREVIEW | Strategy: BLUE_GREEN",
+        "Validating Vercel ecosystem configuration & Hobby Tier bounds...",
+        "Checking vercel.json routing and API headers...",
+        "[PASS] Edge configuration verified. Cost profile: $0.00 / month."
+      ],
+      "error": null,
+      "metrics": {}
+    },
+    {
+      "stage_name": "BUILD_PACKAGING",
+      "status": "SUCCESS",
+      "started_at": "2026-09-18T15:19:30.341741+00:00",
+      "completed_at": "2026-09-18T15:19:30.341858+00:00",
+      "duration_ms": 0.04,
+      "logs": [
+        "Executing packaging strategy for target 'VERCEL_EDGE'...",
+        "Synthesizing edge serverless artifacts for 'portfolio-app' (v2.1.0)...",
+        "Packaged serverless routes: /api/* -> Edge Functions.",
+        "[PASS] Edge package bundle synthesized."
+      ],
+      "error": null,
+      "metrics": {}
+    },
+    {
+      "stage_name": "POLICY_FINOPS",
+      "status": "SUCCESS",
+      "started_at": "2026-09-18T15:19:30.954462+00:00",
+      "completed_at": "2026-09-18T15:19:52.458540+00:00",
+      "duration_ms": 21503.89,
+      "logs": [
+        "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+        "Security Gate dep-ev-1f6de270: 5 findings, decision=BLOCK",
+        "Current incurred cost: $0.00. Budget limit: $0.00.",
+        "[PASS] Strict zero-spend policy & Security Gate verified."
+      ],
+      "error": null,
+      "metrics": {}
+    },
+    {
+      "stage_name": "APPROVAL_GATE",
+      "status": "SUCCESS",
+      "started_at": "2026-09-18T15:19:52.651949+00:00",
+      "completed_at": "2026-09-18T15:19:52.652031+00:00",
+      "duration_ms": 0.02,
+      "logs": [
+        "Evaluating approval policy (Risk Level: LOW)...",
+        "[PASS] Auto-approved for PREVIEW deployment tier."
+      ],
+      "error": null,
+      "metrics": {}
+    },
+    {
+      "stage_name": "DISPATCH_DEPLOY",
+      "status": "SUCCESS",
+      "started_at": "2026-09-18T15:19:52.936142+00:00",
+      "completed_at": "2026-09-18T15:19:52.936254+00:00",
+      "duration_ms": 0.05,
+      "logs": [
+        "Dispatching payload to target 'VERCEL_EDGE'...",
+        "Vercel deployment dispatched. Live Edge URL: https://portfolio-app-v2-1-0.vercel.app",
+        "[PASS] CDN edge propagation complete across regions: iad1, bom1."
+      ],
+      "error": null,
+      "metrics": {}
+    },
+    {
+      "stage_name": "HEALTH_PROBE",
+      "status": "SUCCESS",
+      "started_at": "2026-09-18T15:19:53.135626+00:00",
+      "completed_at": "2026-09-18T15:19:53.135743+00:00",
+      "duration_ms": 0.05,
+      "logs": [
+        "Executing synthetic SLA health probe on https://portfolio-app-v2-1-0.vercel.app...",
+        "Verifying Vercel edge endpoint status for https://portfolio-app-v2-1-0.vercel.app...",
+        "[PASS] Vercel Edge health verified (status: READY, SSL: ACTIVE)."
+      ],
+      "error": null,
+      "metrics": {
+        "probe_status": 200,
+        "latency_ms": 24.5
+      }
+    },
+    {
+      "stage_name": "PROMOTE_CANARY",
+      "status": "SUCCESS",
+      "started_at": "2026-09-18T15:19:53.255616+00:00",
+      "completed_at": "2026-09-18T15:19:53.255700+00:00",
+      "duration_ms": 0.02,
+      "logs": [
+        "Applying deployment strategy: BLUE_GREEN...",
+        "100% traffic switched to active release v2.1.0.",
+        "[PASS] Traffic routing table updated."
+      ],
+      "error": null,
+      "metrics": {}
+    }
+  ],
+  "deployed_url": "https://portfolio-app-v2-1-0.vercel.app",
+  "canary_percentage": 100,
+  "active_instances": 1,
+  "health_status": "HEALTHY",
+  "error": null,
+  "risk_level": "LOW",
+  "requires_approval": false,
+  "approval_id": null,
+  "created_by": "test-suite",
+  "created_at": "2026-09-18T15:19:29.642249+00:00",
+  "completed_at": "2026-09-18T15:19:53.369876+00:00",
+  "duration_seconds": 23.26,
+  "rollback_target_id": null,
+  "changelog": [],
+  "dora_lead_time_seconds": 23.26,
+  "metadata": {
+    "notes": null,
+    "health_check_path": "/api/health",
+    "auto_rollback": true
+  }
+}

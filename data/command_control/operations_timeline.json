@@ -1,0 +1,48 @@
+[
+  {
+    "entry_id": "tl-6763874f",
+    "command_id": "cmd-95c4f7be",
+    "stage": "COMMAND",
+    "action": "intake_command",
+    "actor": "nexus-operator",
+    "target_projects": [],
+    "risk_level": "LOW",
+    "data": {
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "dry_run": true
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-18T17:54:34.852462+00:00"
+  },
+  {
+    "entry_id": "tl-a6711f56",
+    "command_id": "cmd-95c4f7be",
+    "stage": "DECISION",
+    "action": "block_execution",
+    "actor": "c2_safety_governor",
+    "target_projects": [],
+    "risk_level": "MEDIUM",
+    "data": {
+      "block_reason": "Could not unambiguously resolve target project. Please specify target_project_ids."
+    },
+    "evidence": "Could not unambiguously resolve target project. Please specify target_project_ids.",
+    "replayed": false,
+    "timestamp": "2026-09-18T17:54:34.877826+00:00"
+  },
+  {
+    "entry_id": "tl-6f84c99b",
+    "command_id": "cmd-95c4f7be",
+    "stage": "RESULT",
+    "action": "execution_halted",
+    "actor": "c2_safety_governor",
+    "target_projects": [],
+    "risk_level": "MEDIUM",
+    "data": {
+      "status": "BLOCKED"
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-18T17:54:34.883977+00:00"
+  }
+]

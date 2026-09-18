@@ -1,0 +1,118 @@
+[
+  {
+    "event_id": "adp-2c9943d7",
+    "mission_id": "mis-adapt-3da85dde",
+    "task_id": "task-bb2016",
+    "trigger_reason": "Runtime task failure: SecurityPolicyViolation: Dangerous shell character ';' detected in argument: import sys; print(f\"Environment verified: Python {sys.version_info.major}.{sys.version_info.minor}\")",
+    "strategy": "RETRY_WITH_KNOWLEDGE",
+    "knowledge_node_id_used": "ARCH-005",
+    "why": "Applying verified knowledge pattern 'Sub-Second Operational Self-Healing & Port Collision Resolution' to retry task.",
+    "evidence": [
+      "Previous attempt error: Runtime task failure: SecurityPolicyViolation: Dangerous shell character ';' detected in argument: import sys; print(f\"Environment verified: Python {sys.version_info.major}.{sys.version_info.minor}\")",
+      "Knowledge confidence: HIGH"
+    ],
+    "injected_task_ids": [],
+    "resulting_state": "RUNNING",
+    "timestamp": "2026-09-18T09:46:41.652131"
+  },
+  {
+    "event_id": "adp-c29b617a",
+    "mission_id": "mis-adapt-a9c9f732",
+    "task_id": "task-c9b56b",
+    "trigger_reason": "Operator tested dynamic re-routing endpoint",
+    "strategy": "RETRY_WITH_KNOWLEDGE",
+    "knowledge_node_id_used": "ARCH-005",
+    "why": "Applying verified knowledge pattern 'Sub-Second Operational Self-Healing & Port Collision Resolution' to retry task.",
+    "evidence": [
+      "Previous attempt error: Operator tested dynamic re-routing endpoint",
+      "Knowledge confidence: HIGH"
+    ],
+    "injected_task_ids": [],
+    "resulting_state": "PENDING",
+    "timestamp": "2026-09-18T09:47:55.018002"
+  },
+  {
+    "event_id": "adp-9aebd42f",
+    "mission_id": "mis-adapt-8c7f8bd9",
+    "task_id": "task-89ae15",
+    "trigger_reason": "TransientSocketTimeout: Primary implementation pipeline timed out.",
+    "strategy": "DYNAMIC_FALLBACK_BRANCH",
+    "knowledge_node_id_used": "ARCH-005",
+    "why": "Primary task 'Core Implementation & Execution' encountered failure. Activating pre-computed resilient fallback.",
+    "evidence": [
+      "Failure reason: TransientSocketTimeout: Primary implementation pipeline timed out.",
+      "Pre-verified fallback branch available in DAG."
+    ],
+    "injected_task_ids": [],
+    "resulting_state": "ADAPTED",
+    "timestamp": "2026-09-18T09:48:17.333765"
+  },
+  {
+    "event_id": "adp-0ca33e45",
+    "mission_id": "mis-adapt-8c7f8bd9",
+    "task_id": "task-f55ef7",
+    "trigger_reason": "Pre-verification syntax linting anomaly detected",
+    "strategy": "INJECT_REMEDIATION_SUBDAG",
+    "knowledge_node_id_used": "kn-037c9287",
+    "why": "Injected dynamic remediation node task-rem-2efd2c to repair precondition before re-attempting task-f55ef7.",
+    "evidence": [
+      "Trigger: Pre-verification syntax linting anomaly detected",
+      "Referenced Knowledge Node: kn-037c9287"
+    ],
+    "injected_task_ids": [
+      "task-rem-2efd2c"
+    ],
+    "resulting_state": "PENDING",
+    "timestamp": "2026-09-18T09:48:17.576670"
+  },
+  {
+    "event_id": "adp-5ee1ebef",
+    "mission_id": "mis-adapt-e87cc294",
+    "task_id": "task-f863bb",
+    "trigger_reason": "Operator tested dynamic re-routing endpoint",
+    "strategy": "RETRY_WITH_KNOWLEDGE",
+    "knowledge_node_id_used": "ARCH-005",
+    "why": "Applying verified knowledge pattern 'Sub-Second Operational Self-Healing & Port Collision Resolution' to retry task.",
+    "evidence": [
+      "Previous attempt error: Operator tested dynamic re-routing endpoint",
+      "Knowledge confidence: HIGH"
+    ],
+    "injected_task_ids": [],
+    "resulting_state": "PENDING",
+    "timestamp": "2026-09-18T09:49:40.462654"
+  },
+  {
+    "event_id": "adp-ebb8feb0",
+    "mission_id": "mis-adapt-a1286d56",
+    "task_id": "task-f23cf6",
+    "trigger_reason": "TransientSocketTimeout: Primary implementation pipeline timed out.",
+    "strategy": "DYNAMIC_FALLBACK_BRANCH",
+    "knowledge_node_id_used": "kn-86745202",
+    "why": "Primary task 'Core Implementation & Execution' encountered failure. Activating pre-computed resilient fallback.",
+    "evidence": [
+      "Failure reason: TransientSocketTimeout: Primary implementation pipeline timed out.",
+      "Pre-verified fallback branch available in DAG."
+    ],
+    "injected_task_ids": [],
+    "resulting_state": "ADAPTED",
+    "timestamp": "2026-09-18T09:59:38.542448+00:00"
+  },
+  {
+    "event_id": "adp-91f0ab1b",
+    "mission_id": "mis-adapt-a1286d56",
+    "task_id": "task-62ecdd",
+    "trigger_reason": "Pre-verification syntax linting anomaly detected",
+    "strategy": "INJECT_REMEDIATION_SUBDAG",
+    "knowledge_node_id_used": "kn-037c9287",
+    "why": "Injected dynamic remediation node task-rem-ff482e to repair precondition before re-attempting task-62ecdd.",
+    "evidence": [
+      "Trigger: Pre-verification syntax linting anomaly detected",
+      "Referenced Knowledge Node: kn-037c9287"
+    ],
+    "injected_task_ids": [
+      "task-rem-ff482e"
+    ],
+    "resulting_state": "PENDING",
+    "timestamp": "2026-09-18T09:59:39.053474+00:00"
+  }
+]

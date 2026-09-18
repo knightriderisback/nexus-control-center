@@ -1,0 +1,31 @@
+{
+  "incident_id": "inc-6f7a1114",
+  "title": "Stale Test Worktrees Cleanup",
+  "category": "WORKTREE_FAILURE",
+  "severity": "LOW",
+  "root_cause": "Automated RCA: WORKTREE_FAILURE identified on worktree_manager",
+  "diagnosis_evidence": {
+    "observed_facts": [
+      "Observed failure signal in category 'WORKTREE_FAILURE'",
+      "Target resource impacted: 'worktree_manager'",
+      "Severity classified as 'LOW'",
+      "Telemetry metric 'session_tag': test-prune-wt"
+    ],
+    "hypotheses": [
+      "Possible unreleased lock file or orphan branch worktree directory."
+    ],
+    "evidence_sources": [
+      "system_watchdog",
+      "kernel_metrics",
+      "audit_log_stream"
+    ],
+    "confidence_score": 0.95,
+    "root_cause_candidate": "Automated RCA: WORKTREE_FAILURE identified on worktree_manager"
+  },
+  "playbook_applied": "Deadlock Breaker & Resource Purge",
+  "recovery_attempts": 1,
+  "mttr_seconds": 0.32,
+  "remediation_steps_count": 4,
+  "generated_at": "2026-09-18T14:59:17.994703+00:00",
+  "status": "RESOLVED_AUTOMATICALLY"
+}

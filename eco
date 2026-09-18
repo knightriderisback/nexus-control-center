@@ -36,6 +36,7 @@ def api_get(endpoint: str):
     except urllib.error.URLError as e:
         print(f"{RED}[ECO ERROR]{RESET} Cannot connect to Control API at {url}")
         print(f"Details: {e}")
+        print(f"{YELLOW}[TIP]{RESET} You can manage the local service with: {BOLD}eco daemon start|status|logs{RESET}")
         sys.exit(1)
 
 def api_post(endpoint: str, payload: dict):
@@ -187,6 +188,425 @@ def cmd_docs():
     for d in docs:
         print(f"{CYAN}{d.get('id', ''):<15}{RESET} {d.get('category', ''):<15} {BOLD}{d.get('title', '')[:43]:<45}{RESET}")
 
+def cmd_worktrees(args: list):
+    print_banner()
+    sub = args[0] if args else "list"
+    if sub == "list":
+        worktrees = api_get("/agents/worktrees")
+        print(f"\n{BOLD}{'SESSION ID':<16} {'BRANCH':<22} {'STATUS':<10} {'PATH':<35}{RESET}")
+        print("=" * 85)
+        if not worktrees:
+            print(f"{YELLOW}No active isolated worktrees found.{RESET}")
+        for wt in worktrees:
+            print(f"{CYAN}{wt.get('session_id', ''):<16}{RESET} {wt.get('branch_name', ''):<22} {GREEN}{wt.get('status', 'ACTIVE'):<10}{RESET} {wt.get('worktree_path', '')[:33]:<35}")
+    elif sub == "prune":
+        res = api_post("/agents/worktrees/prune", {})
+        print(f"\n{GREEN}✓ Pruned {res.get('pruned_count', 0)} stale worktrees.{RESET}")
+    elif sub == "teardown" and len(args) > 1:
+        session_id = args[1]
+        res = api_post(f"/agents/worktrees/{session_id}/teardown", {})
+        print(f"\n{GREEN}✓ Worktree for session {session_id} torn down.{RESET}")
+    else:
+        print(f"Usage: eco worktrees [list|prune|teardown <session_id>]")
+
+def cmd_merge(args: list):
+    print_banner()
+    sub = args[0] if args else "history"
+    if sub == "history":
+        history = api_get("/agents/merge/history")
+        print(f"\n{BOLD}{'MERGE ID':<18} {'STATUS':<15} {'SOURCE':<25} {'TARGET':<10} {'COMMIT':<10}{RESET}")
+        print("=" * 85)
+        if not history:
+            print(f"{YELLOW}No merge arbitration history found.{RESET}")
+        for m in history:
+            scolor = GREEN if m.get("status") in ["SUCCESS", "READY"] else (YELLOW if m.get("status") in ["STAGED_READY", "AWAITING_APPROVAL"] else RED)
+            cmt = (m.get("merge_commit") or "")[:8]
+            print(f"{CYAN}{m.get('merge_id', ''):<18}{RESET} {scolor}{m.get('status', ''):<15}{RESET} {m.get('source_branch', ''):<25} {m.get('target_branch', ''):<10} {cmt:<10}")
+    elif sub == "evaluate" and len(args) > 1:
+        source = args[1]
+        target = args[2] if len(args) > 2 else "main"
+        payload = {
+            "repo_path": "/root/control-center",
+            "source_branch": source,
+            "target_branch": target,
+            "run_pre_merge_tests": True
+        }
+        res = api_post("/agents/merge/evaluate", payload)
+        print(f"\n{BOLD}Merge Evaluation: {source} -> {target}{RESET}")
+        print(f"Mergeable: {GREEN if res.get('mergeable') else RED}{res.get('mergeable')}{RESET}")
+        print(f"Fast-Forward: {res.get('is_fast_forward')}")
+        print(f"Conflicts: {RED if res.get('has_conflicts') else GREEN}{res.get('has_conflicts')}{RESET}")
+        if res.get("conflict_files"):
+            print(f"Conflicting Files: {res.get('conflict_files')}")
+        print(f"Semantic Tests: {GREEN if res.get('semantic_test_passed') else (RED if res.get('semantic_test_passed') is False else 'SKIPPED')}{res.get('semantic_test_passed')}{RESET}")
+    elif sub == "execute" and len(args) > 1:
+        source = args[1]
+        target = args[2] if len(args) > 2 else "main"
+        payload = {
+            "repo_path": "/root/control-center",
+            "source_branch": source,
+            "target_branch": target,
+            "strategy": "AUTO",
+            "run_pre_merge_tests": True,
+            "auto_resolve_conflicts": True
+        }
+        res = api_post("/agents/merge/execute", payload)
+        scolor = GREEN if res.get("status") in ["SUCCESS", "READY"] else (YELLOW if res.get("status") in ["STAGED_READY", "AWAITING_APPROVAL", "WAITING_FOR_APPROVAL"] else RED)
+        print(f"\n{BOLD}Merge Execution Result:{RESET}")
+        print(f"Status: {scolor}{res.get('status')}{RESET}")
+        print(f"Strategy Used: {res.get('strategy_used')}")
+        if res.get("approval_id"):
+            print(f"Approval ID: {CYAN}{res.get('approval_id')}{RESET}")
+        if res.get("merge_commit"):
+            print(f"Merge Commit: {CYAN}{res.get('merge_commit')}{RESET}")
+        if res.get("error"):
+            print(f"Notice / Detail: {YELLOW}{res.get('error')}{RESET}")
+    elif sub == "review" and len(args) > 1:
+        merge_id = args[1]
+        res = api_post(f"/agents/merge/{merge_id}/review", {})
+        print(f"\n{BOLD}Fleet Review for Candidate: {merge_id}{RESET}")
+        print(f"Status: {GREEN}{res.get('status')}{RESET}")
+        rev = res.get("review", {})
+        print(f"AGY Planner: {rev.get('agy_planner', {}).get('status')}")
+        print(f"Codex Reviewer: {rev.get('codex_reviewer', {}).get('status')}")
+        print(f"QA Verifier: {rev.get('qa_verifier', {}).get('status')}")
+        print(f"Security Sentinel: {rev.get('security_sentinel', {}).get('status')}")
+    elif sub == "integrate" and len(args) > 2:
+        merge_id = args[1]
+        approval_id = args[2]
+        res = api_post(f"/agents/merge/{merge_id}/integrate?approval_id={approval_id}", {})
+        print(f"\n{BOLD}Integration Result:{RESET}")
+        print(f"Status: {GREEN if res.get('status') == 'SUCCESS' else RED}{res.get('status')}{RESET}")
+        if res.get("merge_commit"):
+            print(f"Merge Commit: {CYAN}{res.get('merge_commit')}{RESET}")
+    elif sub == "reject" and len(args) > 1:
+        merge_id = args[1]
+        reason = " ".join(args[2:]) if len(args) > 2 else "Rejected by operator"
+        res = api_post(f"/agents/merge/{merge_id}/reject?reason={reason}", {})
+        print(f"\n{BOLD}Rejection Result:{RESET}")
+        print(f"Status: {YELLOW}{res.get('status')}{RESET}")
+    else:
+        print("Usage: eco merge [history | evaluate <source> [target] | execute <source> [target] | review <merge_id> | integrate <merge_id> <approval_id> | reject <merge_id> [reason]]")
+
+def cmd_merges(args: list):
+    print_banner()
+    sub = args[0] if len(args) > 0 else "list"
+
+    if sub == "list":
+        candidates = api_get("/agents/merge/candidates")
+        print(f"\n{BOLD}{'CANDIDATE ID':<18} {'STATE':<20} {'SOURCE':<25} {'TARGET':<10} {'UPDATED':<20}{RESET}")
+        print("=" * 95)
+        if not candidates:
+            print(f"{YELLOW}No merge candidates found.{RESET}")
+        for c in candidates:
+            scolor = GREEN if c.get("state") in ["INTEGRATED", "READY_TO_INTEGRATE"] else (YELLOW if "PENDING" in c.get("state", "") or "REQUIRES" in c.get("state", "") else RED)
+            print(f"{CYAN}{c.get('candidate_id', ''):<18}{RESET} {scolor}{c.get('state', ''):<20}{RESET} {c.get('source_branch', ''):<25} {c.get('target_branch', ''):<10} {c.get('updated_at', '')[:19]:<20}")
+    elif sub == "inspect" and len(args) > 1:
+        cid = args[1]
+        c = api_get(f"/agents/merge/candidates/{cid}")
+        print(f"\n{BOLD}Candidate Inspection: {cid}{RESET}")
+        print(f"State: {c.get('state')}")
+        print(f"Source Branch: {c.get('source_branch')} ({c.get('source_commit', '')[:8]})")
+        print(f"Target Branch: {c.get('target_branch')} ({c.get('target_commit', '')[:8]})")
+        print(f"Candidate Commit: {CYAN}{c.get('candidate_commit', '')}{RESET}")
+        if c.get("approval_id"):
+            print(f"Approval ID: {YELLOW}{c.get('approval_id')}{RESET} (State: {c.get('approval_state')})")
+        if c.get("error"):
+            print(f"Detail/Error: {RED}{c.get('error')}{RESET}")
+        print(f"Transitions: {len(c.get('transitions', []))}")
+        for t in c.get("transitions", []):
+            print(f"  • {t.get('timestamp')[:19]}: {t.get('from_state')} -> {t.get('to_state')} ({t.get('actor')}) - {t.get('reason') or ''}")
+    elif sub == "analyze" and len(args) > 1:
+        cid = args[1]
+        c = api_post(f"/agents/merge/candidates/{cid}/analyze", {})
+        print(f"\n{BOLD}Candidate Analyzed: {cid}{RESET}")
+        print(f"New State: {GREEN}{c.get('state')}{RESET}")
+    elif sub == "verify" and len(args) > 1:
+        cid = args[1]
+        c = api_post(f"/agents/merge/candidates/{cid}/verify", {})
+        print(f"\n{BOLD}Candidate Verification: {cid}{RESET}")
+        print(f"New State: {GREEN if c.get('state') == 'READY_TO_INTEGRATE' else YELLOW}{c.get('state')}{RESET}")
+        if c.get("error"):
+            print(f"Notice: {RED}{c.get('error')}{RESET}")
+    elif sub == "review" and len(args) > 1:
+        cid = args[1]
+        res = api_post(f"/agents/merge/candidates/{cid}/review", {})
+        print(f"\n{BOLD}Fleet Review for Candidate: {cid}{RESET}")
+        print(f"Status: {GREEN}{res.get('status')}{RESET}")
+    elif sub == "integrate" and len(args) > 1:
+        cid = args[1]
+        appr_id = args[2] if len(args) > 2 else None
+        url = f"/agents/merge/candidates/{cid}/integrate" + (f"?approval_id={appr_id}" if appr_id else "")
+        c = api_post(url, {})
+        print(f"\n{BOLD}Candidate Integration: {cid}{RESET}")
+        print(f"Status: {GREEN if c.get('state') == 'INTEGRATED' else RED}{c.get('state')}{RESET}")
+    elif sub == "rollback" and len(args) > 1:
+        cid = args[1]
+        reason = " ".join(args[2:]) if len(args) > 2 else "Rollback requested"
+        c = api_post(f"/agents/merge/candidates/{cid}/rollback?reason={reason}", {})
+        print(f"\n{BOLD}Candidate Rollback: {cid}{RESET}")
+        print(f"Status: {YELLOW}{c.get('state')}{RESET}")
+    else:
+        print("Usage: eco merges [list | inspect <cid> | analyze <cid> | verify <cid> | review <cid> | integrate <cid> [appr_id] | rollback <cid>]")
+
+def cmd_provider(args):
+    print_banner()
+    sub = args[0] if len(args) > 0 else "list"
+    if sub == "list":
+        provs = api_get("/providers")
+        print(f"\n{BOLD}{'PROVIDER':<15} {'MODEL':<25} {'STATUS':<15} {'ACTIVE':<8} {'COST/1K':<10}{RESET}")
+        print("=" * 75)
+        for p in provs:
+            meta = p.get("metadata", {})
+            hlth = p.get("health", {})
+            h_stat = hlth.get("status", "UNKNOWN")
+            hcolor = GREEN if h_stat == "READY" else (YELLOW if h_stat == "NOT_CONFIGURED" else RED)
+            active_str = f"{GREEN}YES{RESET}" if p.get("is_active_default") else "NO"
+            cost_str = f"${meta.get('cost_per_1k_input_tokens', 0.0):.4f}"
+            print(f"{CYAN}{p.get('name'):<15}{RESET} {meta.get('model_id', ''):<25} {hcolor}{h_stat:<15}{RESET} {active_str:<17} {cost_str:<10}")
+    elif sub == "switch" and len(args) > 1:
+        target = args[1]
+        res = api_post("/providers/switch", {"provider_name": target})
+        print(f"\n{GREEN}✓ Switched active provider to: {res.get('active_provider')}{RESET}")
+    elif sub == "health":
+        hlth = api_get("/providers/health")
+        print(f"\n{BOLD}Default Preference:{RESET} {CYAN}{hlth.get('default_preference')}{RESET}")
+        print(f"\n{BOLD}{'PROVIDER':<15} {'STATUS':<15} {'CIRCUIT':<10} {'REASON'}{RESET}")
+        print("=" * 75)
+        for name, h in hlth.get("providers", {}).items():
+            scolor = GREEN if h.get("status") == "READY" else (YELLOW if h.get("status") == "NOT_CONFIGURED" else RED)
+            print(f"{CYAN}{name:<15}{RESET} {scolor}{h.get('status', ''):<15}{RESET} {h.get('circuit_state', 'CLOSED'):<10} {h.get('reason', '')}")
+    elif sub == "usage":
+        u = api_get("/providers/usage")
+        print(f"\n{BOLD}LLM USAGE & COST LEDGER ($0.00 Ceiling Enforced):{RESET}")
+        print(f"Total Requests: {BOLD}{u.get('total_requests', 0)}{RESET}")
+        print(f"Total Tokens:   {BOLD}{u.get('total_tokens', 0)}{RESET} (Prompt: {u.get('total_prompt_tokens', 0)}, Completion: {u.get('total_completion_tokens', 0)})")
+        print(f"Total Incurred: {GREEN}${u.get('total_cost_usd', 0.0):.6f}{RESET}")
+        print(f"\n{BOLD}By Provider:{RESET}")
+        for p, stats in u.get("by_provider", {}).items():
+            print(f"  • {CYAN}{p:<15}{RESET}: {stats.get('requests', 0)} requests, {stats.get('tokens', 0)} tokens, ${stats.get('cost_usd', 0.0):.6f}")
+    elif sub == "test":
+        prompt = " ".join(args[1:]) if len(args) > 1 else "Explain NEXUS architecture in one concise sentence."
+        print(f"\n{CYAN}[ECO PROVIDER TEST]{RESET} Sending prompt: {BOLD}\"{prompt}\"{RESET}")
+        res = api_post("/providers/generate", {"prompt": prompt})
+        print(f"\n{BOLD}Provider:{RESET} {CYAN}{res.get('provider')}{RESET} ({res.get('model')})")
+        print(f"{BOLD}Latency:{RESET}  {res.get('latency_ms', 0):.1f} ms | {BOLD}Tokens:{RESET} {res.get('tokens_used', 0)} | {BOLD}Cost:{RESET} ${res.get('estimated_cost_usd', 0.0):.6f}")
+        if res.get("fallback_triggered"):
+            print(f"{YELLOW}Fallback notice:{RESET} {res.get('fallback_reason')}")
+        print(f"\n{GREEN}Response:{RESET}\n{res.get('content')}")
+    else:
+        print("Usage: eco provider [list | switch <name> | health | usage | test [prompt]]")
+
+def cmd_mission(args):
+    print_banner()
+    sub = args[0] if len(args) > 0 else "list"
+    if sub == "list":
+        missions = api_get("/missions")
+        print(f"\n{BOLD}{'MISSION ID':<20} {'STATE':<18} {'GOAL':<35} {'CREATED'}{RESET}")
+        print("=" * 85)
+        for m in missions:
+            state = m.get("state", "UNKNOWN")
+            scolor = GREEN if state == "COMPLETED" else (YELLOW if state in ["EXECUTING", "DECOMPOSED", "PLANNING", "REMEDIATING", "ARBITRATING"] else (RED if state == "FAILED" else CYAN))
+            goal_short = (m.get("goal") or "")[:33]
+            print(f"{CYAN}{m.get('mission_id'):<20}{RESET} {scolor}{state:<18}{RESET} {goal_short:<35} {m.get('created_at', '')[:19]}")
+    elif sub == "plan":
+        goal = " ".join(args[1:]) if len(args) > 1 else "Implement feature with test suite"
+        print(f"\n{CYAN}[MISSION PLANNER]{RESET} Decomposing engineering goal: {BOLD}\"{goal}\"{RESET}")
+        res = api_post("/missions/plan", {"goal": goal})
+        print(f"\n{BOLD}Mission ID:{RESET} {CYAN}{res.get('mission_id')}{RESET}")
+        print(f"{BOLD}State:{RESET}      {YELLOW}{res.get('state')}{RESET}")
+        print(f"{BOLD}Subtasks ({len(res.get('subtasks', []))}):{RESET}")
+        for st in res.get("subtasks", []):
+            deps = f" (deps: {', '.join(st.get('dependencies', []))})" if st.get("dependencies") else ""
+            print(f"  • [{CYAN}{st.get('subtask_id')}{RESET}] {BOLD}{st.get('title')}{RESET} -> {GREEN}{st.get('assigned_agent')}{RESET}{deps}")
+        print(f"\n{BOLD}Execution Levels:{RESET} {res.get('execution_order')}")
+        if res.get("state") == "AWAITING_APPROVAL":
+            print(f"\n{RED}{BOLD}🛑 [HUMAN APPROVAL REQUIRED]{RESET} (Approval ID: {res.get('approval_id')})")
+        else:
+            print(f"\nRun mission with: {BOLD}eco mission run \"{goal}\"{RESET}")
+    elif sub == "run":
+        goal = " ".join(args[1:]) if len(args) > 1 else "Implement feature with test suite"
+        print(f"\n{CYAN}[MISSION RUNNER]{RESET} Launching autonomous mission: {BOLD}\"{goal}\"{RESET}")
+        res = api_post("/missions/run", {"goal": goal})
+        state = res.get("state")
+        scolor = GREEN if state == "COMPLETED" else (YELLOW if state == "AWAITING_APPROVAL" else RED)
+        print(f"\n{BOLD}Mission ID:{RESET} {CYAN}{res.get('mission_id')}{RESET}")
+        print(f"{BOLD}Outcome:{RESET}    {scolor}{state}{RESET}")
+        if state == "AWAITING_APPROVAL":
+            print(f"\n{RED}{BOLD}🛑 [HUMAN APPROVAL REQUIRED]{RESET}")
+            print(f"Approval ID: {CYAN}{res.get('approval_id')}{RESET}")
+            print(f"Approve with: {BOLD}eco approvals approve {res.get('approval_id')}{RESET}")
+        elif state == "COMPLETED":
+            telem = res.get("telemetry", {})
+            print(f"\n{GREEN}✓ Mission completed in {telem.get('duration_seconds', 0)}s!{RESET}")
+            print(f"Subtasks Verified: {telem.get('completed_subtasks', 0)} | Remediations: {telem.get('remediation_rounds_total', 0)} | FinOps: $0.00")
+            if res.get("merge_id"):
+                print(f"Merge ID: {CYAN}{res.get('merge_id')}{RESET}")
+            print(f"\nView changelog with: {BOLD}eco mission changelog {res.get('mission_id')}{RESET}")
+        else:
+            print(f"\n{RED}Mission failed: {res.get('error')}{RESET}")
+    elif sub == "status" and len(args) > 1:
+        mid = args[1]
+        m = api_get(f"/missions/{mid}")
+        print(f"\n{BOLD}MISSION STATUS: {CYAN}{mid}{RESET}")
+        print(f"{BOLD}Goal:{RESET}   {m.get('goal')}")
+        print(f"{BOLD}State:{RESET}  {m.get('state')}")
+        print(f"\n{BOLD}{'SUBTASK':<15} {'AGENT':<18} {'STATUS':<15} {'REMEDIATIONS'}{RESET}")
+        print("=" * 65)
+        for st in m.get("subtasks", []):
+            st_color = GREEN if st.get("status") == "COMPLETED" else (YELLOW if st.get("status") in ["RUNNING", "REMEDIATING"] else RED)
+            print(f"{CYAN}{st.get('subtask_id'):<15}{RESET} {st.get('assigned_agent'):<18} {st_color}{st.get('status'):<15}{RESET} {st.get('remediation_rounds', 0)}")
+    elif sub == "changelog" and len(args) > 1:
+        mid = args[1]
+        res = api_get(f"/missions/{mid}/changelog")
+        print(f"\n{res.get('changelog')}")
+    elif sub == "cancel" and len(args) > 1:
+        mid = args[1]
+        res = api_post(f"/missions/{mid}/cancel", {})
+        print(f"\n{YELLOW}✓ Cancelled mission {mid} (State: {res.get('state')}){RESET}")
+    elif sub == "resume" and len(args) > 1:
+        mid = args[1]
+        res = api_post(f"/missions/{mid}/resume", {})
+        print(f"\n{GREEN}✓ Resumed mission {mid} (State: {res.get('state')}){RESET}")
+    elif sub == "pause" and len(args) > 1:
+        mid = args[1]
+        res = api_post(f"/missions/{mid}/pause", {})
+        print(f"\n{YELLOW}✓ Paused mission {mid} (State: {res.get('state')}){RESET}")
+    elif sub == "retry" and len(args) > 1:
+        mid = args[1]
+        print(f"\n{CYAN}[MISSION RETRY]{RESET} Retrying failed subtasks for mission {mid}...")
+        res = api_post(f"/missions/{mid}/retry", {})
+        print(f"\n{GREEN}✓ Retry completed (State: {res.get('state')}){RESET}")
+    elif sub == "graph" and len(args) > 1:
+        mid = args[1]
+        g = api_get(f"/missions/{mid}/graph")
+        print(f"\n{BOLD}MISSION DAG GRAPH: {CYAN}{mid}{RESET} (Nodes: {g.get('total_nodes')}, Completed: {g.get('completed_nodes')})")
+        print("Execution Order:", g.get("execution_order"))
+        for n in g.get("nodes", []):
+            scolor = GREEN if n.get("status") == "COMPLETED" else (YELLOW if n.get("status") in ["RUNNING", "REMEDIATING"] else RED)
+            print(f"  • {CYAN}{n.get('id')}{RESET}: {BOLD}{n.get('title')}{RESET} -> {scolor}{n.get('status')}{RESET} ({n.get('assigned_agent')})")
+    elif sub == "traceability" and len(args) > 1:
+        mid = args[1]
+        t = api_get(f"/missions/{mid}/traceability")
+        s = t.get("summary", {})
+        print(f"\n{BOLD}REQUIREMENT TRACEABILITY: {CYAN}{mid}{RESET} (Coverage: {s.get('coverage_percent')}%)")
+        for link in t.get("links", []):
+            print(f"  • [{link.get('requirement_id')}] -> {CYAN}{link.get('subtask_id')}{RESET} -> {link.get('explanation')}")
+    elif sub == "acceptance" and len(args) > 1:
+        mid = args[1]
+        m = api_get(f"/missions/{mid}")
+        print(f"\n{BOLD}ACCEPTANCE CRITERIA: {CYAN}{mid}{RESET}")
+        for ac in m.get("acceptance_criteria", []):
+            scolor = GREEN if ac.get("status") == "PASSED" else (YELLOW if ac.get("status") == "PENDING" else RED)
+            print(f"  • [{scolor}{ac.get('status')}{RESET}] {ac.get('criterion_id')}: {ac.get('description')}")
+            if ac.get("evidence"):
+                print(f"    Evidence: {ac.get('evidence')}")
+    elif sub == "checkpoints" and len(args) > 1:
+        mid = args[1]
+        cps = api_get(f"/missions/{mid}/checkpoints")
+        print(f"\n{BOLD}CHECKPOINTS ({cps.get('count')}): {CYAN}{mid}{RESET}")
+        for cp in cps.get("checkpoints", []):
+            print(f"  • {cp.get('checkpoint_id')} [{cp.get('timestamp')[:19]}] (State: {cp.get('state')})")
+    else:
+        print("Usage: eco mission [list | plan <goal> | run <goal> | status <id> | pause <id> | resume <id> | retry <id> | cancel <id> | graph <id> | traceability <id> | acceptance <id> | checkpoints <id> | changelog <id>]")
+
+def cmd_github(args):
+    print_banner()
+    sub = args[0] if len(args) > 0 else "health"
+    if sub == "health":
+        h = api_get("/github/health")
+        scolor = GREEN if h.get("status") in ["AUTHENTICATED", "MOCK_MODE"] else (YELLOW if h.get("status") == "DRY_RUN" else RED)
+        print(f"\n{BOLD}GITHUB INTEGRATION STATUS:{RESET}")
+        print(f"Mode:          {CYAN}{h.get('mode')}{RESET}")
+        print(f"Status:        {scolor}{h.get('status')}{RESET}")
+        print(f"Configured:    {h.get('configured')}")
+        print(f"Authenticated: {h.get('authenticated')}")
+        if h.get("user"):
+            print(f"User:          {GREEN}{h.get('user')}{RESET}")
+        if h.get("rate_limit_remaining") is not None:
+            print(f"Rate Limit:    {h.get('rate_limit_remaining')} remaining")
+        print(f"Detail:        {h.get('reason')}")
+    elif sub == "mode" and len(args) > 1:
+        target = args[1]
+        res = api_post("/github/mode", {"mode": target})
+        print(f"\n{GREEN}✓ GitHub operational mode updated to: {res.get('mode')}{RESET}")
+    else:
+        print("Usage: eco github [health | mode <real|mock|dry-run>]")
+
+def cmd_delivery(args):
+    print_banner()
+    sub = args[0] if len(args) > 0 else "list"
+    if sub == "list":
+        delivs = api_get("/github/delivery/deliveries")
+        print(f"\n{BOLD}{'DELIVERY ID':<18} {'STATE':<22} {'PUBLISHED BRANCH':<30} {'PR'}{RESET}")
+        print("=" * 80)
+        for d in delivs:
+            state = d.get("state", "UNKNOWN")
+            scolor = GREEN if state == "COMPLETED" else (YELLOW if state in ["BRANCH_PUBLISHED", "PR_CREATED", "MERGE_READY", "APPROVAL_PENDING"] else RED)
+            pr_str = f"#{d.get('pr_number')}" if d.get("pr_number") else "None"
+            print(f"{CYAN}{d.get('delivery_id'):<18}{RESET} {scolor}{state:<22}{RESET} {d.get('published_branch', ''):<30} {pr_str}")
+    elif sub == "publish":
+        cid = args[1] if len(args) > 1 else None
+        payload = {"candidate_id": cid} if cid else {}
+        print(f"\n{CYAN}[DELIVERY PIPELINE]{RESET} Publishing candidate branch to GitHub...")
+        res = api_post("/github/delivery/publish", payload)
+        scolor = GREEN if "PUBLISHED" in res.get("state", "") else RED
+        print(f"\n{BOLD}Delivery ID:{RESET}       {CYAN}{res.get('delivery_id')}{RESET}")
+        print(f"{BOLD}State:{RESET}             {scolor}{res.get('state')}{RESET}")
+        print(f"{BOLD}Published Branch:{RESET}  {res.get('published_branch')}")
+        print(f"{BOLD}Risk Level:{RESET}        {res.get('risk_level')}")
+        print(f"\nNext step: {BOLD}eco delivery pr {res.get('delivery_id')}{RESET}")
+    elif sub == "pr":
+        did = args[1] if len(args) > 1 else None
+        payload = {"delivery_id": did} if did else {}
+        print(f"\n{CYAN}[DELIVERY PIPELINE]{RESET} Creating GitHub Pull Request...")
+        res = api_post("/github/delivery/pr", payload)
+        scolor = GREEN if res.get("state") in ["PR_CREATED", "MERGE_READY", "COMPLETED"] else (YELLOW if res.get("state") == "APPROVAL_PENDING" else RED)
+        print(f"\n{BOLD}Delivery ID:{RESET}  {CYAN}{res.get('delivery_id')}{RESET}")
+        print(f"{BOLD}PR Number:{RESET}    {BOLD}#{res.get('pr_number')}{RESET} ({res.get('pr_url')})")
+        print(f"{BOLD}State:{RESET}        {scolor}{res.get('state')}{RESET}")
+        if res.get("state") == "APPROVAL_PENDING":
+            print(f"\n{RED}{BOLD}🛑 [HUMAN APPROVAL REQUIRED FOR MERGE]{RESET}")
+            print(f"Approval ID: {CYAN}{res.get('approval_id')}{RESET}")
+            print(f"Approve with: {BOLD}eco approvals approve {res.get('approval_id')}{RESET}")
+        elif res.get("state") == "MERGE_READY":
+            print(f"\nReady to merge: {BOLD}eco delivery merge {res.get('delivery_id')}{RESET}")
+    elif sub == "review" and len(args) > 1:
+        did = args[1]
+        print(f"\n{CYAN}[DELIVERY PIPELINE]{RESET} Triggering multi-agent swarm PR review on {did}...")
+        res = api_post(f"/github/delivery/review/{did}", {})
+        print(f"\n{BOLD}Delivery State:{RESET} {GREEN}{res.get('state')}{RESET}")
+        print(f"{BOLD}Governance:{RESET}     {res.get('governance_verdict', {}).get('decision')}")
+    elif sub == "merge" and len(args) > 1:
+        did = args[1]
+        print(f"\n{CYAN}[DELIVERY PIPELINE]{RESET} Executing governed merge on {did}...")
+        res = api_post("/github/delivery/merge", {"delivery_id": did})
+        scolor = GREEN if res.get("state") == "COMPLETED" else RED
+        print(f"\n{BOLD}Delivery State:{RESET} {scolor}{res.get('state')}{RESET}")
+        if res.get("merge_commit_sha"):
+            print(f"{BOLD}Merge Commit:{RESET}   {GREEN}{res.get('merge_commit_sha')}{RESET}")
+            print(f"{BOLD}Post-Merge:{RESET}     {GREEN}VERIFIED CLEAN{RESET}")
+    elif sub == "status" and len(args) > 1:
+        did = args[1]
+        d = api_get(f"/github/delivery/deliveries/{did}")
+        print(f"\n{BOLD}DELIVERY STATUS: {CYAN}{did}{RESET}")
+        print(f"{BOLD}State:{RESET}            {d.get('state')}")
+        print(f"{BOLD}Published Branch:{RESET} {d.get('published_branch')}")
+        print(f"{BOLD}Target Branch:{RESET}    {d.get('target_branch')}")
+        print(f"{BOLD}PR Number:{RESET}        #{d.get('pr_number')} ({d.get('pr_url')})")
+        print(f"{BOLD}Risk Level:{RESET}       {d.get('risk_level')}")
+        if d.get("approval_id"):
+            print(f"{BOLD}Approval ID:{RESET}      {d.get('approval_id')}")
+        print(f"\n{BOLD}Transitions ({len(d.get('transitions', []))}):{RESET}")
+        for t in d.get("transitions", []):
+            print(f"  • {t.get('from_state')} -> {t.get('to_state')} ({t.get('reason')})")
+    elif sub == "cancel" and len(args) > 1:
+        did = args[1]
+        res = api_post(f"/github/delivery/deliveries/{did}/cancel", {})
+        print(f"\n{YELLOW}✓ Cancelled delivery {did} (State: {res.get('state')}){RESET}")
+    else:
+        print("Usage: eco delivery [list | publish [candidate_id] | pr [delivery_id] | review <delivery_id> | merge <delivery_id> | status <delivery_id> | cancel <delivery_id>]")
+
 def cmd_logs():
     print_banner()
     audit_events = api_get("/audit")
@@ -249,8 +669,27 @@ def main():
         cmd_docs()
     elif subcmd == "logs":
         cmd_logs()
+    elif subcmd == "worktrees":
+        cmd_worktrees(sys.argv[2:])
+    elif subcmd == "merge":
+        cmd_merge(sys.argv[2:])
+    elif subcmd == "merges":
+        cmd_merges(sys.argv[2:])
+    elif subcmd == "daemon":
+        import subprocess
+        daemon_script = "/root/control-center/scripts/nexus_daemon.py"
+        sub_args = sys.argv[2:] if len(sys.argv) > 2 else ["status"]
+        subprocess.run([sys.executable, daemon_script] + sub_args)
+    elif subcmd in ["provider", "providers"]:
+        cmd_provider(sys.argv[2:])
+    elif subcmd in ["mission", "missions"]:
+        cmd_mission(sys.argv[2:])
+    elif subcmd == "github":
+        cmd_github(sys.argv[2:])
+    elif subcmd in ["delivery", "deliveries"]:
+        cmd_delivery(sys.argv[2:])
     elif subcmd in ["help", "--help", "-h"]:
-        print("Usage: eco <status|projects|agents|audit|test|security|deploy|approvals|brief|cost|secrets|jobs|docs|logs|traces|\"prompt\">")
+        print("Usage: eco <status|daemon|delivery|github|mission|provider|worktrees|merge|merges|projects|agents|audit|test|security|deploy|approvals|brief|cost|secrets|jobs|docs|logs|traces|\"prompt\">")
     else:
         prompt = " ".join(sys.argv[1:])
         cmd_natural_language(prompt)

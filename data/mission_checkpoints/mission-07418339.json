@@ -1,0 +1,677 @@
+[
+  {
+    "checkpoint_id": "cp-mission-07418339-ddc509",
+    "mission_id": "mission-07418339",
+    "timestamp": "2026-09-16T19:26:37.988427+00:00",
+    "state": "MissionState.PLANNING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "initial_planned"
+    },
+    "node_states": {
+      "subtask-01-arch": "PENDING",
+      "subtask-02-dev": "PENDING",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "docs/FIBONACCI_CALCULATOR_SPEC.md",
+      "test_fibonacci_calculator.py",
+      "fibonacci_calculator.py"
+    ],
+    "current_workspace": "/tmp/pytest-of-root/pytest-310/test_e2e_fibonacci_mission_pla0",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-07418339-16b1f7",
+    "mission_id": "mission-07418339",
+    "timestamp": "2026-09-16T19:26:38.081763+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_0_start"
+    },
+    "node_states": {
+      "subtask-01-arch": "PENDING",
+      "subtask-02-dev": "PENDING",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "docs/FIBONACCI_CALCULATOR_SPEC.md",
+      "test_fibonacci_calculator.py",
+      "fibonacci_calculator.py"
+    ],
+    "current_workspace": "/tmp/pytest-of-root/pytest-310/test_e2e_fibonacci_mission_pla0",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-07418339-bfacc6",
+    "mission_id": "mission-07418339",
+    "timestamp": "2026-09-16T19:26:38.106350+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_0_completed"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "PENDING",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "docs/FIBONACCI_CALCULATOR_SPEC.md",
+      "test_fibonacci_calculator.py",
+      "fibonacci_calculator.py"
+    ],
+    "current_workspace": "/tmp/pytest-of-root/pytest-310/test_e2e_fibonacci_mission_pla0",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-07418339-eea85e",
+    "mission_id": "mission-07418339",
+    "timestamp": "2026-09-16T19:26:38.111484+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_1_start"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "PENDING",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "docs/FIBONACCI_CALCULATOR_SPEC.md",
+      "test_fibonacci_calculator.py",
+      "fibonacci_calculator.py"
+    ],
+    "current_workspace": "/tmp/pytest-of-root/pytest-310/test_e2e_fibonacci_mission_pla0",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-07418339-2f6828",
+    "mission_id": "mission-07418339",
+    "timestamp": "2026-09-16T19:26:38.141573+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_1_completed"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "COMPLETED",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "docs/FIBONACCI_CALCULATOR_SPEC.md",
+      "test_fibonacci_calculator.py",
+      "fibonacci_calculator.py"
+    ],
+    "current_workspace": "/tmp/pytest-of-root/pytest-310/test_e2e_fibonacci_mission_pla0",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-07418339-d7a46d",
+    "mission_id": "mission-07418339",
+    "timestamp": "2026-09-16T19:26:38.149418+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_2_start"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "COMPLETED",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "docs/FIBONACCI_CALCULATOR_SPEC.md",
+      "test_fibonacci_calculator.py",
+      "fibonacci_calculator.py"
+    ],
+    "current_workspace": "/tmp/pytest-of-root/pytest-310/test_e2e_fibonacci_mission_pla0",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-07418339-324ec7",
+    "mission_id": "mission-07418339",
+    "timestamp": "2026-09-16T19:26:38.253579+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_2_completed"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "COMPLETED",
+      "subtask-03-qa": "COMPLETED",
+      "subtask-04-sec": "COMPLETED",
+      "subtask-05-doc": "COMPLETED",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "docs/FIBONACCI_CALCULATOR_SPEC.md",
+      "test_fibonacci_calculator.py",
+      "fibonacci_calculator.py"
+    ],
+    "current_workspace": "/tmp/pytest-of-root/pytest-310/test_e2e_fibonacci_mission_pla0",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-07418339-f71676",
+    "mission_id": "mission-07418339",
+    "timestamp": "2026-09-16T19:26:38.281004+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_3_start"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "COMPLETED",
+      "subtask-03-qa": "COMPLETED",
+      "subtask-04-sec": "COMPLETED",
+      "subtask-05-doc": "COMPLETED",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "docs/FIBONACCI_CALCULATOR_SPEC.md",
+      "test_fibonacci_calculator.py",
+      "fibonacci_calculator.py"
+    ],
+    "current_workspace": "/tmp/pytest-of-root/pytest-310/test_e2e_fibonacci_mission_pla0",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-07418339-ce6aa0",
+    "mission_id": "mission-07418339",
+    "timestamp": "2026-09-16T19:26:38.338623+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_3_completed"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "COMPLETED",
+      "subtask-03-qa": "COMPLETED",
+      "subtask-04-sec": "COMPLETED",
+      "subtask-05-doc": "COMPLETED",
+      "subtask-06-delivery": "COMPLETED"
+    },
+    "artifacts": [
+      "docs/FIBONACCI_CALCULATOR_SPEC.md",
+      "test_fibonacci_calculator.py",
+      "fibonacci_calculator.py"
+    ],
+    "current_workspace": "/tmp/pytest-of-root/pytest-310/test_e2e_fibonacci_mission_pla0",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  }
+]

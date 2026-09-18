@@ -1,0 +1,80 @@
+{
+  "prod-28129d": {
+    "product_id": "prod-28129d",
+    "product_name": "customer-billing-engine",
+    "archetype": "MICROSERVICE_API",
+    "spec_id": "spec-1ae6f98a",
+    "build_id": "build-8d8c5628",
+    "workspace_path": "/root/control-center/data/product_builder/workspaces/build-8d8c5628",
+    "version": "1.0.0",
+    "status": "READY_FOR_DEPLOYMENT",
+    "slsa_provenance_hash": "5ae2d48c15e49d78c0975a6915ec4bcd6f53c86fe13db4b70d62af38afcadd5d",
+    "provenance_chain_hash": "31265bd0d911d866",
+    "delivered_at": "2026-09-18T10:46:37.697753+00:00"
+  },
+  "prod-57e1de": {
+    "product_id": "prod-57e1de",
+    "product_name": "customer-billing-engine",
+    "archetype": "MICROSERVICE_API",
+    "spec_id": "spec-9130cf51",
+    "build_id": "build-1e03510a",
+    "workspace_path": "/root/control-center/data/product_builder/workspaces/build-1e03510a",
+    "version": "1.0.0",
+    "status": "READY_FOR_DEPLOYMENT",
+    "slsa_provenance_hash": "7e7682649606c2fdf43231699f1aa4df9fdc9cc0b2b187dcc67b2f0cd876709d",
+    "provenance_chain_hash": "42686a39eb4b2624",
+    "delivered_at": "2026-09-18T10:50:10.842129+00:00"
+  },
+  "prod-870fe6": {
+    "product_id": "prod-870fe6",
+    "product_name": "customer-billing-engine",
+    "archetype": "MICROSERVICE_API",
+    "spec_id": "spec-2ccba3de",
+    "build_id": "build-a9fd181c",
+    "workspace_path": "/root/control-center/data/product_builder/workspaces/build-a9fd181c",
+    "version": "1.0.0",
+    "status": "READY_FOR_DEPLOYMENT",
+    "slsa_provenance_hash": "c07430c135a5c186aaff378348f3a901e9aac22f6b3302002c22b3d6b00b53fe",
+    "provenance_chain_hash": "04c475060316a4b5",
+    "delivered_at": "2026-09-18T10:59:19.037361+00:00"
+  },
+  "prod-dbf187": {
+    "product_id": "prod-dbf187",
+    "product_name": "customer-billing-engine",
+    "archetype": "MICROSERVICE_API",
+    "spec_id": "spec-bccfc811",
+    "build_id": "build-f3dec712",
+    "workspace_path": "/root/control-center/data/product_builder/workspaces/build-f3dec712",
+    "version": "1.0.0",
+    "status": "READY_FOR_DEPLOYMENT",
+    "slsa_provenance_hash": "503f4fb0e816fe6e45f1b3911d19e2996ce9e198bc49fc18ac355d7c12ff9513",
+    "provenance_chain_hash": "729983fb839a698c",
+    "delivered_at": "2026-09-18T11:05:51.765414+00:00"
+  },
+  "prod-5ea251": {
+    "product_id": "prod-5ea251",
+    "product_name": "customer-billing-engine",
+    "archetype": "MICROSERVICE_API",
+    "spec_id": "spec-809b00b2",
+    "build_id": "build-6466145d",
+    "workspace_path": "/root/control-center/data/product_builder/workspaces/build-6466145d",
+    "version": "1.0.0",
+    "status": "READY_FOR_DEPLOYMENT",
+    "slsa_provenance_hash": "b354d3ebbbe87c1e95c8ca17489e950f0a500b4cea3ddb151fdcf95d3c79cf5a",
+    "provenance_chain_hash": "83bb456014ac707c",
+    "delivered_at": "2026-09-18T15:00:42.162492+00:00"
+  },
+  "prod-96eb2f": {
+    "product_id": "prod-96eb2f",
+    "product_name": "customer-billing-engine",
+    "archetype": "MICROSERVICE_API",
+    "spec_id": "spec-331e3600",
+    "build_id": "build-cb10b7e0",
+    "workspace_path": "/root/control-center/data/product_builder/workspaces/build-cb10b7e0",
+    "version": "1.0.0",
+    "status": "READY_FOR_DEPLOYMENT",
+    "slsa_provenance_hash": "f57e39588abd2b9af4bbe17e48d2de7ca8bab29eebbf2d3cf4fde77b34ce874a",
+    "provenance_chain_hash": "414fc7a4da7f2f26",
+    "delivered_at": "2026-09-18T15:30:14.950455+00:00"
+  }
+}

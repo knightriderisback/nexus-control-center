@@ -6,7 +6,7 @@ Autonomous maintenance routines with full audit logging and manual trigger capab
 import os
 import subprocess
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, List
 from core.config import config
 from core.audit import record_audit
@@ -76,7 +76,7 @@ class AutomationsEngine:
         if not job:
             return {"error": f"Job {job_id} not found", "status": "FAILED"}
 
-        start_time = datetime.utcnow().isoformat() + "Z"
+        start_time = datetime.now(timezone.utc).isoformat()
         result_details = {}
 
         if job_id == "auto-morning-brief":
@@ -162,7 +162,7 @@ class AutomationsEngine:
         cost_status = cost_guard.get_status()
 
         markdown_summary = f"""# 🛰️ NEXUS // MORNING ENGINEERING BRIEF
-**Timestamp**: {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}
+**Timestamp**: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}
 **Operating Project**: `personal-engineering-os-2026`
 **System Status**: 🟢 ALL SYSTEMS GREEN (Telemetry Nominal)
 
@@ -186,7 +186,7 @@ class AutomationsEngine:
         markdown_summary += "\n### 🤖 AI Agent Fleet\n- 13 Specialized Agent Manifests Ready across 3 Providers (Gemini, OpenAI, Mock).\n"
 
         return {
-            "generated_at": datetime.utcnow().isoformat() + "Z",
+            "generated_at": datetime.now(timezone.utc).isoformat(),
             "markdown_brief": markdown_summary,
             "project_count": len(projects),
             "pending_approvals_count": len(pending_approvals),

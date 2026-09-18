@@ -1,0 +1,752 @@
+[
+  {
+    "checkpoint_id": "cp-mission-0063fb6c-059355",
+    "mission_id": "mission-0063fb6c",
+    "timestamp": "2026-09-17T12:58:33.371507+00:00",
+    "state": "MissionState.PLANNING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "initial_planned"
+    },
+    "node_states": {
+      "subtask-01-arch": "PENDING",
+      "subtask-02-dev": "PENDING",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "calculator_module.py",
+      "docs/CALCULATOR_MODULE_SPEC.md",
+      "test_calculator_module.py"
+    ],
+    "current_workspace": "/tmp/pytest-of-root/pytest-335/test_mission_to_github_deliver0/mission_repo",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-0063fb6c-041406",
+    "mission_id": "mission-0063fb6c",
+    "timestamp": "2026-09-17T12:58:34.353875+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_0_start"
+    },
+    "node_states": {
+      "subtask-01-arch": "PENDING",
+      "subtask-02-dev": "PENDING",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "calculator_module.py",
+      "docs/CALCULATOR_MODULE_SPEC.md",
+      "test_calculator_module.py"
+    ],
+    "current_workspace": "/root/control-center/data/worktrees/mission-0063fb6c",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-0063fb6c-72a963",
+    "mission_id": "mission-0063fb6c",
+    "timestamp": "2026-09-17T12:58:34.398828+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_0_completed"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "PENDING",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "calculator_module.py",
+      "docs/CALCULATOR_MODULE_SPEC.md",
+      "test_calculator_module.py"
+    ],
+    "current_workspace": "/root/control-center/data/worktrees/mission-0063fb6c",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-0063fb6c-d8eca7",
+    "mission_id": "mission-0063fb6c",
+    "timestamp": "2026-09-17T12:58:34.406199+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_1_start"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "PENDING",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "calculator_module.py",
+      "docs/CALCULATOR_MODULE_SPEC.md",
+      "test_calculator_module.py"
+    ],
+    "current_workspace": "/root/control-center/data/worktrees/mission-0063fb6c",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-0063fb6c-d9796b",
+    "mission_id": "mission-0063fb6c",
+    "timestamp": "2026-09-17T12:58:34.446096+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_1_completed"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "COMPLETED",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "calculator_module.py",
+      "docs/CALCULATOR_MODULE_SPEC.md",
+      "test_calculator_module.py"
+    ],
+    "current_workspace": "/root/control-center/data/worktrees/mission-0063fb6c",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-0063fb6c-c25911",
+    "mission_id": "mission-0063fb6c",
+    "timestamp": "2026-09-17T12:58:34.456028+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_2_start"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "COMPLETED",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "calculator_module.py",
+      "docs/CALCULATOR_MODULE_SPEC.md",
+      "test_calculator_module.py"
+    ],
+    "current_workspace": "/root/control-center/data/worktrees/mission-0063fb6c",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-0063fb6c-5d9369",
+    "mission_id": "mission-0063fb6c",
+    "timestamp": "2026-09-17T12:58:34.578065+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_2_completed"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "COMPLETED",
+      "subtask-03-qa": "COMPLETED",
+      "subtask-04-sec": "COMPLETED",
+      "subtask-05-doc": "COMPLETED",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "calculator_module.py",
+      "docs/CALCULATOR_MODULE_SPEC.md",
+      "test_calculator_module.py"
+    ],
+    "current_workspace": "/root/control-center/data/worktrees/mission-0063fb6c",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-0063fb6c-6335dd",
+    "mission_id": "mission-0063fb6c",
+    "timestamp": "2026-09-17T12:58:34.596108+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_3_start"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "COMPLETED",
+      "subtask-03-qa": "COMPLETED",
+      "subtask-04-sec": "COMPLETED",
+      "subtask-05-doc": "COMPLETED",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "calculator_module.py",
+      "docs/CALCULATOR_MODULE_SPEC.md",
+      "test_calculator_module.py"
+    ],
+    "current_workspace": "/root/control-center/data/worktrees/mission-0063fb6c",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-0063fb6c-375cc6",
+    "mission_id": "mission-0063fb6c",
+    "timestamp": "2026-09-17T12:58:34.675856+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_3_completed"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "COMPLETED",
+      "subtask-03-qa": "COMPLETED",
+      "subtask-04-sec": "COMPLETED",
+      "subtask-05-doc": "COMPLETED",
+      "subtask-06-delivery": "COMPLETED"
+    },
+    "artifacts": [
+      "calculator_module.py",
+      "docs/CALCULATOR_MODULE_SPEC.md",
+      "test_calculator_module.py"
+    ],
+    "current_workspace": "/root/control-center/data/worktrees/mission-0063fb6c",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-0063fb6c-0e1106",
+    "mission_id": "mission-0063fb6c",
+    "timestamp": "2026-09-17T12:58:42.381230+00:00",
+    "state": "MissionState.COMPLETED",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "mission_completed"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "COMPLETED",
+      "subtask-03-qa": "COMPLETED",
+      "subtask-04-sec": "COMPLETED",
+      "subtask-05-doc": "COMPLETED",
+      "subtask-06-delivery": "COMPLETED"
+    },
+    "artifacts": [
+      "calculator_module.py",
+      "docs/CALCULATOR_MODULE_SPEC.md",
+      "test_calculator_module.py"
+    ],
+    "current_workspace": "/root/control-center/data/worktrees/mission-0063fb6c",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: calculator_module.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: MOCK SUCCESS"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (209 bytes): docs/CALCULATOR_MODULE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: calculator_module.py"
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  }
+]

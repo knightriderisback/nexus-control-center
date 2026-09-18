@@ -1,0 +1,452 @@
+[
+  {
+    "checkpoint_id": "cp-mission-ee1f0b92-7e6e72",
+    "mission_id": "mission-ee1f0b92",
+    "timestamp": "2026-09-16T19:36:27.333500+00:00",
+    "state": "MissionState.PLANNING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "initial_planned"
+    },
+    "node_states": {
+      "subtask-01-arch": "PENDING",
+      "subtask-02-dev": "PENDING",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "test_lru_cache.py",
+      "lru_cache.py",
+      "docs/LRU_CACHE_SPEC.md"
+    ],
+    "current_workspace": "/root/control-center",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-ee1f0b92-1bb679",
+    "mission_id": "mission-ee1f0b92",
+    "timestamp": "2026-09-16T19:36:28.327501+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_0_start"
+    },
+    "node_states": {
+      "subtask-01-arch": "PENDING",
+      "subtask-02-dev": "PENDING",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "test_lru_cache.py",
+      "lru_cache.py",
+      "docs/LRU_CACHE_SPEC.md"
+    ],
+    "current_workspace": "/root/control-center/data/worktrees/mission-ee1f0b92",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-ee1f0b92-459032",
+    "mission_id": "mission-ee1f0b92",
+    "timestamp": "2026-09-16T19:36:28.348647+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_0_completed"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "PENDING",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "test_lru_cache.py",
+      "lru_cache.py",
+      "docs/LRU_CACHE_SPEC.md"
+    ],
+    "current_workspace": "/root/control-center/data/worktrees/mission-ee1f0b92",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-ee1f0b92-d5281e",
+    "mission_id": "mission-ee1f0b92",
+    "timestamp": "2026-09-16T19:36:28.353501+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_1_start"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "PENDING",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "test_lru_cache.py",
+      "lru_cache.py",
+      "docs/LRU_CACHE_SPEC.md"
+    ],
+    "current_workspace": "/root/control-center/data/worktrees/mission-ee1f0b92",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-ee1f0b92-b236d4",
+    "mission_id": "mission-ee1f0b92",
+    "timestamp": "2026-09-16T19:36:28.385203+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_1_completed"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "COMPLETED",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "test_lru_cache.py",
+      "lru_cache.py",
+      "docs/LRU_CACHE_SPEC.md"
+    ],
+    "current_workspace": "/root/control-center/data/worktrees/mission-ee1f0b92",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  },
+  {
+    "checkpoint_id": "cp-mission-ee1f0b92-2f2775",
+    "mission_id": "mission-ee1f0b92",
+    "timestamp": "2026-09-16T19:36:28.389429+00:00",
+    "state": "MissionState.EXECUTING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "level_2_start"
+    },
+    "node_states": {
+      "subtask-01-arch": "COMPLETED",
+      "subtask-02-dev": "COMPLETED",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "test_lru_cache.py",
+      "lru_cache.py",
+      "docs/LRU_CACHE_SPEC.md"
+    ],
+    "current_workspace": "/root/control-center/data/worktrees/mission-ee1f0b92",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "MEDIUM",
+      "matched_sensitive_keywords": [],
+      "requires_human_approval": false,
+      "approval_boundary": "ROUTINE_AUTONOMOUS"
+    }
+  }
+]

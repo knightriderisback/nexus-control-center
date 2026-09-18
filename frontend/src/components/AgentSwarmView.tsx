@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Bot, 
   Send, 
@@ -12,9 +12,10 @@ import {
   ShieldCheck, 
   Clock,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  Workflow
 } from 'lucide-react';
-import type { Agent, Task, ApprovalRequest } from '../types';
+import type { Agent, Task, ApprovalRequest, EngineeringMission } from '../types';
 import { sound } from '../utils/audio';
 
 interface AgentSwarmViewProps {
@@ -37,6 +38,21 @@ export const AgentSwarmView: React.FC<AgentSwarmViewProps> = ({
   const [missionInstructions, setMissionInstructions] = useState<string>('');
   const [autonomyTier, setAutonomyTier] = useState<string>('Guardrailed');
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [missions, setMissions] = useState<EngineeringMission[]>([]);
+
+  useEffect(() => {
+    const fetchMissions = async () => {
+      try {
+        const res = await fetch('/api/v1/missions').then(r => r.json());
+        if (Array.isArray(res)) setMissions(res);
+      } catch (e) {
+        // silent fallback
+      }
+    };
+    fetchMissions();
+    const iv = setInterval(fetchMissions, 4000);
+    return () => clearInterval(iv);
+  }, []);
 
   const pendingApprovals = approvals.filter(a => a.status === 'pending');
 
@@ -404,6 +420,86 @@ export const AgentSwarmView: React.FC<AgentSwarmViewProps> = ({
             })}
           </div>
         </div>
+      </div>
+
+      {/* Autonomous Engineering Missions & DAG Tracker */}
+      <div className="hud-panel p-5 rounded-lg space-y-4 border-cyan-500/20">
+        <div className="flex items-center justify-between border-b border-cyan-500/20 pb-3">
+          <div className="flex items-center gap-2">
+            <Workflow className="w-4 h-4 text-cyan-400" />
+            <h3 className="font-mono text-sm font-bold text-slate-200 tracking-wider">
+              AUTONOMOUS ENGINEERING MISSIONS & DAG EXECUTION ({missions.length})
+            </h3>
+          </div>
+          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/40 text-cyan-300">
+            PHASE 12 MISSION ENGINE
+          </span>
+        </div>
+
+        {missions.length === 0 ? (
+          <div className="py-6 text-center font-mono text-xs text-slate-500">
+            No active engineering missions planned. Dispatched goals will appear here with topological DAG progression.
+          </div>
+        ) : (
+          <div className="space-y-3 font-mono text-xs">
+            {missions.map((m) => (
+              <div
+                key={m.mission_id}
+                className="p-3.5 rounded border border-slate-800 bg-slate-900/60 space-y-2.5"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-cyan-300">{m.mission_id}</span>
+                    <span className="text-slate-500">•</span>
+                    <span className="text-slate-200 font-semibold truncate max-w-sm">{m.goal}</span>
+                  </div>
+                  <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+                    m.state === 'COMPLETED'
+                      ? 'bg-emerald-950 text-emerald-400 border border-emerald-500/50'
+                      : m.state === 'FAILED'
+                      ? 'bg-rose-950 text-rose-400 border border-rose-500/50'
+                      : 'bg-cyan-950 text-cyan-300 border border-cyan-500/50'
+                  }`}>
+                    {m.state}
+                  </span>
+                </div>
+
+                {/* Subtask DAG Progression */}
+                <div className="space-y-1.5 pt-1">
+                  <span className="text-[10px] text-slate-400 block">DAG SUBTASK PROGRESSION:</span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+                    {m.subtasks.map((st) => (
+                      <div
+                        key={st.subtask_id}
+                        className="p-2 rounded bg-slate-950/70 border border-slate-800/80 space-y-1"
+                      >
+                        <div className="flex items-center justify-between text-[10px]">
+                          <span className="text-cyan-400 font-bold">{st.subtask_id}</span>
+                          <span className={`px-1 rounded text-[9px] ${
+                            st.status === 'COMPLETED'
+                              ? 'text-emerald-400 bg-emerald-950/40'
+                              : st.status === 'RUNNING'
+                              ? 'text-cyan-300 bg-cyan-950/60 animate-pulse'
+                              : 'text-slate-500'
+                          }`}>
+                            {st.status}
+                          </span>
+                        </div>
+                        <div className="text-[11px] text-slate-300 truncate">{st.title}</div>
+                        <div className="text-[9px] text-slate-500 flex justify-between">
+                          <span>Agent: {st.assigned_agent}</span>
+                          {st.remediation_rounds > 0 && (
+                            <span className="text-amber-400">Rounds: {st.remediation_rounds}</span>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

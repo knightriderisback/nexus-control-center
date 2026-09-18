@@ -1,4 +1,5 @@
 import os
+from typing import Optional, List
 from pydantic import BaseModel
 
 class SystemConfig(BaseModel):
@@ -19,9 +20,20 @@ class SystemConfig(BaseModel):
     approvals_file: str = "/root/control-center/data/approvals.json"
     memory_file: str = "/root/control-center/data/memory_vault.json"
     cost_guard_file: str = "/root/control-center/data/cost_guard.json"
+    sessions_file: str = "/root/control-center/data/swarm_sessions.json"
+    missions_file: str = "/root/control-center/data/missions.json"
+    deliveries_file: str = "/root/control-center/data/deliveries.json"
+    github_token: Optional[str] = os.getenv("GITHUB_TOKEN")
+    github_repo_default: str = "control-center"
     auth_enabled: bool = os.getenv("NEXUS_AUTH_ENABLED", "false").lower() in ("true", "1")
     api_key_header: str = "X-NEXUS-KEY"
     token_ttl_seconds: int = int(os.getenv("APPROVAL_TTL_SECONDS", "3600"))
+    allowed_project_roots: List[str] = [
+        "/root/control-center",
+        "/root/projects",
+        "/root/portfolio",
+        "/tmp"
+    ]
     allowed_origins: list[str] = [
         origin.strip()
         for origin in os.getenv(

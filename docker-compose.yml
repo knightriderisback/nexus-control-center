@@ -1,0 +1,48 @@
+# NEXUS Autonomous Engineering OS // Production Container Orchestration
+# Zero-Trust, Non-Root Container Architecture with Health Probing and Volume Sandboxing
+
+version: '3.8'
+
+services:
+  nexus-control-center:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nexus-control-center:latest
+    container_name: nexus-control-center-os
+    user: "1000:1000"
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - ENVIRONMENT=production
+      - PYTHONUNBUFFERED=1
+      - NEXUS_STORAGE_DIR=/app/data
+      - NEXUS_COST_GUARD_STRICT=true
+      - NEXUS_ZERO_SPEND_ENFORCED=true
+    volumes:
+      - ./data:/app/data
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=128m
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/api/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"

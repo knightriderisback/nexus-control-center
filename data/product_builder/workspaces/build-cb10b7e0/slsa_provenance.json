@@ -1,0 +1,11 @@
+{
+  "build_id": "build-cb10b7e0",
+  "product_name": "customer-billing-engine",
+  "spec_id": "spec-331e3600",
+  "slsa_level": 3,
+  "provenance_chain_hash": "414fc7a4da7f2f26",
+  "slsa_attestation_hash": "f57e39588abd2b9af4bbe17e48d2de7ca8bab29eebbf2d3cf4fde77b34ce874a",
+  "builder": "nexus-product-builder-v21",
+  "finops_zero_cost_verified": true,
+  "timestamp": "2026-09-18T15:30:14.949123+00:00"
+}

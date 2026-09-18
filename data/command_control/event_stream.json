@@ -1,0 +1,31 @@
+[
+  {
+    "event_id": "evt-e6354321",
+    "event_type": "COMMAND_RECEIVED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-95c4f7be",
+    "payload": {
+      "command_id": "cmd-95c4f7be",
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "dry_run": true
+    },
+    "provenance_hash": "005efdee89533cd9",
+    "timestamp": "2026-09-18T17:54:34.867749+00:00"
+  },
+  {
+    "event_id": "evt-4d6e991b",
+    "event_type": "COMMAND_FAILED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-95c4f7be",
+    "payload": {
+      "command_id": "cmd-95c4f7be",
+      "reason": "Could not unambiguously resolve target project. Please specify target_project_ids."
+    },
+    "provenance_hash": "e607e76f7cb6c7b9",
+    "timestamp": "2026-09-18T17:54:34.893446+00:00"
+  }
+]

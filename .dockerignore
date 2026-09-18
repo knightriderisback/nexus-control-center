@@ -1,7 +1,21 @@
-node_modules
-.git
+# NEXUS Container Build Exclusions
+.git/
+.github/
 .gitignore
+tests/
+__pycache__/
 *.pyc
-__pycache__
-scratch
+*.pyo
+*.pyd
+.pytest_cache/
+node_modules/
+*.log
+scratch/
 .env*
+*.tmp
+*.bak
+.vscode/
+.idea/
+coverage/
+.coverage
+htmlcov/

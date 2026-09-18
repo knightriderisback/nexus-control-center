@@ -41,3 +41,10 @@ Thumbs.db
 
 # Test Fixtures Internal Git
 data/fixtures/developer_test_repo/.git/
+
+# Lock files and local logs
+*.lock
+*.corrupt.*
+data/logs/
+data/nexus.pid
+data/worktrees/

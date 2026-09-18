@@ -1,0 +1,4821 @@
+{
+  "fact-91330f06": {
+    "factory_id": "fact-91330f06",
+    "mission_id": "",
+    "project_id": "project-analytics-ingestion-engine",
+    "project_name": "Analytics Ingestion Engine",
+    "project_path": "/tmp/nexus_factory_test_3wmhz43k/analytics-ingestion-engine",
+    "goal": "Build a high-performance stream analytics service with metrics",
+    "template": "fastapi_service",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-17T13:26:09.017073+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:26:09.017113+00:00",
+    "updated_at": "2026-09-17T13:26:09.017124+00:00",
+    "completed_at": null
+  },
+  "fact-61a7e792": {
+    "factory_id": "fact-61a7e792",
+    "mission_id": "mission-edd684d5",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_3lp_qq31",
+    "goal": "Build an LRU cache with TTL eviction and stats tracking",
+    "template": "cache_engine",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:26:14.596381+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "lru_cache.py",
+      "test_lru_cache.py",
+      "docs/LRU_CACHE_ARCHITECTURE.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: lru_cache.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ....                                                                     [100%]\n4 passed in 0.03s"
+      },
+      "AC-003": {
+        "status": "FAILED",
+        "evidence": "Secret scan flagged sensitive patterns in: ['lru_cache.py']"
+      },
+      "AC-004": {
+        "status": "FAILED",
+        "evidence": "File missing or empty: docs/LRU_CACHE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: lru_cache.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:26:11.927678+00:00"
+    },
+    "error": "Acceptance verification failed on 2 criteria: [\"AC-003: Secret scan flagged sensitive patterns in: ['lru_cache.py']\", 'AC-004: File missing or empty: docs/LRU_CACHE_SPEC.md']",
+    "created_at": "2026-09-17T13:26:11.927703+00:00",
+    "updated_at": "2026-09-17T13:26:11.927708+00:00",
+    "completed_at": null
+  },
+  "fact-f49033bf": {
+    "factory_id": "fact-f49033bf",
+    "mission_id": "mission-393d126e",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_o0_fzljc",
+    "goal": "Implement HMAC-SHA256 JWT auth token generator and password hasher",
+    "template": "auth_service",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:26:21.656672+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "hmac_sha256.py",
+      "test_hmac_sha256.py",
+      "docs/HMAC_SHA256_ARCHITECTURE.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: hmac_sha256.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.06s"
+      },
+      "AC-003": {
+        "status": "FAILED",
+        "evidence": "Secret scan flagged sensitive patterns in: ['hmac_sha256.py', 'test_hmac_sha256.py']"
+      },
+      "AC-004": {
+        "status": "FAILED",
+        "evidence": "File missing or empty: docs/HMAC_SHA256_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: hmac_sha256.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:26:18.332953+00:00"
+    },
+    "error": "Acceptance verification failed on 2 criteria: [\"AC-003: Secret scan flagged sensitive patterns in: ['hmac_sha256.py', 'test_hmac_sha256.py']\", 'AC-004: File missing or empty: docs/HMAC_SHA256_SPEC.md']",
+    "created_at": "2026-09-17T13:26:18.333017+00:00",
+    "updated_at": "2026-09-17T13:26:18.333032+00:00",
+    "completed_at": null
+  },
+  "fact-42e49af6": {
+    "factory_id": "fact-42e49af6",
+    "mission_id": "mission-c2bd132c",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_uw7mplgo",
+    "goal": "Create sliding window rate limiter middleware",
+    "template": "rate_limiter",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:26:28.802404+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "sliding_window.py",
+      "test_sliding_window.py",
+      "docs/SLIDING_WINDOW_ARCHITECTURE.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: sliding_window.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.04s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "FAILED",
+        "evidence": "File missing or empty: docs/SLIDING_WINDOW_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: sliding_window.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:26:25.892534+00:00"
+    },
+    "error": "Acceptance verification failed on 1 criteria: ['AC-004: File missing or empty: docs/SLIDING_WINDOW_SPEC.md']",
+    "created_at": "2026-09-17T13:26:25.892562+00:00",
+    "updated_at": "2026-09-17T13:26:25.892568+00:00",
+    "completed_at": null
+  },
+  "fact-7422717b": {
+    "factory_id": "fact-7422717b",
+    "mission_id": "mission-00d5f627",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_hg18bzzt",
+    "goal": "Implement Pub-Sub Event Bus with Dead-Letter Queue",
+    "template": "event_bus",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:26:36.560341+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "pub_sub.py",
+      "test_pub_sub.py",
+      "docs/PUB_SUB_ARCHITECTURE.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: pub_sub.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.11s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "FAILED",
+        "evidence": "File missing or empty: docs/PUB_SUB_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: pub_sub.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:26:32.993682+00:00"
+    },
+    "error": "Acceptance verification failed on 1 criteria: ['AC-004: File missing or empty: docs/PUB_SUB_SPEC.md']",
+    "created_at": "2026-09-17T13:26:32.993712+00:00",
+    "updated_at": "2026-09-17T13:26:32.993719+00:00",
+    "completed_at": null
+  },
+  "fact-80c2646a": {
+    "factory_id": "fact-80c2646a",
+    "mission_id": "mission-450ca3e1",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_pl8rlsrj",
+    "goal": "Build ETL data stream transformation pipeline",
+    "template": "data_pipeline",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:26:45.145484+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "etl_data.py",
+      "test_etl_data.py",
+      "docs/ETL_DATA_ARCHITECTURE.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: etl_data.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.05s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "FAILED",
+        "evidence": "File missing or empty: docs/ETL_DATA_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: etl_data.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:26:41.085836+00:00"
+    },
+    "error": "Acceptance verification failed on 1 criteria: ['AC-004: File missing or empty: docs/ETL_DATA_SPEC.md']",
+    "created_at": "2026-09-17T13:26:41.085895+00:00",
+    "updated_at": "2026-09-17T13:26:41.085911+00:00",
+    "completed_at": null
+  },
+  "fact-a488a80b": {
+    "factory_id": "fact-a488a80b",
+    "mission_id": "mission-583d3c47",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_elr6q6wu",
+    "goal": "Create CLI tool with subcommand router and parser",
+    "template": "cli_tool",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:26:54.476500+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "cli_tool.py",
+      "test_cli_tool.py",
+      "docs/CLI_TOOL_ARCHITECTURE.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: cli_tool.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.09s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "FAILED",
+        "evidence": "File missing or empty: docs/CLI_TOOL_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: cli_tool.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:26:50.254018+00:00"
+    },
+    "error": "Acceptance verification failed on 1 criteria: ['AC-004: File missing or empty: docs/CLI_TOOL_SPEC.md']",
+    "created_at": "2026-09-17T13:26:50.254074+00:00",
+    "updated_at": "2026-09-17T13:26:50.254094+00:00",
+    "completed_at": null
+  },
+  "fact-8d408f9e": {
+    "factory_id": "fact-8d408f9e",
+    "mission_id": "mission-eef62204",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_5939yp0d",
+    "goal": "Create calculation engine service with add and multiply",
+    "template": "fastapi_service",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:27:02.446331+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "calculation_engine.py",
+      "test_calculation_engine.py",
+      "docs/CALCULATION_ENGINE_ARCHITECTURE.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: calculation_engine.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.51s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "FAILED",
+        "evidence": "File missing or empty: docs/CALCULATION_ENGINE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: calculation_engine.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:26:59.039255+00:00"
+    },
+    "error": "Acceptance verification failed on 1 criteria: ['AC-004: File missing or empty: docs/CALCULATION_ENGINE_SPEC.md']",
+    "created_at": "2026-09-17T13:26:59.039284+00:00",
+    "updated_at": "2026-09-17T13:26:59.039290+00:00",
+    "completed_at": null
+  },
+  "fact-bc162b6f": {
+    "factory_id": "fact-bc162b6f",
+    "mission_id": "mission-856dd402",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_3dq75jqq",
+    "goal": "Create sensitive payments gateway service",
+    "template": "auth_service",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:27:10.224582+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "sensitive_payments.py",
+      "test_sensitive_payments.py",
+      "docs/SENSITIVE_PAYMENTS_ARCHITECTURE.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: sensitive_payments.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.07s"
+      },
+      "AC-003": {
+        "status": "FAILED",
+        "evidence": "Secret scan flagged sensitive patterns in: ['sensitive_payments.py', 'test_sensitive_payments.py']"
+      },
+      "AC-004": {
+        "status": "FAILED",
+        "evidence": "File missing or empty: docs/SENSITIVE_PAYMENTS_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: sensitive_payments.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:27:07.038920+00:00"
+    },
+    "error": "Acceptance verification failed on 2 criteria: [\"AC-003: Secret scan flagged sensitive patterns in: ['sensitive_payments.py', 'test_sensitive_payments.py']\", 'AC-004: File missing or empty: docs/SENSITIVE_PAYMENTS_SPEC.md']",
+    "created_at": "2026-09-17T13:27:07.038950+00:00",
+    "updated_at": "2026-09-17T13:27:07.038957+00:00",
+    "completed_at": null
+  },
+  "fact-1c1060dd": {
+    "factory_id": "fact-1c1060dd",
+    "mission_id": "mission-8ce2fbfc",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_a5pu_4i3",
+    "goal": "Build high performance math utility module",
+    "template": "cli_tool",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:27:17.729467+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "high_performance.py",
+      "test_high_performance.py",
+      "docs/HIGH_PERFORMANCE_ARCHITECTURE.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: high_performance.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.08s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "FAILED",
+        "evidence": "File missing or empty: docs/HIGH_PERFORMANCE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: high_performance.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:27:14.350335+00:00"
+    },
+    "error": "Acceptance verification failed on 1 criteria: ['AC-004: File missing or empty: docs/HIGH_PERFORMANCE_SPEC.md']",
+    "created_at": "2026-09-17T13:27:14.350369+00:00",
+    "updated_at": "2026-09-17T13:27:14.350376+00:00",
+    "completed_at": null
+  },
+  "fact-770f89f0": {
+    "factory_id": "fact-770f89f0",
+    "mission_id": "mission-65018553",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_l5h99yky",
+    "goal": "Build memory persistence cache manager",
+    "template": "cache_engine",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:27:24.613135+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "memory_persistence.py",
+      "test_memory_persistence.py",
+      "docs/MEMORY_PERSISTENCE_ARCHITECTURE.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: memory_persistence.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ....                                                                     [100%]\n4 passed in 0.04s"
+      },
+      "AC-003": {
+        "status": "FAILED",
+        "evidence": "Secret scan flagged sensitive patterns in: ['memory_persistence.py']"
+      },
+      "AC-004": {
+        "status": "FAILED",
+        "evidence": "File missing or empty: docs/MEMORY_PERSISTENCE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: memory_persistence.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:27:21.678606+00:00"
+    },
+    "error": "Acceptance verification failed on 2 criteria: [\"AC-003: Secret scan flagged sensitive patterns in: ['memory_persistence.py']\", 'AC-004: File missing or empty: docs/MEMORY_PERSISTENCE_SPEC.md']",
+    "created_at": "2026-09-17T13:27:21.678634+00:00",
+    "updated_at": "2026-09-17T13:27:21.678640+00:00",
+    "completed_at": null
+  },
+  "fact-faeb76d0": {
+    "factory_id": "fact-faeb76d0",
+    "mission_id": "mission-e8e69bdb",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_f1i7qdbs",
+    "goal": "Build an analytics event aggregator with tests",
+    "template": "event_bus",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:27:31.413981+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "analytics_event.py",
+      "test_analytics_event.py",
+      "docs/ANALYTICS_EVENT_ARCHITECTURE.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: analytics_event.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.05s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "FAILED",
+        "evidence": "File missing or empty: docs/ANALYTICS_EVENT_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: analytics_event.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:27:28.560625+00:00"
+    },
+    "error": "Acceptance verification failed on 1 criteria: ['AC-004: File missing or empty: docs/ANALYTICS_EVENT_SPEC.md']",
+    "created_at": "2026-09-17T13:27:28.560653+00:00",
+    "updated_at": "2026-09-17T13:27:28.560660+00:00",
+    "completed_at": null
+  },
+  "fact-e6cee2c8": {
+    "factory_id": "fact-e6cee2c8",
+    "mission_id": "",
+    "project_id": "project-analytics-ingestion-engine",
+    "project_name": "Analytics Ingestion Engine",
+    "project_path": "/tmp/nexus_factory_test_0eedld2m/analytics-ingestion-engine",
+    "goal": "Build a high-performance stream analytics service with metrics",
+    "template": "fastapi_service",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-17T13:30:04.497520+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:30:04.497547+00:00",
+    "updated_at": "2026-09-17T13:30:04.497553+00:00",
+    "completed_at": null
+  },
+  "fact-0ca48c02": {
+    "factory_id": "fact-0ca48c02",
+    "mission_id": "mission-141039c4",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_7knexck7",
+    "goal": "Build an LRU cache with TTL eviction and stats tracking",
+    "template": "cache_engine",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:30:10.395030+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "lru_cache.py",
+      "test_lru_cache.py",
+      "docs/LRU_CACHE_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: lru_cache.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ....                                                                     [100%]\n4 passed in 0.11s"
+      },
+      "AC-003": {
+        "status": "FAILED",
+        "evidence": "Secret scan flagged sensitive patterns in: ['lru_cache.py']"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (528 bytes): docs/LRU_CACHE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: lru_cache.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:30:07.273151+00:00"
+    },
+    "error": "Acceptance verification failed on 1 criteria: [\"AC-003: Secret scan flagged sensitive patterns in: ['lru_cache.py']\"]",
+    "created_at": "2026-09-17T13:30:07.273177+00:00",
+    "updated_at": "2026-09-17T13:30:07.273183+00:00",
+    "completed_at": null
+  },
+  "fact-721af644": {
+    "factory_id": "fact-721af644",
+    "mission_id": "mission-52af83f7",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_eud1c7j5",
+    "goal": "Implement HMAC-SHA256 JWT auth token generator and password hasher",
+    "template": "auth_service",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:30:17.664861+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "hmac_sha256.py",
+      "test_hmac_sha256.py",
+      "docs/HMAC_SHA256_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: hmac_sha256.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.18s"
+      },
+      "AC-003": {
+        "status": "FAILED",
+        "evidence": "Secret scan flagged sensitive patterns in: ['hmac_sha256.py', 'test_hmac_sha256.py']"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (545 bytes): docs/HMAC_SHA256_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: hmac_sha256.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:30:14.631573+00:00"
+    },
+    "error": "Acceptance verification failed on 1 criteria: [\"AC-003: Secret scan flagged sensitive patterns in: ['hmac_sha256.py', 'test_hmac_sha256.py']\"]",
+    "created_at": "2026-09-17T13:30:14.631600+00:00",
+    "updated_at": "2026-09-17T13:30:14.631607+00:00",
+    "completed_at": null
+  },
+  "fact-691fb01f": {
+    "factory_id": "fact-691fb01f",
+    "mission_id": "mission-bd5bff9a",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test__fmf8c2w",
+    "goal": "Create sliding window rate limiter middleware",
+    "template": "rate_limiter",
+    "stage": "ACCEPTANCE",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:30:25.149200+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "sliding_window.py",
+      "test_sliding_window.py",
+      "docs/SLIDING_WINDOW_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: sliding_window.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.14s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (533 bytes): docs/SLIDING_WINDOW_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: sliding_window.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:30:21.969211+00:00"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:30:21.969238+00:00",
+    "updated_at": "2026-09-17T13:30:21.969243+00:00",
+    "completed_at": null
+  },
+  "fact-dc320107": {
+    "factory_id": "fact-dc320107",
+    "mission_id": "mission-67308362",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_tb_6ioay",
+    "goal": "Implement Pub-Sub Event Bus with Dead-Letter Queue",
+    "template": "event_bus",
+    "stage": "ACCEPTANCE",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:30:32.279418+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "pub_sub.py",
+      "test_pub_sub.py",
+      "docs/PUB_SUB_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: pub_sub.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.11s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (514 bytes): docs/PUB_SUB_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: pub_sub.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:30:29.367440+00:00"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:30:29.367464+00:00",
+    "updated_at": "2026-09-17T13:30:29.367470+00:00",
+    "completed_at": null
+  },
+  "fact-b0009b8e": {
+    "factory_id": "fact-b0009b8e",
+    "mission_id": "mission-e91661eb",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_py8nb2wr",
+    "goal": "Build ETL data stream transformation pipeline",
+    "template": "data_pipeline",
+    "stage": "ACCEPTANCE",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:30:39.800852+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "etl_data.py",
+      "test_etl_data.py",
+      "docs/ETL_DATA_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: etl_data.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.17s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (516 bytes): docs/ETL_DATA_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: etl_data.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:30:36.539504+00:00"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:30:36.539567+00:00",
+    "updated_at": "2026-09-17T13:30:36.539584+00:00",
+    "completed_at": null
+  },
+  "fact-fede3c28": {
+    "factory_id": "fact-fede3c28",
+    "mission_id": "mission-7d1803d8",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_2xqf3q4o",
+    "goal": "Create CLI tool with subcommand router and parser",
+    "template": "cli_tool",
+    "stage": "ACCEPTANCE",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:30:46.789734+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "cli_tool.py",
+      "test_cli_tool.py",
+      "docs/CLI_TOOL_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: cli_tool.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.14s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (515 bytes): docs/CLI_TOOL_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: cli_tool.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:30:43.522381+00:00"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:30:43.522412+00:00",
+    "updated_at": "2026-09-17T13:30:43.522419+00:00",
+    "completed_at": null
+  },
+  "fact-00f2ebb2": {
+    "factory_id": "fact-00f2ebb2",
+    "mission_id": "mission-5f0b469a",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_63fjjupv",
+    "goal": "Create calculation engine service with add and multiply",
+    "template": "fastapi_service",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "start_time": "2026-09-17T13:30:50.825687+00:00"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:30:50.825707+00:00",
+    "updated_at": "2026-09-17T13:30:50.825712+00:00",
+    "completed_at": null
+  },
+  "fact-d7d1416b": {
+    "factory_id": "fact-d7d1416b",
+    "mission_id": "",
+    "project_id": "project-analytics-ingestion-engine",
+    "project_name": "Analytics Ingestion Engine",
+    "project_path": "/tmp/nexus_factory_test_f5793sy9/analytics-ingestion-engine",
+    "goal": "Build a high-performance stream analytics service with metrics",
+    "template": "fastapi_service",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-17T13:31:05.752698+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:31:05.752801+00:00",
+    "updated_at": "2026-09-17T13:31:05.752824+00:00",
+    "completed_at": null
+  },
+  "fact-56830d15": {
+    "factory_id": "fact-56830d15",
+    "mission_id": "",
+    "project_id": "project-analytics-ingestion-engine",
+    "project_name": "Analytics Ingestion Engine",
+    "project_path": "/tmp/nexus_factory_test_2xw618o1/analytics-ingestion-engine",
+    "goal": "Build a high-performance stream analytics service with metrics",
+    "template": "fastapi_service",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-17T13:31:32.315051+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:31:32.315127+00:00",
+    "updated_at": "2026-09-17T13:31:32.315154+00:00",
+    "completed_at": null
+  },
+  "fact-c77fd197": {
+    "factory_id": "fact-c77fd197",
+    "mission_id": "",
+    "project_id": "project-analytics-ingestion-engine",
+    "project_name": "Analytics Ingestion Engine",
+    "project_path": "/tmp/nexus_factory_test_sj48m402/analytics-ingestion-engine",
+    "goal": "Build a high-performance stream analytics service with metrics",
+    "template": "fastapi_service",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-17T13:31:40.925912+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:31:40.925992+00:00",
+    "updated_at": "2026-09-17T13:31:40.926027+00:00",
+    "completed_at": null
+  },
+  "fact-3c72770c": {
+    "factory_id": "fact-3c72770c",
+    "mission_id": "mission-de26a251",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_70x36x90",
+    "goal": "Build an LRU cache with TTL eviction and stats tracking",
+    "template": "cache_engine",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:31:45.263801+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "lru_cache.py",
+      "test_lru_cache.py",
+      "docs/LRU_CACHE_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: lru_cache.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ....                                                                     [100%]\n4 passed in 0.17s"
+      },
+      "AC-003": {
+        "status": "FAILED",
+        "evidence": "Secret scan flagged sensitive patterns in: ['lru_cache.py']"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (528 bytes): docs/LRU_CACHE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: lru_cache.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:31:42.197575+00:00"
+    },
+    "error": "Acceptance verification failed on 1 criteria: [\"AC-003: Secret scan flagged sensitive patterns in: ['lru_cache.py']\"]",
+    "created_at": "2026-09-17T13:31:42.197599+00:00",
+    "updated_at": "2026-09-17T13:31:42.197604+00:00",
+    "completed_at": null
+  },
+  "fact-fa66eafa": {
+    "factory_id": "fact-fa66eafa",
+    "mission_id": "mission-abe40664",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_7ts0rzz3",
+    "goal": "Implement HMAC-SHA256 JWT auth token generator and password hasher",
+    "template": "auth_service",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:31:55.123875+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "hmac_sha256.py",
+      "test_hmac_sha256.py",
+      "docs/HMAC_SHA256_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: hmac_sha256.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.18s"
+      },
+      "AC-003": {
+        "status": "FAILED",
+        "evidence": "Secret scan flagged sensitive patterns in: ['hmac_sha256.py', 'test_hmac_sha256.py']"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (545 bytes): docs/HMAC_SHA256_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: hmac_sha256.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:31:51.619494+00:00"
+    },
+    "error": "Acceptance verification failed on 1 criteria: [\"AC-003: Secret scan flagged sensitive patterns in: ['hmac_sha256.py', 'test_hmac_sha256.py']\"]",
+    "created_at": "2026-09-17T13:31:51.619529+00:00",
+    "updated_at": "2026-09-17T13:31:51.619535+00:00",
+    "completed_at": null
+  },
+  "fact-a3435547": {
+    "factory_id": "fact-a3435547",
+    "mission_id": "mission-73d1ba0a",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test__hcj2vyl",
+    "goal": "Create sliding window rate limiter middleware",
+    "template": "rate_limiter",
+    "stage": "ACCEPTANCE",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:32:02.848034+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "sliding_window.py",
+      "test_sliding_window.py",
+      "docs/SLIDING_WINDOW_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: sliding_window.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.12s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (533 bytes): docs/SLIDING_WINDOW_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: sliding_window.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:31:59.489055+00:00"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:31:59.489077+00:00",
+    "updated_at": "2026-09-17T13:31:59.489083+00:00",
+    "completed_at": null
+  },
+  "fact-f5f5a637": {
+    "factory_id": "fact-f5f5a637",
+    "mission_id": "mission-8ccf80ca",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_eg00e4ix",
+    "goal": "Implement Pub-Sub Event Bus with Dead-Letter Queue",
+    "template": "event_bus",
+    "stage": "ACCEPTANCE",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:32:10.341641+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "pub_sub.py",
+      "test_pub_sub.py",
+      "docs/PUB_SUB_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: pub_sub.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.37s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (514 bytes): docs/PUB_SUB_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: pub_sub.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:32:07.000446+00:00"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:32:07.000474+00:00",
+    "updated_at": "2026-09-17T13:32:07.000479+00:00",
+    "completed_at": null
+  },
+  "fact-ba2995ee": {
+    "factory_id": "fact-ba2995ee",
+    "mission_id": "mission-936e71d0",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_23u8tbr1",
+    "goal": "Build ETL data stream transformation pipeline",
+    "template": "data_pipeline",
+    "stage": "ACCEPTANCE",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:32:17.841130+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "etl_data.py",
+      "test_etl_data.py",
+      "docs/ETL_DATA_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: etl_data.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.14s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (516 bytes): docs/ETL_DATA_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: etl_data.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:32:14.771252+00:00"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:32:14.771278+00:00",
+    "updated_at": "2026-09-17T13:32:14.771283+00:00",
+    "completed_at": null
+  },
+  "fact-29dba9d9": {
+    "factory_id": "fact-29dba9d9",
+    "mission_id": "mission-cce16e96",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_6kxthcpf",
+    "goal": "Create CLI tool with subcommand router and parser",
+    "template": "cli_tool",
+    "stage": "ACCEPTANCE",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:32:24.773766+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "cli_tool.py",
+      "test_cli_tool.py",
+      "docs/CLI_TOOL_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: cli_tool.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.15s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (515 bytes): docs/CLI_TOOL_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: cli_tool.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:32:21.872773+00:00"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:32:21.872800+00:00",
+    "updated_at": "2026-09-17T13:32:21.872806+00:00",
+    "completed_at": null
+  },
+  "fact-b19c3289": {
+    "factory_id": "fact-b19c3289",
+    "mission_id": "mission-1e19a988",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_lu8b5c9f",
+    "goal": "Create calculation engine service with add and multiply",
+    "template": "fastapi_service",
+    "stage": "ACCEPTANCE",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:32:31.807882+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "calculation_engine.py",
+      "test_calculation_engine.py",
+      "docs/CALCULATION_ENGINE_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: calculation_engine.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.48s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (558 bytes): docs/CALCULATION_ENGINE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: calculation_engine.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:32:28.417637+00:00"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:32:28.417659+00:00",
+    "updated_at": "2026-09-17T13:32:28.417663+00:00",
+    "completed_at": null
+  },
+  "fact-9977a325": {
+    "factory_id": "fact-9977a325",
+    "mission_id": "mission-ecf7ab7e",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_2u4e6zad",
+    "goal": "Create sensitive payments gateway service",
+    "template": "auth_service",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:32:39.218981+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "sensitive_payments.py",
+      "test_sensitive_payments.py",
+      "docs/SENSITIVE_PAYMENTS_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: sensitive_payments.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.20s"
+      },
+      "AC-003": {
+        "status": "FAILED",
+        "evidence": "Secret scan flagged sensitive patterns in: ['sensitive_payments.py', 'test_sensitive_payments.py']"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (541 bytes): docs/SENSITIVE_PAYMENTS_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: sensitive_payments.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:32:36.070073+00:00"
+    },
+    "error": "Acceptance verification failed on 1 criteria: [\"AC-003: Secret scan flagged sensitive patterns in: ['sensitive_payments.py', 'test_sensitive_payments.py']\"]",
+    "created_at": "2026-09-17T13:32:36.070259+00:00",
+    "updated_at": "2026-09-17T13:32:36.070274+00:00",
+    "completed_at": null
+  },
+  "fact-2cb25a18": {
+    "factory_id": "fact-2cb25a18",
+    "mission_id": "mission-9ca451c0",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_c4wgosfh",
+    "goal": "Build high performance math utility module",
+    "template": "cli_tool",
+    "stage": "ACCEPTANCE",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:32:46.869361+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "high_performance.py",
+      "test_high_performance.py",
+      "docs/HIGH_PERFORMANCE_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: high_performance.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.30s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (532 bytes): docs/HIGH_PERFORMANCE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: high_performance.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:32:43.697944+00:00"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:32:43.697996+00:00",
+    "updated_at": "2026-09-17T13:32:43.698004+00:00",
+    "completed_at": null
+  },
+  "fact-1877aee8": {
+    "factory_id": "fact-1877aee8",
+    "mission_id": "mission-36f0cdd2",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_ml3xdsre",
+    "goal": "Build memory persistence cache manager",
+    "template": "cache_engine",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:32:53.816690+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "memory_persistence.py",
+      "test_memory_persistence.py",
+      "docs/MEMORY_PERSISTENCE_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: memory_persistence.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ....                                                                     [100%]\n4 passed in 0.17s"
+      },
+      "AC-003": {
+        "status": "FAILED",
+        "evidence": "Secret scan flagged sensitive patterns in: ['memory_persistence.py']"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (538 bytes): docs/MEMORY_PERSISTENCE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: memory_persistence.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:32:50.754735+00:00"
+    },
+    "error": "Acceptance verification failed on 1 criteria: [\"AC-003: Secret scan flagged sensitive patterns in: ['memory_persistence.py']\"]",
+    "created_at": "2026-09-17T13:32:50.754761+00:00",
+    "updated_at": "2026-09-17T13:32:50.754767+00:00",
+    "completed_at": null
+  },
+  "fact-4bb987ab": {
+    "factory_id": "fact-4bb987ab",
+    "mission_id": "",
+    "project_id": "project-api-micro-service-test",
+    "project_name": "API Micro Service Test",
+    "project_path": "/tmp/nexus_factory_test_swfp92z_/api-micro-service-test",
+    "goal": "Build a REST API microservice",
+    "template": "fastapi_service",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-17T13:32:57.344298+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:32:57.344359+00:00",
+    "updated_at": "2026-09-17T13:32:57.344380+00:00",
+    "completed_at": null
+  },
+  "fact-c8e66283": {
+    "factory_id": "fact-c8e66283",
+    "mission_id": "mission-9eccf207",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_29o8flop",
+    "goal": "Create a token bucket rate limiter module",
+    "template": "rate_limiter",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:33:02.120609+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "token_bucket.py",
+      "test_token_bucket.py",
+      "docs/TOKEN_BUCKET_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: token_bucket.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.18s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (523 bytes): docs/TOKEN_BUCKET_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: token_bucket.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:32:58.661398+00:00"
+    },
+    "error": "Merge arbitration failed",
+    "created_at": "2026-09-17T13:32:58.661425+00:00",
+    "updated_at": "2026-09-17T13:32:58.661430+00:00",
+    "completed_at": null
+  },
+  "fact-8b7f1f37": {
+    "factory_id": "fact-8b7f1f37",
+    "mission_id": "mission-16204fcd",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_2n01gxmq",
+    "goal": "Build an analytics event aggregator with tests",
+    "template": "event_bus",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "start_time": "2026-09-17T13:33:07.127545+00:00"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:33:07.127567+00:00",
+    "updated_at": "2026-09-17T13:33:07.127572+00:00",
+    "completed_at": null
+  },
+  "fact-056e1a57": {
+    "factory_id": "fact-056e1a57",
+    "mission_id": "",
+    "project_id": "project-analytics-ingestion-engine",
+    "project_name": "Analytics Ingestion Engine",
+    "project_path": "/tmp/nexus_factory_test_jmcf7xgw/analytics-ingestion-engine",
+    "goal": "Build a high-performance stream analytics service with metrics",
+    "template": "fastapi_service",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-17T13:33:59.902855+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:33:59.902913+00:00",
+    "updated_at": "2026-09-17T13:33:59.902931+00:00",
+    "completed_at": null
+  },
+  "fact-80732637": {
+    "factory_id": "fact-80732637",
+    "mission_id": "mission-c915280b",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_23s58myl",
+    "goal": "Build an LRU cache with TTL eviction and stats tracking",
+    "template": "cache_engine",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:34:03.982763+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "lru_cache.py",
+      "test_lru_cache.py",
+      "docs/LRU_CACHE_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: lru_cache.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ....                                                                     [100%]\n4 passed in 0.14s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (528 bytes): docs/LRU_CACHE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: lru_cache.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:34:01.129293+00:00",
+      "duration_seconds": 6.6,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:34:01.129316+00:00",
+    "updated_at": "2026-09-17T13:34:06.928513+00:00",
+    "completed_at": "2026-09-17T13:34:06.928440+00:00"
+  },
+  "fact-6c7e4169": {
+    "factory_id": "fact-6c7e4169",
+    "mission_id": "mission-87380bc1",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_y3hk6xg2",
+    "goal": "Implement HMAC-SHA256 JWT auth token generator and password hasher",
+    "template": "auth_service",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:34:11.448595+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "hmac_sha256.py",
+      "test_hmac_sha256.py",
+      "docs/HMAC_SHA256_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: hmac_sha256.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.16s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (545 bytes): docs/HMAC_SHA256_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: hmac_sha256.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:34:08.218228+00:00",
+      "duration_seconds": 7.5,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:34:08.218250+00:00",
+    "updated_at": "2026-09-17T13:34:14.756793+00:00",
+    "completed_at": "2026-09-17T13:34:14.756730+00:00"
+  },
+  "fact-27a93235": {
+    "factory_id": "fact-27a93235",
+    "mission_id": "mission-78c3ada7",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_chgt9m13",
+    "goal": "Create sliding window rate limiter middleware",
+    "template": "rate_limiter",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:34:19.285420+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "sliding_window.py",
+      "test_sliding_window.py",
+      "docs/SLIDING_WINDOW_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: sliding_window.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.15s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (533 bytes): docs/SLIDING_WINDOW_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: sliding_window.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:34:16.213952+00:00",
+      "duration_seconds": 7.51,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:34:16.214108+00:00",
+    "updated_at": "2026-09-17T13:34:22.596112+00:00",
+    "completed_at": "2026-09-17T13:34:22.596050+00:00"
+  },
+  "fact-f0233b7d": {
+    "factory_id": "fact-f0233b7d",
+    "mission_id": "mission-906f2ec3",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_thpfnsu2",
+    "goal": "Implement Pub-Sub Event Bus with Dead-Letter Queue",
+    "template": "event_bus",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:34:27.110456+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "pub_sub.py",
+      "test_pub_sub.py",
+      "docs/PUB_SUB_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: pub_sub.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.14s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (514 bytes): docs/PUB_SUB_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: pub_sub.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:34:23.900415+00:00",
+      "duration_seconds": 7.38,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:34:23.900482+00:00",
+    "updated_at": "2026-09-17T13:34:30.277205+00:00",
+    "completed_at": "2026-09-17T13:34:30.277177+00:00"
+  },
+  "fact-57b0fe8e": {
+    "factory_id": "fact-57b0fe8e",
+    "mission_id": "mission-1a659ef2",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_d3kdggm3",
+    "goal": "Build ETL data stream transformation pipeline",
+    "template": "data_pipeline",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:34:35.503178+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "etl_data.py",
+      "test_etl_data.py",
+      "docs/ETL_DATA_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: etl_data.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.43s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (516 bytes): docs/ETL_DATA_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: etl_data.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:34:32.002312+00:00",
+      "duration_seconds": 8.18,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:34:32.002335+00:00",
+    "updated_at": "2026-09-17T13:34:39.011182+00:00",
+    "completed_at": "2026-09-17T13:34:39.011075+00:00"
+  },
+  "fact-410f4494": {
+    "factory_id": "fact-410f4494",
+    "mission_id": "mission-50ebddd4",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_b2tke_2_",
+    "goal": "Create CLI tool with subcommand router and parser",
+    "template": "cli_tool",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:34:43.895163+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "cli_tool.py",
+      "test_cli_tool.py",
+      "docs/CLI_TOOL_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: cli_tool.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.20s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (515 bytes): docs/CLI_TOOL_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: cli_tool.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:34:40.239029+00:00",
+      "duration_seconds": 8.08,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:34:40.239050+00:00",
+    "updated_at": "2026-09-17T13:34:47.428351+00:00",
+    "completed_at": "2026-09-17T13:34:47.428327+00:00"
+  },
+  "fact-4b4367e3": {
+    "factory_id": "fact-4b4367e3",
+    "mission_id": "mission-c6bdd213",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_7m86s6o9",
+    "goal": "Create calculation engine service with add and multiply",
+    "template": "fastapi_service",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:34:52.634359+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "calculation_engine.py",
+      "test_calculation_engine.py",
+      "docs/CALCULATION_ENGINE_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: calculation_engine.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.57s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (558 bytes): docs/CALCULATION_ENGINE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: calculation_engine.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:34:48.670694+00:00",
+      "duration_seconds": 8.48,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:34:48.670719+00:00",
+    "updated_at": "2026-09-17T13:34:56.238980+00:00",
+    "completed_at": "2026-09-17T13:34:56.238947+00:00"
+  },
+  "fact-e8757582": {
+    "factory_id": "fact-e8757582",
+    "mission_id": "mission-57913b9d",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_03175h56",
+    "goal": "Create sensitive payments gateway service",
+    "template": "auth_service",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:35:01.290977+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "sensitive_payments.py",
+      "test_sensitive_payments.py",
+      "docs/SENSITIVE_PAYMENTS_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: sensitive_payments.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.25s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (541 bytes): docs/SENSITIVE_PAYMENTS_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: sensitive_payments.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:34:57.904881+00:00",
+      "duration_seconds": 7.94,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:34:57.904908+00:00",
+    "updated_at": "2026-09-17T13:35:04.734951+00:00",
+    "completed_at": "2026-09-17T13:35:04.734918+00:00"
+  },
+  "fact-c9035019": {
+    "factory_id": "fact-c9035019",
+    "mission_id": "mission-736eca77",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_at2ra962",
+    "goal": "Build high performance math utility module",
+    "template": "cli_tool",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:35:09.555760+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "high_performance.py",
+      "test_high_performance.py",
+      "docs/HIGH_PERFORMANCE_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: high_performance.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.46s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (532 bytes): docs/HIGH_PERFORMANCE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: high_performance.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:35:06.102171+00:00",
+      "duration_seconds": 7.92,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:35:06.102192+00:00",
+    "updated_at": "2026-09-17T13:35:13.046796+00:00",
+    "completed_at": "2026-09-17T13:35:13.046755+00:00"
+  },
+  "fact-30c94664": {
+    "factory_id": "fact-30c94664",
+    "mission_id": "mission-7f6ea2db",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_jjhs7fl4",
+    "goal": "Build memory persistence cache manager",
+    "template": "cache_engine",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:35:18.025547+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "memory_persistence.py",
+      "test_memory_persistence.py",
+      "docs/MEMORY_PERSISTENCE_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: memory_persistence.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ....                                                                     [100%]\n4 passed in 0.35s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (538 bytes): docs/MEMORY_PERSISTENCE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: memory_persistence.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:35:14.405379+00:00",
+      "duration_seconds": 8.34,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:35:14.405403+00:00",
+    "updated_at": "2026-09-17T13:35:21.759269+00:00",
+    "completed_at": "2026-09-17T13:35:21.759240+00:00"
+  },
+  "fact-bdc7d14d": {
+    "factory_id": "fact-bdc7d14d",
+    "mission_id": "",
+    "project_id": "project-api-micro-service-test",
+    "project_name": "API Micro Service Test",
+    "project_path": "/tmp/nexus_factory_test_68ibqjqf/api-micro-service-test",
+    "goal": "Build a REST API microservice",
+    "template": "fastapi_service",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-17T13:35:22.751990+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:35:22.752038+00:00",
+    "updated_at": "2026-09-17T13:35:22.752051+00:00",
+    "completed_at": null
+  },
+  "fact-aa5331ad": {
+    "factory_id": "fact-aa5331ad",
+    "mission_id": "mission-76222764",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_3z112p0e",
+    "goal": "Create a token bucket rate limiter module",
+    "template": "rate_limiter",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:35:27.645250+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "token_bucket.py",
+      "test_token_bucket.py",
+      "docs/TOKEN_BUCKET_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: token_bucket.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.18s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (523 bytes): docs/TOKEN_BUCKET_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: token_bucket.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:35:24.038394+00:00"
+    },
+    "error": "Merge arbitration failed",
+    "created_at": "2026-09-17T13:35:24.038419+00:00",
+    "updated_at": "2026-09-17T13:35:24.038424+00:00",
+    "completed_at": null
+  },
+  "fact-ce4464b9": {
+    "factory_id": "fact-ce4464b9",
+    "mission_id": "mission-865e431b",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_v6fkm5cj",
+    "goal": "Build an analytics event aggregator with tests",
+    "template": "event_bus",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:35:38.161434+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "analytics_event.py",
+      "test_analytics_event.py",
+      "docs/ANALYTICS_EVENT_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: analytics_event.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.13s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (534 bytes): docs/ANALYTICS_EVENT_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: analytics_event.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:35:34.758692+00:00",
+      "duration_seconds": 7.91,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:35:34.758786+00:00",
+    "updated_at": "2026-09-17T13:35:41.632188+00:00",
+    "completed_at": "2026-09-17T13:35:41.632160+00:00"
+  },
+  "fact-961483b3": {
+    "factory_id": "fact-961483b3",
+    "mission_id": "mission-8e5dadf9",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_ugjron_k",
+    "goal": "Create a token bucket rate limiter module",
+    "template": "rate_limiter",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:36:42.101338+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "token_bucket.py",
+      "test_token_bucket.py",
+      "docs/TOKEN_BUCKET_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: token_bucket.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.14s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (523 bytes): docs/TOKEN_BUCKET_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: token_bucket.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:36:39.186495+00:00",
+      "duration_seconds": 16.42,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:36:39.186563+00:00",
+    "updated_at": "2026-09-17T13:36:54.508956+00:00",
+    "completed_at": "2026-09-17T13:36:54.508871+00:00"
+  },
+  "fact-afcd5f88": {
+    "factory_id": "fact-afcd5f88",
+    "mission_id": "",
+    "project_id": "project-analytics-ingestion-engine",
+    "project_name": "Analytics Ingestion Engine",
+    "project_path": "/tmp/nexus_factory_test_t3ca74c0/analytics-ingestion-engine",
+    "goal": "Build a high-performance stream analytics service with metrics",
+    "template": "fastapi_service",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-17T13:42:33.539679+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:42:33.539735+00:00",
+    "updated_at": "2026-09-17T13:42:33.539751+00:00",
+    "completed_at": null
+  },
+  "fact-e770af37": {
+    "factory_id": "fact-e770af37",
+    "mission_id": "mission-cea424ef",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_nii8c6a5",
+    "goal": "Build an LRU cache with TTL eviction and stats tracking",
+    "template": "cache_engine",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:42:38.525479+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "lru_cache.py",
+      "test_lru_cache.py",
+      "docs/LRU_CACHE_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: lru_cache.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ....                                                                     [100%]\n4 passed in 0.21s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (528 bytes): docs/LRU_CACHE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: lru_cache.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:42:34.927728+00:00",
+      "duration_seconds": 8.36,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:42:34.927751+00:00",
+    "updated_at": "2026-09-17T13:42:42.140962+00:00",
+    "completed_at": "2026-09-17T13:42:42.140892+00:00"
+  },
+  "fact-ab3d7a95": {
+    "factory_id": "fact-ab3d7a95",
+    "mission_id": "mission-094606d7",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_r9hh1ae4",
+    "goal": "Implement HMAC-SHA256 JWT auth token generator and password hasher",
+    "template": "auth_service",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:42:47.489232+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "hmac_sha256.py",
+      "test_hmac_sha256.py",
+      "docs/HMAC_SHA256_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: hmac_sha256.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.22s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (545 bytes): docs/HMAC_SHA256_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: hmac_sha256.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:42:43.837386+00:00",
+      "duration_seconds": 8.53,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:42:43.837431+00:00",
+    "updated_at": "2026-09-17T13:42:51.120074+00:00",
+    "completed_at": "2026-09-17T13:42:51.120047+00:00"
+  },
+  "fact-efed1a0a": {
+    "factory_id": "fact-efed1a0a",
+    "mission_id": "mission-7821734b",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_z8ddci3u",
+    "goal": "Create sliding window rate limiter middleware",
+    "template": "rate_limiter",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:42:56.218510+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "sliding_window.py",
+      "test_sliding_window.py",
+      "docs/SLIDING_WINDOW_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: sliding_window.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.13s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (533 bytes): docs/SLIDING_WINDOW_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: sliding_window.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:42:52.726702+00:00",
+      "duration_seconds": 8.43,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:42:52.726726+00:00",
+    "updated_at": "2026-09-17T13:43:00.027030+00:00",
+    "completed_at": "2026-09-17T13:43:00.027000+00:00"
+  },
+  "fact-a11311c0": {
+    "factory_id": "fact-a11311c0",
+    "mission_id": "mission-ac29f8fe",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_6umcjg_5",
+    "goal": "Implement Pub-Sub Event Bus with Dead-Letter Queue",
+    "template": "event_bus",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:43:05.458679+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "pub_sub.py",
+      "test_pub_sub.py",
+      "docs/PUB_SUB_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: pub_sub.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.37s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (514 bytes): docs/PUB_SUB_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: pub_sub.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:43:01.713110+00:00",
+      "duration_seconds": 9.25,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:43:01.713170+00:00",
+    "updated_at": "2026-09-17T13:43:09.706305+00:00",
+    "completed_at": "2026-09-17T13:43:09.706191+00:00"
+  },
+  "fact-22b3db11": {
+    "factory_id": "fact-22b3db11",
+    "mission_id": "mission-cd90d1e8",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_78bv89jn",
+    "goal": "Build ETL data stream transformation pipeline",
+    "template": "data_pipeline",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:43:15.950625+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "etl_data.py",
+      "test_etl_data.py",
+      "docs/ETL_DATA_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: etl_data.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.27s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (516 bytes): docs/ETL_DATA_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: etl_data.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:43:11.535781+00:00",
+      "duration_seconds": 9.51,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:43:11.535808+00:00",
+    "updated_at": "2026-09-17T13:43:19.637335+00:00",
+    "completed_at": "2026-09-17T13:43:19.637311+00:00"
+  },
+  "fact-687ae660": {
+    "factory_id": "fact-687ae660",
+    "mission_id": "mission-3a7e1aa2",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_vm5d_bl1",
+    "goal": "Create CLI tool with subcommand router and parser",
+    "template": "cli_tool",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:43:24.036203+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "cli_tool.py",
+      "test_cli_tool.py",
+      "docs/CLI_TOOL_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: cli_tool.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.18s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (515 bytes): docs/CLI_TOOL_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: cli_tool.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:43:21.067970+00:00",
+      "duration_seconds": 9.59,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:43:21.068004+00:00",
+    "updated_at": "2026-09-17T13:43:29.604068+00:00",
+    "completed_at": "2026-09-17T13:43:29.604043+00:00"
+  },
+  "fact-fcdbd760": {
+    "factory_id": "fact-fcdbd760",
+    "mission_id": "mission-c8fe8cbc",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_ei9_owlc",
+    "goal": "Create calculation engine service with add and multiply",
+    "template": "fastapi_service",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:43:34.545929+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "calculation_engine.py",
+      "test_calculation_engine.py",
+      "docs/CALCULATION_ENGINE_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: calculation_engine.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.51s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (558 bytes): docs/CALCULATION_ENGINE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: calculation_engine.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:43:31.047689+00:00",
+      "duration_seconds": 8.03,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:43:31.047715+00:00",
+    "updated_at": "2026-09-17T13:43:38.044794+00:00",
+    "completed_at": "2026-09-17T13:43:38.044767+00:00"
+  },
+  "fact-646a5e35": {
+    "factory_id": "fact-646a5e35",
+    "mission_id": "mission-20c19888",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_oxhiiwvr",
+    "goal": "Create sensitive payments gateway service",
+    "template": "auth_service",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:43:42.790960+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "sensitive_payments.py",
+      "test_sensitive_payments.py",
+      "docs/SENSITIVE_PAYMENTS_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: sensitive_payments.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.16s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (541 bytes): docs/SENSITIVE_PAYMENTS_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: sensitive_payments.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:43:39.706397+00:00",
+      "duration_seconds": 7.56,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:43:39.706458+00:00",
+    "updated_at": "2026-09-17T13:43:46.040619+00:00",
+    "completed_at": "2026-09-17T13:43:46.040576+00:00"
+  },
+  "fact-57a5b621": {
+    "factory_id": "fact-57a5b621",
+    "mission_id": "mission-b18e13d0",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_mywhpc7x",
+    "goal": "Build high performance math utility module",
+    "template": "cli_tool",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:43:50.612545+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "high_performance.py",
+      "test_high_performance.py",
+      "docs/HIGH_PERFORMANCE_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: high_performance.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.13s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (532 bytes): docs/HIGH_PERFORMANCE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: high_performance.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:43:47.594942+00:00",
+      "duration_seconds": 7.27,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:43:47.594963+00:00",
+    "updated_at": "2026-09-17T13:43:53.728451+00:00",
+    "completed_at": "2026-09-17T13:43:53.728424+00:00"
+  },
+  "fact-ec1db46d": {
+    "factory_id": "fact-ec1db46d",
+    "mission_id": "mission-104792bc",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_fmn09vn5",
+    "goal": "Build memory persistence cache manager",
+    "template": "cache_engine",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:43:58.360843+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "memory_persistence.py",
+      "test_memory_persistence.py",
+      "docs/MEMORY_PERSISTENCE_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: memory_persistence.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ....                                                                     [100%]\n4 passed in 0.13s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (538 bytes): docs/MEMORY_PERSISTENCE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: memory_persistence.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:43:55.231330+00:00",
+      "duration_seconds": 7.28,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:43:55.231354+00:00",
+    "updated_at": "2026-09-17T13:44:01.403266+00:00",
+    "completed_at": "2026-09-17T13:44:01.403241+00:00"
+  },
+  "fact-709009fa": {
+    "factory_id": "fact-709009fa",
+    "mission_id": "",
+    "project_id": "project-api-micro-service-test",
+    "project_name": "API Micro Service Test",
+    "project_path": "/tmp/nexus_factory_test_ds2_div8/api-micro-service-test",
+    "goal": "Build a REST API microservice",
+    "template": "fastapi_service",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-17T13:44:02.388122+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:44:02.388214+00:00",
+    "updated_at": "2026-09-17T13:44:02.388254+00:00",
+    "completed_at": null
+  },
+  "fact-1c8046ef": {
+    "factory_id": "fact-1c8046ef",
+    "mission_id": "mission-bf0255a5",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_brpflzwh",
+    "goal": "Create a token bucket rate limiter module",
+    "template": "rate_limiter",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:44:07.003960+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "token_bucket.py",
+      "test_token_bucket.py",
+      "docs/TOKEN_BUCKET_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: token_bucket.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.11s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (523 bytes): docs/TOKEN_BUCKET_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: token_bucket.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:44:03.879683+00:00",
+      "duration_seconds": 15.84,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:44:03.879704+00:00",
+    "updated_at": "2026-09-17T13:44:18.489410+00:00",
+    "completed_at": "2026-09-17T13:44:18.489370+00:00"
+  },
+  "fact-c163fadf": {
+    "factory_id": "fact-c163fadf",
+    "mission_id": "mission-06987750",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_s23iktwj",
+    "goal": "Build an analytics event aggregator with tests",
+    "template": "event_bus",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T13:44:23.120558+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "analytics_event.py",
+      "test_analytics_event.py",
+      "docs/ANALYTICS_EVENT_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: analytics_event.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.12s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (534 bytes): docs/ANALYTICS_EVENT_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: analytics_event.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T13:44:20.139398+00:00",
+      "duration_seconds": 7.08,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:44:20.139422+00:00",
+    "updated_at": "2026-09-17T13:44:26.060054+00:00",
+    "completed_at": "2026-09-17T13:44:26.060030+00:00"
+  },
+  "fact-7cd7591b": {
+    "factory_id": "fact-7cd7591b",
+    "mission_id": "",
+    "project_id": "project-analytics-ingestion-engine",
+    "project_name": "Analytics Ingestion Engine",
+    "project_path": "/tmp/nexus_factory_test_7jmvu0sc/analytics-ingestion-engine",
+    "goal": "Build a high-performance stream analytics service with metrics",
+    "template": "fastapi_service",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-17T13:50:52.281020+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:50:52.281048+00:00",
+    "updated_at": "2026-09-17T13:50:52.281055+00:00",
+    "completed_at": null
+  },
+  "fact-367584c4": {
+    "factory_id": "fact-367584c4",
+    "mission_id": "mission-b85c49ea",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_6q4882nq",
+    "goal": "Build an LRU cache with TTL eviction and stats tracking",
+    "template": "cache_engine",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "start_time": "2026-09-17T13:50:53.521678+00:00"
+    },
+    "error": null,
+    "created_at": "2026-09-17T13:50:53.521701+00:00",
+    "updated_at": "2026-09-17T13:50:53.521706+00:00",
+    "completed_at": null
+  },
+  "fact-ea561f08": {
+    "factory_id": "fact-ea561f08",
+    "mission_id": "",
+    "project_id": "project-quick-telemetry-ping",
+    "project_name": "Quick Telemetry Ping",
+    "project_path": "/root/projects/quick-telemetry-ping",
+    "goal": "Create quick telemetry ping module",
+    "template": "fastapi_service",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-17T14:06:06.108252+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-17T14:06:06.108280+00:00",
+    "updated_at": "2026-09-17T14:06:06.108284+00:00",
+    "completed_at": null
+  },
+  "fact-db9036c4": {
+    "factory_id": "fact-db9036c4",
+    "mission_id": "mission-f2e47ba3",
+    "project_id": "project-quick-telemetry-ping",
+    "project_name": "Quick Telemetry Ping",
+    "project_path": "/root/projects/quick-telemetry-ping",
+    "goal": "Create quick telemetry ping module",
+    "template": "fastapi_service",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "CHANGES_REQUESTED",
+        "summary": "Iteration 1: Codex identified 1 issue(s). Initiating AGY remediation patch.",
+        "findings": [
+          {
+            "file_path": "test_quick_telemetry.py",
+            "line_number": null,
+            "severity": "ERROR",
+            "category": "TEST_FAILURE",
+            "message": "Pytest failed with exit code 126:\nSecurityPolicyViolation: Working directory '/root/projects/quick-telemetry-ping' is outside permitted workspace roots: ['/root/control-center', '/root/portfolio', '/root/mera_project', '/tmp']",
+            "suggested_fix": "Fix assertion failure or symbol imports"
+          }
+        ],
+        "diff_applied": "Applied automated AST alignment patch",
+        "tests_passed": false,
+        "security_clean": true,
+        "timestamp": "2026-09-17T14:06:07.048149+00:00"
+      },
+      {
+        "iteration": 2,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "CHANGES_REQUESTED",
+        "summary": "Iteration 2: Codex identified 1 issue(s). Initiating AGY remediation patch.",
+        "findings": [
+          {
+            "file_path": "test_quick_telemetry.py",
+            "line_number": null,
+            "severity": "ERROR",
+            "category": "TEST_FAILURE",
+            "message": "Pytest failed with exit code 126:\nSecurityPolicyViolation: Working directory '/root/projects/quick-telemetry-ping' is outside permitted workspace roots: ['/root/control-center', '/root/portfolio', '/root/mera_project', '/tmp']",
+            "suggested_fix": "Fix assertion failure or symbol imports"
+          }
+        ],
+        "diff_applied": "Applied automated AST alignment patch",
+        "tests_passed": false,
+        "security_clean": true,
+        "timestamp": "2026-09-17T14:06:07.059162+00:00"
+      },
+      {
+        "iteration": 3,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "FAILED",
+        "summary": "Iteration 3: Codex identified 1 issue(s). Initiating AGY remediation patch.",
+        "findings": [
+          {
+            "file_path": "test_quick_telemetry.py",
+            "line_number": null,
+            "severity": "ERROR",
+            "category": "TEST_FAILURE",
+            "message": "Pytest failed with exit code 126:\nSecurityPolicyViolation: Working directory '/root/projects/quick-telemetry-ping' is outside permitted workspace roots: ['/root/control-center', '/root/portfolio', '/root/mera_project', '/tmp']",
+            "suggested_fix": "Fix assertion failure or symbol imports"
+          }
+        ],
+        "diff_applied": "Applied automated AST alignment patch",
+        "tests_passed": false,
+        "security_clean": true,
+        "timestamp": "2026-09-17T14:06:07.069481+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "quick_telemetry.py",
+      "test_quick_telemetry.py",
+      "docs/QUICK_TELEMETRY_SPEC.md"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "start_time": "2026-09-17T14:06:06.794175+00:00"
+    },
+    "error": "AGY \u2194 Codex loop exhausted 3 rounds without clean approval: [\"Pytest failed with exit code 126:\\nSecurityPolicyViolation: Working directory '/root/projects/quick-telemetry-ping' is outside permitted workspace roots: ['/root/control-center', '/root/portfolio', '/root/mera_project', '/tmp']\"]",
+    "created_at": "2026-09-17T14:06:06.794199+00:00",
+    "updated_at": "2026-09-17T14:06:07.069762+00:00",
+    "completed_at": null
+  },
+  "fact-b2b5c94d": {
+    "factory_id": "fact-b2b5c94d",
+    "mission_id": "",
+    "project_id": "project-quick-ping-health",
+    "project_name": "Quick Ping Health",
+    "project_path": "/root/projects/quick-ping-health",
+    "goal": "Create quick ping health module",
+    "template": "cache_engine",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-17T14:06:27.739172+00:00",
+      "template": "cache_engine"
+    },
+    "error": null,
+    "created_at": "2026-09-17T14:06:27.739264+00:00",
+    "updated_at": "2026-09-17T14:06:27.739282+00:00",
+    "completed_at": null
+  },
+  "fact-3f209b50": {
+    "factory_id": "fact-3f209b50",
+    "mission_id": "mission-2bd6fe6c",
+    "project_id": "project-quick-ping-health",
+    "project_name": "Quick Ping Health",
+    "project_path": "/root/projects/quick-ping-health",
+    "goal": "Create quick ping health module",
+    "template": "cache_engine",
+    "stage": "FAILED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "CHANGES_REQUESTED",
+        "summary": "Iteration 1: Codex identified 1 issue(s). Initiating AGY remediation patch.",
+        "findings": [
+          {
+            "file_path": "test_quick_ping.py",
+            "line_number": null,
+            "severity": "ERROR",
+            "category": "TEST_FAILURE",
+            "message": "Pytest failed with exit code 126:\nSecurityPolicyViolation: Working directory '/root/projects/quick-ping-health' is outside permitted workspace roots: ['/root/control-center', '/root/portfolio', '/root/mera_project', '/tmp']",
+            "suggested_fix": "Fix assertion failure or symbol imports"
+          }
+        ],
+        "diff_applied": "Applied automated AST alignment patch",
+        "tests_passed": false,
+        "security_clean": true,
+        "timestamp": "2026-09-17T14:06:28.692152+00:00"
+      },
+      {
+        "iteration": 2,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "CHANGES_REQUESTED",
+        "summary": "Iteration 2: Codex identified 1 issue(s). Initiating AGY remediation patch.",
+        "findings": [
+          {
+            "file_path": "test_quick_ping.py",
+            "line_number": null,
+            "severity": "ERROR",
+            "category": "TEST_FAILURE",
+            "message": "Pytest failed with exit code 126:\nSecurityPolicyViolation: Working directory '/root/projects/quick-ping-health' is outside permitted workspace roots: ['/root/control-center', '/root/portfolio', '/root/mera_project', '/tmp']",
+            "suggested_fix": "Fix assertion failure or symbol imports"
+          }
+        ],
+        "diff_applied": "Applied automated AST alignment patch",
+        "tests_passed": false,
+        "security_clean": true,
+        "timestamp": "2026-09-17T14:06:28.706832+00:00"
+      },
+      {
+        "iteration": 3,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "FAILED",
+        "summary": "Iteration 3: Codex identified 1 issue(s). Initiating AGY remediation patch.",
+        "findings": [
+          {
+            "file_path": "test_quick_ping.py",
+            "line_number": null,
+            "severity": "ERROR",
+            "category": "TEST_FAILURE",
+            "message": "Pytest failed with exit code 126:\nSecurityPolicyViolation: Working directory '/root/projects/quick-ping-health' is outside permitted workspace roots: ['/root/control-center', '/root/portfolio', '/root/mera_project', '/tmp']",
+            "suggested_fix": "Fix assertion failure or symbol imports"
+          }
+        ],
+        "diff_applied": "Applied automated AST alignment patch",
+        "tests_passed": false,
+        "security_clean": true,
+        "timestamp": "2026-09-17T14:06:28.718714+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "quick_ping.py",
+      "test_quick_ping.py",
+      "docs/QUICK_PING_SPEC.md"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "start_time": "2026-09-17T14:06:28.446390+00:00"
+    },
+    "error": "AGY \u2194 Codex loop exhausted 3 rounds without clean approval: [\"Pytest failed with exit code 126:\\nSecurityPolicyViolation: Working directory '/root/projects/quick-ping-health' is outside permitted workspace roots: ['/root/control-center', '/root/portfolio', '/root/mera_project', '/tmp']\"]",
+    "created_at": "2026-09-17T14:06:28.446415+00:00",
+    "updated_at": "2026-09-17T14:06:28.718916+00:00",
+    "completed_at": null
+  },
+  "fact-6eade061": {
+    "factory_id": "fact-6eade061",
+    "mission_id": "",
+    "project_id": "project-quick-telemetry-ping",
+    "project_name": "Quick Telemetry Ping",
+    "project_path": "/root/projects/quick-telemetry-ping",
+    "goal": "Create quick telemetry ping cache engine",
+    "template": "cache_engine",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-17T14:07:27.862276+00:00",
+      "template": "cache_engine"
+    },
+    "error": null,
+    "created_at": "2026-09-17T14:07:27.862340+00:00",
+    "updated_at": "2026-09-17T14:07:27.862363+00:00",
+    "completed_at": null
+  },
+  "fact-6f03eda0": {
+    "factory_id": "fact-6f03eda0",
+    "mission_id": "mission-d7f0a55a",
+    "project_id": "project-quick-telemetry-ping",
+    "project_name": "Quick Telemetry Ping",
+    "project_path": "/root/projects/quick-telemetry-ping",
+    "goal": "Create quick telemetry ping cache engine",
+    "template": "cache_engine",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T14:07:31.573350+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "quick_telemetry.py",
+      "test_quick_telemetry.py",
+      "docs/QUICK_TELEMETRY_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: quick_telemetry.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ....                                                                     [100%]\n4 passed in 0.06s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (531 bytes): docs/QUICK_TELEMETRY_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: quick_telemetry.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T14:07:28.660093+00:00",
+      "duration_seconds": 7.23,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T14:07:28.660116+00:00",
+    "updated_at": "2026-09-17T14:07:34.469243+00:00",
+    "completed_at": "2026-09-17T14:07:34.469178+00:00"
+  },
+  "fact-3d8a783b": {
+    "factory_id": "fact-3d8a783b",
+    "mission_id": "",
+    "project_id": "project-analytics-ingestion-engine",
+    "project_name": "Analytics Ingestion Engine",
+    "project_path": "/tmp/nexus_factory_test_4vble80o/analytics-ingestion-engine",
+    "goal": "Build a high-performance stream analytics service with metrics",
+    "template": "fastapi_service",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-17T17:45:43.974850+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-17T17:45:43.974955+00:00",
+    "updated_at": "2026-09-17T17:45:43.974986+00:00",
+    "completed_at": null
+  },
+  "fact-2408844d": {
+    "factory_id": "fact-2408844d",
+    "mission_id": "mission-3b8c9ccf",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_0c0ho8n2",
+    "goal": "Build an LRU cache with TTL eviction and stats tracking",
+    "template": "cache_engine",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T17:45:52.904729+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "lru_cache.py",
+      "test_lru_cache.py",
+      "docs/LRU_CACHE_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: lru_cache.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ....                                                                     [100%]\n4 passed in 0.32s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (528 bytes): docs/LRU_CACHE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: lru_cache.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T17:45:46.636773+00:00",
+      "duration_seconds": 15.72,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T17:45:46.636811+00:00",
+    "updated_at": "2026-09-17T17:46:00.030745+00:00",
+    "completed_at": "2026-09-17T17:46:00.030634+00:00"
+  },
+  "fact-cbdd6011": {
+    "factory_id": "fact-cbdd6011",
+    "mission_id": "mission-c408f2d9",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_0ui9ybv4",
+    "goal": "Implement HMAC-SHA256 JWT auth token generator and password hasher",
+    "template": "auth_service",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T17:46:09.601064+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "hmac_sha256.py",
+      "test_hmac_sha256.py",
+      "docs/HMAC_SHA256_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: hmac_sha256.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.38s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (545 bytes): docs/HMAC_SHA256_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: hmac_sha256.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T17:46:03.080753+00:00",
+      "duration_seconds": 15.44,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T17:46:03.080864+00:00",
+    "updated_at": "2026-09-17T17:46:16.204063+00:00",
+    "completed_at": "2026-09-17T17:46:16.204023+00:00"
+  },
+  "fact-0e5c2b90": {
+    "factory_id": "fact-0e5c2b90",
+    "mission_id": "mission-2f327428",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_8nesu0cr",
+    "goal": "Create sliding window rate limiter middleware",
+    "template": "rate_limiter",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T17:46:26.070836+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "sliding_window.py",
+      "test_sliding_window.py",
+      "docs/SLIDING_WINDOW_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: sliding_window.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.36s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (533 bytes): docs/SLIDING_WINDOW_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: sliding_window.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T17:46:19.149675+00:00",
+      "duration_seconds": 16.49,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T17:46:19.149720+00:00",
+    "updated_at": "2026-09-17T17:46:33.447993+00:00",
+    "completed_at": "2026-09-17T17:46:33.447948+00:00"
+  },
+  "fact-b2094514": {
+    "factory_id": "fact-b2094514",
+    "mission_id": "mission-88032693",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_kws11bxd",
+    "goal": "Implement Pub-Sub Event Bus with Dead-Letter Queue",
+    "template": "event_bus",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T17:46:45.366710+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "pub_sub.py",
+      "test_pub_sub.py",
+      "docs/PUB_SUB_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: pub_sub.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.60s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (514 bytes): docs/PUB_SUB_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: pub_sub.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T17:46:37.197654+00:00",
+      "duration_seconds": 18.42,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T17:46:37.197698+00:00",
+    "updated_at": "2026-09-17T17:46:52.880858+00:00",
+    "completed_at": "2026-09-17T17:46:52.880806+00:00"
+  },
+  "fact-9114698b": {
+    "factory_id": "fact-9114698b",
+    "mission_id": "mission-9045a8cf",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_b_cntdrs",
+    "goal": "Build ETL data stream transformation pipeline",
+    "template": "data_pipeline",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T17:47:03.806596+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "etl_data.py",
+      "test_etl_data.py",
+      "docs/ETL_DATA_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: etl_data.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.20s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (516 bytes): docs/ETL_DATA_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: etl_data.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T17:46:56.147942+00:00",
+      "duration_seconds": 16.92,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T17:46:56.147984+00:00",
+    "updated_at": "2026-09-17T17:47:10.564658+00:00",
+    "completed_at": "2026-09-17T17:47:10.564617+00:00"
+  },
+  "fact-dd117e0b": {
+    "factory_id": "fact-dd117e0b",
+    "mission_id": "mission-e9c8ae7e",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_055sffmg",
+    "goal": "Create CLI tool with subcommand router and parser",
+    "template": "cli_tool",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T17:47:22.027836+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "cli_tool.py",
+      "test_cli_tool.py",
+      "docs/CLI_TOOL_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: cli_tool.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.42s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (515 bytes): docs/CLI_TOOL_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: cli_tool.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T17:47:14.205414+00:00",
+      "duration_seconds": 18.13,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T17:47:14.205461+00:00",
+    "updated_at": "2026-09-17T17:47:29.444292+00:00",
+    "completed_at": "2026-09-17T17:47:29.444250+00:00"
+  },
+  "fact-0d5aadb2": {
+    "factory_id": "fact-0d5aadb2",
+    "mission_id": "mission-25b6d069",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_f8jzsafe",
+    "goal": "Create calculation engine service with add and multiply",
+    "template": "fastapi_service",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T17:47:41.525472+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "calculation_engine.py",
+      "test_calculation_engine.py",
+      "docs/CALCULATION_ENGINE_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: calculation_engine.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 1.27s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (558 bytes): docs/CALCULATION_ENGINE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: calculation_engine.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T17:47:32.987017+00:00",
+      "duration_seconds": 18.86,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T17:47:32.987118+00:00",
+    "updated_at": "2026-09-17T17:47:49.079547+00:00",
+    "completed_at": "2026-09-17T17:47:49.079493+00:00"
+  },
+  "fact-442dcefb": {
+    "factory_id": "fact-442dcefb",
+    "mission_id": "mission-b437e890",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_wne29mne",
+    "goal": "Create sensitive payments gateway service",
+    "template": "auth_service",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T17:47:58.681242+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "sensitive_payments.py",
+      "test_sensitive_payments.py",
+      "docs/SENSITIVE_PAYMENTS_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: sensitive_payments.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.38s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (541 bytes): docs/SENSITIVE_PAYMENTS_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: sensitive_payments.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T17:47:52.303999+00:00",
+      "duration_seconds": 15.17,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T17:47:52.304044+00:00",
+    "updated_at": "2026-09-17T17:48:05.060064+00:00",
+    "completed_at": "2026-09-17T17:48:05.060019+00:00"
+  },
+  "fact-82f29fbd": {
+    "factory_id": "fact-82f29fbd",
+    "mission_id": "mission-410d87fb",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_z0qxjtu2",
+    "goal": "Build high performance math utility module",
+    "template": "cli_tool",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T17:48:14.921695+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "high_performance.py",
+      "test_high_performance.py",
+      "docs/HIGH_PERFORMANCE_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: high_performance.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ...                                                                      [100%]\n3 passed in 0.53s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (532 bytes): docs/HIGH_PERFORMANCE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: high_performance.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T17:48:08.365673+00:00",
+      "duration_seconds": 15.2,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T17:48:08.365714+00:00",
+    "updated_at": "2026-09-17T17:48:21.133668+00:00",
+    "completed_at": "2026-09-17T17:48:21.133569+00:00"
+  },
+  "fact-623f8dbc": {
+    "factory_id": "fact-623f8dbc",
+    "mission_id": "mission-94a5258e",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_h074c0re",
+    "goal": "Build memory persistence cache manager",
+    "template": "cache_engine",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T17:48:30.060821+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "memory_persistence.py",
+      "test_memory_persistence.py",
+      "docs/MEMORY_PERSISTENCE_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: memory_persistence.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ....                                                                     [100%]\n4 passed in 0.25s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (538 bytes): docs/MEMORY_PERSISTENCE_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: memory_persistence.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T17:48:24.227561+00:00",
+      "duration_seconds": 14.65,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T17:48:24.227737+00:00",
+    "updated_at": "2026-09-17T17:48:36.616000+00:00",
+    "completed_at": "2026-09-17T17:48:36.615899+00:00"
+  },
+  "fact-e4020cfb": {
+    "factory_id": "fact-e4020cfb",
+    "mission_id": "",
+    "project_id": "project-api-micro-service-test",
+    "project_name": "API Micro Service Test",
+    "project_path": "/tmp/nexus_factory_test_hc7gqvj8/api-micro-service-test",
+    "goal": "Build a REST API microservice",
+    "template": "fastapi_service",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-17T17:48:38.390276+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-17T17:48:38.390321+00:00",
+    "updated_at": "2026-09-17T17:48:38.390330+00:00",
+    "completed_at": null
+  },
+  "fact-e08d91da": {
+    "factory_id": "fact-e08d91da",
+    "mission_id": "mission-89381f63",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_0rc0u7ea",
+    "goal": "Create a token bucket rate limiter module",
+    "template": "rate_limiter",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T17:48:47.310425+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "token_bucket.py",
+      "test_token_bucket.py",
+      "docs/TOKEN_BUCKET_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: token_bucket.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.34s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (523 bytes): docs/TOKEN_BUCKET_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: token_bucket.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T17:48:40.964477+00:00",
+      "duration_seconds": 30.45,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T17:48:40.964519+00:00",
+    "updated_at": "2026-09-17T17:49:09.145644+00:00",
+    "completed_at": "2026-09-17T17:49:09.145602+00:00"
+  },
+  "fact-2fc424c7": {
+    "factory_id": "fact-2fc424c7",
+    "mission_id": "mission-bd0bff9a",
+    "project_id": "local-target",
+    "project_name": "NEXUS Factory Project",
+    "project_path": "/tmp/nexus_factory_test_qkmqhsph",
+    "goal": "Build an analytics event aggregator with tests",
+    "template": "event_bus",
+    "stage": "COMPLETED",
+    "review_rounds": [
+      {
+        "iteration": 1,
+        "reviewer_agent": "QA-VERIFIER",
+        "developer_agent": "DEVELOPER-02",
+        "verdict": "APPROVED",
+        "summary": "Iteration 1: All 1 test suite(s) passed 100%, 0 syntax errors, clean security audit.",
+        "findings": [],
+        "diff_applied": null,
+        "tests_passed": true,
+        "security_clean": true,
+        "timestamp": "2026-09-17T17:49:18.939140+00:00"
+      }
+    ],
+    "generated_artifacts": [
+      "analytics_event.py",
+      "test_analytics_event.py",
+      "docs/ANALYTICS_EVENT_SPEC.md"
+    ],
+    "acceptance_evidence": {
+      "AC-001": {
+        "status": "PASSED",
+        "evidence": "Python AST syntax validated successfully: analytics_event.py"
+      },
+      "AC-002": {
+        "status": "PASSED",
+        "evidence": "Tests passed successfully: ..                                                                       [100%]\n2 passed in 0.22s"
+      },
+      "AC-003": {
+        "status": "PASSED",
+        "evidence": "Zero secret patterns or leaked credentials detected in workspace"
+      },
+      "AC-004": {
+        "status": "PASSED",
+        "evidence": "File verified on disk (534 bytes): docs/ANALYTICS_EVENT_SPEC.md"
+      },
+      "AC-005": {
+        "status": "PASSED",
+        "evidence": "Clean compilation confirmed: analytics_event.py"
+      }
+    },
+    "telemetry": {
+      "start_time": "2026-09-17T17:49:12.555484+00:00",
+      "duration_seconds": 14.99,
+      "review_iterations": 1,
+      "artifacts_count": 3
+    },
+    "error": null,
+    "created_at": "2026-09-17T17:49:12.555526+00:00",
+    "updated_at": "2026-09-17T17:49:25.200397+00:00",
+    "completed_at": "2026-09-17T17:49:25.200350+00:00"
+  },
+  "fact-1d7936c5": {
+    "factory_id": "fact-1d7936c5",
+    "mission_id": "",
+    "project_id": "payment-tx-processor",
+    "project_name": "Payment Transaction Processor",
+    "project_path": "/root/projects/payment-transaction-processor",
+    "goal": "Build payment transaction processor",
+    "template": "fastapi_service",
+    "stage": "PLANNING",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-18T10:53:52.059784+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-18T10:53:52.059826+00:00",
+    "updated_at": "2026-09-18T10:53:52.059836+00:00",
+    "completed_at": null
+  },
+  "fact-d9e8004b": {
+    "factory_id": "fact-d9e8004b",
+    "mission_id": "",
+    "project_id": "payment-tx-processor",
+    "project_name": "Payment Transaction Processor",
+    "project_path": "/root/projects/payment-transaction-processor",
+    "goal": "Build payment transaction processor",
+    "template": "fastapi_service",
+    "stage": "BUILD_COMPLETED",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml",
+      "payment_transaction_processor.py",
+      "tests/test_payment_transaction_processor.py",
+      "Dockerfile"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-18T10:55:24.009173+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-18T10:55:24.009210+00:00",
+    "updated_at": "2026-09-18T10:55:24.009216+00:00",
+    "completed_at": null
+  },
+  "fact-f083983d": {
+    "factory_id": "fact-f083983d",
+    "mission_id": "",
+    "project_id": "payment-tx-processor",
+    "project_name": "Payment Transaction Processor",
+    "project_path": "/root/projects/payment-transaction-processor",
+    "goal": "Build payment transaction processor",
+    "template": "fastapi_service",
+    "stage": "BUILD_COMPLETED",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml",
+      "payment_transaction_processor.py",
+      "tests/test_payment_transaction_processor.py",
+      "Dockerfile",
+      "pytest.ini"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-18T10:57:37.914234+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-18T10:57:37.914295+00:00",
+    "updated_at": "2026-09-18T10:57:37.914310+00:00",
+    "completed_at": null
+  },
+  "fact-cd3f9827": {
+    "factory_id": "fact-cd3f9827",
+    "mission_id": "",
+    "project_id": "payment-tx-processor",
+    "project_name": "Payment Transaction Processor",
+    "project_path": "/root/projects/payment-transaction-processor",
+    "goal": "Build payment transaction processor",
+    "template": "fastapi_service",
+    "stage": "BUILD_COMPLETED",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml",
+      "payment_transaction_processor.py",
+      "tests/test_payment_transaction_processor.py",
+      "Dockerfile",
+      "pytest.ini"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-18T10:58:20.975058+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-18T10:58:20.975127+00:00",
+    "updated_at": "2026-09-18T10:58:20.975146+00:00",
+    "completed_at": null
+  },
+  "fact-10ca147a": {
+    "factory_id": "fact-10ca147a",
+    "mission_id": "",
+    "project_id": "payment-tx-processor",
+    "project_name": "Payment Transaction Processor",
+    "project_path": "/root/projects/payment-transaction-processor",
+    "goal": "Build payment transaction processor",
+    "template": "fastapi_service",
+    "stage": "BUILD_COMPLETED",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml",
+      "payment_transaction_processor.py",
+      "tests/test_payment_transaction_processor.py",
+      "Dockerfile",
+      "pytest.ini"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-18T11:06:22.696121+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-18T11:06:22.696155+00:00",
+    "updated_at": "2026-09-18T11:06:22.696160+00:00",
+    "completed_at": null
+  },
+  "fact-1d8e6d5a": {
+    "factory_id": "fact-1d8e6d5a",
+    "mission_id": "",
+    "project_id": "payment-tx-processor",
+    "project_name": "Payment Transaction Processor",
+    "project_path": "/root/projects/payment-transaction-processor",
+    "goal": "Build payment transaction processor",
+    "template": "fastapi_service",
+    "stage": "BUILD_COMPLETED",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml",
+      "payment_transaction_processor.py",
+      "tests/test_payment_transaction_processor.py",
+      "Dockerfile",
+      "pytest.ini"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-18T15:01:06.192380+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-18T15:01:06.192465+00:00",
+    "updated_at": "2026-09-18T15:01:06.192481+00:00",
+    "completed_at": null
+  },
+  "fact-1a35c7f0": {
+    "factory_id": "fact-1a35c7f0",
+    "mission_id": "",
+    "project_id": "payment-tx-processor",
+    "project_name": "Payment Transaction Processor",
+    "project_path": "/root/projects/payment-transaction-processor",
+    "goal": "Build payment transaction processor",
+    "template": "fastapi_service",
+    "stage": "BUILD_COMPLETED",
+    "review_rounds": [],
+    "generated_artifacts": [
+      "README.md",
+      "pyproject.toml",
+      "requirements.txt",
+      ".gitignore",
+      ".github/workflows/ci.yml",
+      "payment_transaction_processor.py",
+      "tests/test_payment_transaction_processor.py",
+      "Dockerfile",
+      "pytest.ini"
+    ],
+    "acceptance_evidence": {},
+    "telemetry": {
+      "scaffolded_at": "2026-09-18T15:31:17.524663+00:00",
+      "template": "fastapi_service"
+    },
+    "error": null,
+    "created_at": "2026-09-18T15:31:17.524787+00:00",
+    "updated_at": "2026-09-18T15:31:17.524805+00:00",
+    "completed_at": null
+  }
+}

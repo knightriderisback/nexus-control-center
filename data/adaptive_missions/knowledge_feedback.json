@@ -1,0 +1,114 @@
+[
+  {
+    "feedback_id": "fb-b5a9a6f9",
+    "mission_id": "mis-adapt-08757b62",
+    "insight_id": "ins-7e736980",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-08757b62 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "outcome": "COMPLETED",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "created_at": "2026-09-18T09:56:40.012687+00:00"
+  },
+  {
+    "feedback_id": "fb-4914083e",
+    "mission_id": "mis-adapt-f177fcc8",
+    "insight_id": "ins-1841a1b4",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-f177fcc8 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "outcome": "COMPLETED",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "created_at": "2026-09-18T09:57:49.275610+00:00"
+  },
+  {
+    "feedback_id": "fb-6705dc85",
+    "mission_id": "mis-adapt-e0373f97",
+    "insight_id": "ins-3497afb1",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-e0373f97 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "outcome": "COMPLETED",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "created_at": "2026-09-18T09:59:12.821946+00:00"
+  },
+  {
+    "feedback_id": "fb-bbdd3ed4",
+    "mission_id": "mis-adapt-43cedee6",
+    "insight_id": "ins-fb5ea06a",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-43cedee6 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "outcome": "COMPLETED",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "created_at": "2026-09-18T10:01:16.034420+00:00"
+  },
+  {
+    "feedback_id": "fb-001be25b",
+    "mission_id": "mis-adapt-2c8c17e9",
+    "insight_id": "ins-7eebd614",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-2c8c17e9 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "outcome": "COMPLETED",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "created_at": "2026-09-18T10:49:15.150708+00:00"
+  },
+  {
+    "feedback_id": "fb-4f3d1c94",
+    "mission_id": "mis-adapt-f98258a0",
+    "insight_id": "ins-f6c2ae28",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-f98258a0 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "outcome": "COMPLETED",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "created_at": "2026-09-18T11:04:21.960118+00:00"
+  },
+  {
+    "feedback_id": "fb-348a6eac",
+    "mission_id": "mis-adapt-2a3bc9d6",
+    "insight_id": "ins-e3fbbd67",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-2a3bc9d6 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "outcome": "COMPLETED",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "created_at": "2026-09-18T14:59:53.845724+00:00"
+  },
+  {
+    "feedback_id": "fb-876e99c1",
+    "mission_id": "mis-adapt-66915691",
+    "insight_id": "ins-f9c41cd9",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-66915691 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "outcome": "COMPLETED",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "created_at": "2026-09-18T15:25:36.929809+00:00"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "incident_id": "inc-14839c1e",
+  "title": "REST API Port Conflict Test",
+  "category": "PORT_CONFLICT",
+  "severity": "SEV_3_MEDIUM",
+  "root_cause": "Automated RCA: Identified PORT_CONFLICT anomaly on resource 'port-listener-8000'.",
+  "playbook_applied": "Port Conflict Resolution & Sockets Reallocation",
+  "mttr_seconds": 0.02,
+  "remediation_steps_count": 4,
+  "generated_at": "2026-09-17T19:04:26.207259+00:00",
+  "status": "RESOLVED_AUTOMATICALLY"
+}

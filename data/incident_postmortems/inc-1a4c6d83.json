@@ -1,0 +1,12 @@
+{
+  "incident_id": "inc-1a4c6d83",
+  "title": "Excess Stale Test Worktrees",
+  "category": "WORKTREE_DEADLOCK",
+  "severity": "SEV_4_LOW",
+  "root_cause": "Automated RCA: Identified WORKTREE_DEADLOCK anomaly on resource 'worktree_manager'.",
+  "playbook_applied": "Deadlock Breaker & Resource Purge",
+  "mttr_seconds": 0.65,
+  "remediation_steps_count": 4,
+  "generated_at": "2026-09-17T19:04:22.265244+00:00",
+  "status": "RESOLVED_AUTOMATICALLY"
+}

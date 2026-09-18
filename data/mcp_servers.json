@@ -1,0 +1,25 @@
+{
+  "mcp-test-postgres": {
+    "server_id": "mcp-test-postgres",
+    "name": "Test Postgres MCP",
+    "description": "",
+    "transport": "stdio",
+    "command_or_url": "npx -y @modelcontextprotocol/server-postgres postgresql://localhost/db",
+    "env": {},
+    "args": [],
+    "status": "CONNECTED",
+    "exposed_tools": [
+      {
+        "name": "test postgres mcp_query",
+        "description": "Query tool for Test Postgres MCP"
+      },
+      {
+        "name": "test postgres mcp_mutate",
+        "description": "Mutate tool for Test Postgres MCP"
+      }
+    ],
+    "connected_at": "2026-09-18T15:18:35.989788+00:00",
+    "latency_ms": 3.79,
+    "error": null
+  }
+}

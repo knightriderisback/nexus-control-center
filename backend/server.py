@@ -3,8 +3,9 @@ import sys
 import asyncio
 import json
 import psutil
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, List
+from contextlib import asynccontextmanager
 
 # Ensure backend root is on Python path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -41,11 +42,63 @@ from routers.v1.traces_router import router as traces_router
 from routers.v1.cost_router import router as cost_router
 from routers.v1.automations_router import router as automations_router
 from routers.v1.adapters_router import router as adapters_router
+from routers.v1.providers_router import router as providers_router
+from routers.v1.missions_router import router as missions_router
+from routers.v1.factory_router import router as factory_router
+from routers.v1.system_router import router as system_router
+from routers.v1.universal_tools_router import router as universal_tools_router
+from routers.v1.deployment_router import router as deployment_router
+from routers.v1.self_healing_router import router as self_healing_router
+from routers.v1.operations_router import router as operations_router
+from routers.v1.security_compliance_router import router as security_compliance_router, security_router
+from routers.v1.knowledge_learning_router import knowledge_router, learning_router, optimization_router
+from routers.v1.mission_intelligence_router import (
+    mission_intelligence_router,
+    adaptive_execution_router,
+    mission_decisions_router
+)
+from routers.v1.product_builder_router import router as product_builder_router
+from routers.v1.project_operations_router import router as project_operations_router
+from routers.v1.command_control_router import (
+    command_router,
+    operations_router as c2_operations_router,
+    global_router as c2_global_router,
+    c2_router
+)
+
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Production lifespan: background automations worker
+    bg_task = None
+    async def scheduler_loop():
+        from core.automations import automations_engine
+        while True:
+            try:
+                await asyncio.sleep(300) # 5-minute background tick
+                automations_engine.execute_job("auto-repo-sweep")
+                automations_engine.execute_job("auto-nightly-health")
+            except asyncio.CancelledError:
+                break
+            except Exception:
+                pass
+    bg_task = asyncio.create_task(scheduler_loop())
+    try:
+        yield
+    finally:
+        if bg_task and not bg_task.done():
+            bg_task.cancel()
+            try:
+                await bg_task
+            except asyncio.CancelledError:
+                pass
 
 app = FastAPI(
     title="NEXUS // Personal Engineering OS Control API",
     version="1.0.0",
-    description="Central engineering control plane API for personal infrastructure, AI agents, project registry, and keyless GCP operations."
+    description="Central engineering control plane API for personal infrastructure, AI agents, project registry, and keyless GCP operations.",
+    lifespan=lifespan
 )
 
 app.add_middleware(TracingMiddleware)
@@ -76,24 +129,54 @@ app.include_router(traces_router, prefix=API_V1_PREFIX, dependencies=[Depends(re
 app.include_router(cost_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
 app.include_router(automations_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
 app.include_router(adapters_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(providers_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(missions_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(factory_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(system_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(universal_tools_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(deployment_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(self_healing_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(operations_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(security_compliance_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(security_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(knowledge_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(learning_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(optimization_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(mission_intelligence_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(adaptive_execution_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(mission_decisions_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(product_builder_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(project_operations_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(project_operations_router, prefix=f"{API_V1_PREFIX}/lifecycle", dependencies=[Depends(require_auth)])
+app.include_router(command_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(c2_operations_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(c2_global_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(c2_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
+app.include_router(c2_router, prefix=f"{API_V1_PREFIX}/command-control", dependencies=[Depends(require_auth)])
 
 
-@app.on_event("startup")
-async def start_background_workers():
-    async def scheduler_loop():
-        from core.automations import automations_engine
-        while True:
-            try:
-                await asyncio.sleep(300) # 5-minute background tick
-                automations_engine.execute_job("auto-repo-sweep")
-                automations_engine.execute_job("auto-nightly-health")
-            except asyncio.CancelledError:
-                break
-            except Exception:
-                pass
-    asyncio.create_task(scheduler_loop())
+
 
 # Legacy aliases for direct frontend backwards compatibility
+@app.get("/api/system/health")
+def system_health_alias():
+    from routers.v1.system_router import get_aggregated_system_health
+    return get_aggregated_system_health()
+
+@app.get("/api/system/events")
+def system_events_alias(limit: int = 50, severity: str = None, category: str = None):
+    from routers.v1.system_router import get_unified_event_stream
+    return get_unified_event_stream(limit=limit, severity=severity, category=category)
+
+@app.get("/api/system/handoffs")
+def system_handoffs_alias():
+    from routers.v1.system_router import get_agent_handoff_graph
+    return get_agent_handoff_graph()
+
+@app.get("/api/system/recovery")
+def system_recovery_alias():
+    from routers.v1.system_router import get_recovery_status
+    return get_recovery_status()
 @app.get("/api/health")
 def health_check():
     return {"status": "ONLINE", "system": config.app_name, "version": "1.0.0"}
@@ -107,7 +190,7 @@ def read_telemetry():
     disk = psutil.disk_usage('/')
 
     return {
-        "timestamp": datetime.utcnow().isoformat() + "Z",
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "cpu": {
             "overall": cpu_percent,
             "cores": cpu_cores,

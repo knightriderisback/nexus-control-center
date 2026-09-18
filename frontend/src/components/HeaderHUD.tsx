@@ -9,13 +9,23 @@ import {
   Cpu, 
   Bot, 
   FolderGit2, 
-  Database,
-  Cloud,
-  FileText
+  GitPullRequest,
+  Zap,
+  RotateCcw,
+  Target,
+  Wrench,
+  Rocket,
+  HeartPulse,
+  ShieldCheck,
+  Brain,
+  Compass,
+  Boxes,
+  Server
 } from 'lucide-react';
 import { sound } from '../utils/audio';
 
-export type TabType = 'swarm' | 'telemetry' | 'projects' | 'approvals' | 'audit' | 'cloud' | 'workspace' | 'memory';
+export type TabType = 'c2' | 'hud' | 'missions' | 'adaptive' | 'products' | 'operations' | 'deployments' | 'healing' | 'security' | 'knowledge' | 'tools' | 'swarm' | 'delivery' | 'providers' | 'approvals' | 'recovery' | 'audit' | 'telemetry' | 'projects' | 'cloud' | 'workspace' | 'memory';
+
 
 interface HeaderHUDProps {
   activeTab: TabType;
@@ -78,11 +88,11 @@ export const HeaderHUD = ({
 
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-base font-black tracking-widest text-cyan-400 text-glow-cyan">
+            <span className="text-base font-black tracking-widest text-cyan-400 text-glow-cyan font-mono">
               NEXUS
             </span>
             <span className="text-xs px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 font-mono">
-              v1.2.0-OS
+              v1.2.0-HUD
             </span>
             <span className="text-[10px] text-emerald-400 flex items-center gap-1 font-mono">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -90,40 +100,185 @@ export const HeaderHUD = ({
             </span>
           </div>
           <div className="text-[10px] text-slate-400 tracking-wider font-mono">
-            PERSONAL ENGINEERING CONTROL CENTER
+            CYBER-HUD LIVE OPERATIONS CONTROL PLANE
           </div>
         </div>
       </div>
 
       {/* Navigation Matrix */}
-      <nav className="flex flex-wrap items-center gap-1 bg-[#0c1220] p-1 rounded border border-cyan-500/20">
+      <nav className="flex items-center gap-1 bg-[#0c1220] p-1 rounded border border-cyan-500/20 overflow-x-auto max-w-full no-scrollbar">
+        <button
+          onClick={() => handleTabChange('c2')}
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
+            activeTab === 'c2'
+              ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_10px_rgba(0,240,255,0.2)]'
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+          }`}
+        >
+          <Terminal className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+          <span>COMMAND & CONTROL</span>
+        </button>
+
+        <button
+          onClick={() => handleTabChange('hud')}
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
+            activeTab === 'hud'
+              ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_10px_rgba(0,240,255,0.2)]'
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+          }`}
+        >
+          <Tv className="w-3.5 h-3.5 text-cyan-400" />
+          <span>CYBER-HUD</span>
+        </button>
+
+        <button
+          onClick={() => handleTabChange('missions')}
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
+            activeTab === 'missions'
+              ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/50 shadow-[0_0_10px_rgba(16,185,129,0.2)]'
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+          }`}
+        >
+          <Target className="w-3.5 h-3.5 text-emerald-400" />
+          <span>MISSIONS</span>
+        </button>
+
+        <button
+          onClick={() => handleTabChange('adaptive')}
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
+            activeTab === 'adaptive'
+              ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_10px_rgba(0,240,255,0.2)]'
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+          }`}
+        >
+          <Compass className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+          <span>ADAPTIVE MISSION</span>
+        </button>
+
+        <button
+          onClick={() => handleTabChange('products')}
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
+            activeTab === 'products'
+              ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_10px_rgba(0,240,255,0.2)]'
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+          }`}
+        >
+          <Boxes className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+          <span>PRODUCT BUILDER</span>
+        </button>
+
+        <button
+          onClick={() => handleTabChange('operations')}
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
+            activeTab === 'operations'
+              ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_10px_rgba(0,240,255,0.2)]'
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+          }`}
+        >
+          <Server className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+          <span>PROJECT OPERATIONS</span>
+        </button>
+
+
+        <button
+          onClick={() => handleTabChange('deployments')}
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
+            activeTab === 'deployments'
+              ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_10px_rgba(0,240,255,0.2)]'
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+          }`}
+        >
+          <Rocket className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+          <span>DEPLOYMENTS</span>
+        </button>
+
+        <button
+          onClick={() => handleTabChange('healing')}
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
+            activeTab === 'healing'
+              ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/50 shadow-[0_0_10px_rgba(16,185,129,0.2)]'
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+          }`}
+        >
+          <HeartPulse className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
+          <span>SELF-HEALING</span>
+        </button>
+
+        <button
+          onClick={() => handleTabChange('security')}
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
+            activeTab === 'security'
+              ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_10px_rgba(0,240,255,0.2)]'
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+          }`}
+        >
+          <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
+          <span>SECURITY & COMPLIANCE</span>
+        </button>
+
+        <button
+          onClick={() => handleTabChange('knowledge')}
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
+            activeTab === 'knowledge'
+              ? 'bg-purple-500/20 text-purple-300 border border-purple-400/50 shadow-[0_0_10px_rgba(168,85,247,0.2)]'
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+          }`}
+        >
+          <Brain className="w-3.5 h-3.5 text-purple-400 animate-pulse" />
+          <span>KNOWLEDGE & LEARNING</span>
+        </button>
+
+        <button
+          onClick={() => handleTabChange('tools')}
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
+            activeTab === 'tools'
+              ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_10px_rgba(6,182,212,0.2)]'
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+          }`}
+        >
+          <Wrench className="w-3.5 h-3.5 text-cyan-400" />
+          <span>TOOLS & APPS</span>
+        </button>
+
         <button
           onClick={() => handleTabChange('swarm')}
-          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono transition-all ${
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
             activeTab === 'swarm'
               ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_10px_rgba(0,240,255,0.2)]'
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
           }`}
         >
           <Bot className="w-3.5 h-3.5" />
-          <span>AGENTS</span>
+          <span>AGENTS & DAG</span>
         </button>
 
         <button
-          onClick={() => handleTabChange('projects')}
-          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono transition-all ${
-            activeTab === 'projects'
+          onClick={() => handleTabChange('delivery')}
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
+            activeTab === 'delivery'
               ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_10px_rgba(0,240,255,0.2)]'
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
           }`}
         >
-          <FolderGit2 className="w-3.5 h-3.5" />
-          <span>PROJECTS</span>
+          <GitPullRequest className="w-3.5 h-3.5" />
+          <span>DELIVERY & MERGES</span>
+        </button>
+
+        <button
+          onClick={() => handleTabChange('providers')}
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
+            activeTab === 'providers'
+              ? 'bg-amber-500/20 text-amber-300 border border-amber-400/50 shadow-[0_0_10px_rgba(245,158,11,0.2)]'
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+          }`}
+        >
+          <Zap className="w-3.5 h-3.5 text-amber-400" />
+          <span>AI & FINOPS</span>
         </button>
 
         <button
           onClick={() => handleTabChange('approvals')}
-          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono transition-all ${
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
             activeTab === 'approvals'
               ? 'bg-amber-500/20 text-amber-300 border border-amber-400/50 shadow-[0_0_10px_rgba(245,158,11,0.2)]'
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
@@ -139,32 +294,20 @@ export const HeaderHUD = ({
         </button>
 
         <button
-          onClick={() => handleTabChange('cloud')}
-          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono transition-all ${
-            activeTab === 'cloud'
+          onClick={() => handleTabChange('recovery')}
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
+            activeTab === 'recovery'
               ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_10px_rgba(0,240,255,0.2)]'
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
           }`}
         >
-          <Cloud className="w-3.5 h-3.5" />
-          <span>CLOUD OS</span>
-        </button>
-
-        <button
-          onClick={() => handleTabChange('audit')}
-          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono transition-all ${
-            activeTab === 'audit'
-              ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_10px_rgba(0,240,255,0.2)]'
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
-          }`}
-        >
-          <FileText className="w-3.5 h-3.5" />
-          <span>AUDIT</span>
+          <RotateCcw className="w-3.5 h-3.5" />
+          <span>RECOVERY & AUDIT</span>
         </button>
 
         <button
           onClick={() => handleTabChange('telemetry')}
-          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono transition-all ${
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
             activeTab === 'telemetry'
               ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_10px_rgba(0,240,255,0.2)]'
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
@@ -175,15 +318,15 @@ export const HeaderHUD = ({
         </button>
 
         <button
-          onClick={() => handleTabChange('memory')}
-          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono transition-all ${
-            activeTab === 'memory'
+          onClick={() => handleTabChange('projects')}
+          className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-all ${
+            activeTab === 'projects'
               ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-[0_0_10px_rgba(0,240,255,0.2)]'
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
           }`}
         >
-          <Database className="w-3.5 h-3.5" />
-          <span>KNOWLEDGE</span>
+          <FolderGit2 className="w-3.5 h-3.5" />
+          <span>PROJECTS</span>
         </button>
       </nav>
 

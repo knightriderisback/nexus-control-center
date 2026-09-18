@@ -29,6 +29,7 @@ ALLOWED_BINARIES = {
 
 ALLOWED_ROOTS = [
     "/root/control-center",
+    "/root/projects",
     "/root/portfolio",
     "/root/mera_project",
     "/tmp"
@@ -180,6 +181,7 @@ class SafeCommandExecutor:
             proc = subprocess.Popen(
                 cmd_args,
                 cwd=cwd,
+                stdin=subprocess.DEVNULL,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 text=True,

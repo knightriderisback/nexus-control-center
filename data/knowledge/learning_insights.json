@@ -1,0 +1,1949 @@
+{
+  "ins-0064c508": {
+    "insight_id": "ins-0064c508",
+    "title": "Security Posture Vulnerability Cluster: SECRET_LEAK",
+    "category": "SECURITY",
+    "pattern": "Detected 82700 instances of SECRET_LEAK vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SECRET_LEAK.",
+    "supporting_evidence": [
+      "Detected 82700 findings in category SECRET_LEAK"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 6,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T08:57:02.473285+00:00",
+    "updated_at": "2026-09-18T09:03:24.858219+00:00"
+  },
+  "ins-69ccb3ae": {
+    "insight_id": "ins-69ccb3ae",
+    "title": "Security Posture Vulnerability Cluster: SAST_INJECTION",
+    "category": "SECURITY",
+    "pattern": "Detected 33 instances of SAST_INJECTION vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SAST_INJECTION.",
+    "supporting_evidence": [
+      "Detected 33 findings in category SAST_INJECTION"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 6,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T08:57:02.605657+00:00",
+    "updated_at": "2026-09-18T09:03:24.990075+00:00"
+  },
+  "ins-a37d2ca5": {
+    "insight_id": "ins-a37d2ca5",
+    "title": "Security Posture Vulnerability Cluster: LICENSE_NONCOMPLIANCE",
+    "category": "SECURITY",
+    "pattern": "Detected 6 instances of LICENSE_NONCOMPLIANCE vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for LICENSE_NONCOMPLIANCE.",
+    "supporting_evidence": [
+      "Detected 6 findings in category LICENSE_NONCOMPLIANCE"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 6,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T08:57:02.832536+00:00",
+    "updated_at": "2026-09-18T09:03:25.048641+00:00"
+  },
+  "ins-24c30d21": {
+    "insight_id": "ins-24c30d21",
+    "title": "Security Posture Vulnerability Cluster: DEPENDENCY_CVE",
+    "category": "SECURITY",
+    "pattern": "Detected 6 instances of DEPENDENCY_CVE vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for DEPENDENCY_CVE.",
+    "supporting_evidence": [
+      "Detected 6 findings in category DEPENDENCY_CVE"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 6,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T08:57:03.082382+00:00",
+    "updated_at": "2026-09-18T09:03:25.100477+00:00"
+  },
+  "ins-fd58b355": {
+    "insight_id": "ins-fd58b355",
+    "title": "Universal Tool Search Speedup",
+    "category": "PERFORMANCE",
+    "pattern": "In-memory token index achieves sub-millisecond retrieval.",
+    "rationale": "Avoids cold disk I/O during tight agent reasoning loops.",
+    "recommended_action": "Maintain memory-mapped token cache.",
+    "supporting_evidence": [],
+    "confidence": "HIGH",
+    "recurrence_count": 13,
+    "impacted_subsystems": [
+      "general"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:00:23.594874+00:00",
+    "updated_at": "2026-09-18T15:24:00.837729+00:00"
+  },
+  "ins-3d5429af": {
+    "insight_id": "ins-3d5429af",
+    "title": "Local AST Scan Speed Advantage",
+    "category": "PERFORMANCE",
+    "pattern": "Deterministic local AST security sweeps execute in under 50ms with zero network overhead.",
+    "rationale": "AST parsing without external cloud lookups eliminates latency bottlenecks.",
+    "recommended_action": "Default to local AST parsers for pre-commit / pre-merge gates.",
+    "supporting_evidence": [
+      "E2E AST scan benchmark: 0.050s duration."
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 4,
+    "impacted_subsystems": [
+      "secops",
+      "compiler",
+      "toolchain"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:01:07.633839+00:00",
+    "updated_at": "2026-09-18T09:13:24.284833+00:00"
+  },
+  "ins-229601e0": {
+    "insight_id": "ins-229601e0",
+    "title": "Security Posture Vulnerability Cluster: SECRET_LEAK",
+    "category": "SECURITY",
+    "pattern": "Detected 77 instances of SECRET_LEAK vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SECRET_LEAK.",
+    "supporting_evidence": [
+      "Detected 77 findings in category SECRET_LEAK"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 4,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:13:24.648665+00:00",
+    "updated_at": "2026-09-18T09:29:47.390619+00:00"
+  },
+  "ins-18eccdc6": {
+    "insight_id": "ins-18eccdc6",
+    "title": "Security Posture Vulnerability Cluster: SAST_INJECTION",
+    "category": "SECURITY",
+    "pattern": "Detected 5 instances of SAST_INJECTION vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SAST_INJECTION.",
+    "supporting_evidence": [
+      "Detected 5 findings in category SAST_INJECTION"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 4,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:13:24.771583+00:00",
+    "updated_at": "2026-09-18T09:29:47.428613+00:00"
+  },
+  "ins-613299f0": {
+    "insight_id": "ins-613299f0",
+    "title": "Local In-Memory AST Verification Efficiency",
+    "category": "PERFORMANCE",
+    "pattern": "Local in-memory AST verification completes in sub-10ms without external dependencies",
+    "rationale": "Eliminates process spawn latency by parsing syntax trees directly in-process.",
+    "recommended_action": "Use in-memory AST validation for pre-merge fast-path validation.",
+    "supporting_evidence": [
+      "Observed 3 consecutive iterations with sub-10ms execution latency.",
+      "Zero external I/O overhead."
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 3,
+    "impacted_subsystems": [
+      "secops",
+      "compiler",
+      "governance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:19:27.327747+00:00",
+    "updated_at": "2026-09-18T09:29:31.930155+00:00"
+  },
+  "ins-a2acf387": {
+    "insight_id": "ins-a2acf387",
+    "title": "Security Posture Vulnerability Cluster: SECRET_LEAK",
+    "category": "SECURITY",
+    "pattern": "Detected 154 instances of SECRET_LEAK vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SECRET_LEAK.",
+    "supporting_evidence": [
+      "Detected 154 findings in category SECRET_LEAK"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:49:33.184710+00:00",
+    "updated_at": "2026-09-18T09:49:33.184741+00:00"
+  },
+  "ins-222bf3a3": {
+    "insight_id": "ins-222bf3a3",
+    "title": "Security Posture Vulnerability Cluster: SAST_INJECTION",
+    "category": "SECURITY",
+    "pattern": "Detected 10 instances of SAST_INJECTION vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SAST_INJECTION.",
+    "supporting_evidence": [
+      "Detected 10 findings in category SAST_INJECTION"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:49:33.239045+00:00",
+    "updated_at": "2026-09-18T09:49:33.239086+00:00"
+  },
+  "ins-7c130b0a": {
+    "insight_id": "ins-7c130b0a",
+    "title": "Execution Learning: Happy path task execution",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-de440f0f (Happy path task execution) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:56:23.836416+00:00",
+    "updated_at": "2026-09-18T09:56:23.836476+00:00"
+  },
+  "ins-f31eb484": {
+    "insight_id": "ins-f31eb484",
+    "title": "Execution Learning: Fallback adaptation test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-23120eea (Fallback adaptation test) completed with 1 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 1470/5000",
+      "Replans Count: 0/3",
+      "Adaptation DYNAMIC_FALLBACK_BRANCH: Primary task 'Core Implementation & Execution' encountered failure. Activating pre-computed resilient fallback."
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:56:26.277390+00:00",
+    "updated_at": "2026-09-18T09:56:26.277466+00:00"
+  },
+  "ins-e8fd2144": {
+    "insight_id": "ins-e8fd2144",
+    "title": "Execution Learning: Execution feedback capture test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-7661d178 (Execution feedback capture test) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 2,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:56:29.250072+00:00",
+    "updated_at": "2026-09-18T09:56:29.386556+00:00"
+  },
+  "ins-b01a3520": {
+    "insight_id": "ins-b01a3520",
+    "title": "Execution Learning: Telemetry authenticity check",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-169f5ab4 (Telemetry authenticity check) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:56:35.161736+00:00",
+    "updated_at": "2026-09-18T09:56:35.161762+00:00"
+  },
+  "ins-7e736980": {
+    "insight_id": "ins-7e736980",
+    "title": "Execution Learning: Synthesize full plan through API",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-08757b62 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:56:39.793154+00:00",
+    "updated_at": "2026-09-18T09:56:39.793199+00:00"
+  },
+  "ins-f56824bb": {
+    "insight_id": "ins-f56824bb",
+    "title": "Execution Learning: Happy path task execution",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-acdade4a (Happy path task execution) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:57:29.962880+00:00",
+    "updated_at": "2026-09-18T09:57:29.962920+00:00"
+  },
+  "ins-99b26951": {
+    "insight_id": "ins-99b26951",
+    "title": "Execution Learning: Fallback adaptation test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-3ac04033 (Fallback adaptation test) completed with 1 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 1470/5000",
+      "Replans Count: 0/3",
+      "Adaptation DYNAMIC_FALLBACK_BRANCH: Primary task 'Core Implementation & Execution' encountered failure. Activating pre-computed resilient fallback."
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:57:32.307997+00:00",
+    "updated_at": "2026-09-18T09:57:32.308059+00:00"
+  },
+  "ins-4b60840f": {
+    "insight_id": "ins-4b60840f",
+    "title": "Execution Learning: Execution feedback capture test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-0a3bc9bc (Execution feedback capture test) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 2,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:57:35.343004+00:00",
+    "updated_at": "2026-09-18T09:57:35.537162+00:00"
+  },
+  "ins-37aeff3b": {
+    "insight_id": "ins-37aeff3b",
+    "title": "Execution Learning: Telemetry authenticity check",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-933b3ec9 (Telemetry authenticity check) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:57:45.088016+00:00",
+    "updated_at": "2026-09-18T09:57:45.088063+00:00"
+  },
+  "ins-1841a1b4": {
+    "insight_id": "ins-1841a1b4",
+    "title": "Execution Learning: Synthesize full plan through API",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-f177fcc8 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:57:49.135995+00:00",
+    "updated_at": "2026-09-18T09:57:49.136031+00:00"
+  },
+  "ins-c2efccc1": {
+    "insight_id": "ins-c2efccc1",
+    "title": "Execution Learning: Happy path task execution",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-d92c232d (Happy path task execution) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:59:00.555879+00:00",
+    "updated_at": "2026-09-18T09:59:00.555909+00:00"
+  },
+  "ins-47dd9c17": {
+    "insight_id": "ins-47dd9c17",
+    "title": "Execution Learning: Fallback adaptation test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-6b6dac03 (Fallback adaptation test) completed with 1 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 1470/5000",
+      "Replans Count: 0/3",
+      "Adaptation DYNAMIC_FALLBACK_BRANCH: Primary task 'Core Implementation & Execution' encountered failure. Activating pre-computed resilient fallback."
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:59:03.052213+00:00",
+    "updated_at": "2026-09-18T09:59:03.052296+00:00"
+  },
+  "ins-0cb476ff": {
+    "insight_id": "ins-0cb476ff",
+    "title": "Execution Learning: Execution feedback capture test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-0d436555 (Execution feedback capture test) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 2,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:59:05.344988+00:00",
+    "updated_at": "2026-09-18T09:59:05.557754+00:00"
+  },
+  "ins-ef483a32": {
+    "insight_id": "ins-ef483a32",
+    "title": "Execution Learning: Telemetry authenticity check",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-e0fd1720 (Telemetry authenticity check) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:59:09.538447+00:00",
+    "updated_at": "2026-09-18T09:59:09.538481+00:00"
+  },
+  "ins-3497afb1": {
+    "insight_id": "ins-3497afb1",
+    "title": "Execution Learning: Synthesize full plan through API",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-e0373f97 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T09:59:12.507235+00:00",
+    "updated_at": "2026-09-18T09:59:12.507270+00:00"
+  },
+  "ins-b07e8dd3": {
+    "insight_id": "ins-b07e8dd3",
+    "title": "Security Posture Vulnerability Cluster: SECRET_LEAK",
+    "category": "SECURITY",
+    "pattern": "Detected 231 instances of SECRET_LEAK vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SECRET_LEAK.",
+    "supporting_evidence": [
+      "Detected 231 findings in category SECRET_LEAK"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:01:01.692290+00:00",
+    "updated_at": "2026-09-18T10:01:01.692323+00:00"
+  },
+  "ins-8e9bcd4a": {
+    "insight_id": "ins-8e9bcd4a",
+    "title": "Security Posture Vulnerability Cluster: SAST_INJECTION",
+    "category": "SECURITY",
+    "pattern": "Detected 15 instances of SAST_INJECTION vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SAST_INJECTION.",
+    "supporting_evidence": [
+      "Detected 15 findings in category SAST_INJECTION"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:01:01.802548+00:00",
+    "updated_at": "2026-09-18T10:01:01.802616+00:00"
+  },
+  "ins-7ee36113": {
+    "insight_id": "ins-7ee36113",
+    "title": "Execution Learning: Happy path task execution",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-60c1313c (Happy path task execution) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:01:06.914333+00:00",
+    "updated_at": "2026-09-18T10:01:06.914366+00:00"
+  },
+  "ins-5366ecab": {
+    "insight_id": "ins-5366ecab",
+    "title": "Execution Learning: Fallback adaptation test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-70c004d2 (Fallback adaptation test) completed with 1 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 1470/5000",
+      "Replans Count: 0/3",
+      "Adaptation DYNAMIC_FALLBACK_BRANCH: Primary task 'Core Implementation & Execution' encountered failure. Activating pre-computed resilient fallback."
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:01:09.082982+00:00",
+    "updated_at": "2026-09-18T10:01:09.083016+00:00"
+  },
+  "ins-45492d2c": {
+    "insight_id": "ins-45492d2c",
+    "title": "Execution Learning: Execution feedback capture test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-a7286099 (Execution feedback capture test) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 2,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:01:10.485541+00:00",
+    "updated_at": "2026-09-18T10:01:10.672446+00:00"
+  },
+  "ins-15ed0cd8": {
+    "insight_id": "ins-15ed0cd8",
+    "title": "Execution Learning: Telemetry authenticity check",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-f9c5e5e2 (Telemetry authenticity check) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:01:13.646794+00:00",
+    "updated_at": "2026-09-18T10:01:13.646825+00:00"
+  },
+  "ins-fb5ea06a": {
+    "insight_id": "ins-fb5ea06a",
+    "title": "Execution Learning: Synthesize full plan through API",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-43cedee6 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:01:15.842604+00:00",
+    "updated_at": "2026-09-18T10:01:15.842632+00:00"
+  },
+  "ins-7f19a6d8": {
+    "insight_id": "ins-7f19a6d8",
+    "title": "Product Factory Learning: metrics-ingest-api",
+    "category": "OPERATIONAL",
+    "pattern": "Product metrics-ingest-api (MICROSERVICE_API) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future MICROSERVICE_API goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: 59641f6073a01790",
+      "Tests Passed: 3",
+      "Security Findings: 0",
+      "Provenance Hash: d1435ba5bce8eec4",
+      "Provenance Hash: 1e85e072d994ee93",
+      "Provenance Hash: f04814a91c6604de",
+      "Provenance Hash: 13f0f3b3a320bf75",
+      "Provenance Hash: 8288b0a21f3b765c"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 6,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:46:03.948896+00:00",
+    "updated_at": "2026-09-18T15:26:52.213049+00:00"
+  },
+  "ins-41cac61d": {
+    "insight_id": "ins-41cac61d",
+    "title": "Product Factory Learning: resilient-cache-microservice-7f8f",
+    "category": "OPERATIONAL",
+    "pattern": "Product resilient-cache-microservice-7f8f (MICROSERVICE_API) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future MICROSERVICE_API goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: bc9a8f0ab1548885",
+      "Tests Passed: 3",
+      "Security Findings: 0"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:46:09.623110+00:00",
+    "updated_at": "2026-09-18T10:46:09.623124+00:00"
+  },
+  "ins-599d5a34": {
+    "insight_id": "ins-599d5a34",
+    "title": "Product Factory Learning: secure-authentication-service-2eb1",
+    "category": "OPERATIONAL",
+    "pattern": "Product secure-authentication-service-2eb1 (MICROSERVICE_API) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future MICROSERVICE_API goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: 649a25d14b0451c3",
+      "Tests Passed: 3",
+      "Security Findings: 0"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:46:20.149994+00:00",
+    "updated_at": "2026-09-18T10:46:20.150009+00:00"
+  },
+  "ins-77902b2a": {
+    "insight_id": "ins-77902b2a",
+    "title": "Product Factory Learning: data-transform-engine",
+    "category": "OPERATIONAL",
+    "pattern": "Product data-transform-engine (DATA_PIPELINE) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future DATA_PIPELINE goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: 40e3e5c8fa29a250",
+      "Tests Passed: 3",
+      "Security Findings: 0",
+      "Provenance Hash: acb3ee68ec0bd860",
+      "Provenance Hash: daa8f78c4dc9bf7d",
+      "Provenance Hash: 21e4b86c147acebf",
+      "Provenance Hash: 4ba899c15fe00b16",
+      "Provenance Hash: 0a8af2e25544d1f3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 6,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:46:24.964621+00:00",
+    "updated_at": "2026-09-18T15:29:41.422196+00:00"
+  },
+  "ins-c7f1ec3f": {
+    "insight_id": "ins-c7f1ec3f",
+    "title": "Product Factory Learning: catalog-test-app",
+    "category": "OPERATIONAL",
+    "pattern": "Product catalog-test-app (FULLSTACK_WEB) built successfully with 3 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future FULLSTACK_WEB goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: 8e80c971aec318fb",
+      "Tests Passed: 3",
+      "Security Findings: 0",
+      "Provenance Hash: f36bad6dd612b51e",
+      "Provenance Hash: 1f2150dae291228a",
+      "Provenance Hash: 3e81d42fed0e6bc5",
+      "Provenance Hash: d99b50ae2d9ba4c4",
+      "Provenance Hash: d40e037529b086eb"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 6,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:46:30.489354+00:00",
+    "updated_at": "2026-09-18T15:30:00.210957+00:00"
+  },
+  "ins-c9d23f9e": {
+    "insight_id": "ins-c9d23f9e",
+    "title": "Product Factory Learning: customer-billing-engine",
+    "category": "OPERATIONAL",
+    "pattern": "Product customer-billing-engine (MICROSERVICE_API) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future MICROSERVICE_API goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: 31265bd0d911d866",
+      "Tests Passed: 3",
+      "Security Findings: 0",
+      "Provenance Hash: 42686a39eb4b2624",
+      "Provenance Hash: 04c475060316a4b5",
+      "Provenance Hash: 729983fb839a698c",
+      "Provenance Hash: 83bb456014ac707c",
+      "Provenance Hash: 414fc7a4da7f2f26"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 6,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:46:37.699330+00:00",
+    "updated_at": "2026-09-18T15:30:14.950880+00:00"
+  },
+  "ins-3b1ae656": {
+    "insight_id": "ins-3b1ae656",
+    "title": "Product Factory Learning: telemetry-stream-analyzer",
+    "category": "OPERATIONAL",
+    "pattern": "Product telemetry-stream-analyzer (MICROSERVICE_API) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future MICROSERVICE_API goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: c2031da8b095cf60",
+      "Tests Passed: 3",
+      "Security Findings: 0"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:47:07.079656+00:00",
+    "updated_at": "2026-09-18T10:47:07.079673+00:00"
+  },
+  "ins-94f8e677": {
+    "insight_id": "ins-94f8e677",
+    "title": "Security Posture Vulnerability Cluster: SECRET_LEAK",
+    "category": "SECURITY",
+    "pattern": "Detected 308 instances of SECRET_LEAK vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SECRET_LEAK.",
+    "supporting_evidence": [
+      "Detected 308 findings in category SECRET_LEAK"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:48:43.276392+00:00",
+    "updated_at": "2026-09-18T10:48:43.276450+00:00"
+  },
+  "ins-4d28c8b0": {
+    "insight_id": "ins-4d28c8b0",
+    "title": "Security Posture Vulnerability Cluster: SAST_INJECTION",
+    "category": "SECURITY",
+    "pattern": "Detected 20 instances of SAST_INJECTION vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SAST_INJECTION.",
+    "supporting_evidence": [
+      "Detected 20 findings in category SAST_INJECTION"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:48:43.485536+00:00",
+    "updated_at": "2026-09-18T10:48:43.485589+00:00"
+  },
+  "ins-2e4da983": {
+    "insight_id": "ins-2e4da983",
+    "title": "Execution Learning: Happy path task execution",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-abcdf820 (Happy path task execution) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:48:53.215296+00:00",
+    "updated_at": "2026-09-18T10:48:53.215330+00:00"
+  },
+  "ins-fccc379e": {
+    "insight_id": "ins-fccc379e",
+    "title": "Execution Learning: Fallback adaptation test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-bb38ed70 (Fallback adaptation test) completed with 1 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 1470/5000",
+      "Replans Count: 0/3",
+      "Adaptation DYNAMIC_FALLBACK_BRANCH: Primary task 'Core Implementation & Execution' encountered failure. Activating pre-computed resilient fallback."
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:48:59.961505+00:00",
+    "updated_at": "2026-09-18T10:48:59.961538+00:00"
+  },
+  "ins-4e8e0f5b": {
+    "insight_id": "ins-4e8e0f5b",
+    "title": "Execution Learning: Execution feedback capture test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-b6e739d3 (Execution feedback capture test) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 2,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:49:03.679615+00:00",
+    "updated_at": "2026-09-18T10:49:04.281733+00:00"
+  },
+  "ins-b7836763": {
+    "insight_id": "ins-b7836763",
+    "title": "Execution Learning: Telemetry authenticity check",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-db8c6ff3 (Telemetry authenticity check) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:49:10.543578+00:00",
+    "updated_at": "2026-09-18T10:49:10.543655+00:00"
+  },
+  "ins-7eebd614": {
+    "insight_id": "ins-7eebd614",
+    "title": "Execution Learning: Synthesize full plan through API",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-2c8c17e9 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:49:14.743291+00:00",
+    "updated_at": "2026-09-18T10:49:14.743327+00:00"
+  },
+  "ins-6f9eec4c": {
+    "insight_id": "ins-6f9eec4c",
+    "title": "Product Factory Learning: resilient-cache-microservice-b053",
+    "category": "OPERATIONAL",
+    "pattern": "Product resilient-cache-microservice-b053 (MICROSERVICE_API) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future MICROSERVICE_API goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: 05db6e6c8a8653e4",
+      "Tests Passed: 3",
+      "Security Findings: 0"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:49:32.369232+00:00",
+    "updated_at": "2026-09-18T10:49:32.370012+00:00"
+  },
+  "ins-c76c0233": {
+    "insight_id": "ins-c76c0233",
+    "title": "Product Factory Learning: secure-authentication-service-5998",
+    "category": "OPERATIONAL",
+    "pattern": "Product secure-authentication-service-5998 (MICROSERVICE_API) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future MICROSERVICE_API goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: 874a9d11d1d53fda",
+      "Tests Passed: 3",
+      "Security Findings: 0"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:49:47.321419+00:00",
+    "updated_at": "2026-09-18T10:49:47.321445+00:00"
+  },
+  "ins-0687c359": {
+    "insight_id": "ins-0687c359",
+    "title": "Factory Mission Learning: High Performance Math",
+    "category": "OPERATIONAL",
+    "pattern": "Factory fact-343abe7e (fastapi_service) delivered cleanly with 8 artifacts.",
+    "rationale": "Captured from successful autonomous software factory delivery cycle.",
+    "recommended_action": "Reuse fastapi_service architecture for similar software goals.",
+    "supporting_evidence": [
+      "Commit Hash: 178ffb63",
+      "Deployment ID: dep-407b4887"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "mission_engine"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:55:05.153682+00:00",
+    "updated_at": "2026-09-18T10:55:05.153765+00:00"
+  },
+  "ins-f277f4be": {
+    "insight_id": "ins-f277f4be",
+    "title": "Factory Mission Learning: High Performance Math",
+    "category": "OPERATIONAL",
+    "pattern": "Factory fact-627188ff (fastapi_service) delivered cleanly with 9 artifacts.",
+    "rationale": "Captured from successful autonomous software factory delivery cycle.",
+    "recommended_action": "Reuse fastapi_service architecture for similar software goals.",
+    "supporting_evidence": [
+      "Commit Hash: 7f634bdf",
+      "Deployment ID: dep-6dffceb9"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "mission_engine"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:57:14.130443+00:00",
+    "updated_at": "2026-09-18T10:57:14.130506+00:00"
+  },
+  "ins-bfae57fe": {
+    "insight_id": "ins-bfae57fe",
+    "title": "Factory Mission Learning: High Performance Math",
+    "category": "OPERATIONAL",
+    "pattern": "Factory fact-835a60ff (fastapi_service) delivered cleanly with 9 artifacts.",
+    "rationale": "Captured from successful autonomous software factory delivery cycle.",
+    "recommended_action": "Reuse fastapi_service architecture for similar software goals.",
+    "supporting_evidence": [
+      "Commit Hash: 7f634bdf",
+      "Deployment ID: dep-757a0de2"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "mission_engine"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:57:59.381979+00:00",
+    "updated_at": "2026-09-18T10:57:59.382053+00:00"
+  },
+  "ins-a1b9afe1": {
+    "insight_id": "ins-a1b9afe1",
+    "title": "Product Factory Learning: resilient-cache-microservice-ac26",
+    "category": "OPERATIONAL",
+    "pattern": "Product resilient-cache-microservice-ac26 (MICROSERVICE_API) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future MICROSERVICE_API goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: f126a073246e2bd0",
+      "Tests Passed: 3",
+      "Security Findings: 0"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:58:45.621557+00:00",
+    "updated_at": "2026-09-18T10:58:45.621613+00:00"
+  },
+  "ins-cf33a575": {
+    "insight_id": "ins-cf33a575",
+    "title": "Product Factory Learning: secure-authentication-service-0918",
+    "category": "OPERATIONAL",
+    "pattern": "Product secure-authentication-service-0918 (MICROSERVICE_API) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future MICROSERVICE_API goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: f6a7baca83a32326",
+      "Tests Passed: 3",
+      "Security Findings: 0"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T10:58:58.535964+00:00",
+    "updated_at": "2026-09-18T10:58:58.535975+00:00"
+  },
+  "ins-d587fd1b": {
+    "insight_id": "ins-d587fd1b",
+    "title": "Factory Mission Learning: High Performance In",
+    "category": "OPERATIONAL",
+    "pattern": "Factory fact-3eab7483 (cache_engine) delivered cleanly with 9 artifacts.",
+    "rationale": "Captured from successful autonomous software factory delivery cycle.",
+    "recommended_action": "Reuse cache_engine architecture for similar software goals.",
+    "supporting_evidence": [
+      "Commit Hash: c80cdbab",
+      "Deployment ID: dep-417c2da4"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "mission_engine"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T11:00:54.004617+00:00",
+    "updated_at": "2026-09-18T11:00:54.004643+00:00"
+  },
+  "ins-cdc12b87": {
+    "insight_id": "ins-cdc12b87",
+    "title": "Security Posture Vulnerability Cluster: SECRET_LEAK",
+    "category": "SECURITY",
+    "pattern": "Detected 385 instances of SECRET_LEAK vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SECRET_LEAK.",
+    "supporting_evidence": [
+      "Detected 385 findings in category SECRET_LEAK"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T11:03:43.416201+00:00",
+    "updated_at": "2026-09-18T11:03:43.416242+00:00"
+  },
+  "ins-db060ebc": {
+    "insight_id": "ins-db060ebc",
+    "title": "Security Posture Vulnerability Cluster: SAST_INJECTION",
+    "category": "SECURITY",
+    "pattern": "Detected 25 instances of SAST_INJECTION vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SAST_INJECTION.",
+    "supporting_evidence": [
+      "Detected 25 findings in category SAST_INJECTION"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T11:03:43.785010+00:00",
+    "updated_at": "2026-09-18T11:03:43.785060+00:00"
+  },
+  "ins-47984524": {
+    "insight_id": "ins-47984524",
+    "title": "Execution Learning: Happy path task execution",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-3d6231e0 (Happy path task execution) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T11:03:57.905418+00:00",
+    "updated_at": "2026-09-18T11:03:57.905504+00:00"
+  },
+  "ins-bcdc0be6": {
+    "insight_id": "ins-bcdc0be6",
+    "title": "Execution Learning: Fallback adaptation test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-dd5e6805 (Fallback adaptation test) completed with 1 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 1470/5000",
+      "Replans Count: 0/3",
+      "Adaptation DYNAMIC_FALLBACK_BRANCH: Primary task 'Core Implementation & Execution' encountered failure. Activating pre-computed resilient fallback."
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T11:04:03.086018+00:00",
+    "updated_at": "2026-09-18T11:04:03.086042+00:00"
+  },
+  "ins-24bbc212": {
+    "insight_id": "ins-24bbc212",
+    "title": "Execution Learning: Execution feedback capture test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-ea698f1c (Execution feedback capture test) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 2,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T11:04:07.931320+00:00",
+    "updated_at": "2026-09-18T11:04:09.413761+00:00"
+  },
+  "ins-fc92290e": {
+    "insight_id": "ins-fc92290e",
+    "title": "Execution Learning: Telemetry authenticity check",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-62921c9e (Telemetry authenticity check) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T11:04:16.747706+00:00",
+    "updated_at": "2026-09-18T11:04:16.747732+00:00"
+  },
+  "ins-f6c2ae28": {
+    "insight_id": "ins-f6c2ae28",
+    "title": "Execution Learning: Synthesize full plan through API",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-f98258a0 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T11:04:21.494893+00:00",
+    "updated_at": "2026-09-18T11:04:21.494939+00:00"
+  },
+  "ins-bd111141": {
+    "insight_id": "ins-bd111141",
+    "title": "Product Factory Learning: resilient-cache-microservice-8134",
+    "category": "OPERATIONAL",
+    "pattern": "Product resilient-cache-microservice-8134 (MICROSERVICE_API) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future MICROSERVICE_API goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: d01910fc1f2bbb95",
+      "Tests Passed: 3",
+      "Security Findings: 0"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T11:04:55.189149+00:00",
+    "updated_at": "2026-09-18T11:04:55.189198+00:00"
+  },
+  "ins-bf4d0e16": {
+    "insight_id": "ins-bf4d0e16",
+    "title": "Product Factory Learning: secure-authentication-service-5fe9",
+    "category": "OPERATIONAL",
+    "pattern": "Product secure-authentication-service-5fe9 (MICROSERVICE_API) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future MICROSERVICE_API goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: 1e4fed5b813f9e0a",
+      "Tests Passed: 3",
+      "Security Findings: 0"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T11:05:18.853166+00:00",
+    "updated_at": "2026-09-18T11:05:18.853175+00:00"
+  },
+  "ins-b8d48030": {
+    "insight_id": "ins-b8d48030",
+    "title": "Factory Mission Learning: High Performance Math",
+    "category": "OPERATIONAL",
+    "pattern": "Factory fact-b559e847 (fastapi_service) delivered cleanly with 9 artifacts.",
+    "rationale": "Captured from successful autonomous software factory delivery cycle.",
+    "recommended_action": "Reuse fastapi_service architecture for similar software goals.",
+    "supporting_evidence": [
+      "Commit Hash: 7f634bdf",
+      "Deployment ID: dep-34d9e753"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "mission_engine"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T11:05:57.565945+00:00",
+    "updated_at": "2026-09-18T11:05:57.566006+00:00"
+  },
+  "ins-5018d6a1": {
+    "insight_id": "ins-5018d6a1",
+    "title": "Release Rollback Incident: Sample Service",
+    "category": "OPERATIONAL",
+    "pattern": "Release rollback triggered for sample-service. Reason: Automated SLA breach safeguard (Error rate: 12.5%, Latency: 900.0ms)",
+    "rationale": "Captured during autonomous canary SLA rollback evaluation.",
+    "recommended_action": "Execute automated test suite before attempting subsequent canary promotion.",
+    "supporting_evidence": [
+      "Reason: Automated SLA breach safeguard (Error rate: 12.5%, Latency: 900.0ms)",
+      "Current Version: 0.1.1"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 6,
+    "impacted_subsystems": [
+      "project_operations",
+      "deployment_engine"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T14:54:51.741716+00:00",
+    "updated_at": "2026-09-18T15:39:00.924891+00:00"
+  },
+  "ins-4af4b3ac": {
+    "insight_id": "ins-4af4b3ac",
+    "title": "Release Rollback Incident: Operations Mission Service",
+    "category": "OPERATIONAL",
+    "pattern": "Release rollback triggered for ops-mission-service. Reason: Automated SLA breach safeguard (Error rate: 15.0%, Latency: 1200.0ms)",
+    "rationale": "Captured during autonomous canary SLA rollback evaluation.",
+    "recommended_action": "Execute automated test suite before attempting subsequent canary promotion.",
+    "supporting_evidence": [
+      "Reason: Automated SLA breach safeguard (Error rate: 15.0%, Latency: 1200.0ms)",
+      "Current Version: 0.2.0"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "project_operations",
+      "deployment_engine"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T14:57:02.098726+00:00",
+    "updated_at": "2026-09-18T14:57:02.098753+00:00"
+  },
+  "ins-d2d5ba2e": {
+    "insight_id": "ins-d2d5ba2e",
+    "title": "Security Posture Vulnerability Cluster: SECRET_LEAK",
+    "category": "SECURITY",
+    "pattern": "Detected 462 instances of SECRET_LEAK vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SECRET_LEAK.",
+    "supporting_evidence": [
+      "Detected 462 findings in category SECRET_LEAK"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T14:59:36.053799+00:00",
+    "updated_at": "2026-09-18T14:59:36.053860+00:00"
+  },
+  "ins-965b87d9": {
+    "insight_id": "ins-965b87d9",
+    "title": "Security Posture Vulnerability Cluster: SAST_INJECTION",
+    "category": "SECURITY",
+    "pattern": "Detected 30 instances of SAST_INJECTION vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SAST_INJECTION.",
+    "supporting_evidence": [
+      "Detected 30 findings in category SAST_INJECTION"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T14:59:36.149544+00:00",
+    "updated_at": "2026-09-18T14:59:36.149576+00:00"
+  },
+  "ins-d1b3861a": {
+    "insight_id": "ins-d1b3861a",
+    "title": "Execution Learning: Happy path task execution",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-06e902cb (Happy path task execution) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T14:59:46.225478+00:00",
+    "updated_at": "2026-09-18T14:59:46.225507+00:00"
+  },
+  "ins-7606512c": {
+    "insight_id": "ins-7606512c",
+    "title": "Execution Learning: Fallback adaptation test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-1d603849 (Fallback adaptation test) completed with 1 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 1470/5000",
+      "Replans Count: 0/3",
+      "Adaptation DYNAMIC_FALLBACK_BRANCH: Primary task 'Core Implementation & Execution' encountered failure. Activating pre-computed resilient fallback."
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T14:59:47.526984+00:00",
+    "updated_at": "2026-09-18T14:59:47.527013+00:00"
+  },
+  "ins-10058c1c": {
+    "insight_id": "ins-10058c1c",
+    "title": "Execution Learning: Execution feedback capture test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-66d2bf31 (Execution feedback capture test) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 2,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T14:59:49.264339+00:00",
+    "updated_at": "2026-09-18T14:59:49.423390+00:00"
+  },
+  "ins-4792a22b": {
+    "insight_id": "ins-4792a22b",
+    "title": "Execution Learning: Telemetry authenticity check",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-81caac9e (Telemetry authenticity check) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T14:59:51.767689+00:00",
+    "updated_at": "2026-09-18T14:59:51.767792+00:00"
+  },
+  "ins-e3fbbd67": {
+    "insight_id": "ins-e3fbbd67",
+    "title": "Execution Learning: Synthesize full plan through API",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-2a3bc9d6 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T14:59:53.672148+00:00",
+    "updated_at": "2026-09-18T14:59:53.672216+00:00"
+  },
+  "ins-732d260c": {
+    "insight_id": "ins-732d260c",
+    "title": "Product Factory Learning: resilient-cache-microservice-14d4",
+    "category": "OPERATIONAL",
+    "pattern": "Product resilient-cache-microservice-14d4 (MICROSERVICE_API) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future MICROSERVICE_API goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: 582befb47b435a67",
+      "Tests Passed: 3",
+      "Security Findings: 0"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T15:00:11.691725+00:00",
+    "updated_at": "2026-09-18T15:00:11.691737+00:00"
+  },
+  "ins-2e6ad100": {
+    "insight_id": "ins-2e6ad100",
+    "title": "Product Factory Learning: secure-authentication-service-470f",
+    "category": "OPERATIONAL",
+    "pattern": "Product secure-authentication-service-470f (MICROSERVICE_API) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future MICROSERVICE_API goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: 0a97a7d97e6da394",
+      "Tests Passed: 3",
+      "Security Findings: 0"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T15:00:23.511377+00:00",
+    "updated_at": "2026-09-18T15:00:23.511439+00:00"
+  },
+  "ins-5a43a39f": {
+    "insight_id": "ins-5a43a39f",
+    "title": "Factory Mission Learning: High Performance Math",
+    "category": "OPERATIONAL",
+    "pattern": "Factory fact-b75d497e (fastapi_service) delivered cleanly with 9 artifacts.",
+    "rationale": "Captured from successful autonomous software factory delivery cycle.",
+    "recommended_action": "Reuse fastapi_service architecture for similar software goals.",
+    "supporting_evidence": [
+      "Commit Hash: 7f634bdf",
+      "Deployment ID: dep-3c1a34c2"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "mission_engine"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T15:00:47.670603+00:00",
+    "updated_at": "2026-09-18T15:00:47.670669+00:00"
+  },
+  "ins-6d5fb492": {
+    "insight_id": "ins-6d5fb492",
+    "title": "Release Rollback Incident: Project Alpha",
+    "category": "OPERATIONAL",
+    "pattern": "Release rollback triggered for project-alpha. Reason: Automated SLA breach safeguard (Error rate: 14.2%, Latency: 950.0ms)",
+    "rationale": "Captured during autonomous canary SLA rollback evaluation.",
+    "recommended_action": "Execute automated test suite before attempting subsequent canary promotion.",
+    "supporting_evidence": [
+      "Reason: Automated SLA breach safeguard (Error rate: 14.2%, Latency: 950.0ms)",
+      "Current Version: 0.2.0"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 4,
+    "impacted_subsystems": [
+      "project_operations",
+      "deployment_engine"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T15:13:24.415895+00:00",
+    "updated_at": "2026-09-18T15:17:16.134651+00:00"
+  },
+  "ins-83e583e7": {
+    "insight_id": "ins-83e583e7",
+    "title": "Security Posture Vulnerability Cluster: SECRET_LEAK",
+    "category": "SECURITY",
+    "pattern": "Detected 539 instances of SECRET_LEAK vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SECRET_LEAK.",
+    "supporting_evidence": [
+      "Detected 539 findings in category SECRET_LEAK"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T15:23:55.433412+00:00",
+    "updated_at": "2026-09-18T15:23:55.433455+00:00"
+  },
+  "ins-e314ff41": {
+    "insight_id": "ins-e314ff41",
+    "title": "Security Posture Vulnerability Cluster: SAST_INJECTION",
+    "category": "SECURITY",
+    "pattern": "Detected 35 instances of SAST_INJECTION vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SAST_INJECTION.",
+    "supporting_evidence": [
+      "Detected 35 findings in category SAST_INJECTION"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T15:23:56.958097+00:00",
+    "updated_at": "2026-09-18T15:23:56.958196+00:00"
+  },
+  "ins-5e4f56b8": {
+    "insight_id": "ins-5e4f56b8",
+    "title": "Execution Learning: Happy path task execution",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-01d79614 (Happy path task execution) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T15:24:27.722972+00:00",
+    "updated_at": "2026-09-18T15:24:27.723002+00:00"
+  },
+  "ins-7276b730": {
+    "insight_id": "ins-7276b730",
+    "title": "Execution Learning: Fallback adaptation test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-cc081d97 (Fallback adaptation test) completed with 1 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 1470/5000",
+      "Replans Count: 0/3",
+      "Adaptation DYNAMIC_FALLBACK_BRANCH: Primary task 'Core Implementation & Execution' encountered failure. Activating pre-computed resilient fallback."
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T15:24:36.376661+00:00",
+    "updated_at": "2026-09-18T15:24:36.376692+00:00"
+  },
+  "ins-8f20af5f": {
+    "insight_id": "ins-8f20af5f",
+    "title": "Execution Learning: Execution feedback capture test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-7a6d2f9d (Execution feedback capture test) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 2,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T15:24:38.774871+00:00",
+    "updated_at": "2026-09-18T15:24:40.063238+00:00"
+  },
+  "ins-641b2553": {
+    "insight_id": "ins-641b2553",
+    "title": "Execution Learning: Telemetry authenticity check",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-a75b1ce6 (Telemetry authenticity check) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T15:24:57.379735+00:00",
+    "updated_at": "2026-09-18T15:24:57.379834+00:00"
+  },
+  "ins-f9c41cd9": {
+    "insight_id": "ins-f9c41cd9",
+    "title": "Execution Learning: Synthesize full plan through API",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-66915691 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T15:25:35.656085+00:00",
+    "updated_at": "2026-09-18T15:25:35.656113+00:00"
+  },
+  "ins-9a28dc92": {
+    "insight_id": "ins-9a28dc92",
+    "title": "Product Factory Learning: resilient-cache-microservice-336a",
+    "category": "OPERATIONAL",
+    "pattern": "Product resilient-cache-microservice-336a (MICROSERVICE_API) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future MICROSERVICE_API goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: 34a01175cca327f1",
+      "Tests Passed: 3",
+      "Security Findings: 0"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T15:27:56.211252+00:00",
+    "updated_at": "2026-09-18T15:27:56.211278+00:00"
+  },
+  "ins-66384186": {
+    "insight_id": "ins-66384186",
+    "title": "Product Factory Learning: secure-authentication-service-d1b5",
+    "category": "OPERATIONAL",
+    "pattern": "Product secure-authentication-service-d1b5 (MICROSERVICE_API) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future MICROSERVICE_API goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: 66ba90c10dbcc4df",
+      "Tests Passed: 3",
+      "Security Findings: 0"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T15:29:22.283854+00:00",
+    "updated_at": "2026-09-18T15:29:22.283883+00:00"
+  },
+  "ins-c22e7591": {
+    "insight_id": "ins-c22e7591",
+    "title": "Factory Mission Learning: High Performance Math",
+    "category": "OPERATIONAL",
+    "pattern": "Factory fact-904123c4 (fastapi_service) delivered cleanly with 9 artifacts.",
+    "rationale": "Captured from successful autonomous software factory delivery cycle.",
+    "recommended_action": "Reuse fastapi_service architecture for similar software goals.",
+    "supporting_evidence": [
+      "Commit Hash: 7f634bdf",
+      "Deployment ID: dep-4706d676"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "mission_engine"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T15:30:39.857817+00:00",
+    "updated_at": "2026-09-18T15:30:39.857880+00:00"
+  }
+}

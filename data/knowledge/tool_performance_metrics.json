@@ -1,0 +1,29 @@
+{
+  "knowledge.search": {
+    "tool_id": "knowledge.search",
+    "total_invocations": 7,
+    "success_rate_percent": 100.0,
+    "p50_latency_ms": 8.35,
+    "p95_latency_ms": 15.1,
+    "error_patterns": [],
+    "reliability_tier": "HIGH"
+  },
+  "filesystem.read": {
+    "tool_id": "filesystem.read",
+    "total_invocations": 3,
+    "success_rate_percent": 100.0,
+    "p50_latency_ms": 2.05,
+    "p95_latency_ms": 4.2,
+    "error_patterns": [],
+    "reliability_tier": "HIGH"
+  },
+  "ast.verify": {
+    "tool_id": "ast.verify",
+    "total_invocations": 9,
+    "success_rate_percent": 100.0,
+    "p50_latency_ms": 5.28,
+    "p95_latency_ms": 6.1,
+    "error_patterns": [],
+    "reliability_tier": "HIGH"
+  }
+}

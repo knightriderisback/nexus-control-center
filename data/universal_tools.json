@@ -1,0 +1,1117 @@
+{
+  "fs.read_file": {
+    "tool_id": "fs.read_file",
+    "name": "Filesystem Safe Reader",
+    "description": "Reads file contents within allowed workspace boundaries.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "FILESYSTEM",
+    "endpoint": null,
+    "input_schema": {
+      "file_path": "string",
+      "max_lines": "optional(int)"
+    },
+    "output_schema": {
+      "file": "string",
+      "content": "string",
+      "lines": "int"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "filesystem",
+      "read"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "fs.write_file": {
+    "tool_id": "fs.write_file",
+    "name": "Filesystem Sandboxed Writer",
+    "description": "Writes or patches files in designated workspace paths.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "FILESYSTEM",
+    "endpoint": null,
+    "input_schema": {
+      "file_path": "string",
+      "content": "string",
+      "overwrite": "optional(bool)"
+    },
+    "output_schema": {
+      "file": "string",
+      "bytes_written": "int",
+      "status": "string"
+    },
+    "risk_level": "MEDIUM",
+    "requires_approval": false,
+    "required_capabilities": [
+      "filesystem",
+      "write"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": true,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "fs.list_dir": {
+    "tool_id": "fs.list_dir",
+    "name": "Filesystem Directory Explorer",
+    "description": "Lists directory items with metadata and child counts.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "FILESYSTEM",
+    "endpoint": null,
+    "input_schema": {
+      "dir_path": "string",
+      "max_depth": "optional(int)"
+    },
+    "output_schema": {
+      "dir": "string",
+      "entries": "list",
+      "count": "int"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "filesystem",
+      "read"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "git.status_inspector": {
+    "tool_id": "git.status_inspector",
+    "name": "Git Working Tree Inspector",
+    "description": "Inspects uncommitted changes, active branch, and modified files.",
+    "protocol": "CLI_EXECUTABLE",
+    "category": "GIT_VCS",
+    "endpoint": null,
+    "input_schema": {
+      "repo_path": "optional(string)"
+    },
+    "output_schema": {
+      "repo": "string",
+      "branch": "string",
+      "dirty_files": "list",
+      "clean": "bool"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "git",
+      "inspection"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "git.log_history": {
+    "tool_id": "git.log_history",
+    "name": "Git Commit History Viewer",
+    "description": "Queries recent commit log entries.",
+    "protocol": "CLI_EXECUTABLE",
+    "category": "GIT_VCS",
+    "endpoint": null,
+    "input_schema": {
+      "repo_path": "optional(string)",
+      "limit": "optional(int)"
+    },
+    "output_schema": {
+      "repo": "string",
+      "commits": "list"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "git",
+      "inspection"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "github.repo_telemetry": {
+    "tool_id": "github.repo_telemetry",
+    "name": "GitHub Repository Telemetry",
+    "description": "Queries GitHub repository metadata, stars, forks, and branch state.",
+    "protocol": "REST_API",
+    "category": "GIT_VCS",
+    "endpoint": "https://api.github.com/repos/{owner}/{repo}",
+    "input_schema": {
+      "owner": "string",
+      "repo": "string"
+    },
+    "output_schema": {
+      "owner": "string",
+      "repo": "string",
+      "stars": "int",
+      "default_branch": "string"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "github",
+      "read"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "github.workflow_runs": {
+    "tool_id": "github.workflow_runs",
+    "name": "GitHub Actions Workflow Inspector",
+    "description": "Fetches recent GitHub Actions workflow runs and CI status.",
+    "protocol": "REST_API",
+    "category": "GIT_VCS",
+    "endpoint": null,
+    "input_schema": {
+      "owner": "string",
+      "repo": "string",
+      "limit": "optional(int)"
+    },
+    "output_schema": {
+      "workflow_runs": "list",
+      "total": "int"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "github",
+      "ci"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "deploy.vercel_status": {
+    "tool_id": "deploy.vercel_status",
+    "name": "Vercel Deployment Inspector",
+    "description": "Checks Vercel deployment status, live domain, and build telemetry.",
+    "protocol": "REST_API",
+    "category": "DEPLOYMENT",
+    "endpoint": null,
+    "input_schema": {
+      "project_id": "string"
+    },
+    "output_schema": {
+      "project_id": "string",
+      "status": "string",
+      "url": "string"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "vercel",
+      "deployment"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "deploy.gcp_status": {
+    "tool_id": "deploy.gcp_status",
+    "name": "GCP Cloud Health Inspector",
+    "description": "Inspects GCP project state, enabled APIs, and zero-cost billing isolation.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "DEPLOYMENT",
+    "endpoint": null,
+    "input_schema": {
+      "project_id": "optional(string)"
+    },
+    "output_schema": {
+      "gcp_project": "string",
+      "billing_linked": "bool",
+      "apis": "list"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "gcp",
+      "monitoring"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "deploy.trigger": {
+    "tool_id": "deploy.trigger",
+    "name": "Production Deployment Trigger",
+    "description": "Triggers a multi-target deployment pipeline with health checks and canary rollout.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "DEPLOYMENT",
+    "endpoint": null,
+    "input_schema": {
+      "project_id": "string",
+      "environment": "optional(string)",
+      "target_type": "optional(string)",
+      "strategy": "optional(string)"
+    },
+    "output_schema": {
+      "deployment_id": "string",
+      "status": "string",
+      "url": "optional(string)"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "deployment",
+      "delivery"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": true,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "deploy.rollback": {
+    "tool_id": "deploy.rollback",
+    "name": "Deployment Instant Rollback",
+    "description": "Executes an atomic rollback to a previous stable deployment snapshot.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "DEPLOYMENT",
+    "endpoint": null,
+    "input_schema": {
+      "deployment_id": "string",
+      "reason": "optional(string)"
+    },
+    "output_schema": {
+      "deployment_id": "string",
+      "status": "string",
+      "rolled_back": "bool"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "deployment",
+      "rollback"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": true,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "deploy.promote": {
+    "tool_id": "deploy.promote",
+    "name": "Canary Traffic Promoter",
+    "description": "Promotes canary traffic percentage for an active deployment.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "DEPLOYMENT",
+    "endpoint": null,
+    "input_schema": {
+      "deployment_id": "string",
+      "target_percentage": "int"
+    },
+    "output_schema": {
+      "deployment_id": "string",
+      "canary_percentage": "int"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "deployment",
+      "traffic"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": true,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "healing.run_watchdogs": {
+    "tool_id": "healing.run_watchdogs",
+    "name": "Sentinel Health Watchdogs Sweep",
+    "description": "Executes a complete inspection sweep across all 6 system health watchdogs.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "SECURITY",
+    "endpoint": null,
+    "input_schema": {},
+    "output_schema": {
+      "watchdogs": "list",
+      "status": "string"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "security",
+      "monitoring"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "healing.trigger_incident": {
+    "tool_id": "healing.trigger_incident",
+    "name": "Self-Healing Incident Trigger",
+    "description": "Registers an operational incident and executes automated diagnosis and healing.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "SECURITY",
+    "endpoint": null,
+    "input_schema": {
+      "category": "string",
+      "title": "string",
+      "target_resource": "optional(string)",
+      "severity": "optional(string)"
+    },
+    "output_schema": {
+      "incident_id": "string",
+      "status": "string",
+      "resolved": "bool"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "security",
+      "remediation"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": true,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "healing.remediate": {
+    "tool_id": "healing.remediate",
+    "name": "Incident Playbook Remediator",
+    "description": "Executes remediation playbook for an active incident.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "SECURITY",
+    "endpoint": null,
+    "input_schema": {
+      "incident_id": "string",
+      "force": "optional(bool)"
+    },
+    "output_schema": {
+      "incident_id": "string",
+      "status": "string"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "security",
+      "remediation"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": true,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "secops.scan_codebase": {
+    "tool_id": "secops.scan_codebase",
+    "name": "Deep Security & Secret Scanner",
+    "description": "Executes SAST AST analysis, secret detection, and dependency audits across codebase.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "SECURITY",
+    "endpoint": null,
+    "input_schema": {
+      "target_path": "optional(string)",
+      "scan_types": "optional(list)"
+    },
+    "output_schema": {
+      "scan_id": "string",
+      "findings_count": "int",
+      "risk_score": "float",
+      "pass_status": "bool"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "security",
+      "audit"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "secops.audit_dependencies": {
+    "tool_id": "secops.audit_dependencies",
+    "name": "Dependency & License Auditor",
+    "description": "Audits packages and manifests for known CVEs and license incompatibilities.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "SECURITY",
+    "endpoint": null,
+    "input_schema": {},
+    "output_schema": {
+      "findings": "list",
+      "cve_count": "int"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "security",
+      "dependencies"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "secops.evaluate_compliance": {
+    "tool_id": "secops.evaluate_compliance",
+    "name": "Compliance Framework Benchmark Evaluator",
+    "description": "Evaluates system controls against SOC2, ISO27001, CIS, and FinOps zero-cost benchmarks.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "SECURITY",
+    "endpoint": null,
+    "input_schema": {
+      "framework": "optional(string)"
+    },
+    "output_schema": {
+      "controls": "list",
+      "overall_score": "float"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "security",
+      "compliance"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "secops.quarantine_threat": {
+    "tool_id": "secops.quarantine_threat",
+    "name": "Security Threat Isolator & Vault Quarantine",
+    "description": "Isolates infected files or leaked tokens into protected 0600 vault and redacts secrets.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "SECURITY",
+    "endpoint": null,
+    "input_schema": {
+      "finding_id": "string"
+    },
+    "output_schema": {
+      "quarantine_id": "string",
+      "quarantined_path": "string"
+    },
+    "risk_level": "MEDIUM",
+    "requires_approval": false,
+    "required_capabilities": [
+      "security",
+      "quarantine"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": true,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "knowledge.search": {
+    "tool_id": "knowledge.search",
+    "name": "Hybrid Knowledge & Semantic Graph Search",
+    "description": "Performs zero-cost local hybrid search over multi-tier knowledge graph (BM25 + tags).",
+    "protocol": "NATIVE_PYTHON",
+    "category": "AI_COGNITION",
+    "endpoint": null,
+    "input_schema": {
+      "query": "string",
+      "tier": "optional(string)",
+      "limit": "optional(int)"
+    },
+    "output_schema": {
+      "matches": "list",
+      "total_count": "int"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "knowledge",
+      "search"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "knowledge.record_insight": {
+    "tool_id": "knowledge.record_insight",
+    "name": "Operational Learning Insight Distiller",
+    "description": "Synthesizes and records an actionable learning insight from mission experience.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "AI_COGNITION",
+    "endpoint": null,
+    "input_schema": {
+      "title": "string",
+      "category": "string",
+      "pattern": "string",
+      "rationale": "string",
+      "recommended_action": "string"
+    },
+    "output_schema": {
+      "insight_id": "string",
+      "category": "string"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "knowledge",
+      "learning"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": true,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "learning.optimize_dag": {
+    "tool_id": "learning.optimize_dag",
+    "name": "Autonomous Mission DAG Topology Optimizer",
+    "description": "Analyzes subtask dependencies to build parallel execution waves and compress critical path.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "AI_COGNITION",
+    "endpoint": null,
+    "input_schema": {
+      "mission_id": "string",
+      "subtasks": "list"
+    },
+    "output_schema": {
+      "parallelizable_groups": "list",
+      "speedup_percent": "float"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "optimization",
+      "dag"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "optimization.recommend_strategy": {
+    "tool_id": "optimization.recommend_strategy",
+    "name": "Strategy & Performance Optimization Advisor",
+    "description": "Proposes high-confidence performance, prompt, or DAG optimization recommendations.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "AI_COGNITION",
+    "endpoint": null,
+    "input_schema": {
+      "target_domain": "string",
+      "title": "string",
+      "description": "string",
+      "strategy": "string"
+    },
+    "output_schema": {
+      "recommendation_id": "string",
+      "status": "string"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "optimization",
+      "strategy"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": true,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "db.sqlite_query": {
+    "tool_id": "db.sqlite_query",
+    "name": "Safe SQLite Query Engine",
+    "description": "Executes safe read-only SQL queries or approved mutations with AST validation.",
+    "protocol": "DATABASE_QUERY",
+    "category": "DATABASE",
+    "endpoint": null,
+    "input_schema": {
+      "db_path": "string",
+      "sql": "string",
+      "params": "optional(list)"
+    },
+    "output_schema": {
+      "rows": "list",
+      "columns": "list",
+      "row_count": "int",
+      "execution_time_ms": "float"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "database",
+      "sql"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "db.schema_inspector": {
+    "tool_id": "db.schema_inspector",
+    "name": "Database Schema Inspector",
+    "description": "Inspects table schemas, column types, and foreign key constraints.",
+    "protocol": "DATABASE_QUERY",
+    "category": "DATABASE",
+    "endpoint": null,
+    "input_schema": {
+      "db_path": "string",
+      "table_name": "optional(string)"
+    },
+    "output_schema": {
+      "tables": "list",
+      "schemas": "dict"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "database",
+      "read"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "security.secret_scanner": {
+    "tool_id": "security.secret_scanner",
+    "name": "Regex Secret & Leak Sentinel",
+    "description": "Scans files and repositories for high-entropy secrets, API keys, and credentials.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "SECURITY",
+    "endpoint": null,
+    "input_schema": {
+      "target_path": "string"
+    },
+    "output_schema": {
+      "scanned_files": "int",
+      "leaks_found": "int",
+      "findings": "list",
+      "status": "string"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "security",
+      "audit"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "security.policy_evaluator": {
+    "tool_id": "security.policy_evaluator",
+    "name": "NEXUS Policy Rule Evaluator",
+    "description": "Evaluates operational actions against 10 immutable safety rules.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "SECURITY",
+    "endpoint": null,
+    "input_schema": {
+      "action": "string",
+      "target": "optional(string)"
+    },
+    "output_schema": {
+      "risk_level": "string",
+      "requires_approval": "bool",
+      "description": "string"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "security",
+      "policy"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "notify.termux_sms": {
+    "tool_id": "notify.termux_sms",
+    "name": "Termux Notification & SMS Dispatcher",
+    "description": "Dispatches mobile notifications or heartbeats to operator's Termux node.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "COMMUNICATION",
+    "endpoint": null,
+    "input_schema": {
+      "title": "string",
+      "content": "string",
+      "priority": "optional(string)"
+    },
+    "output_schema": {
+      "status": "string",
+      "delivered_at": "string",
+      "node": "string"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "notification",
+      "mobile"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "notify.webhook_dispatch": {
+    "tool_id": "notify.webhook_dispatch",
+    "name": "Generic Webhook Dispatcher",
+    "description": "Posts JSON alert payloads to configured external webhooks with HMAC signing.",
+    "protocol": "WEBHOOK",
+    "category": "COMMUNICATION",
+    "endpoint": null,
+    "input_schema": {
+      "url": "string",
+      "payload": "dict",
+      "secret": "optional(string)"
+    },
+    "output_schema": {
+      "status_code": "int",
+      "response_snippet": "string"
+    },
+    "risk_level": "MEDIUM",
+    "requires_approval": false,
+    "required_capabilities": [
+      "notification",
+      "webhook"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "web.http_request": {
+    "tool_id": "web.http_request",
+    "name": "Safe HTTP API Client",
+    "description": "Performs HTTP GET/POST requests to allowed REST APIs and inspects responses.",
+    "protocol": "REST_API",
+    "category": "WEB_BROWSER",
+    "endpoint": null,
+    "input_schema": {
+      "url": "string",
+      "method": "optional(string)",
+      "headers": "optional(dict)",
+      "body": "optional(dict)"
+    },
+    "output_schema": {
+      "status_code": "int",
+      "headers": "dict",
+      "data": "any",
+      "duration_ms": "float"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "web",
+      "http"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "web.html_to_markdown": {
+    "tool_id": "web.html_to_markdown",
+    "name": "Web Content Markdown Extractor",
+    "description": "Fetches web page content and strips boilerplate into clean readable markdown.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "WEB_BROWSER",
+    "endpoint": null,
+    "input_schema": {
+      "url": "string",
+      "max_length": "optional(int)"
+    },
+    "output_schema": {
+      "url": "string",
+      "title": "string",
+      "markdown": "string"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "web",
+      "scraper"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "system.diagnostics": {
+    "tool_id": "system.diagnostics",
+    "name": "System Hardware & Resource Profiler",
+    "description": "Inspects CPU, RAM, Disk usage, and host environment telemetry.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "SYSTEM_OS",
+    "endpoint": null,
+    "input_schema": {},
+    "output_schema": {
+      "cpu_percent": "float",
+      "ram_used_gb": "float",
+      "disk_free_gb": "float",
+      "uptime": "string"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "system",
+      "monitoring"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  },
+  "system.port_scan": {
+    "tool_id": "system.port_scan",
+    "name": "Local Port & Service Listener",
+    "description": "Checks local open ports and running socket listeners.",
+    "protocol": "NATIVE_PYTHON",
+    "category": "SYSTEM_OS",
+    "endpoint": null,
+    "input_schema": {
+      "ports": "optional(list)"
+    },
+    "output_schema": {
+      "open_ports": "list",
+      "host": "string"
+    },
+    "risk_level": "LOW",
+    "requires_approval": false,
+    "required_capabilities": [
+      "system",
+      "network"
+    ],
+    "allowed_agents": [
+      "*"
+    ],
+    "timeout": 30,
+    "write_capability": false,
+    "enabled": true,
+    "health_status": "HEALTHY",
+    "invocation_count": 0,
+    "total_duration_ms": 0.0,
+    "last_invoked": null,
+    "metadata": {}
+  }
+}

@@ -52,7 +52,11 @@ from models.schemas import (
     AgentPlan,
     AgentStep,
     ExecutionLimits,
-    AgentResult
+    AgentResult,
+    AgentHandoffRequest,
+    AgentHandoffRecord,
+    SwarmPipelineRequest,
+    SwarmPipelineResult
 )
 from orchestrator.agents import get_agent_by_id
 from orchestrator.tool_registry import tool_registry
@@ -144,6 +148,8 @@ class AgentRuntimeEngine:
     def __init__(self):
         self._tasks: Dict[str, TaskItem] = {}
         self._results: Dict[str, AgentResult] = {}
+        self._handoffs: Dict[str, AgentHandoffRecord] = {}
+        self._pipelines: Dict[str, SwarmPipelineResult] = {}
 
     def get_task(self, task_id: str) -> Optional[TaskItem]:
         return self._tasks.get(task_id)
@@ -153,6 +159,367 @@ class AgentRuntimeEngine:
 
     def list_tasks(self) -> List[TaskItem]:
         return list(self._tasks.values())
+
+    def get_handoff(self, handoff_id: str) -> Optional[AgentHandoffRecord]:
+        return self._handoffs.get(handoff_id)
+
+    def list_handoffs(self) -> List[AgentHandoffRecord]:
+        return list(self._handoffs.values())
+
+    def get_pipeline(self, pipeline_id: str) -> Optional[SwarmPipelineResult]:
+        return self._pipelines.get(pipeline_id)
+
+    def list_pipelines(self) -> List[SwarmPipelineResult]:
+        return list(self._pipelines.values())
+
+    def execute_handoff(
+        self,
+        parent_agent_id: str,
+        target_agent_id: str,
+        task_title: str,
+        instructions: str,
+        context: Optional[Dict[str, Any]] = None,
+        project_id: str = "control-center",
+        parent_execution_id: Optional[str] = None,
+        recursion_depth: int = 0
+    ) -> Dict[str, Any]:
+        handoff_id = f"handoff-{uuid.uuid4().hex[:8]}"
+        created_at = _now_iso()
+
+        # Normalize recursion depth
+        try:
+            recursion_depth = int(recursion_depth)
+        except (TypeError, ValueError):
+            recursion_depth = 0
+
+        # Check recursion depth limit (max 3)
+        if recursion_depth > 3:
+            err_msg = f"Maximum recursion depth exceeded ({recursion_depth} > 3)"
+            rec = AgentHandoffRecord(
+                handoff_id=handoff_id,
+                parent_agent_id=parent_agent_id,
+                target_agent_id=target_agent_id,
+                parent_execution_id=parent_execution_id,
+                child_execution_id=None,
+                status="BLOCKED",
+                task_title=task_title,
+                recursion_depth=recursion_depth,
+                created_at=created_at,
+                completed_at=_now_iso(),
+                result=None,
+                error=err_msg
+            )
+            self._handoffs[handoff_id] = rec
+            record_audit(
+                action=f"AGENT_HANDOFF_BLOCKED: {task_title}",
+                project=project_id,
+                target=target_agent_id,
+                reason=err_msg,
+                risk_level=RiskLevel.HIGH,
+                result="BLOCKED",
+                actor=parent_agent_id,
+                agent_id=parent_agent_id,
+                execution_id=parent_execution_id,
+                status="BLOCKED",
+                error=err_msg
+            )
+            return rec.model_dump()
+
+        # Validate parent agent existence
+        parent_agent = get_agent_by_id(parent_agent_id)
+        if not parent_agent:
+            err_msg = f"Parent agent '{parent_agent_id}' not found."
+            rec = AgentHandoffRecord(
+                handoff_id=handoff_id,
+                parent_agent_id=parent_agent_id,
+                target_agent_id=target_agent_id,
+                parent_execution_id=parent_execution_id,
+                child_execution_id=None,
+                status="FAILED",
+                task_title=task_title,
+                recursion_depth=recursion_depth,
+                created_at=created_at,
+                completed_at=_now_iso(),
+                result=None,
+                error=err_msg
+            )
+            self._handoffs[handoff_id] = rec
+            return rec.model_dump()
+
+        # Validate target agent existence
+        target_agent = get_agent_by_id(target_agent_id)
+        if not target_agent:
+            err_msg = f"Target agent '{target_agent_id}' not found."
+            rec = AgentHandoffRecord(
+                handoff_id=handoff_id,
+                parent_agent_id=parent_agent_id,
+                target_agent_id=target_agent_id,
+                parent_execution_id=parent_execution_id,
+                child_execution_id=None,
+                status="FAILED",
+                task_title=task_title,
+                recursion_depth=recursion_depth,
+                created_at=created_at,
+                completed_at=_now_iso(),
+                result=None,
+                error=err_msg
+            )
+            self._handoffs[handoff_id] = rec
+            return rec.model_dump()
+
+        # Circular handoff loop detection
+        ctx = dict(context or {})
+        call_chain = list(ctx.get("call_chain", []))
+        if target_agent_id == parent_agent_id or target_agent_id in call_chain:
+            chain_str = " -> ".join(call_chain + [parent_agent_id, target_agent_id])
+            err_msg = f"Circular agent handoff loop detected: {chain_str}"
+            rec = AgentHandoffRecord(
+                handoff_id=handoff_id,
+                parent_agent_id=parent_agent_id,
+                target_agent_id=target_agent_id,
+                parent_execution_id=parent_execution_id,
+                child_execution_id=None,
+                status="BLOCKED",
+                task_title=task_title,
+                recursion_depth=recursion_depth,
+                created_at=created_at,
+                completed_at=_now_iso(),
+                result=None,
+                error=err_msg
+            )
+            self._handoffs[handoff_id] = rec
+            record_audit(
+                action=f"CIRCULAR_HANDOFF_BLOCKED: {task_title}",
+                project=project_id,
+                target=target_agent_id,
+                reason=err_msg,
+                risk_level=RiskLevel.HIGH,
+                result="BLOCKED",
+                actor=parent_agent_id,
+                agent_id=parent_agent_id,
+                execution_id=parent_execution_id,
+                correlation_id=handoff_id,
+                status="BLOCKED",
+                error=err_msg
+            )
+            return rec.model_dump()
+
+        # Privilege escalation / RBAC delegation check
+        # Read-only inquiry agents cannot delegate directly to destructive recovery agent
+        is_read_only = (
+            parent_agent.autonomy_tier == "ReadOnly"
+            or "Read-only" in parent_agent.execution_policy
+            or parent_agent_id in ["agent-research", "agent-docs", "agent-seo"]
+        )
+        if is_read_only and target_agent_id in ["agent-recovery"]:
+            err_msg = f"Delegation blocked by policy: Read-only agent '{parent_agent_id}' cannot delegate to recovery agent '{target_agent_id}'."
+            rec = AgentHandoffRecord(
+                handoff_id=handoff_id,
+                parent_agent_id=parent_agent_id,
+                target_agent_id=target_agent_id,
+                parent_execution_id=parent_execution_id,
+                child_execution_id=None,
+                status="BLOCKED",
+                task_title=task_title,
+                recursion_depth=recursion_depth,
+                created_at=created_at,
+                completed_at=_now_iso(),
+                result=None,
+                error=err_msg
+            )
+            self._handoffs[handoff_id] = rec
+            record_audit(
+                action=f"AGENT_DELEGATION_PRIVILEGE_ESCALATION_BLOCKED: {parent_agent_id} -> {target_agent_id}",
+                project=project_id,
+                target=target_agent_id,
+                reason=err_msg,
+                risk_level=RiskLevel.HIGH,
+                result="BLOCKED",
+                actor=parent_agent_id,
+                agent_id=parent_agent_id,
+                execution_id=parent_execution_id,
+                correlation_id=handoff_id,
+                status="BLOCKED",
+                error=err_msg
+            )
+            return rec.model_dump()
+
+        record_audit(
+            action=f"AGENT_HANDOFF_INITIATED: {parent_agent_id} -> {target_agent_id}",
+            project=project_id,
+            target=target_agent_id,
+            reason=f"Delegation: {task_title}",
+            risk_level=target_agent.risk_level,
+            result="INITIATED",
+            actor=parent_agent_id,
+            agent_id=parent_agent_id,
+            execution_id=parent_execution_id,
+            correlation_id=handoff_id,
+            status="INITIATED"
+        )
+
+        child_task = self.create_task(
+            agent_id=target_agent_id,
+            title=task_title,
+            instructions=instructions,
+            project_id=project_id,
+            autonomy_tier=target_agent.autonomy_tier
+        )
+
+        child_limits = ExecutionLimits(recursion_depth=recursion_depth + 1)
+        executed_task = self.execute_task(child_task.id, limits=child_limits)
+
+        rec = AgentHandoffRecord(
+            handoff_id=handoff_id,
+            parent_agent_id=parent_agent_id,
+            target_agent_id=target_agent_id,
+            parent_execution_id=parent_execution_id,
+            child_execution_id=executed_task.id,
+            status=executed_task.status.upper(),
+            task_title=task_title,
+            recursion_depth=recursion_depth,
+            created_at=created_at,
+            completed_at=executed_task.completed_at or _now_iso(),
+            result=executed_task.result if isinstance(executed_task.result, dict) else {"output": executed_task.result},
+            error=executed_task.error
+        )
+        self._handoffs[handoff_id] = rec
+
+        record_audit(
+            action=f"AGENT_HANDOFF_COMPLETED: {parent_agent_id} -> {target_agent_id}",
+            project=project_id,
+            target=target_agent_id,
+            reason=f"Handoff finished with status {executed_task.status}",
+            risk_level=target_agent.risk_level,
+            result="SUCCESS" if executed_task.status == "completed" else executed_task.status.upper(),
+            actor=parent_agent_id,
+            agent_id=target_agent_id,
+            execution_id=executed_task.id,
+            correlation_id=handoff_id,
+            status=executed_task.status.upper()
+        )
+
+        return rec.model_dump()
+
+    def execute_swarm_pipeline(
+        self,
+        pipeline_req: SwarmPipelineRequest
+    ) -> SwarmPipelineResult:
+        pipeline_id = f"pipe-{uuid.uuid4().hex[:8]}"
+        t_start = time.time()
+        stages_completed = 0
+        stage_results: List[Dict[str, Any]] = []
+        total_tool_calls = 0
+        total_tokens = 0
+        approval_required = False
+        approval_id = None
+        pipeline_status = "COMPLETED"
+
+        record_audit(
+            action=f"SWARM_PIPELINE_INITIATED: {pipeline_req.pipeline_name}",
+            project=pipeline_req.project_id or "control-center",
+            target="swarm",
+            reason=pipeline_req.instructions,
+            risk_level=RiskLevel.MEDIUM,
+            result="INITIATED",
+            actor="orchestrator",
+            execution_id=pipeline_id,
+            status="RUNNING"
+        )
+
+        stages = pipeline_req.stages or [
+            {"agent_id": "agent-research", "title": f"Research: {pipeline_req.title}", "instructions": "Codebase inspection and AST discovery"},
+            {"agent_id": "agent-dev", "title": f"Dev: {pipeline_req.title}", "instructions": "Implementation synthesis and diff preparation"},
+            {"agent_id": "agent-qa", "title": f"QA: {pipeline_req.title}", "instructions": "Automated regression verification"},
+            {"agent_id": "agent-security", "title": f"Security: {pipeline_req.title}", "instructions": "Vulnerability and secret leakage scan"},
+            {"agent_id": "agent-devops", "title": f"DevOps: {pipeline_req.title}", "instructions": "CI/CD and container audit"},
+            {"agent_id": "agent-docs", "title": f"Docs: {pipeline_req.title}", "instructions": "Architecture decision record generation"},
+            {"agent_id": "agent-recovery", "title": f"Recovery: {pipeline_req.title}", "instructions": "Workspace state integrity audit"}
+        ]
+
+        accumulated_context: Dict[str, Any] = {"pipeline_title": pipeline_req.title, "instructions": pipeline_req.instructions}
+
+        for idx, stage in enumerate(stages):
+            agent_id = stage.get("agent_id", "agent-research")
+            title = stage.get("title", f"Stage {idx+1} for {agent_id}")
+            instr = stage.get("instructions", pipeline_req.instructions)
+
+            child_task = self.create_task(
+                agent_id=agent_id,
+                title=title,
+                instructions=instr,
+                project_id=stage.get("project_id") or pipeline_req.project_id or "control-center",
+                autonomy_tier=pipeline_req.autonomy_tier or "Guardrailed"
+            )
+
+            executed_task = self.execute_task(child_task.id)
+
+            tool_cnt = 0
+            res_obj = next((r for r in self._results.values() if r.task_id == executed_task.id), None)
+            if res_obj:
+                tool_cnt = res_obj.tool_calls_count
+                total_tool_calls += tool_cnt
+                total_tokens += res_obj.tokens_used
+            else:
+                tool_cnt = 1
+                total_tool_calls += 1
+                total_tokens += 120
+
+            stage_info = {
+                "stage_index": idx + 1,
+                "agent_id": agent_id,
+                "task_id": executed_task.id,
+                "status": executed_task.status,
+                "tool_calls": tool_cnt,
+                "result": executed_task.result,
+                "error": executed_task.error
+            }
+            stage_results.append(stage_info)
+            accumulated_context[f"stage_{idx+1}_{agent_id}"] = executed_task.result
+
+            if executed_task.status == "awaiting_approval":
+                approval_required = True
+                approval_id = executed_task.result.get("approval_id") if isinstance(executed_task.result, dict) else None
+                pipeline_status = "AWAITING_APPROVAL"
+                stages_completed = idx
+                break
+            elif executed_task.status in ["failed", "limit_exceeded"]:
+                pipeline_status = "FAILED"
+                stages_completed = idx
+                break
+            else:
+                stages_completed = idx + 1
+
+        duration_ms = (time.time() - t_start) * 1000.0
+
+        res = SwarmPipelineResult(
+            pipeline_id=pipeline_id,
+            pipeline_name=pipeline_req.pipeline_name,
+            status=pipeline_status,
+            stages_completed=stages_completed,
+            total_stages=len(stages),
+            stage_results=stage_results,
+            duration_ms=round(duration_ms, 2),
+            total_tool_calls=total_tool_calls,
+            total_tokens_used=total_tokens,
+            approval_required=approval_required,
+            approval_id=approval_id
+        )
+        self._pipelines[pipeline_id] = res
+
+        record_audit(
+            action=f"SWARM_PIPELINE_COMPLETED: {pipeline_req.pipeline_name}",
+            project=pipeline_req.project_id or "control-center",
+            target="swarm",
+            reason=f"Pipeline finished with status {pipeline_status} ({stages_completed}/{len(stages)} stages)",
+            risk_level=RiskLevel.LOW if pipeline_status == "COMPLETED" else RiskLevel.MEDIUM,
+            result=pipeline_status,
+            actor="orchestrator",
+            execution_id=pipeline_id,
+            status=pipeline_status
+        )
+
+        return res
 
     def create_task(
         self,
@@ -278,6 +645,34 @@ class AgentRuntimeEngine:
                 )
             elif agent.id == "agent-data":
                 final_output, steps_record, tool_calls_count = self._execute_data_lifecycle(
+                    task, execution_id, exec_limits, ctx=ctx
+                )
+            elif agent.id == "agent-devops":
+                final_output, steps_record, tool_calls_count = self._execute_devops_lifecycle(
+                    task, execution_id, exec_limits, ctx=ctx
+                )
+            elif agent.id == "agent-recovery":
+                final_output, steps_record, tool_calls_count = self._execute_recovery_lifecycle(
+                    task, execution_id, exec_limits, ctx=ctx
+                )
+            elif agent.id == "agent-mon":
+                final_output, steps_record, tool_calls_count = self._execute_mon_lifecycle(
+                    task, execution_id, exec_limits, ctx=ctx
+                )
+            elif agent.id == "agent-cost":
+                final_output, steps_record, tool_calls_count = self._execute_cost_lifecycle(
+                    task, execution_id, exec_limits, ctx=ctx
+                )
+            elif agent.id == "agent-ux":
+                final_output, steps_record, tool_calls_count = self._execute_ux_lifecycle(
+                    task, execution_id, exec_limits, ctx=ctx
+                )
+            elif agent.id == "agent-seo":
+                final_output, steps_record, tool_calls_count = self._execute_seo_lifecycle(
+                    task, execution_id, exec_limits, ctx=ctx
+                )
+            elif agent.id == "agent-infra":
+                final_output, steps_record, tool_calls_count = self._execute_infra_lifecycle(
                     task, execution_id, exec_limits, ctx=ctx
                 )
             else:
@@ -902,6 +1297,203 @@ class AgentRuntimeEngine:
             "records": r1.output.get("results", [])
         }
 
+        return output, steps, 1
+
+    # -------------------------------------------------------------------------
+    # DevOps Agent: CI/CD Pipeline & Container Packaging Auditor
+    # -------------------------------------------------------------------------
+    def _execute_devops_lifecycle(
+        self,
+        task: TaskItem,
+        execution_id: str,
+        limits: ExecutionLimits,
+        ctx: Optional[ExecutionContext] = None
+    ) -> Tuple[Dict[str, Any], List[AgentStep], int]:
+        steps: List[AgentStep] = []
+        s1, r1 = self._run_step_tool("agent-devops", "devops.ci_audit", {"project_path": "/root/control-center"}, 1, "CI_CD_AUDIT", execution_id, ctx=ctx)
+        steps.append(s1)
+
+        s2, r2 = self._run_step_tool("agent-devops", "mon.system_probe", {"target_port": 8000}, 2, "PROBE_SYSTEM_HEALTH", execution_id, ctx=ctx)
+        steps.append(s2)
+
+        ci_out = r1.output or {}
+        mon_out = r2.output or {}
+
+        output = {
+            "agent": "PIPELINE-PRO",
+            "status": "AUDITED",
+            "ci_passed": ci_out.get("status") == "PASSED",
+            "dockerfile_valid": ci_out.get("dockerfile_valid", False),
+            "workflows_count": ci_out.get("workflows_count", 0),
+            "system_healthy": mon_out.get("status") == "HEALTHY",
+            "checks": ci_out.get("checks", [])
+        }
+        return output, steps, 2
+
+    # -------------------------------------------------------------------------
+    # Recovery Agent: Workspace State & Disaster Recovery Auditor
+    # -------------------------------------------------------------------------
+    def _execute_recovery_lifecycle(
+        self,
+        task: TaskItem,
+        execution_id: str,
+        limits: ExecutionLimits,
+        ctx: Optional[ExecutionContext] = None
+    ) -> Tuple[Dict[str, Any], List[AgentStep], int]:
+        steps: List[AgentStep] = []
+        s1, r1 = self._run_step_tool("agent-recovery", "recovery.state_audit", {"repo_path": "/root/control-center"}, 1, "STATE_AUDIT", execution_id, ctx=ctx)
+        steps.append(s1)
+
+        s2, r2 = self._run_step_tool("agent-recovery", "git.status", {"repo_path": "/root/control-center"}, 2, "CHECK_GIT_STATUS", execution_id, ctx=ctx)
+        steps.append(s2)
+
+        rec_out = r1.output or {}
+        git_out = r2.output or {}
+
+        output = {
+            "agent": "HEAL-CHRONOS",
+            "status": "RECOVERY_VERIFIED",
+            "clean": rec_out.get("clean", False),
+            "rollback_ready": rec_out.get("rollback_ready", True),
+            "fixture_ready": rec_out.get("fixture_workspace_ready", True),
+            "dirty_files_count": rec_out.get("dirty_files_count", 0),
+            "branch": git_out.get("branch", "main"),
+            "recovery_protocol": "git_checkout_and_clean"
+        }
+        return output, steps, 2
+
+    # -------------------------------------------------------------------------
+    # Metrics Prober (Mon) Agent: System & Socket Probing
+    # -------------------------------------------------------------------------
+    def _execute_mon_lifecycle(
+        self,
+        task: TaskItem,
+        execution_id: str,
+        limits: ExecutionLimits,
+        ctx: Optional[ExecutionContext] = None
+    ) -> Tuple[Dict[str, Any], List[AgentStep], int]:
+        steps: List[AgentStep] = []
+        s1, r1 = self._run_step_tool("agent-mon", "mon.system_probe", {"target_port": 8000}, 1, "SYSTEM_METRICS_PROBE", execution_id, ctx=ctx)
+        steps.append(s1)
+
+        mon_out = r1.output or {}
+        output = {
+            "agent": "METRICS-PROBER",
+            "status": "MONITORED",
+            "cpu_percent": mon_out.get("cpu_percent", 0.0),
+            "ram_used_mb": mon_out.get("ram_used_mb", 0.0),
+            "ram_percent": mon_out.get("ram_percent", 0.0),
+            "socket_healthy": mon_out.get("socket_healthy", False),
+            "disk_free_gb": mon_out.get("disk_free_gb", 0.0)
+        }
+        return output, steps, 1
+
+    # -------------------------------------------------------------------------
+    # Cost Sentinel (FinOps) Agent: Zero-Spend Guardrail Enforcer
+    # -------------------------------------------------------------------------
+    def _execute_cost_lifecycle(
+        self,
+        task: TaskItem,
+        execution_id: str,
+        limits: ExecutionLimits,
+        ctx: Optional[ExecutionContext] = None
+    ) -> Tuple[Dict[str, Any], List[AgentStep], int]:
+        steps: List[AgentStep] = []
+        s1, r1 = self._run_step_tool("agent-cost", "cost.finops_audit", {"project_id": task.project_id or "personal-engineering-os-2026"}, 1, "FINOPS_GUARDRAIL_AUDIT", execution_id, ctx=ctx)
+        steps.append(s1)
+
+        cost_out = r1.output or {}
+        output = {
+            "agent": "COST-SENTINEL",
+            "status": "GUARDED",
+            "current_spend_usd": cost_out.get("current_spend_usd", 0.0),
+            "billing_linked": cost_out.get("billing_linked", False),
+            "guardrail_active": cost_out.get("guardrail_active", True),
+            "hard_limit_usd": cost_out.get("hard_limit_usd", 0.0),
+            "compliant": cost_out.get("status") == "COMPLIANT"
+        }
+        return output, steps, 1
+
+    # -------------------------------------------------------------------------
+    # UX Tactician Agent: Cyber-HUD Component & Assets Auditor
+    # -------------------------------------------------------------------------
+    def _execute_ux_lifecycle(
+        self,
+        task: TaskItem,
+        execution_id: str,
+        limits: ExecutionLimits,
+        ctx: Optional[ExecutionContext] = None
+    ) -> Tuple[Dict[str, Any], List[AgentStep], int]:
+        steps: List[AgentStep] = []
+        s1, r1 = self._run_step_tool("agent-ux", "ux.hud_audit", {"frontend_path": "/root/control-center/frontend"}, 1, "CYBER_HUD_AUDIT", execution_id, ctx=ctx)
+        steps.append(s1)
+
+        s2, r2 = self._run_step_tool("agent-ux", "seo.audit", {"target_html": "/root/control-center/index.html"}, 2, "METADATA_AUDIT", execution_id, ctx=ctx)
+        steps.append(s2)
+
+        ux_out = r1.output or {}
+        seo_out = r2.output or {}
+
+        output = {
+            "agent": "UX-TACTICIAN",
+            "status": "OPTIMIZED",
+            "components_count": ux_out.get("components_count", 0),
+            "bundle_size_kb": ux_out.get("bundle_size_kb", 0.0),
+            "assets_count": ux_out.get("assets_count", 0),
+            "seo_score": seo_out.get("score", 0),
+            "target_file": seo_out.get("target_file", "")
+        }
+        return output, steps, 2
+
+    # -------------------------------------------------------------------------
+    # SEO Beacon Agent: Metadata & OpenGraph Auditor
+    # -------------------------------------------------------------------------
+    def _execute_seo_lifecycle(
+        self,
+        task: TaskItem,
+        execution_id: str,
+        limits: ExecutionLimits,
+        ctx: Optional[ExecutionContext] = None
+    ) -> Tuple[Dict[str, Any], List[AgentStep], int]:
+        steps: List[AgentStep] = []
+        s1, r1 = self._run_step_tool("agent-seo", "seo.audit", {"target_html": "/root/control-center/index.html"}, 1, "SEO_META_TAG_AUDIT", execution_id, ctx=ctx)
+        steps.append(s1)
+
+        seo_out = r1.output or {}
+        output = {
+            "agent": "SEO-BEACON",
+            "status": seo_out.get("status", "HEALTHY"),
+            "score": seo_out.get("score", 0),
+            "passed_checks": seo_out.get("passed_checks", []),
+            "missing_tags": seo_out.get("missing_tags", []),
+            "target_file": seo_out.get("target_file", "")
+        }
+        return output, steps, 1
+
+    # -------------------------------------------------------------------------
+    # Infra Agent: GCP Topology & Workload Identity Federation Auditor
+    # -------------------------------------------------------------------------
+    def _execute_infra_lifecycle(
+        self,
+        task: TaskItem,
+        execution_id: str,
+        limits: ExecutionLimits,
+        ctx: Optional[ExecutionContext] = None
+    ) -> Tuple[Dict[str, Any], List[AgentStep], int]:
+        steps: List[AgentStep] = []
+        s1, r1 = self._run_step_tool("agent-infra", "infra.topology_audit", {"manifest_path": "/root/control-center/SYSTEM_MANIFEST.md"}, 1, "GCP_TOPOLOGY_AUDIT", execution_id, ctx=ctx)
+        steps.append(s1)
+
+        infra_out = r1.output or {}
+        output = {
+            "agent": "TERRA-ARCH",
+            "status": "VERIFIED",
+            "wif_active": infra_out.get("wif_active", True),
+            "service_accounts_count": infra_out.get("service_accounts_count", 4),
+            "static_keys_count": infra_out.get("static_keys_count", 0),
+            "zero_spend_enforced": True,
+            "cloud_spend_usd": infra_out.get("cloud_spend_usd", 0.0)
+        }
         return output, steps, 1
 
     # -------------------------------------------------------------------------

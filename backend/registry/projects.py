@@ -1,7 +1,7 @@
 import json
 import os
 import subprocess
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Optional, Dict, Any
 from core.config import config
 from models.schemas import ProjectRegistryItem, ProjectStatus, RiskLevel
@@ -90,7 +90,7 @@ def audit_project(project_id: str) -> Dict[str, Any]:
     audit_res = {
         "project_id": project_id,
         "name": project.name,
-        "timestamp": datetime.utcnow().isoformat() + "Z",
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "checks": []
     }
 

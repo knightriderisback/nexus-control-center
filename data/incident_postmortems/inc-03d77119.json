@@ -1,0 +1,30 @@
+{
+  "incident_id": "inc-03d77119",
+  "title": "REST API Test Incident",
+  "category": "NETWORK_FAILURE",
+  "severity": "LOW",
+  "root_cause": "Automated RCA: NETWORK_FAILURE identified on rest-api-socket",
+  "diagnosis_evidence": {
+    "observed_facts": [
+      "Observed failure signal in category 'NETWORK_FAILURE'",
+      "Target resource impacted: 'rest-api-socket'",
+      "Severity classified as 'LOW'"
+    ],
+    "hypotheses": [
+      "Operational threshold exceeded based on real-time observer metrics."
+    ],
+    "evidence_sources": [
+      "system_watchdog",
+      "kernel_metrics",
+      "audit_log_stream"
+    ],
+    "confidence_score": 0.95,
+    "root_cause_candidate": "Automated RCA: NETWORK_FAILURE identified on rest-api-socket"
+  },
+  "playbook_applied": "Port Conflict Resolution & Sockets Reallocation",
+  "recovery_attempts": 1,
+  "mttr_seconds": 0.06,
+  "remediation_steps_count": 4,
+  "generated_at": "2026-09-18T10:00:50.067822+00:00",
+  "status": "RESOLVED_AUTOMATICALLY"
+}

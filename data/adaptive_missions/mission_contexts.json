@@ -1,0 +1,3404 @@
+{
+  "ctx-4ca746fa": {
+    "context_id": "ctx-4ca746fa",
+    "mission_id": "mis-pending-9c1db9",
+    "goal": "Refactor database pooling with zero cost",
+    "similar_missions": [],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-19d636e6",
+        "tier": "SEMANTIC",
+        "category": "PERFORMANCE",
+        "title": "Insight: Local AST Scan Speed Advantage",
+        "content": "Pattern: Deterministic local AST security sweeps execute in under 50ms with zero network overhead.\nRationale: AST parsing without external cloud lookups eliminates latency bottlenecks.\nRecommended Action: Default to local AST parsers for pre-commit / pre-merge gates.",
+        "tags": [
+          "secops",
+          "compiler",
+          "toolchain"
+        ],
+        "fingerprint": "238449c025181356",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 22,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T09:49:35.039091+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:01:07.634029+00:00",
+        "updated_at": "2026-09-18T09:52:26.604107+00:00",
+        "metadata": {
+          "insight_id": "ins-3d5429af"
+        }
+      },
+      {
+        "node_id": "ARCH-001",
+        "tier": "SEMANTIC",
+        "category": "ARCHITECTURE",
+        "title": "NEXUS Provider-Neutral Control API Pattern",
+        "content": "All control endpoints follow standard REST with bearer authentication, OpenAPI schemas, and strict async/sync timeouts.",
+        "tags": [
+          "architecture",
+          "api",
+          "fastapi",
+          "rest"
+        ],
+        "fingerprint": "aa1acfafa47a238f",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 15,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T09:49:35.038946+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:56:09.809674+00:00",
+        "updated_at": "2026-09-18T09:52:26.604525+00:00",
+        "metadata": {}
+      },
+      {
+        "node_id": "ARCH-004",
+        "tier": "PROCEDURAL",
+        "category": "SECURITY",
+        "title": "Zero-Leakage Secret Interception and 0600 Quarantine",
+        "content": "Compromised credentials trigger in-place regex redaction and isolation of offending files to data/secops/quarantine/ with POSIX 0600 mode.",
+        "tags": [
+          "security",
+          "secrets",
+          "quarantine",
+          "redaction"
+        ],
+        "fingerprint": "366cfcee82788570",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 6,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T09:49:35.039023+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:56:09.810661+00:00",
+        "updated_at": "2026-09-18T09:52:26.604630+00:00",
+        "metadata": {}
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-d76521",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T09:52:26.698644+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 3000,
+    "created_at": "2026-09-18T09:52:26.698749+00:00"
+  },
+  "ctx-bdfa360c": {
+    "context_id": "ctx-bdfa360c",
+    "mission_id": "mis-pending-844968",
+    "goal": "Refactor database pooling with zero cost",
+    "similar_missions": [],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-19d636e6",
+        "tier": "SEMANTIC",
+        "category": "PERFORMANCE",
+        "title": "Insight: Local AST Scan Speed Advantage",
+        "content": "Pattern: Deterministic local AST security sweeps execute in under 50ms with zero network overhead.\nRationale: AST parsing without external cloud lookups eliminates latency bottlenecks.\nRecommended Action: Default to local AST parsers for pre-commit / pre-merge gates.",
+        "tags": [
+          "secops",
+          "compiler",
+          "toolchain"
+        ],
+        "fingerprint": "238449c025181356",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 25,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T09:49:35.039091+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:01:07.634029+00:00",
+        "updated_at": "2026-09-18T09:54:58.890865+00:00",
+        "metadata": {
+          "insight_id": "ins-3d5429af"
+        }
+      },
+      {
+        "node_id": "ARCH-001",
+        "tier": "SEMANTIC",
+        "category": "ARCHITECTURE",
+        "title": "NEXUS Provider-Neutral Control API Pattern",
+        "content": "All control endpoints follow standard REST with bearer authentication, OpenAPI schemas, and strict async/sync timeouts.",
+        "tags": [
+          "architecture",
+          "api",
+          "fastapi",
+          "rest"
+        ],
+        "fingerprint": "aa1acfafa47a238f",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 18,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T09:49:35.038946+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:56:09.809674+00:00",
+        "updated_at": "2026-09-18T09:54:58.890973+00:00",
+        "metadata": {}
+      },
+      {
+        "node_id": "ARCH-004",
+        "tier": "PROCEDURAL",
+        "category": "SECURITY",
+        "title": "Zero-Leakage Secret Interception and 0600 Quarantine",
+        "content": "Compromised credentials trigger in-place regex redaction and isolation of offending files to data/secops/quarantine/ with POSIX 0600 mode.",
+        "tags": [
+          "security",
+          "secrets",
+          "quarantine",
+          "redaction"
+        ],
+        "fingerprint": "366cfcee82788570",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 7,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T09:49:35.039023+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:56:09.810661+00:00",
+        "updated_at": "2026-09-18T09:54:58.890998+00:00",
+        "metadata": {}
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-b3df0f",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T09:54:58.985872+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 3000,
+    "created_at": "2026-09-18T09:54:58.985951+00:00"
+  },
+  "ctx-fb7267e1": {
+    "context_id": "ctx-fb7267e1",
+    "mission_id": "mis-adapt-f411697d",
+    "goal": "Synthesize full plan through API",
+    "similar_missions": [
+      {
+        "mission_id": "mis-adapt-33db7a27",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "full",
+          "through",
+          "plan",
+          "synthesize"
+        ],
+        "reusable_patterns": []
+      },
+      {
+        "mission_id": "mis-adapt-3da85dde",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "FAILED",
+        "matching_factors": [
+          "full",
+          "through",
+          "plan",
+          "synthesize"
+        ],
+        "reusable_patterns": [
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification",
+          "Delivery & Knowledge Reconciliation"
+        ]
+      },
+      {
+        "mission_id": "mis-adapt-9a1faf8d",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "COMPLETED",
+        "matching_factors": [
+          "full",
+          "through",
+          "plan",
+          "synthesize"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification"
+        ]
+      }
+    ],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "ARCH-001",
+        "tier": "SEMANTIC",
+        "category": "ARCHITECTURE",
+        "title": "NEXUS Provider-Neutral Control API Pattern",
+        "content": "All control endpoints follow standard REST with bearer authentication, OpenAPI schemas, and strict async/sync timeouts.",
+        "tags": [
+          "architecture",
+          "api",
+          "fastapi",
+          "rest"
+        ],
+        "fingerprint": "aa1acfafa47a238f",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 19,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T09:49:35.038946+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:56:09.809674+00:00",
+        "updated_at": "2026-09-18T09:54:59.052210+00:00",
+        "metadata": {}
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-6ac187",
+        "mission_id": "pending",
+        "signal_type": "HISTORICAL_FAILURE_PRECEDENT",
+        "severity": "MEDIUM",
+        "evidence": [
+          "Prior mission mis-adapt-3da85dde with similar goal failed."
+        ],
+        "affected_components": [
+          "adaptive_execution"
+        ],
+        "recommendation": "Pre-compute resilient fallback branches in execution DAG.",
+        "detected_at": "2026-09-18T09:54:59.076514+00:00"
+      },
+      {
+        "signal_id": "sig-fd92ec",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T09:54:59.076575+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 4000,
+    "created_at": "2026-09-18T09:54:59.076640+00:00"
+  },
+  "ctx-419e9418": {
+    "context_id": "ctx-419e9418",
+    "mission_id": "mis-pending-f0a6ed",
+    "goal": "Refactor database pooling with zero cost",
+    "similar_missions": [],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-19d636e6",
+        "tier": "SEMANTIC",
+        "category": "PERFORMANCE",
+        "title": "Insight: Local AST Scan Speed Advantage",
+        "content": "Pattern: Deterministic local AST security sweeps execute in under 50ms with zero network overhead.\nRationale: AST parsing without external cloud lookups eliminates latency bottlenecks.\nRecommended Action: Default to local AST parsers for pre-commit / pre-merge gates.",
+        "tags": [
+          "secops",
+          "compiler",
+          "toolchain"
+        ],
+        "fingerprint": "238449c025181356",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 27,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T09:49:35.039091+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:01:07.634029+00:00",
+        "updated_at": "2026-09-18T09:56:36.970119+00:00",
+        "metadata": {
+          "insight_id": "ins-3d5429af"
+        }
+      },
+      {
+        "node_id": "kn-7b0d0bc9",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Fallback adaptation test",
+        "content": "Goal: Fallback adaptation test. Strategy: Wave schedule with 5 tasks. Provenance: 25fa2413c37b45c8",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "fae82919a3fb0243",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-23120eea",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 9,
+        "decay_factor": 1.0,
+        "revalidated_at": null,
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:26.445700+00:00",
+        "updated_at": "2026-09-18T09:56:36.970219+00:00",
+        "metadata": {
+          "adaptations": 1,
+          "feedback_id": "fb-920eb1ee"
+        }
+      },
+      {
+        "node_id": "kn-672009b5",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Telemetry authenticity check",
+        "content": "Goal: Telemetry authenticity check. Strategy: Wave schedule with 5 tasks. Provenance: 0b62332d691d9583",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "0e092439119c0084",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-169f5ab4",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 2,
+        "decay_factor": 1.0,
+        "revalidated_at": null,
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:35.389597+00:00",
+        "updated_at": "2026-09-18T09:56:36.970257+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-699627b5"
+        }
+      },
+      {
+        "node_id": "kn-00eb848b",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Happy path task execution",
+        "content": "Goal: Happy path task execution. Strategy: Wave schedule with 5 tasks. Provenance: 9e88e3e404556cb0",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "e55ef93baa2faa2c",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-de440f0f",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 6,
+        "decay_factor": 1.0,
+        "revalidated_at": null,
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:23.923224+00:00",
+        "updated_at": "2026-09-18T09:56:36.970291+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-aff3ff15"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-2d03f8",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T09:56:37.092735+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 3000,
+    "created_at": "2026-09-18T09:56:37.092871+00:00"
+  },
+  "ctx-f8c2771e": {
+    "context_id": "ctx-f8c2771e",
+    "mission_id": "mis-adapt-08757b62",
+    "goal": "Synthesize full plan through API",
+    "similar_missions": [
+      {
+        "mission_id": "mis-adapt-33db7a27",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "full",
+          "through",
+          "plan",
+          "synthesize"
+        ],
+        "reusable_patterns": []
+      },
+      {
+        "mission_id": "mis-adapt-3da85dde",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "FAILED",
+        "matching_factors": [
+          "full",
+          "through",
+          "plan",
+          "synthesize"
+        ],
+        "reusable_patterns": [
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification",
+          "Delivery & Knowledge Reconciliation"
+        ]
+      },
+      {
+        "mission_id": "mis-adapt-9a1faf8d",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "COMPLETED",
+        "matching_factors": [
+          "full",
+          "through",
+          "plan",
+          "synthesize"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification"
+        ]
+      }
+    ],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "ARCH-001",
+        "tier": "SEMANTIC",
+        "category": "ARCHITECTURE",
+        "title": "NEXUS Provider-Neutral Control API Pattern",
+        "content": "All control endpoints follow standard REST with bearer authentication, OpenAPI schemas, and strict async/sync timeouts.",
+        "tags": [
+          "architecture",
+          "api",
+          "fastapi",
+          "rest"
+        ],
+        "fingerprint": "aa1acfafa47a238f",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 22,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T09:49:35.038946+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:56:09.809674+00:00",
+        "updated_at": "2026-09-18T09:56:37.353483+00:00",
+        "metadata": {}
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-67d215",
+        "mission_id": "pending",
+        "signal_type": "HISTORICAL_FAILURE_PRECEDENT",
+        "severity": "MEDIUM",
+        "evidence": [
+          "Prior mission mis-adapt-3da85dde with similar goal failed."
+        ],
+        "affected_components": [
+          "adaptive_execution"
+        ],
+        "recommendation": "Pre-compute resilient fallback branches in execution DAG.",
+        "detected_at": "2026-09-18T09:56:37.485260+00:00"
+      },
+      {
+        "signal_id": "sig-7c1112",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T09:56:37.485342+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 4000,
+    "created_at": "2026-09-18T09:56:37.485417+00:00"
+  },
+  "ctx-e404622f": {
+    "context_id": "ctx-e404622f",
+    "mission_id": "mis-pending-0cfcfd",
+    "goal": "Refactor database pooling with zero cost",
+    "similar_missions": [],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-19d636e6",
+        "tier": "SEMANTIC",
+        "category": "PERFORMANCE",
+        "title": "Insight: Local AST Scan Speed Advantage",
+        "content": "Pattern: Deterministic local AST security sweeps execute in under 50ms with zero network overhead.\nRationale: AST parsing without external cloud lookups eliminates latency bottlenecks.\nRecommended Action: Default to local AST parsers for pre-commit / pre-merge gates.",
+        "tags": [
+          "secops",
+          "compiler",
+          "toolchain"
+        ],
+        "fingerprint": "238449c025181356",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 29,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T09:49:35.039091+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:01:07.634029+00:00",
+        "updated_at": "2026-09-18T09:57:47.357847+00:00",
+        "metadata": {
+          "insight_id": "ins-3d5429af"
+        }
+      },
+      {
+        "node_id": "kn-7b0d0bc9",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Fallback adaptation test",
+        "content": "Goal: Fallback adaptation test. Strategy: Wave schedule with 5 tasks. Provenance: 25fa2413c37b45c8",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "fae82919a3fb0243",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-23120eea",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 15,
+        "decay_factor": 1.0,
+        "revalidated_at": null,
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:26.445700+00:00",
+        "updated_at": "2026-09-18T09:57:47.357896+00:00",
+        "metadata": {
+          "adaptations": 1,
+          "feedback_id": "fb-920eb1ee"
+        }
+      },
+      {
+        "node_id": "kn-672009b5",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Telemetry authenticity check",
+        "content": "Goal: Telemetry authenticity check. Strategy: Wave schedule with 5 tasks. Provenance: 0b62332d691d9583",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "0e092439119c0084",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-169f5ab4",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 5,
+        "decay_factor": 1.0,
+        "revalidated_at": null,
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:35.389597+00:00",
+        "updated_at": "2026-09-18T09:57:47.357908+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-699627b5"
+        }
+      },
+      {
+        "node_id": "kn-9247fe71",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Fallback adaptation test",
+        "content": "Goal: Fallback adaptation test. Strategy: Wave schedule with 5 tasks. Provenance: 0f76e57631eee576",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "bfb5a6aef1ef2783",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-3ac04033",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 3,
+        "decay_factor": 1.0,
+        "revalidated_at": null,
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:57:32.495956+00:00",
+        "updated_at": "2026-09-18T09:57:47.357919+00:00",
+        "metadata": {
+          "adaptations": 1,
+          "feedback_id": "fb-6facadc0"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-2f6c1e",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T09:57:47.404639+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 3000,
+    "created_at": "2026-09-18T09:57:47.404755+00:00"
+  },
+  "ctx-3fd90d06": {
+    "context_id": "ctx-3fd90d06",
+    "mission_id": "mis-adapt-f177fcc8",
+    "goal": "Synthesize full plan through API",
+    "similar_missions": [
+      {
+        "mission_id": "mis-adapt-33db7a27",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "plan",
+          "full",
+          "synthesize",
+          "through"
+        ],
+        "reusable_patterns": []
+      },
+      {
+        "mission_id": "mis-adapt-3da85dde",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "FAILED",
+        "matching_factors": [
+          "plan",
+          "full",
+          "synthesize",
+          "through"
+        ],
+        "reusable_patterns": [
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification",
+          "Delivery & Knowledge Reconciliation"
+        ]
+      },
+      {
+        "mission_id": "mis-adapt-9a1faf8d",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "COMPLETED",
+        "matching_factors": [
+          "plan",
+          "full",
+          "synthesize",
+          "through"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification"
+        ]
+      }
+    ],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-cbc9f608",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 82512ad227ff2f78",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "0f5c63a0ab2cf6b1",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-08757b62",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 2,
+        "decay_factor": 1.0,
+        "revalidated_at": null,
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:39.954628+00:00",
+        "updated_at": "2026-09-18T09:57:47.577974+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-b5a9a6f9"
+        }
+      },
+      {
+        "node_id": "kn-58522c2a",
+        "tier": "SEMANTIC",
+        "category": "OPERATIONAL",
+        "title": "Insight: Execution Learning: Synthesize full plan through API",
+        "content": "Pattern: Mission mis-adapt-08757b62 (Synthesize full plan through API) completed with 0 in-flight adaptations.\nRationale: Closed-loop telemetry captured from real mission execution cycle.\nRecommended Action: Reuse successful wave scheduling and fallback structures in future similar goals.",
+        "tags": [
+          "mission_intelligence",
+          "adaptive_execution"
+        ],
+        "fingerprint": "aacdf744c57377c1",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 2,
+        "decay_factor": 1.0,
+        "revalidated_at": null,
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:39.793598+00:00",
+        "updated_at": "2026-09-18T09:57:47.578008+00:00",
+        "metadata": {
+          "insight_id": "ins-7e736980"
+        }
+      },
+      {
+        "node_id": "ARCH-001",
+        "tier": "SEMANTIC",
+        "category": "ARCHITECTURE",
+        "title": "NEXUS Provider-Neutral Control API Pattern",
+        "content": "All control endpoints follow standard REST with bearer authentication, OpenAPI schemas, and strict async/sync timeouts.",
+        "tags": [
+          "architecture",
+          "api",
+          "fastapi",
+          "rest"
+        ],
+        "fingerprint": "aa1acfafa47a238f",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 25,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T09:49:35.038946+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:56:09.809674+00:00",
+        "updated_at": "2026-09-18T09:57:47.578017+00:00",
+        "metadata": {}
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-e5b93f",
+        "mission_id": "pending",
+        "signal_type": "HISTORICAL_FAILURE_PRECEDENT",
+        "severity": "MEDIUM",
+        "evidence": [
+          "Prior mission mis-adapt-3da85dde with similar goal failed."
+        ],
+        "affected_components": [
+          "adaptive_execution"
+        ],
+        "recommendation": "Pre-compute resilient fallback branches in execution DAG.",
+        "detected_at": "2026-09-18T09:57:47.620809+00:00"
+      },
+      {
+        "signal_id": "sig-63f4b9",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T09:57:47.620870+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 4000,
+    "created_at": "2026-09-18T09:57:47.620919+00:00"
+  },
+  "ctx-a2f9f964": {
+    "context_id": "ctx-a2f9f964",
+    "mission_id": "mis-pending-cb608f",
+    "goal": "Refactor database pooling with zero cost",
+    "similar_missions": [],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-19d636e6",
+        "tier": "SEMANTIC",
+        "category": "PERFORMANCE",
+        "title": "Insight: Local AST Scan Speed Advantage",
+        "content": "Pattern: Deterministic local AST security sweeps execute in under 50ms with zero network overhead.\nRationale: AST parsing without external cloud lookups eliminates latency bottlenecks.\nRecommended Action: Default to local AST parsers for pre-commit / pre-merge gates.",
+        "tags": [
+          "secops",
+          "compiler",
+          "toolchain"
+        ],
+        "fingerprint": "238449c025181356",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 31,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T09:49:35.039091+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:01:07.634029+00:00",
+        "updated_at": "2026-09-18T09:59:10.685184+00:00",
+        "metadata": {
+          "insight_id": "ins-3d5429af"
+        }
+      },
+      {
+        "node_id": "kn-7b0d0bc9",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Fallback adaptation test",
+        "content": "Goal: Fallback adaptation test. Strategy: Wave schedule with 5 tasks. Provenance: 25fa2413c37b45c8",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "fae82919a3fb0243",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-23120eea",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 18,
+        "decay_factor": 1.0,
+        "revalidated_at": null,
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:26.445700+00:00",
+        "updated_at": "2026-09-18T09:59:10.685235+00:00",
+        "metadata": {
+          "adaptations": 1,
+          "feedback_id": "fb-920eb1ee"
+        }
+      },
+      {
+        "node_id": "kn-672009b5",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Telemetry authenticity check",
+        "content": "Goal: Telemetry authenticity check. Strategy: Wave schedule with 5 tasks. Provenance: 0b62332d691d9583",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "0e092439119c0084",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-169f5ab4",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 8,
+        "decay_factor": 1.0,
+        "revalidated_at": null,
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:35.389597+00:00",
+        "updated_at": "2026-09-18T09:59:10.685247+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-699627b5"
+        }
+      },
+      {
+        "node_id": "kn-9247fe71",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Fallback adaptation test",
+        "content": "Goal: Fallback adaptation test. Strategy: Wave schedule with 5 tasks. Provenance: 0f76e57631eee576",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "bfb5a6aef1ef2783",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-3ac04033",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 6,
+        "decay_factor": 1.0,
+        "revalidated_at": null,
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:57:32.495956+00:00",
+        "updated_at": "2026-09-18T09:59:10.685258+00:00",
+        "metadata": {
+          "adaptations": 1,
+          "feedback_id": "fb-6facadc0"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-846cf0",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T09:59:10.779853+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 3000,
+    "created_at": "2026-09-18T09:59:10.780224+00:00"
+  },
+  "ctx-fb76488e": {
+    "context_id": "ctx-fb76488e",
+    "mission_id": "mis-adapt-e0373f97",
+    "goal": "Synthesize full plan through API",
+    "similar_missions": [
+      {
+        "mission_id": "mis-adapt-33db7a27",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "plan",
+          "full",
+          "synthesize",
+          "through"
+        ],
+        "reusable_patterns": []
+      },
+      {
+        "mission_id": "mis-adapt-3da85dde",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "FAILED",
+        "matching_factors": [
+          "plan",
+          "full",
+          "synthesize",
+          "through"
+        ],
+        "reusable_patterns": [
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification",
+          "Delivery & Knowledge Reconciliation"
+        ]
+      },
+      {
+        "mission_id": "mis-adapt-9a1faf8d",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "COMPLETED",
+        "matching_factors": [
+          "plan",
+          "full",
+          "synthesize",
+          "through"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification"
+        ]
+      }
+    ],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-cbc9f608",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 82512ad227ff2f78",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "0f5c63a0ab2cf6b1",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-08757b62",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 3,
+        "decay_factor": 1.0,
+        "revalidated_at": null,
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:39.954628+00:00",
+        "updated_at": "2026-09-18T09:59:10.897275+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-b5a9a6f9"
+        }
+      },
+      {
+        "node_id": "kn-50fcc617",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 02573c73197698ff",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "beb1e8112ea8626f",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-f177fcc8",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 2,
+        "decay_factor": 1.0,
+        "revalidated_at": null,
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:57:49.236224+00:00",
+        "updated_at": "2026-09-18T09:59:10.897321+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-4914083e"
+        }
+      },
+      {
+        "node_id": "kn-58522c2a",
+        "tier": "SEMANTIC",
+        "category": "OPERATIONAL",
+        "title": "Insight: Execution Learning: Synthesize full plan through API",
+        "content": "Pattern: Mission mis-adapt-08757b62 (Synthesize full plan through API) completed with 0 in-flight adaptations.\nRationale: Closed-loop telemetry captured from real mission execution cycle.\nRecommended Action: Reuse successful wave scheduling and fallback structures in future similar goals.",
+        "tags": [
+          "mission_intelligence",
+          "adaptive_execution"
+        ],
+        "fingerprint": "aacdf744c57377c1",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 3,
+        "decay_factor": 1.0,
+        "revalidated_at": null,
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:39.793598+00:00",
+        "updated_at": "2026-09-18T09:59:10.897333+00:00",
+        "metadata": {
+          "insight_id": "ins-7e736980"
+        }
+      },
+      {
+        "node_id": "kn-705ead8c",
+        "tier": "SEMANTIC",
+        "category": "OPERATIONAL",
+        "title": "Insight: Execution Learning: Synthesize full plan through API",
+        "content": "Pattern: Mission mis-adapt-f177fcc8 (Synthesize full plan through API) completed with 0 in-flight adaptations.\nRationale: Closed-loop telemetry captured from real mission execution cycle.\nRecommended Action: Reuse successful wave scheduling and fallback structures in future similar goals.",
+        "tags": [
+          "mission_intelligence",
+          "adaptive_execution"
+        ],
+        "fingerprint": "625b241e933b0870",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 2,
+        "decay_factor": 1.0,
+        "revalidated_at": null,
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:57:49.136326+00:00",
+        "updated_at": "2026-09-18T09:59:10.897343+00:00",
+        "metadata": {
+          "insight_id": "ins-1841a1b4"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-8103f8",
+        "mission_id": "pending",
+        "signal_type": "HISTORICAL_FAILURE_PRECEDENT",
+        "severity": "MEDIUM",
+        "evidence": [
+          "Prior mission mis-adapt-3da85dde with similar goal failed."
+        ],
+        "affected_components": [
+          "adaptive_execution"
+        ],
+        "recommendation": "Pre-compute resilient fallback branches in execution DAG.",
+        "detected_at": "2026-09-18T09:59:10.983234+00:00"
+      },
+      {
+        "signal_id": "sig-140343",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T09:59:10.983310+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 4000,
+    "created_at": "2026-09-18T09:59:10.983378+00:00"
+  },
+  "ctx-5c3945fe": {
+    "context_id": "ctx-5c3945fe",
+    "mission_id": "mis-adapt-a1286d56",
+    "goal": "Refactor authentication middleware with zero-trust token validation, automated AST security audit, and resilient canary deployment.",
+    "similar_missions": [
+      {
+        "mission_id": "mis-adapt-8c7f8bd9",
+        "goal": "Refactor authentication middleware with zero-trust token validation, automated AST security audit, and resilient canary deployment.",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "deployment",
+          "automated",
+          "resilient",
+          "security",
+          "zero-trust"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Secondary Resilient Execution Fallback"
+        ]
+      }
+    ],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "ARCH-004",
+        "tier": "PROCEDURAL",
+        "category": "SECURITY",
+        "title": "Zero-Leakage Secret Interception and 0600 Quarantine",
+        "content": "Compromised credentials trigger in-place regex redaction and isolation of offending files to data/secops/quarantine/ with POSIX 0600 mode.",
+        "tags": [
+          "security",
+          "secrets",
+          "quarantine",
+          "redaction"
+        ],
+        "fingerprint": "366cfcee82788570",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 8,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T09:49:35.039023+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:56:09.810661+00:00",
+        "updated_at": "2026-09-18T09:59:37.745483+00:00",
+        "metadata": {}
+      },
+      {
+        "node_id": "kn-037c9287",
+        "tier": "SEMANTIC",
+        "category": "SECURITY",
+        "title": "Insight: Security Posture Vulnerability Cluster: SAST_INJECTION",
+        "content": "Pattern: Detected 33 instances of SAST_INJECTION vulnerabilities across repository sweeps.\nRationale: Static AST analysis and dependency audits flag recurring security anti-patterns early.\nRecommended Action: Enforce automated pre-commit AST guards and 0600 quarantine for SAST_INJECTION.",
+        "tags": [
+          "secops",
+          "codebase",
+          "compliance"
+        ],
+        "fingerprint": "4bd0a68b254d394a",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 21,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T09:49:35.039055+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:57:02.606429+00:00",
+        "updated_at": "2026-09-18T09:59:37.745532+00:00",
+        "metadata": {
+          "insight_id": "ins-69ccb3ae"
+        }
+      },
+      {
+        "node_id": "kn-46953c7d",
+        "tier": "SEMANTIC",
+        "category": "SECURITY",
+        "title": "Insight: Security Posture Vulnerability Cluster: LICENSE_NONCOMPLIANCE",
+        "content": "Pattern: Detected 6 instances of LICENSE_NONCOMPLIANCE vulnerabilities across repository sweeps.\nRationale: Static AST analysis and dependency audits flag recurring security anti-patterns early.\nRecommended Action: Enforce automated pre-commit AST guards and 0600 quarantine for LICENSE_NONCOMPLIANCE.",
+        "tags": [
+          "secops",
+          "codebase",
+          "compliance"
+        ],
+        "fingerprint": "2abd075f1650d7eb",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 18,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T09:49:35.039064+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:57:02.832763+00:00",
+        "updated_at": "2026-09-18T09:59:37.745540+00:00",
+        "metadata": {
+          "insight_id": "ins-a37d2ca5"
+        }
+      },
+      {
+        "node_id": "kn-713b3c73",
+        "tier": "SEMANTIC",
+        "category": "SECURITY",
+        "title": "Insight: Security Posture Vulnerability Cluster: DEPENDENCY_CVE",
+        "content": "Pattern: Detected 6 instances of DEPENDENCY_CVE vulnerabilities across repository sweeps.\nRationale: Static AST analysis and dependency audits flag recurring security anti-patterns early.\nRecommended Action: Enforce automated pre-commit AST guards and 0600 quarantine for DEPENDENCY_CVE.",
+        "tags": [
+          "secops",
+          "codebase",
+          "compliance"
+        ],
+        "fingerprint": "ce5572f7e6ab2db2",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 16,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T09:49:35.039073+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:57:03.082577+00:00",
+        "updated_at": "2026-09-18T09:59:37.745547+00:00",
+        "metadata": {
+          "insight_id": "ins-24c30d21"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-7cf2f4",
+        "mission_id": "pending",
+        "signal_type": "BLAST_RADIUS_RISK",
+        "severity": "HIGH",
+        "evidence": [
+          "Goal touches production infrastructure or deployment targets."
+        ],
+        "affected_components": [
+          "deployment_engine",
+          "canary_gate"
+        ],
+        "recommendation": "Enforce pre-deployment static AST compliance scans and staged canary.",
+        "detected_at": "2026-09-18T09:59:37.893914+00:00"
+      },
+      {
+        "signal_id": "sig-78e7cb",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T09:59:37.894323+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 4500,
+    "created_at": "2026-09-18T09:59:37.894541+00:00"
+  },
+  "ctx-daa63030": {
+    "context_id": "ctx-daa63030",
+    "mission_id": "mis-pending-ec9100",
+    "goal": "Refactor database pooling with zero cost",
+    "similar_missions": [],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-19d636e6",
+        "tier": "SEMANTIC",
+        "category": "PERFORMANCE",
+        "title": "Insight: Local AST Scan Speed Advantage",
+        "content": "Pattern: Deterministic local AST security sweeps execute in under 50ms with zero network overhead.\nRationale: AST parsing without external cloud lookups eliminates latency bottlenecks.\nRecommended Action: Default to local AST parsers for pre-commit / pre-merge gates.",
+        "tags": [
+          "secops",
+          "compiler",
+          "toolchain"
+        ],
+        "fingerprint": "238449c025181356",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 35,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T10:01:03.858133+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:01:07.634029+00:00",
+        "updated_at": "2026-09-18T10:01:13.916496+00:00",
+        "metadata": {
+          "insight_id": "ins-3d5429af"
+        }
+      },
+      {
+        "node_id": "kn-7b0d0bc9",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Fallback adaptation test",
+        "content": "Goal: Fallback adaptation test. Strategy: Wave schedule with 5 tasks. Provenance: 25fa2413c37b45c8",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "fae82919a3fb0243",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-23120eea",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 21,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T10:01:03.858504+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:26.445700+00:00",
+        "updated_at": "2026-09-18T10:01:13.916534+00:00",
+        "metadata": {
+          "adaptations": 1,
+          "feedback_id": "fb-920eb1ee"
+        }
+      },
+      {
+        "node_id": "kn-672009b5",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Telemetry authenticity check",
+        "content": "Goal: Telemetry authenticity check. Strategy: Wave schedule with 5 tasks. Provenance: 0b62332d691d9583",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "0e092439119c0084",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-169f5ab4",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 11,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T10:01:03.858632+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:35.389597+00:00",
+        "updated_at": "2026-09-18T10:01:13.916544+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-699627b5"
+        }
+      },
+      {
+        "node_id": "kn-9247fe71",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Fallback adaptation test",
+        "content": "Goal: Fallback adaptation test. Strategy: Wave schedule with 5 tasks. Provenance: 0f76e57631eee576",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "bfb5a6aef1ef2783",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-3ac04033",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 9,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T10:01:03.858949+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:57:32.495956+00:00",
+        "updated_at": "2026-09-18T10:01:13.916552+00:00",
+        "metadata": {
+          "adaptations": 1,
+          "feedback_id": "fb-6facadc0"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-88f449",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T10:01:14.017537+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 3000,
+    "created_at": "2026-09-18T10:01:14.018120+00:00"
+  },
+  "ctx-82179f29": {
+    "context_id": "ctx-82179f29",
+    "mission_id": "mis-adapt-43cedee6",
+    "goal": "Synthesize full plan through API",
+    "similar_missions": [
+      {
+        "mission_id": "mis-adapt-33db7a27",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "plan",
+          "synthesize",
+          "through",
+          "full"
+        ],
+        "reusable_patterns": []
+      },
+      {
+        "mission_id": "mis-adapt-3da85dde",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "FAILED",
+        "matching_factors": [
+          "plan",
+          "synthesize",
+          "through",
+          "full"
+        ],
+        "reusable_patterns": [
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification",
+          "Delivery & Knowledge Reconciliation"
+        ]
+      },
+      {
+        "mission_id": "mis-adapt-9a1faf8d",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "COMPLETED",
+        "matching_factors": [
+          "plan",
+          "synthesize",
+          "through",
+          "full"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification"
+        ]
+      }
+    ],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-cbc9f608",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 82512ad227ff2f78",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "0f5c63a0ab2cf6b1",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-08757b62",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 4,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T10:01:03.858811+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:39.954628+00:00",
+        "updated_at": "2026-09-18T10:01:14.248766+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-b5a9a6f9"
+        }
+      },
+      {
+        "node_id": "kn-50fcc617",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 02573c73197698ff",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "beb1e8112ea8626f",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-f177fcc8",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 3,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T10:01:03.859145+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:57:49.236224+00:00",
+        "updated_at": "2026-09-18T10:01:14.248807+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-4914083e"
+        }
+      },
+      {
+        "node_id": "kn-327ae582",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Mission mis-adapt-e0373f97. Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: c45739f0b69d0db5",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation",
+          "mis-adapt-e0373f97"
+        ],
+        "fingerprint": "3d0d2b9c9918bf8f",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-e0373f97",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 2,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T10:01:03.859470+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:59:12.735614+00:00",
+        "updated_at": "2026-09-18T10:01:14.248818+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-6705dc85"
+        }
+      },
+      {
+        "node_id": "kn-58522c2a",
+        "tier": "SEMANTIC",
+        "category": "OPERATIONAL",
+        "title": "Insight: Execution Learning: Synthesize full plan through API",
+        "content": "Pattern: Mission mis-adapt-08757b62 (Synthesize full plan through API) completed with 0 in-flight adaptations.\nRationale: Closed-loop telemetry captured from real mission execution cycle.\nRecommended Action: Reuse successful wave scheduling and fallback structures in future similar goals.",
+        "tags": [
+          "mission_intelligence",
+          "adaptive_execution"
+        ],
+        "fingerprint": "aacdf744c57377c1",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 4,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T10:01:03.858664+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:39.793598+00:00",
+        "updated_at": "2026-09-18T10:01:14.248827+00:00",
+        "metadata": {
+          "insight_id": "ins-7e736980"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-a5ede7",
+        "mission_id": "pending",
+        "signal_type": "HISTORICAL_FAILURE_PRECEDENT",
+        "severity": "MEDIUM",
+        "evidence": [
+          "Prior mission mis-adapt-3da85dde with similar goal failed."
+        ],
+        "affected_components": [
+          "adaptive_execution"
+        ],
+        "recommendation": "Pre-compute resilient fallback branches in execution DAG.",
+        "detected_at": "2026-09-18T10:01:14.286124+00:00"
+      },
+      {
+        "signal_id": "sig-a08550",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T10:01:14.286205+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 4000,
+    "created_at": "2026-09-18T10:01:14.286282+00:00"
+  },
+  "ctx-5f5415f9": {
+    "context_id": "ctx-5f5415f9",
+    "mission_id": "mis-pending-542e02",
+    "goal": "Refactor database pooling with zero cost",
+    "similar_missions": [],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-19d636e6",
+        "tier": "SEMANTIC",
+        "category": "PERFORMANCE",
+        "title": "Insight: Local AST Scan Speed Advantage",
+        "content": "Pattern: Deterministic local AST security sweeps execute in under 50ms with zero network overhead.\nRationale: AST parsing without external cloud lookups eliminates latency bottlenecks.\nRecommended Action: Default to local AST parsers for pre-commit / pre-merge gates.",
+        "tags": [
+          "secops",
+          "compiler",
+          "toolchain"
+        ],
+        "fingerprint": "238449c025181356",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 38,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T10:48:45.586692+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:01:07.634029+00:00",
+        "updated_at": "2026-09-18T10:49:11.061901+00:00",
+        "metadata": {
+          "insight_id": "ins-3d5429af"
+        }
+      },
+      {
+        "node_id": "kn-7b0d0bc9",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Fallback adaptation test",
+        "content": "Goal: Fallback adaptation test. Strategy: Wave schedule with 5 tasks. Provenance: 25fa2413c37b45c8",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "fae82919a3fb0243",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-23120eea",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 24,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T10:48:45.586797+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:26.445700+00:00",
+        "updated_at": "2026-09-18T10:49:11.061946+00:00",
+        "metadata": {
+          "adaptations": 1,
+          "feedback_id": "fb-920eb1ee"
+        }
+      },
+      {
+        "node_id": "kn-672009b5",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Telemetry authenticity check",
+        "content": "Goal: Telemetry authenticity check. Strategy: Wave schedule with 5 tasks. Provenance: 0b62332d691d9583",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "0e092439119c0084",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-169f5ab4",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 14,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T10:48:45.586834+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:35.389597+00:00",
+        "updated_at": "2026-09-18T10:49:11.061957+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-699627b5"
+        }
+      },
+      {
+        "node_id": "kn-9247fe71",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Fallback adaptation test",
+        "content": "Goal: Fallback adaptation test. Strategy: Wave schedule with 5 tasks. Provenance: 0f76e57631eee576",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "bfb5a6aef1ef2783",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-3ac04033",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 12,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T10:48:45.586890+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:57:32.495956+00:00",
+        "updated_at": "2026-09-18T10:49:11.061965+00:00",
+        "metadata": {
+          "adaptations": 1,
+          "feedback_id": "fb-6facadc0"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-4b8277",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T10:49:11.188073+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 3000,
+    "created_at": "2026-09-18T10:49:11.188361+00:00"
+  },
+  "ctx-e42574dd": {
+    "context_id": "ctx-e42574dd",
+    "mission_id": "mis-adapt-2c8c17e9",
+    "goal": "Synthesize full plan through API",
+    "similar_missions": [
+      {
+        "mission_id": "mis-adapt-33db7a27",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "through",
+          "plan",
+          "synthesize",
+          "full"
+        ],
+        "reusable_patterns": []
+      },
+      {
+        "mission_id": "mis-adapt-3da85dde",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "FAILED",
+        "matching_factors": [
+          "through",
+          "plan",
+          "synthesize",
+          "full"
+        ],
+        "reusable_patterns": [
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification",
+          "Delivery & Knowledge Reconciliation"
+        ]
+      },
+      {
+        "mission_id": "mis-adapt-9a1faf8d",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "COMPLETED",
+        "matching_factors": [
+          "through",
+          "plan",
+          "synthesize",
+          "full"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification"
+        ]
+      }
+    ],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-cbc9f608",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 82512ad227ff2f78",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "0f5c63a0ab2cf6b1",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-08757b62",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 5,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T10:48:45.586853+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:39.954628+00:00",
+        "updated_at": "2026-09-18T10:49:11.390886+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-b5a9a6f9"
+        }
+      },
+      {
+        "node_id": "kn-50fcc617",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 02573c73197698ff",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "beb1e8112ea8626f",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-f177fcc8",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 4,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T10:48:45.586947+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:57:49.236224+00:00",
+        "updated_at": "2026-09-18T10:49:11.390935+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-4914083e"
+        }
+      },
+      {
+        "node_id": "kn-327ae582",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Mission mis-adapt-e0373f97. Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: c45739f0b69d0db5",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation",
+          "mis-adapt-e0373f97"
+        ],
+        "fingerprint": "3d0d2b9c9918bf8f",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-e0373f97",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 3,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T10:48:45.587041+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:59:12.735614+00:00",
+        "updated_at": "2026-09-18T10:49:11.390945+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-6705dc85"
+        }
+      },
+      {
+        "node_id": "kn-f79c42e6",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Mission mis-adapt-43cedee6. Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 2b06864c898433ee",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation",
+          "mis-adapt-43cedee6"
+        ],
+        "fingerprint": "b63c91c27384ecab",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-43cedee6",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 2,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T10:48:45.587152+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T10:01:15.945232+00:00",
+        "updated_at": "2026-09-18T10:49:11.390956+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-bbdd3ed4"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-e0d3cc",
+        "mission_id": "pending",
+        "signal_type": "HISTORICAL_FAILURE_PRECEDENT",
+        "severity": "MEDIUM",
+        "evidence": [
+          "Prior mission mis-adapt-3da85dde with similar goal failed."
+        ],
+        "affected_components": [
+          "adaptive_execution"
+        ],
+        "recommendation": "Pre-compute resilient fallback branches in execution DAG.",
+        "detected_at": "2026-09-18T10:49:11.520781+00:00"
+      },
+      {
+        "signal_id": "sig-53151e",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T10:49:11.521034+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 4000,
+    "created_at": "2026-09-18T10:49:11.521239+00:00"
+  },
+  "ctx-55298737": {
+    "context_id": "ctx-55298737",
+    "mission_id": "mis-pending-b8e5ea",
+    "goal": "Refactor database pooling with zero cost",
+    "similar_missions": [],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-19d636e6",
+        "tier": "SEMANTIC",
+        "category": "PERFORMANCE",
+        "title": "Insight: Local AST Scan Speed Advantage",
+        "content": "Pattern: Deterministic local AST security sweeps execute in under 50ms with zero network overhead.\nRationale: AST parsing without external cloud lookups eliminates latency bottlenecks.\nRecommended Action: Default to local AST parsers for pre-commit / pre-merge gates.",
+        "tags": [
+          "secops",
+          "compiler",
+          "toolchain"
+        ],
+        "fingerprint": "238449c025181356",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 41,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T11:03:49.847096+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:01:07.634029+00:00",
+        "updated_at": "2026-09-18T11:04:17.066079+00:00",
+        "metadata": {
+          "insight_id": "ins-3d5429af"
+        }
+      },
+      {
+        "node_id": "kn-7b0d0bc9",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Fallback adaptation test",
+        "content": "Goal: Fallback adaptation test. Strategy: Wave schedule with 5 tasks. Provenance: 25fa2413c37b45c8",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "fae82919a3fb0243",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-23120eea",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 27,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T11:03:49.860686+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:26.445700+00:00",
+        "updated_at": "2026-09-18T11:04:17.066116+00:00",
+        "metadata": {
+          "adaptations": 1,
+          "feedback_id": "fb-920eb1ee"
+        }
+      },
+      {
+        "node_id": "kn-672009b5",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Telemetry authenticity check",
+        "content": "Goal: Telemetry authenticity check. Strategy: Wave schedule with 5 tasks. Provenance: 0b62332d691d9583",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "0e092439119c0084",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-169f5ab4",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 17,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T11:03:49.860963+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:35.389597+00:00",
+        "updated_at": "2026-09-18T11:04:17.066126+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-699627b5"
+        }
+      },
+      {
+        "node_id": "kn-9247fe71",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Fallback adaptation test",
+        "content": "Goal: Fallback adaptation test. Strategy: Wave schedule with 5 tasks. Provenance: 0f76e57631eee576",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "bfb5a6aef1ef2783",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-3ac04033",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 15,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T11:03:49.861370+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:57:32.495956+00:00",
+        "updated_at": "2026-09-18T11:04:17.066133+00:00",
+        "metadata": {
+          "adaptations": 1,
+          "feedback_id": "fb-6facadc0"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-29b13c",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T11:04:17.159290+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 3000,
+    "created_at": "2026-09-18T11:04:17.159596+00:00"
+  },
+  "ctx-95b54a43": {
+    "context_id": "ctx-95b54a43",
+    "mission_id": "mis-adapt-f98258a0",
+    "goal": "Synthesize full plan through API",
+    "similar_missions": [
+      {
+        "mission_id": "mis-adapt-33db7a27",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "through",
+          "plan",
+          "synthesize",
+          "full"
+        ],
+        "reusable_patterns": []
+      },
+      {
+        "mission_id": "mis-adapt-3da85dde",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "FAILED",
+        "matching_factors": [
+          "through",
+          "plan",
+          "synthesize",
+          "full"
+        ],
+        "reusable_patterns": [
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification",
+          "Delivery & Knowledge Reconciliation"
+        ]
+      },
+      {
+        "mission_id": "mis-adapt-9a1faf8d",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "COMPLETED",
+        "matching_factors": [
+          "through",
+          "plan",
+          "synthesize",
+          "full"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification"
+        ]
+      }
+    ],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-cbc9f608",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 82512ad227ff2f78",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "0f5c63a0ab2cf6b1",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-08757b62",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 6,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T11:03:49.861100+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:39.954628+00:00",
+        "updated_at": "2026-09-18T11:04:17.631010+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-b5a9a6f9"
+        }
+      },
+      {
+        "node_id": "kn-50fcc617",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 02573c73197698ff",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "beb1e8112ea8626f",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-f177fcc8",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 5,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T11:03:49.861783+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:57:49.236224+00:00",
+        "updated_at": "2026-09-18T11:04:17.631062+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-4914083e"
+        }
+      },
+      {
+        "node_id": "kn-327ae582",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Mission mis-adapt-e0373f97. Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: c45739f0b69d0db5",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation",
+          "mis-adapt-e0373f97"
+        ],
+        "fingerprint": "3d0d2b9c9918bf8f",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-e0373f97",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 4,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T11:03:49.863821+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:59:12.735614+00:00",
+        "updated_at": "2026-09-18T11:04:17.631077+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-6705dc85"
+        }
+      },
+      {
+        "node_id": "kn-f79c42e6",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Mission mis-adapt-43cedee6. Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 2b06864c898433ee",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation",
+          "mis-adapt-43cedee6"
+        ],
+        "fingerprint": "b63c91c27384ecab",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-43cedee6",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 3,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T11:03:49.864631+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T10:01:15.945232+00:00",
+        "updated_at": "2026-09-18T11:04:17.631090+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-bbdd3ed4"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-9260a4",
+        "mission_id": "pending",
+        "signal_type": "HISTORICAL_FAILURE_PRECEDENT",
+        "severity": "MEDIUM",
+        "evidence": [
+          "Prior mission mis-adapt-3da85dde with similar goal failed."
+        ],
+        "affected_components": [
+          "adaptive_execution"
+        ],
+        "recommendation": "Pre-compute resilient fallback branches in execution DAG.",
+        "detected_at": "2026-09-18T11:04:17.740582+00:00"
+      },
+      {
+        "signal_id": "sig-8c4952",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T11:04:17.740675+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 4000,
+    "created_at": "2026-09-18T11:04:17.740764+00:00"
+  },
+  "ctx-29d9f85b": {
+    "context_id": "ctx-29d9f85b",
+    "mission_id": "mis-pending-5ce439",
+    "goal": "Refactor database pooling with zero cost",
+    "similar_missions": [],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-19d636e6",
+        "tier": "SEMANTIC",
+        "category": "PERFORMANCE",
+        "title": "Insight: Local AST Scan Speed Advantage",
+        "content": "Pattern: Deterministic local AST security sweeps execute in under 50ms with zero network overhead.\nRationale: AST parsing without external cloud lookups eliminates latency bottlenecks.\nRecommended Action: Default to local AST parsers for pre-commit / pre-merge gates.",
+        "tags": [
+          "secops",
+          "compiler",
+          "toolchain"
+        ],
+        "fingerprint": "238449c025181356",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 44,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T14:59:38.399979+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:01:07.634029+00:00",
+        "updated_at": "2026-09-18T14:59:52.032460+00:00",
+        "metadata": {
+          "insight_id": "ins-3d5429af"
+        }
+      },
+      {
+        "node_id": "kn-7b0d0bc9",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Fallback adaptation test",
+        "content": "Goal: Fallback adaptation test. Strategy: Wave schedule with 5 tasks. Provenance: 25fa2413c37b45c8",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "fae82919a3fb0243",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-23120eea",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 30,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T14:59:38.400332+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:26.445700+00:00",
+        "updated_at": "2026-09-18T14:59:52.032501+00:00",
+        "metadata": {
+          "adaptations": 1,
+          "feedback_id": "fb-920eb1ee"
+        }
+      },
+      {
+        "node_id": "kn-672009b5",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Telemetry authenticity check",
+        "content": "Goal: Telemetry authenticity check. Strategy: Wave schedule with 5 tasks. Provenance: 0b62332d691d9583",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "0e092439119c0084",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-169f5ab4",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 20,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T14:59:38.400439+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:35.389597+00:00",
+        "updated_at": "2026-09-18T14:59:52.032510+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-699627b5"
+        }
+      },
+      {
+        "node_id": "kn-9247fe71",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Fallback adaptation test",
+        "content": "Goal: Fallback adaptation test. Strategy: Wave schedule with 5 tasks. Provenance: 0f76e57631eee576",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "bfb5a6aef1ef2783",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-3ac04033",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 18,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T14:59:38.400599+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:57:32.495956+00:00",
+        "updated_at": "2026-09-18T14:59:52.032518+00:00",
+        "metadata": {
+          "adaptations": 1,
+          "feedback_id": "fb-6facadc0"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-a8824c",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T14:59:52.084886+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 3000,
+    "created_at": "2026-09-18T14:59:52.084979+00:00"
+  },
+  "ctx-72ebe3fc": {
+    "context_id": "ctx-72ebe3fc",
+    "mission_id": "mis-adapt-2a3bc9d6",
+    "goal": "Synthesize full plan through API",
+    "similar_missions": [
+      {
+        "mission_id": "mis-adapt-33db7a27",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "plan",
+          "through",
+          "full",
+          "synthesize"
+        ],
+        "reusable_patterns": []
+      },
+      {
+        "mission_id": "mis-adapt-3da85dde",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "FAILED",
+        "matching_factors": [
+          "plan",
+          "through",
+          "full",
+          "synthesize"
+        ],
+        "reusable_patterns": [
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification",
+          "Delivery & Knowledge Reconciliation"
+        ]
+      },
+      {
+        "mission_id": "mis-adapt-9a1faf8d",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "COMPLETED",
+        "matching_factors": [
+          "plan",
+          "through",
+          "full",
+          "synthesize"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification"
+        ]
+      }
+    ],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-cbc9f608",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 82512ad227ff2f78",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "0f5c63a0ab2cf6b1",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-08757b62",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 7,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T14:59:38.400493+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:39.954628+00:00",
+        "updated_at": "2026-09-18T14:59:52.274789+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-b5a9a6f9"
+        }
+      },
+      {
+        "node_id": "kn-50fcc617",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 02573c73197698ff",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "beb1e8112ea8626f",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-f177fcc8",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 6,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T14:59:38.400763+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:57:49.236224+00:00",
+        "updated_at": "2026-09-18T14:59:52.274829+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-4914083e"
+        }
+      },
+      {
+        "node_id": "kn-327ae582",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Mission mis-adapt-e0373f97. Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: c45739f0b69d0db5",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation",
+          "mis-adapt-e0373f97"
+        ],
+        "fingerprint": "3d0d2b9c9918bf8f",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-e0373f97",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 5,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T14:59:38.401035+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:59:12.735614+00:00",
+        "updated_at": "2026-09-18T14:59:52.274837+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-6705dc85"
+        }
+      },
+      {
+        "node_id": "kn-f79c42e6",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Mission mis-adapt-43cedee6. Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 2b06864c898433ee",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation",
+          "mis-adapt-43cedee6"
+        ],
+        "fingerprint": "b63c91c27384ecab",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-43cedee6",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 4,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T14:59:38.401353+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T10:01:15.945232+00:00",
+        "updated_at": "2026-09-18T14:59:52.274844+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-bbdd3ed4"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-415adb",
+        "mission_id": "pending",
+        "signal_type": "HISTORICAL_FAILURE_PRECEDENT",
+        "severity": "MEDIUM",
+        "evidence": [
+          "Prior mission mis-adapt-3da85dde with similar goal failed."
+        ],
+        "affected_components": [
+          "adaptive_execution"
+        ],
+        "recommendation": "Pre-compute resilient fallback branches in execution DAG.",
+        "detected_at": "2026-09-18T14:59:52.336813+00:00"
+      },
+      {
+        "signal_id": "sig-4137c1",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T14:59:52.336910+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 4000,
+    "created_at": "2026-09-18T14:59:52.337018+00:00"
+  },
+  "ctx-89fa4851": {
+    "context_id": "ctx-89fa4851",
+    "mission_id": "mis-pending-0b0e9b",
+    "goal": "Refactor database pooling with zero cost",
+    "similar_missions": [],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-19d636e6",
+        "tier": "SEMANTIC",
+        "category": "PERFORMANCE",
+        "title": "Insight: Local AST Scan Speed Advantage",
+        "content": "Pattern: Deterministic local AST security sweeps execute in under 50ms with zero network overhead.\nRationale: AST parsing without external cloud lookups eliminates latency bottlenecks.\nRecommended Action: Default to local AST parsers for pre-commit / pre-merge gates.",
+        "tags": [
+          "secops",
+          "compiler",
+          "toolchain"
+        ],
+        "fingerprint": "238449c025181356",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 47,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T15:24:09.381042+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:01:07.634029+00:00",
+        "updated_at": "2026-09-18T15:25:04.454431+00:00",
+        "metadata": {
+          "insight_id": "ins-3d5429af"
+        }
+      },
+      {
+        "node_id": "kn-7b0d0bc9",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Fallback adaptation test",
+        "content": "Goal: Fallback adaptation test. Strategy: Wave schedule with 5 tasks. Provenance: 25fa2413c37b45c8",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "fae82919a3fb0243",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-23120eea",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 33,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T15:24:09.381319+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:26.445700+00:00",
+        "updated_at": "2026-09-18T15:25:04.454492+00:00",
+        "metadata": {
+          "adaptations": 1,
+          "feedback_id": "fb-920eb1ee"
+        }
+      },
+      {
+        "node_id": "kn-672009b5",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Telemetry authenticity check",
+        "content": "Goal: Telemetry authenticity check. Strategy: Wave schedule with 5 tasks. Provenance: 0b62332d691d9583",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "0e092439119c0084",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-169f5ab4",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 23,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T15:24:09.381418+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:35.389597+00:00",
+        "updated_at": "2026-09-18T15:25:04.454512+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-699627b5"
+        }
+      },
+      {
+        "node_id": "kn-9247fe71",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Fallback adaptation test",
+        "content": "Goal: Fallback adaptation test. Strategy: Wave schedule with 5 tasks. Provenance: 0f76e57631eee576",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "bfb5a6aef1ef2783",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-3ac04033",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 21,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T15:24:09.381579+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:57:32.495956+00:00",
+        "updated_at": "2026-09-18T15:25:04.454528+00:00",
+        "metadata": {
+          "adaptations": 1,
+          "feedback_id": "fb-6facadc0"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-7e3e3d",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T15:25:05.033319+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 3000,
+    "created_at": "2026-09-18T15:25:05.033474+00:00"
+  },
+  "ctx-6abf4ee8": {
+    "context_id": "ctx-6abf4ee8",
+    "mission_id": "mis-adapt-66915691",
+    "goal": "Synthesize full plan through API",
+    "similar_missions": [
+      {
+        "mission_id": "mis-adapt-33db7a27",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "plan",
+          "through",
+          "synthesize",
+          "full"
+        ],
+        "reusable_patterns": []
+      },
+      {
+        "mission_id": "mis-adapt-3da85dde",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "FAILED",
+        "matching_factors": [
+          "plan",
+          "through",
+          "synthesize",
+          "full"
+        ],
+        "reusable_patterns": [
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification",
+          "Delivery & Knowledge Reconciliation"
+        ]
+      },
+      {
+        "mission_id": "mis-adapt-9a1faf8d",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "COMPLETED",
+        "matching_factors": [
+          "plan",
+          "through",
+          "synthesize",
+          "full"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification"
+        ]
+      }
+    ],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-cbc9f608",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 82512ad227ff2f78",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "0f5c63a0ab2cf6b1",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-08757b62",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 8,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T15:24:09.381472+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:39.954628+00:00",
+        "updated_at": "2026-09-18T15:25:08.019484+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-b5a9a6f9"
+        }
+      },
+      {
+        "node_id": "kn-50fcc617",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 02573c73197698ff",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "beb1e8112ea8626f",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-f177fcc8",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 7,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T15:24:09.381739+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:57:49.236224+00:00",
+        "updated_at": "2026-09-18T15:25:08.019545+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-4914083e"
+        }
+      },
+      {
+        "node_id": "kn-327ae582",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Mission mis-adapt-e0373f97. Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: c45739f0b69d0db5",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation",
+          "mis-adapt-e0373f97"
+        ],
+        "fingerprint": "3d0d2b9c9918bf8f",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-e0373f97",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 6,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T15:24:09.382054+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:59:12.735614+00:00",
+        "updated_at": "2026-09-18T15:25:08.019563+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-6705dc85"
+        }
+      },
+      {
+        "node_id": "kn-f79c42e6",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Mission mis-adapt-43cedee6. Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 2b06864c898433ee",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation",
+          "mis-adapt-43cedee6"
+        ],
+        "fingerprint": "b63c91c27384ecab",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-43cedee6",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 5,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T15:24:09.382361+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T10:01:15.945232+00:00",
+        "updated_at": "2026-09-18T15:25:08.019578+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-bbdd3ed4"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-15d8c3",
+        "mission_id": "pending",
+        "signal_type": "HISTORICAL_FAILURE_PRECEDENT",
+        "severity": "MEDIUM",
+        "evidence": [
+          "Prior mission mis-adapt-3da85dde with similar goal failed."
+        ],
+        "affected_components": [
+          "adaptive_execution"
+        ],
+        "recommendation": "Pre-compute resilient fallback branches in execution DAG.",
+        "detected_at": "2026-09-18T15:25:09.427647+00:00"
+      },
+      {
+        "signal_id": "sig-1bb919",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T15:25:09.427754+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 4000,
+    "created_at": "2026-09-18T15:25:09.427915+00:00"
+  }
+}

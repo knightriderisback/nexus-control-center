@@ -1,0 +1,79 @@
+[
+  {
+    "checkpoint_id": "cp-mission-ecf7ab7e-3760be",
+    "mission_id": "mission-ecf7ab7e",
+    "timestamp": "2026-09-17T13:32:35.670951+00:00",
+    "state": "MissionState.PLANNING",
+    "graph_state": {
+      "execution_order": [
+        [
+          "subtask-01-arch"
+        ],
+        [
+          "subtask-02-dev"
+        ],
+        [
+          "subtask-03-qa",
+          "subtask-04-sec",
+          "subtask-05-doc"
+        ],
+        [
+          "subtask-06-delivery"
+        ]
+      ],
+      "label": "initial_planned"
+    },
+    "node_states": {
+      "subtask-01-arch": "PENDING",
+      "subtask-02-dev": "PENDING",
+      "subtask-03-qa": "PENDING",
+      "subtask-04-sec": "PENDING",
+      "subtask-05-doc": "PENDING",
+      "subtask-06-delivery": "PENDING"
+    },
+    "artifacts": [
+      "sensitive_payments.py",
+      "docs/SENSITIVE_PAYMENTS_SPEC.md",
+      "test_sensitive_payments.py"
+    ],
+    "current_workspace": "/tmp/nexus_factory_test_2u4e6zad",
+    "retry_counters": {
+      "subtask-01-arch": 0,
+      "subtask-02-dev": 0,
+      "subtask-03-qa": 0,
+      "subtask-04-sec": 0,
+      "subtask-05-doc": 0,
+      "subtask-06-delivery": 0
+    },
+    "acceptance_results": {
+      "AC-001": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-002": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-003": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-004": {
+        "status": "PENDING",
+        "evidence": null
+      },
+      "AC-005": {
+        "status": "PENDING",
+        "evidence": null
+      }
+    },
+    "risk_state": {
+      "overall_risk": "HIGH",
+      "matched_sensitive_keywords": [
+        "payment"
+      ],
+      "requires_human_approval": true,
+      "approval_boundary": "SENSITIVE_GOAL_OR_IAM_CHANGE"
+    }
+  }
+]

@@ -65,7 +65,11 @@
 │   │   └── projects.py                           # Project registry manager
 │   ├── orchestrator/
 │   │   ├── base.py                               # Provider adapters (Gemini, OpenAI, Mock)
-│   │   └── agents.py                             # 13 specialized agent manifests
+│   │   ├── agents.py                             # 13 specialized agent manifests
+│   │   ├── factory_engine.py                     # Phase 14 Autonomous Software Factory Engine
+│   │   ├── universal_tool_engine.py              # Phase 15 Universal Tool & App Integration Engine
+│   │   ├── deployment_engine.py                  # Phase 16 Production Deployment Engine
+│   │   └── self_healing_engine.py                # Phase 17 Autonomous Self-Healing Operations Engine
 │   ├── integrations/
 │   │   ├── gcp.py                                # GCP status inspection
 │   │   ├── github.py                             # Git repository telemetry
@@ -74,7 +78,7 @@
 │   │       ├── vercel_adapter.py                 # Vercel deployment telemetry
 │   │       ├── termux_adapter.py                 # Mobile Termux heartbeat receiver
 │   │       └── gcp_isolation_adapter.py          # Absolute isolation guardrail
-│   └── routers/v1/                               # 16 versioned API routers
+│   └── routers/v1/                               # 20 versioned API routers
 │       ├── overview.py                           # System telemetry overview
 │       ├── projects.py                           # Project registry & actions
 │       ├── agents.py                             # Agent fleet management & dispatch
@@ -90,13 +94,21 @@
 │       ├── traces_router.py                      # Distributed trace spans
 │       ├── cost_router.py                        # FinOps status & budget
 │       ├── automations_router.py                 # Scheduled routines
-│       └── adapters_router.py                    # Termux & Vercel adapters
+│       ├── adapters_router.py                    # Termux & Vercel adapters
+│       ├── factory_router.py                     # Phase 14 Software Factory router
+│       ├── universal_tools_router.py             # Phase 15 Universal Tools & Apps router
+│       ├── deployment_router.py                  # Phase 16 Production Deployment router
+│       └── self_healing_router.py                # Phase 17 Autonomous Self-Healing router
 │
 ├── frontend/                                     # React 19 Cyber-HUD
 │   ├── src/
 │   │   ├── App.tsx                               # HUD Root container
 │   │   ├── components/                           # Cyberpunk HUD components
 │   │   │   ├── HeaderHUD.tsx                     # Header, system stats, Panic button
+│   │   │   ├── AutonomousSelfHealingView.tsx     # Phase 17 Self-Healing & Sentinel Radar HUD
+│   │   │   ├── ProductionDeploymentMatrixView.tsx # Phase 16 Production Deployment Cockpit
+│   │   │   ├── UniversalToolAppMatrixView.tsx    # Phase 15 Universal Tool & App Matrix
+│   │   │   ├── CyberHudMissionControlView.tsx    # Phase 14 Software Factory & Mission HUD
 │   │   │   ├── AgentSwarmView.tsx                # 13 agent telemetry cards & dispatch
 │   │   │   ├── ProjectsMatrixView.tsx            # Project registry matrix & actions
 │   │   │   ├── ApprovalsMatrixView.tsx           # Human approval queue (Approve/Reject)
@@ -108,14 +120,16 @@
 │   │   └── utils/audio.ts                        # Synthesizer audio cues
 │   └── dist/                                     # Compiled static production bundle
 │
-├── tests/                                        # Automated Test Suite (27/27 Passing)
+├── tests/                                        # Automated Test Suite (35/35 Passing)
 │   ├── conftest.py
 │   ├── test_api.py                               # FastAPI integration tests
 │   ├── test_policy.py                            # Policy engine & risk tiers
 │   ├── test_approvals.py                         # Approval lifecycle tests
 │   ├── test_cost_guard.py                        # Zero-cost guardrail verification
 │   ├── test_secrets.py                           # Secret masking & zero-leakage tests
-│   └── test_agents.py                            # Swarm registry & manifest tests
+│   ├── test_agents.py                            # Swarm registry & manifest tests
+│   ├── test_phase16_production_deployment_engine.py # Phase 16 Deployment tests
+│   └── test_phase17_self_healing_operations.py  # Phase 17 Self-Healing tests
 │
 ├── docs/                                         # Comprehensive Documentation Tree
 │   ├── architecture/ARCHITECTURE.md

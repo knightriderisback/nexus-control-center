@@ -51,6 +51,16 @@ class CostGuard:
             "anomalies": []
         }
 
+    def get_cost_summary(self) -> Dict[str, Any]:
+        status = self.get_status()
+        return {
+            "current_spend_usd": status.get("current_month_spend_usd", 0.0),
+            "billing_linked": status.get("billing_account_linked", False),
+            "zero_cost_guardrail_active": status.get("strict_zero_cost_enforced", True),
+            "hard_spend_limit_usd": status.get("monthly_budget_cap_usd", 0.0),
+            "free_tier_status": status.get("free_tier_status", {})
+        }
+
     def evaluate_cost_risk(self, target_service: str, action: str) -> Dict[str, Any]:
         """
         Validates if an action risks incurring unexpected cloud charges.

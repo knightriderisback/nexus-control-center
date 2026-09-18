@@ -2,7 +2,7 @@ import json
 import os
 import re
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Optional
 from core.config import config
 from models.schemas import AuditEvent, RiskLevel
@@ -29,9 +29,9 @@ def record_audit(
     agent_id: Optional[str] = None,
     execution_id: Optional[str] = None,
     tool_id: Optional[str] = None,
+    user: str = "operator",
     status: Optional[str] = None,
     result_summary: Optional[str] = None,
-    user: str = "operator",
     approval_id: Optional[str] = None,
     error: Optional[str] = None,
     correlation_id: Optional[str] = None
@@ -44,7 +44,7 @@ def record_audit(
     event = AuditEvent(
         id=f"audit-{uuid.uuid4().hex[:8]}",
         correlation_id=correlation_id or f"corr-{uuid.uuid4().hex[:6]}",
-        timestamp=datetime.utcnow().isoformat() + "Z",
+        timestamp=datetime.now(timezone.utc).isoformat(),
         actor=actor,
         agent=effective_agent,
         agent_id=agent_id or agent,

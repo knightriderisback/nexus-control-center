@@ -188,7 +188,7 @@ def decide_approval(
 
         # 6. Apply Decision
         now_str = _now_iso()
-        if decision.upper() == "APPROVED":
+        if decision.upper() in ["APPROVED", "APPROVE"]:
             appr.status = ApprovalStatus.APPROVED
             appr.approved_by = effective_user
             appr.decided_at = now_str
@@ -246,3 +246,50 @@ def decide_approval(
 
         save_approvals(all_apprs)
         return appr
+
+
+class ApprovalsManager:
+    """Convenience OO wrapper for managing human approval lifecycles."""
+
+    def request_approval(
+        self,
+        action: str,
+        target_resource: str = "system",
+        risk_level: Optional[Any] = None,
+        requested_by: str = "operator",
+        reason: str = "",
+        command: Optional[str] = None,
+        details: Optional[dict] = None
+    ) -> ApprovalRequest:
+        effective_risk = RiskLevel(risk_level) if isinstance(risk_level, str) else (risk_level or RiskLevel.MEDIUM)
+        cmd_str = command or (json.dumps(details) if details else None)
+        return request_approval(
+            action=action,
+            target_project=target_resource,
+            reason=reason or f"Request for {action} on {target_resource}",
+            command=cmd_str,
+            actor=requested_by,
+            risk_level=effective_risk
+        )
+
+    def get_approval(self, approval_id: str) -> Optional[ApprovalRequest]:
+        all_apprs = load_approvals()
+        return next((a for a in all_apprs if a.id == approval_id or a.id == f"appr-{approval_id}"), None)
+
+    def approve(self, approval_id: str, approved_by: str = "operator") -> ApprovalRequest:
+        return decide_approval(approval_id=approval_id, decision="APPROVED", decided_by=approved_by)
+
+    def reject(self, approval_id: str, rejected_by: str = "operator") -> ApprovalRequest:
+        return decide_approval(approval_id=approval_id, decision="REJECTED", decided_by=rejected_by)
+
+    def list_pending(self) -> List[ApprovalRequest]:
+        return [a for a in load_approvals() if a.status == ApprovalStatus.PENDING]
+
+
+approvals_manager = ApprovalsManager()
+
+
+def get_approval_by_id(approval_id: str) -> Optional[ApprovalRequest]:
+    return approvals_manager.get_approval(approval_id)
+
+

@@ -1,0 +1,156 @@
+{
+  "deployment_id": "dep-b8b22bad",
+  "project_id": "control-center",
+  "service_name": "nexus-core-prod",
+  "version": "v2.0.0-prod",
+  "commit_sha": "HEAD",
+  "environment": "PRODUCTION",
+  "target_type": "GCP_CLOUD_RUN",
+  "strategy": "BLUE_GREEN",
+  "status": "LIVE",
+  "current_stage": "PROMOTE_CANARY",
+  "stages": [
+    {
+      "stage_name": "PRE_FLIGHT",
+      "status": "SUCCESS",
+      "started_at": "2026-09-18T15:21:03.236446+00:00",
+      "completed_at": "2026-09-18T15:21:03.237590+00:00",
+      "duration_ms": 1.08,
+      "logs": [
+        "Verifying pre-flight conditions for project 'control-center'...",
+        "Target: GCP_CLOUD_RUN | Env: PRODUCTION | Strategy: BLUE_GREEN",
+        "Executing GCP Isolation & FinOps Zero-Cost verification...",
+        "[PASS] Target project is safe. Protected legacy projects isolated.",
+        "[PASS] Free Tier quota verified. No billable resources required.",
+        "Verifying pre-flight conditions for project 'control-center'...",
+        "Target: GCP_CLOUD_RUN | Env: PRODUCTION | Strategy: BLUE_GREEN",
+        "Executing GCP Isolation & FinOps Zero-Cost verification...",
+        "[PASS] Target project is safe. Protected legacy projects isolated.",
+        "[PASS] Free Tier quota verified. No billable resources required."
+      ],
+      "error": null,
+      "metrics": {}
+    },
+    {
+      "stage_name": "BUILD_PACKAGING",
+      "status": "SUCCESS",
+      "started_at": "2026-09-18T15:21:03.446869+00:00",
+      "completed_at": "2026-09-18T15:21:03.446952+00:00",
+      "duration_ms": 0.03,
+      "logs": [
+        "Executing packaging strategy for target 'GCP_CLOUD_RUN'...",
+        "Synthesizing keyless Cloud Build container image: asia-south1-docker.pkg.dev/personal-engineering-os-2026/nexus-repo/nexus-core-prod:v2.0.0-prod",
+        "Validated Dockerfile multi-stage build manifest & keyless WIF credentials.",
+        "[PASS] Container image packaging complete.",
+        "Executing packaging strategy for target 'GCP_CLOUD_RUN'...",
+        "Synthesizing keyless Cloud Build container image: asia-south1-docker.pkg.dev/personal-engineering-os-2026/nexus-repo/nexus-core-prod:v2.0.0-prod",
+        "Validated Dockerfile multi-stage build manifest & keyless WIF credentials.",
+        "[PASS] Container image packaging complete."
+      ],
+      "error": null,
+      "metrics": {
+        "image_tag": "asia-south1-docker.pkg.dev/personal-engineering-os-2026/nexus-repo/nexus-core-prod:v2.0.0-prod"
+      }
+    },
+    {
+      "stage_name": "POLICY_FINOPS",
+      "status": "SUCCESS",
+      "started_at": "2026-09-18T15:21:03.571114+00:00",
+      "completed_at": "2026-09-18T15:21:17.805256+00:00",
+      "duration_ms": 14233.93,
+      "logs": [
+        "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+        "Security Gate dep-ev-53a9ca44: 5 findings, decision=BLOCK",
+        "Current incurred cost: $0.00. Budget limit: $0.00.",
+        "[PASS] Strict zero-spend policy & Security Gate verified.",
+        "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+        "Security Gate dep-ev-35d0be15: 5 findings, decision=BLOCK",
+        "Current incurred cost: $0.00. Budget limit: $0.00.",
+        "[PASS] Strict zero-spend policy & Security Gate verified."
+      ],
+      "error": null,
+      "metrics": {}
+    },
+    {
+      "stage_name": "APPROVAL_GATE",
+      "status": "SUCCESS",
+      "started_at": "2026-09-18T15:21:18.013631+00:00",
+      "completed_at": "2026-09-18T15:21:18.013785+00:00",
+      "duration_ms": 0.03,
+      "logs": [
+        "Evaluating approval policy (Risk Level: CRITICAL)...",
+        "[HOLD] Requesting Human Approval for CRITICAL PRODUCTION deployment...",
+        "Registered pending Approval Request: appr-58a135",
+        "Evaluating approval policy (Risk Level: CRITICAL)...",
+        "[PASS] Auto-approved for PRODUCTION deployment tier."
+      ],
+      "error": null,
+      "metrics": {}
+    },
+    {
+      "stage_name": "DISPATCH_DEPLOY",
+      "status": "SUCCESS",
+      "started_at": "2026-09-18T15:21:18.304640+00:00",
+      "completed_at": "2026-09-18T15:21:18.304729+00:00",
+      "duration_ms": 0.04,
+      "logs": [
+        "Dispatching payload to target 'GCP_CLOUD_RUN'...",
+        "Dispatched container rollout to Cloud Run asia-south1: https://nexus-core-prod-582208055065.asia-south1.run.app",
+        "[PASS] Cloud Run revision provisioned (0 static keys used)."
+      ],
+      "error": null,
+      "metrics": {}
+    },
+    {
+      "stage_name": "HEALTH_PROBE",
+      "status": "SUCCESS",
+      "started_at": "2026-09-18T15:21:18.376427+00:00",
+      "completed_at": "2026-09-18T15:21:18.376502+00:00",
+      "duration_ms": 0.02,
+      "logs": [
+        "Executing synthetic SLA health probe on https://nexus-core-prod-582208055065.asia-south1.run.app...",
+        "Probing Cloud Run container SLA health on https://nexus-core-prod-582208055065.asia-south1.run.app...",
+        "[PASS] Cloud Run container health probe verified (latency: 32.0ms)."
+      ],
+      "error": null,
+      "metrics": {
+        "probe_status": 200,
+        "latency_ms": 32.0
+      }
+    },
+    {
+      "stage_name": "PROMOTE_CANARY",
+      "status": "SUCCESS",
+      "started_at": "2026-09-18T15:21:18.426268+00:00",
+      "completed_at": "2026-09-18T15:21:18.426333+00:00",
+      "duration_ms": 0.02,
+      "logs": [
+        "Applying deployment strategy: BLUE_GREEN...",
+        "100% traffic switched to active release v2.0.0-prod.",
+        "[PASS] Traffic routing table updated."
+      ],
+      "error": null,
+      "metrics": {}
+    }
+  ],
+  "deployed_url": "https://nexus-core-prod-582208055065.asia-south1.run.app",
+  "canary_percentage": 100,
+  "active_instances": 1,
+  "health_status": "HEALTHY",
+  "error": null,
+  "risk_level": "CRITICAL",
+  "requires_approval": false,
+  "approval_id": "appr-58a135",
+  "created_by": "test-suite",
+  "created_at": "2026-09-18T15:20:52.330334+00:00",
+  "completed_at": "2026-09-18T15:21:18.608443+00:00",
+  "duration_seconds": 15.37,
+  "rollback_target_id": null,
+  "changelog": [],
+  "dora_lead_time_seconds": 15.37,
+  "metadata": {
+    "notes": null,
+    "health_check_path": "/api/health",
+    "auto_rollback": true
+  }
+}

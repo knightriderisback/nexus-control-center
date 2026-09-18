@@ -4,13 +4,11 @@ import {
   Bot, 
   Cpu, 
   FolderGit2, 
-  Database, 
   ShieldAlert, 
   Tv, 
   Volume2, 
   Zap,
-  ArrowRight,
-  Cloud
+  ArrowRight
 } from 'lucide-react';
 import { sound } from '../utils/audio';
 import type { TabType } from './HeaderHUD';
@@ -41,11 +39,53 @@ export const CommandPaletteModal: React.FC<CommandPaletteModalProps> = ({
 
   const commandList = [
     {
+      id: 'tab-hud',
+      label: 'Switch View: Cyber-HUD Live Operations Control Plane',
+      category: 'Navigation',
+      icon: <Terminal className="w-4 h-4 text-cyan-400" />,
+      action: () => setActiveTab('hud')
+    },
+    {
+      id: 'tab-missions',
+      label: 'Switch View: Autonomous Mission Control & DAG Planner (Phase 13)',
+      category: 'Navigation',
+      icon: <Terminal className="w-4 h-4 text-emerald-400" />,
+      action: () => setActiveTab('missions')
+    },
+    {
       id: 'tab-swarm',
-      label: 'Switch View: Agent Swarm Fleet',
+      label: 'Switch View: Agent Fleet & Engineering Missions',
       category: 'Navigation',
       icon: <Bot className="w-4 h-4 text-cyan-400" />,
       action: () => setActiveTab('swarm')
+    },
+    {
+      id: 'tab-delivery',
+      label: 'Switch View: GitHub Delivery & Merge Governance',
+      category: 'Navigation',
+      icon: <FolderGit2 className="w-4 h-4 text-cyan-400" />,
+      action: () => setActiveTab('delivery')
+    },
+    {
+      id: 'tab-providers',
+      label: 'Switch View: AI Providers Cluster & FinOps Ledger',
+      category: 'Navigation',
+      icon: <Zap className="w-4 h-4 text-amber-400" />,
+      action: () => setActiveTab('providers')
+    },
+    {
+      id: 'tab-recovery',
+      label: 'Switch View: Recovery Center & Audit Explorer',
+      category: 'Navigation',
+      icon: <ShieldAlert className="w-4 h-4 text-purple-400" />,
+      action: () => setActiveTab('recovery')
+    },
+    {
+      id: 'tab-approvals',
+      label: 'Switch View: Security Approvals Matrix',
+      category: 'Navigation',
+      icon: <ShieldAlert className="w-4 h-4 text-amber-400" />,
+      action: () => setActiveTab('approvals')
     },
     {
       id: 'tab-telem',
@@ -55,25 +95,11 @@ export const CommandPaletteModal: React.FC<CommandPaletteModalProps> = ({
       action: () => setActiveTab('telemetry')
     },
     {
-      id: 'tab-work',
-      label: 'Switch View: Workspace Mission Control',
+      id: 'tab-projects',
+      label: 'Switch View: Registered Projects Matrix',
       category: 'Navigation',
-      icon: <FolderGit2 className="w-4 h-4 text-amber-400" />,
-      action: () => setActiveTab('workspace')
-    },
-    {
-      id: 'tab-mem',
-      label: 'Switch View: Neural Knowledge Matrix',
-      category: 'Navigation',
-      icon: <Database className="w-4 h-4 text-purple-400" />,
-      action: () => setActiveTab('memory')
-    },
-    {
-      id: 'tab-cloud',
-      label: 'Switch View: Google Cloud Control Center (GCP)',
-      category: 'Navigation',
-      icon: <Cloud className="w-4 h-4 text-cyan-400" />,
-      action: () => setActiveTab('cloud')
+      icon: <FolderGit2 className="w-4 h-4 text-slate-400" />,
+      action: () => setActiveTab('projects')
     },
     {
       id: 'macro-git',

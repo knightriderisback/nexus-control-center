@@ -1,0 +1,502 @@
+{
+  "dec-c78a6e3b": {
+    "decision_id": "dec-c78a6e3b",
+    "mission_id": "mis-adapt-f411697d",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Synthesized knowledge-guided DAG with 5 tasks across 4 waves.",
+    "evidence": [
+      "Intent complexity: LOW",
+      "Found 3 similar past missions."
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Sequential linear execution",
+      "Unbounded parallel dispatch"
+    ],
+    "expected_effect": "Reduces execution critical path with bounded 4 wave concurrency.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-f411697d",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T09:54:59.144669+00:00"
+    },
+    "timestamp": "2026-09-18T09:54:59.144775+00:00"
+  },
+  "dec-0aa10684": {
+    "decision_id": "dec-0aa10684",
+    "mission_id": "mis-adapt-08757b62",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Synthesized knowledge-guided DAG with 5 tasks across 4 waves.",
+    "evidence": [
+      "Intent complexity: LOW",
+      "Found 3 similar past missions."
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Sequential linear execution",
+      "Unbounded parallel dispatch"
+    ],
+    "expected_effect": "Reduces execution critical path with bounded 4 wave concurrency.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-08757b62",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T09:56:37.592077+00:00"
+    },
+    "timestamp": "2026-09-18T09:56:37.592174+00:00"
+  },
+  "dec-46676335": {
+    "decision_id": "dec-46676335",
+    "mission_id": "mis-adapt-08757b62",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Controlled runtime replan (Iteration 1/3): Operator requested controlled replan test",
+    "evidence": [
+      "Trigger: Operator requested controlled replan test",
+      "Previous task state: General"
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Mission Abort",
+      "Manual Operator Escalation"
+    ],
+    "expected_effect": "Restores mission execution viability via resilient topological mutation.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-08757b62",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T09:56:40.236715+00:00"
+    },
+    "timestamp": "2026-09-18T09:56:40.236868+00:00"
+  },
+  "dec-d8e8ae02": {
+    "decision_id": "dec-d8e8ae02",
+    "mission_id": "mis-adapt-f177fcc8",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Synthesized knowledge-guided DAG with 5 tasks across 4 waves.",
+    "evidence": [
+      "Intent complexity: LOW",
+      "Found 3 similar past missions."
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Sequential linear execution",
+      "Unbounded parallel dispatch"
+    ],
+    "expected_effect": "Reduces execution critical path with bounded 4 wave concurrency.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-f177fcc8",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T09:57:47.746802+00:00"
+    },
+    "timestamp": "2026-09-18T09:57:47.746900+00:00"
+  },
+  "dec-47dcffd4": {
+    "decision_id": "dec-47dcffd4",
+    "mission_id": "mis-adapt-f177fcc8",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Controlled runtime replan (Iteration 1/3): Operator requested controlled replan test",
+    "evidence": [
+      "Trigger: Operator requested controlled replan test",
+      "Previous task state: General"
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Mission Abort",
+      "Manual Operator Escalation"
+    ],
+    "expected_effect": "Restores mission execution viability via resilient topological mutation.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-f177fcc8",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T09:57:49.467965+00:00"
+    },
+    "timestamp": "2026-09-18T09:57:49.468110+00:00"
+  },
+  "dec-85f29c25": {
+    "decision_id": "dec-85f29c25",
+    "mission_id": "mis-adapt-e0373f97",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Synthesized knowledge-guided DAG with 5 tasks across 4 waves.",
+    "evidence": [
+      "Intent complexity: LOW",
+      "Found 3 similar past missions."
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Sequential linear execution",
+      "Unbounded parallel dispatch"
+    ],
+    "expected_effect": "Reduces execution critical path with bounded 4 wave concurrency.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-e0373f97",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T09:59:11.124067+00:00"
+    },
+    "timestamp": "2026-09-18T09:59:11.124225+00:00"
+  },
+  "dec-13440dc4": {
+    "decision_id": "dec-13440dc4",
+    "mission_id": "mis-adapt-e0373f97",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Controlled runtime replan (Iteration 1/3): Operator requested controlled replan test",
+    "evidence": [
+      "Trigger: Operator requested controlled replan test",
+      "Previous task state: General"
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Mission Abort",
+      "Manual Operator Escalation"
+    ],
+    "expected_effect": "Restores mission execution viability via resilient topological mutation.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-e0373f97",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T09:59:13.020257+00:00"
+    },
+    "timestamp": "2026-09-18T09:59:13.020447+00:00"
+  },
+  "dec-7453e40a": {
+    "decision_id": "dec-7453e40a",
+    "mission_id": "mis-adapt-a1286d56",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Synthesized knowledge-guided DAG with 5 tasks across 4 waves.",
+    "evidence": [
+      "Intent complexity: CRITICAL",
+      "Found 1 similar past missions."
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Sequential linear execution",
+      "Unbounded parallel dispatch"
+    ],
+    "expected_effect": "Reduces execution critical path with bounded 4 wave concurrency.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-a1286d56",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T09:59:38.071128+00:00"
+    },
+    "timestamp": "2026-09-18T09:59:38.071220+00:00"
+  },
+  "dec-41104df8": {
+    "decision_id": "dec-41104df8",
+    "mission_id": "mis-adapt-a1286d56",
+    "task_id": "task-f23cf6",
+    "step_index": 0,
+    "why": "Primary task 'Core Implementation & Execution' encountered failure. Activating pre-computed resilient fallback.",
+    "evidence": [
+      "Failure reason: TransientSocketTimeout: Primary implementation pipeline timed out.",
+      "Pre-verified fallback branch available in DAG."
+    ],
+    "confidence": "OBSERVED_FACT",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Immediate Mission Abort",
+      "Manual Escalation"
+    ],
+    "expected_effect": "Applied strategy DYNAMIC_FALLBACK_BRANCH to preserve mission continuity.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-a1286d56",
+      "task_id": "task-f23cf6",
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T09:59:38.607041+00:00"
+    },
+    "timestamp": "2026-09-18T09:59:38.607149+00:00"
+  },
+  "dec-e91062ff": {
+    "decision_id": "dec-e91062ff",
+    "mission_id": "mis-adapt-a1286d56",
+    "task_id": "task-62ecdd",
+    "step_index": 0,
+    "why": "Injected dynamic remediation node task-rem-ff482e to repair precondition before re-attempting task-62ecdd.",
+    "evidence": [
+      "Trigger: Pre-verification syntax linting anomaly detected",
+      "Referenced Knowledge Node: kn-037c9287"
+    ],
+    "confidence": "OBSERVED_FACT",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Immediate Mission Abort",
+      "Manual Escalation"
+    ],
+    "expected_effect": "Applied strategy INJECT_REMEDIATION_SUBDAG to preserve mission continuity.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-a1286d56",
+      "task_id": "task-62ecdd",
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T09:59:39.224108+00:00"
+    },
+    "timestamp": "2026-09-18T09:59:39.224337+00:00"
+  },
+  "dec-5e562138": {
+    "decision_id": "dec-5e562138",
+    "mission_id": "mis-adapt-43cedee6",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Synthesized knowledge-guided DAG with 5 tasks across 4 waves.",
+    "evidence": [
+      "Intent complexity: LOW",
+      "Found 3 similar past missions."
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Sequential linear execution",
+      "Unbounded parallel dispatch"
+    ],
+    "expected_effect": "Reduces execution critical path with bounded 4 wave concurrency.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-43cedee6",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T10:01:14.405789+00:00"
+    },
+    "timestamp": "2026-09-18T10:01:14.405909+00:00"
+  },
+  "dec-a67b1d1f": {
+    "decision_id": "dec-a67b1d1f",
+    "mission_id": "mis-adapt-43cedee6",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Controlled runtime replan (Iteration 1/3): Operator requested controlled replan test",
+    "evidence": [
+      "Trigger: Operator requested controlled replan test",
+      "Previous task state: General"
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Mission Abort",
+      "Manual Operator Escalation"
+    ],
+    "expected_effect": "Restores mission execution viability via resilient topological mutation.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-43cedee6",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T10:01:16.218866+00:00"
+    },
+    "timestamp": "2026-09-18T10:01:16.218980+00:00"
+  },
+  "dec-425efceb": {
+    "decision_id": "dec-425efceb",
+    "mission_id": "mis-adapt-2c8c17e9",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Synthesized knowledge-guided DAG with 5 tasks across 4 waves.",
+    "evidence": [
+      "Intent complexity: LOW",
+      "Found 3 similar past missions."
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Sequential linear execution",
+      "Unbounded parallel dispatch"
+    ],
+    "expected_effect": "Reduces execution critical path with bounded 4 wave concurrency.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-2c8c17e9",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T10:49:11.826117+00:00"
+    },
+    "timestamp": "2026-09-18T10:49:11.826255+00:00"
+  },
+  "dec-a7688449": {
+    "decision_id": "dec-a7688449",
+    "mission_id": "mis-adapt-2c8c17e9",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Controlled runtime replan (Iteration 1/3): Operator requested controlled replan test",
+    "evidence": [
+      "Trigger: Operator requested controlled replan test",
+      "Previous task state: General"
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Mission Abort",
+      "Manual Operator Escalation"
+    ],
+    "expected_effect": "Restores mission execution viability via resilient topological mutation.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-2c8c17e9",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T10:49:15.823275+00:00"
+    },
+    "timestamp": "2026-09-18T10:49:15.823409+00:00"
+  },
+  "dec-17a8a2d8": {
+    "decision_id": "dec-17a8a2d8",
+    "mission_id": "mis-adapt-f98258a0",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Synthesized knowledge-guided DAG with 5 tasks across 4 waves.",
+    "evidence": [
+      "Intent complexity: LOW",
+      "Found 3 similar past missions."
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Sequential linear execution",
+      "Unbounded parallel dispatch"
+    ],
+    "expected_effect": "Reduces execution critical path with bounded 4 wave concurrency.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-f98258a0",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T11:04:18.094436+00:00"
+    },
+    "timestamp": "2026-09-18T11:04:18.094590+00:00"
+  },
+  "dec-da93f81d": {
+    "decision_id": "dec-da93f81d",
+    "mission_id": "mis-adapt-f98258a0",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Controlled runtime replan (Iteration 1/3): Operator requested controlled replan test",
+    "evidence": [
+      "Trigger: Operator requested controlled replan test",
+      "Previous task state: General"
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Mission Abort",
+      "Manual Operator Escalation"
+    ],
+    "expected_effect": "Restores mission execution viability via resilient topological mutation.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-f98258a0",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T11:04:22.683946+00:00"
+    },
+    "timestamp": "2026-09-18T11:04:22.684121+00:00"
+  },
+  "dec-cbdbf866": {
+    "decision_id": "dec-cbdbf866",
+    "mission_id": "mis-adapt-2a3bc9d6",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Synthesized knowledge-guided DAG with 5 tasks across 4 waves.",
+    "evidence": [
+      "Intent complexity: LOW",
+      "Found 3 similar past missions."
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Sequential linear execution",
+      "Unbounded parallel dispatch"
+    ],
+    "expected_effect": "Reduces execution critical path with bounded 4 wave concurrency.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-2a3bc9d6",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T14:59:52.451418+00:00"
+    },
+    "timestamp": "2026-09-18T14:59:52.451539+00:00"
+  },
+  "dec-39453ba9": {
+    "decision_id": "dec-39453ba9",
+    "mission_id": "mis-adapt-2a3bc9d6",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Controlled runtime replan (Iteration 1/3): Operator requested controlled replan test",
+    "evidence": [
+      "Trigger: Operator requested controlled replan test",
+      "Previous task state: General"
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Mission Abort",
+      "Manual Operator Escalation"
+    ],
+    "expected_effect": "Restores mission execution viability via resilient topological mutation.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-2a3bc9d6",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T14:59:54.002505+00:00"
+    },
+    "timestamp": "2026-09-18T14:59:54.002633+00:00"
+  },
+  "dec-0d2e7229": {
+    "decision_id": "dec-0d2e7229",
+    "mission_id": "mis-adapt-66915691",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Synthesized knowledge-guided DAG with 5 tasks across 4 waves.",
+    "evidence": [
+      "Intent complexity: LOW",
+      "Found 3 similar past missions."
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Sequential linear execution",
+      "Unbounded parallel dispatch"
+    ],
+    "expected_effect": "Reduces execution critical path with bounded 4 wave concurrency.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-66915691",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T15:25:11.873155+00:00"
+    },
+    "timestamp": "2026-09-18T15:25:11.873650+00:00"
+  },
+  "dec-aa1b7a30": {
+    "decision_id": "dec-aa1b7a30",
+    "mission_id": "mis-adapt-66915691",
+    "task_id": null,
+    "step_index": 0,
+    "why": "Controlled runtime replan (Iteration 1/3): Operator requested controlled replan test",
+    "evidence": [
+      "Trigger: Operator requested controlled replan test",
+      "Previous task state: General"
+    ],
+    "confidence": "DERIVED_PATTERN",
+    "risk": "LOW",
+    "alternatives_considered": [
+      "Mission Abort",
+      "Manual Operator Escalation"
+    ],
+    "expected_effect": "Restores mission execution viability via resilient topological mutation.",
+    "traceability_link": {
+      "mission_id": "mis-adapt-66915691",
+      "task_id": null,
+      "agent_role": "MissionIntelligenceEngine",
+      "timestamp": "2026-09-18T15:25:38.641089+00:00"
+    },
+    "timestamp": "2026-09-18T15:25:38.641237+00:00"
+  }
+}

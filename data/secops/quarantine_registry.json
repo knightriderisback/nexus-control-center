@@ -1,0 +1,515 @@
+{
+  "quar-5833d2b5": {
+    "quarantine_id": "quar-5833d2b5",
+    "finding_id": "sec-17dbe7ea",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-349/test_threat_quarantine_isolati0/threat_script.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-5833d2b5_threat_script.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-17T20:35:49.145678+00:00",
+    "released_at": null,
+    "operator": "TEST_SUITE",
+    "reason": "",
+    "evidence": {},
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-6f4003ba": {
+    "quarantine_id": "quar-6f4003ba",
+    "finding_id": "sec-ade9cc07",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-349/test_secops_rest_api_endpoints0/api_test.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-6f4003ba_api_test.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-17T20:35:50.101552+00:00",
+    "released_at": null,
+    "operator": "API_TEST",
+    "reason": "",
+    "evidence": {},
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-5986a052": {
+    "quarantine_id": "quar-5986a052",
+    "finding_id": "sec-6d2de8a5",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-350/test_threat_quarantine_isolati0/threat_script.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-5986a052_threat_script.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-17T20:36:36.025898+00:00",
+    "released_at": null,
+    "operator": "TEST_SUITE",
+    "reason": "",
+    "evidence": {},
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-5a4a5292": {
+    "quarantine_id": "quar-5a4a5292",
+    "finding_id": "sec-7a539842",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-350/test_secops_rest_api_endpoints0/api_test.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-5a4a5292_api_test.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-17T20:36:36.952939+00:00",
+    "released_at": null,
+    "operator": "API_TEST",
+    "reason": "",
+    "evidence": {},
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-b4d5722c": {
+    "quarantine_id": "quar-b4d5722c",
+    "finding_id": "sec-e0d4368a",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-351/test_threat_quarantine_isolati0/threat_script.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-b4d5722c_threat_script.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-17T20:37:03.431688+00:00",
+    "released_at": null,
+    "operator": "TEST_SUITE",
+    "reason": "",
+    "evidence": {},
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-75e765a8": {
+    "quarantine_id": "quar-75e765a8",
+    "finding_id": "sec-4fb6a3fe",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-351/test_secops_rest_api_endpoints0/api_test.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-75e765a8_api_test.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-17T20:37:04.360625+00:00",
+    "released_at": null,
+    "operator": "API_TEST",
+    "reason": "",
+    "evidence": {},
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-cf77949e": {
+    "quarantine_id": "quar-cf77949e",
+    "finding_id": "sec-71a97f8f",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/nexus_secops_e2e_8_7oj3vr/vulnerable_service.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-cf77949e_vulnerable_service.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-17T20:37:50.257479+00:00",
+    "released_at": null,
+    "operator": "E2E_SECOPS_VERIFIER",
+    "reason": "",
+    "evidence": {},
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-74348948": {
+    "quarantine_id": "quar-74348948",
+    "finding_id": "sec-b77fb32d",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/nexus_secops_e2e_crayju2f/vulnerable_service.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-74348948_vulnerable_service.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-17T20:38:08.278547+00:00",
+    "released_at": null,
+    "operator": "E2E_SECOPS_VERIFIER",
+    "reason": "",
+    "evidence": {},
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-bf03bc31": {
+    "quarantine_id": "quar-bf03bc31",
+    "finding_id": "sec-9f77b86e",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/nexus_secops_e2e_3sm33e9_/vulnerable_service.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-bf03bc31_vulnerable_service.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-17T20:38:22.289484+00:00",
+    "released_at": null,
+    "operator": "E2E_SECOPS_VERIFIER",
+    "reason": "",
+    "evidence": {},
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-3e45dada": {
+    "quarantine_id": "quar-3e45dada",
+    "finding_id": "sec-9829e11f",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-352/test_threat_quarantine_isolati0/threat_script.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-3e45dada_threat_script.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-17T20:43:13.223283+00:00",
+    "released_at": "2026-09-17T20:43:13.317415+00:00",
+    "operator": "TEST_SUITE",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-352/test_threat_quarantine_isolati0/threat_script.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-3e45dada_threat_script.py"
+    },
+    "notes": "Released by TEST_SUITE: Unit test release"
+  },
+  "quar-1ed85635": {
+    "quarantine_id": "quar-1ed85635",
+    "finding_id": "sec-a7540639",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-352/test_secops_rest_api_endpoints0/api_test.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-1ed85635_api_test.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-17T20:43:36.842641+00:00",
+    "released_at": null,
+    "operator": "API_TEST",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-352/test_secops_rest_api_endpoints0/api_test.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-1ed85635_api_test.py"
+    },
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-fcce4c6b": {
+    "quarantine_id": "quar-fcce4c6b",
+    "finding_id": "sec-897b5f3e",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-353/test_threat_quarantine_isolati0/threat_script.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-fcce4c6b_threat_script.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-17T20:44:00.862651+00:00",
+    "released_at": "2026-09-17T20:44:00.977773+00:00",
+    "operator": "TEST_SUITE",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-353/test_threat_quarantine_isolati0/threat_script.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-fcce4c6b_threat_script.py"
+    },
+    "notes": "Released by TEST_SUITE: Unit test release"
+  },
+  "quar-da74c501": {
+    "quarantine_id": "quar-da74c501",
+    "finding_id": "sec-1055d32d",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-353/test_secops_rest_api_endpoints0/api_test.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-da74c501_api_test.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-17T20:44:16.705496+00:00",
+    "released_at": null,
+    "operator": "API_TEST",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-353/test_secops_rest_api_endpoints0/api_test.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-da74c501_api_test.py"
+    },
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-1e3c918f": {
+    "quarantine_id": "quar-1e3c918f",
+    "finding_id": "sec-7eed1b44",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-354/test_threat_quarantine_isolati0/threat_script.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-1e3c918f_threat_script.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-17T20:44:42.048174+00:00",
+    "released_at": "2026-09-17T20:44:42.174994+00:00",
+    "operator": "TEST_SUITE",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-354/test_threat_quarantine_isolati0/threat_script.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-1e3c918f_threat_script.py"
+    },
+    "notes": "Released by TEST_SUITE: Unit test release"
+  },
+  "quar-e24414c6": {
+    "quarantine_id": "quar-e24414c6",
+    "finding_id": "sec-61e8bca6",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-354/test_secops_rest_api_endpoints0/api_test.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-e24414c6_api_test.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-17T20:44:58.654272+00:00",
+    "released_at": null,
+    "operator": "API_TEST",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-354/test_secops_rest_api_endpoints0/api_test.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-e24414c6_api_test.py"
+    },
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-1a73250e": {
+    "quarantine_id": "quar-1a73250e",
+    "finding_id": "sec-29bb7ac3",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-359/test_threat_quarantine_isolati0/threat_script.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-1a73250e_threat_script.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-18T09:04:52.661318+00:00",
+    "released_at": "2026-09-18T09:05:02.911844+00:00",
+    "operator": "TEST_SUITE",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-359/test_threat_quarantine_isolati0/threat_script.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-1a73250e_threat_script.py"
+    },
+    "notes": "Released by TEST_SUITE: Unit test release"
+  },
+  "quar-dcb962f5": {
+    "quarantine_id": "quar-dcb962f5",
+    "finding_id": "sec-86910b97",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-361/test_threat_quarantine_isolati0/threat_script.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-dcb962f5_threat_script.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-18T09:11:45.660250+00:00",
+    "released_at": "2026-09-18T09:11:45.835434+00:00",
+    "operator": "TEST_SUITE",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-361/test_threat_quarantine_isolati0/threat_script.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-dcb962f5_threat_script.py"
+    },
+    "notes": "Released by TEST_SUITE: Unit test release"
+  },
+  "quar-82b3b219": {
+    "quarantine_id": "quar-82b3b219",
+    "finding_id": "sec-9f93022d",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-361/test_secops_rest_api_endpoints0/api_test.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-82b3b219_api_test.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-18T09:11:52.212768+00:00",
+    "released_at": null,
+    "operator": "API_TEST",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-361/test_secops_rest_api_endpoints0/api_test.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-82b3b219_api_test.py"
+    },
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-0d19aed2": {
+    "quarantine_id": "quar-0d19aed2",
+    "finding_id": "sec-5f100d7e",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-370/test_threat_quarantine_isolati0/threat_script.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-0d19aed2_threat_script.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-18T09:49:25.242700+00:00",
+    "released_at": "2026-09-18T09:49:25.423564+00:00",
+    "operator": "TEST_SUITE",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-370/test_threat_quarantine_isolati0/threat_script.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-0d19aed2_threat_script.py"
+    },
+    "notes": "Released by TEST_SUITE: Unit test release"
+  },
+  "quar-e9431392": {
+    "quarantine_id": "quar-e9431392",
+    "finding_id": "sec-d9791d93",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-370/test_secops_rest_api_endpoints0/api_test.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-e9431392_api_test.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-18T09:49:30.828339+00:00",
+    "released_at": null,
+    "operator": "API_TEST",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-370/test_secops_rest_api_endpoints0/api_test.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-e9431392_api_test.py"
+    },
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-1b5b2ada": {
+    "quarantine_id": "quar-1b5b2ada",
+    "finding_id": "sec-609f74ed",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-375/test_threat_quarantine_isolati0/threat_script.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-1b5b2ada_threat_script.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-18T10:00:51.920050+00:00",
+    "released_at": "2026-09-18T10:00:52.102165+00:00",
+    "operator": "TEST_SUITE",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-375/test_threat_quarantine_isolati0/threat_script.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-1b5b2ada_threat_script.py"
+    },
+    "notes": "Released by TEST_SUITE: Unit test release"
+  },
+  "quar-544729ca": {
+    "quarantine_id": "quar-544729ca",
+    "finding_id": "sec-6d3607d5",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-375/test_secops_rest_api_endpoints0/api_test.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-544729ca_api_test.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-18T10:00:58.764203+00:00",
+    "released_at": null,
+    "operator": "API_TEST",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-375/test_secops_rest_api_endpoints0/api_test.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-544729ca_api_test.py"
+    },
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-3cb0fa77": {
+    "quarantine_id": "quar-3cb0fa77",
+    "finding_id": "sec-a3f18e4a",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-376/test_threat_quarantine_isolati0/threat_script.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-3cb0fa77_threat_script.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-18T10:48:33.557700+00:00",
+    "released_at": "2026-09-18T10:48:33.701659+00:00",
+    "operator": "TEST_SUITE",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-376/test_threat_quarantine_isolati0/threat_script.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-3cb0fa77_threat_script.py"
+    },
+    "notes": "Released by TEST_SUITE: Unit test release"
+  },
+  "quar-26769e80": {
+    "quarantine_id": "quar-26769e80",
+    "finding_id": "sec-f8078ec1",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-376/test_secops_rest_api_endpoints0/api_test.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-26769e80_api_test.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-18T10:48:40.380221+00:00",
+    "released_at": null,
+    "operator": "API_TEST",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-376/test_secops_rest_api_endpoints0/api_test.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-26769e80_api_test.py"
+    },
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-f072f786": {
+    "quarantine_id": "quar-f072f786",
+    "finding_id": "sec-7594bb65",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-377/test_threat_quarantine_isolati0/threat_script.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-f072f786_threat_script.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-18T11:03:19.199229+00:00",
+    "released_at": "2026-09-18T11:03:19.598003+00:00",
+    "operator": "TEST_SUITE",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-377/test_threat_quarantine_isolati0/threat_script.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-f072f786_threat_script.py"
+    },
+    "notes": "Released by TEST_SUITE: Unit test release"
+  },
+  "quar-40916d8d": {
+    "quarantine_id": "quar-40916d8d",
+    "finding_id": "sec-d3acbfcb",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-377/test_secops_rest_api_endpoints0/api_test.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-40916d8d_api_test.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-18T11:03:36.081060+00:00",
+    "released_at": null,
+    "operator": "API_TEST",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-377/test_secops_rest_api_endpoints0/api_test.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-40916d8d_api_test.py"
+    },
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-151fb4b0": {
+    "quarantine_id": "quar-151fb4b0",
+    "finding_id": "sec-b72bf96f",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-378/test_threat_quarantine_isolati0/threat_script.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-151fb4b0_threat_script.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-18T14:59:21.631486+00:00",
+    "released_at": "2026-09-18T14:59:21.871476+00:00",
+    "operator": "TEST_SUITE",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-378/test_threat_quarantine_isolati0/threat_script.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-151fb4b0_threat_script.py"
+    },
+    "notes": "Released by TEST_SUITE: Unit test release"
+  },
+  "quar-2681f60b": {
+    "quarantine_id": "quar-2681f60b",
+    "finding_id": "sec-d92161c8",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-378/test_secops_rest_api_endpoints0/api_test.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-2681f60b_api_test.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-18T14:59:33.183526+00:00",
+    "released_at": null,
+    "operator": "API_TEST",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-378/test_secops_rest_api_endpoints0/api_test.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-2681f60b_api_test.py"
+    },
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-98463a90": {
+    "quarantine_id": "quar-98463a90",
+    "finding_id": "sec-479e3c7d",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-379/test_threat_quarantine_isolati0/threat_script.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-98463a90_threat_script.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-18T15:22:38.927220+00:00",
+    "released_at": "2026-09-18T15:22:39.430412+00:00",
+    "operator": "TEST_SUITE",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-379/test_threat_quarantine_isolati0/threat_script.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-98463a90_threat_script.py"
+    },
+    "notes": "Released by TEST_SUITE: Unit test release"
+  },
+  "quar-f52f079f": {
+    "quarantine_id": "quar-f52f079f",
+    "finding_id": "sec-801262e4",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-379/test_secops_rest_api_endpoints0/api_test.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-f52f079f_api_test.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-18T15:23:33.808452+00:00",
+    "released_at": null,
+    "operator": "API_TEST",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-379/test_secops_rest_api_endpoints0/api_test.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-f52f079f_api_test.py"
+    },
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  }
+}

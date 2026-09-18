@@ -1,0 +1,12 @@
+{
+  "incident_id": "inc-08c63ade",
+  "title": "Production SLA Breach Critical Alert",
+  "category": "HTTP_SLA_BREACH",
+  "severity": "SEV_1_CRITICAL",
+  "root_cause": "Automated RCA: Identified HTTP_SLA_BREACH anomaly on resource 'production-gateway'.",
+  "playbook_applied": "Automated Production Deployment Rollback",
+  "mttr_seconds": 0.02,
+  "remediation_steps_count": 4,
+  "generated_at": "2026-09-17T19:05:17.784793+00:00",
+  "status": "RESOLVED_AUTOMATICALLY"
+}

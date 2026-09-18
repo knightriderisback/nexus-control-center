@@ -1,6 +1,20 @@
 import { useState, useEffect, useCallback } from 'react';
 import { HeaderHUD, type TabType } from './components/HeaderHUD';
+import { UnifiedCommandCenterView } from './components/UnifiedCommandCenterView';
+import { CyberHudLiveView } from './components/CyberHudLiveView';
+import { CyberHudMissionControlView } from './components/CyberHudMissionControlView';
+import { AdaptiveMissionMatrixView } from './components/AdaptiveMissionMatrixView';
+import { ProductBuilderMatrixView } from './components/ProductBuilderMatrixView';
+import { ProjectOperationsMatrixView } from './components/ProjectOperationsMatrixView';
+import { ProductionDeploymentMatrixView } from './components/ProductionDeploymentMatrixView';
+import { AutonomousSelfHealingView } from './components/AutonomousSelfHealingView';
+import { SecurityComplianceMatrixView } from './components/SecurityComplianceMatrixView';
+import { KnowledgeLearningMatrixView } from './components/KnowledgeLearningMatrixView';
+import { UniversalToolAppMatrixView } from './components/UniversalToolAppMatrixView';
 import { AgentSwarmView } from './components/AgentSwarmView';
+import { DeliveryMatrixView } from './components/DeliveryMatrixView';
+import { ProvidersControlView } from './components/ProvidersControlView';
+import { RecoveryControlView } from './components/RecoveryControlView';
 import { TelemetryCockpit } from './components/TelemetryCockpit';
 import { WorkspaceMissionControl } from './components/WorkspaceMissionControl';
 import { KnowledgeMatrix } from './components/KnowledgeMatrix';
@@ -13,7 +27,7 @@ import type { Agent, Task, Telemetry, ApprovalRequest, MemoryNode, WorkspaceProj
 import { sound } from './utils/audio';
 
 export function App() {
-  const [activeTab, setActiveTab] = useState<TabType>('swarm');
+  const [activeTab, setActiveTab] = useState<TabType>('hud');
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);
   const [scanlines, setScanlines] = useState<boolean>(true);
   const [audioEnabled, setAudioEnabled] = useState<boolean>(false);
@@ -123,25 +137,25 @@ export function App() {
       if (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA' && !isCommandPaletteOpen) {
         if (e.key === '1') {
           sound.click();
-          setActiveTab('swarm');
+          setActiveTab('hud');
         } else if (e.key === '2') {
           sound.click();
-          setActiveTab('projects');
+          setActiveTab('swarm');
         } else if (e.key === '3') {
           sound.click();
-          setActiveTab('approvals');
+          setActiveTab('delivery');
         } else if (e.key === '4') {
           sound.click();
-          setActiveTab('cloud');
+          setActiveTab('providers');
         } else if (e.key === '5') {
           sound.click();
-          setActiveTab('audit');
+          setActiveTab('approvals');
         } else if (e.key === '6') {
           sound.click();
-          setActiveTab('telemetry');
+          setActiveTab('recovery');
         } else if (e.key === '7') {
           sound.click();
-          setActiveTab('memory');
+          setActiveTab('telemetry');
         }
       }
     };
@@ -245,6 +259,53 @@ export function App() {
 
       {/* Main Content Area */}
       <main className="max-w-7xl mx-auto px-4 py-6">
+        {activeTab === 'c2' && (
+          <UnifiedCommandCenterView />
+        )}
+
+        {activeTab === 'hud' && (
+          <CyberHudLiveView
+            onTriggerPanic={handleTriggerPanic}
+            onNavigateTab={(tab) => setActiveTab(tab as TabType)}
+          />
+        )}
+
+        {activeTab === 'missions' && (
+          <CyberHudMissionControlView />
+        )}
+
+        {activeTab === 'adaptive' && (
+          <AdaptiveMissionMatrixView />
+        )}
+
+        {activeTab === 'products' && (
+          <ProductBuilderMatrixView />
+        )}
+
+        {activeTab === 'operations' && (
+          <ProjectOperationsMatrixView />
+        )}
+
+        {activeTab === 'deployments' && (
+          <ProductionDeploymentMatrixView />
+        )}
+
+        {activeTab === 'healing' && (
+          <AutonomousSelfHealingView />
+        )}
+
+        {activeTab === 'security' && (
+          <SecurityComplianceMatrixView />
+        )}
+
+        {activeTab === 'knowledge' && (
+          <KnowledgeLearningMatrixView />
+        )}
+
+        {activeTab === 'tools' && (
+          <UniversalToolAppMatrixView />
+        )}
+
         {activeTab === 'swarm' && (
           <AgentSwarmView
             agents={agents}
@@ -255,12 +316,28 @@ export function App() {
           />
         )}
 
-        {activeTab === 'projects' && (
-          <ProjectsMatrixView />
+        {activeTab === 'delivery' && (
+          <DeliveryMatrixView />
+        )}
+
+        {activeTab === 'providers' && (
+          <ProvidersControlView />
         )}
 
         {activeTab === 'approvals' && (
           <ApprovalsMatrixView />
+        )}
+
+        {activeTab === 'recovery' && (
+          <RecoveryControlView />
+        )}
+
+        {activeTab === 'telemetry' && (
+          <TelemetryCockpit telemetry={telemetry} />
+        )}
+
+        {activeTab === 'projects' && (
+          <ProjectsMatrixView />
         )}
 
         {activeTab === 'cloud' && (
@@ -269,10 +346,6 @@ export function App() {
 
         {activeTab === 'audit' && (
           <AuditTrailView />
-        )}
-
-        {activeTab === 'telemetry' && (
-          <TelemetryCockpit telemetry={telemetry} />
         )}
 
         {activeTab === 'workspace' && (

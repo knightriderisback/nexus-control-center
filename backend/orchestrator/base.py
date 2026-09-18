@@ -1,7 +1,10 @@
 """
 NEXUS Provider-Neutral AI Orchestration Layer.
+Maintains full backward compatibility with Phase 6-9 interfaces while bridging
+directly to the production-grade Phase 10 providers subsystem in `orchestrator.providers`.
+
 Standardized interface:
-AIProvider
+AIProvider / BaseLLMProvider
 ├── generate()
 ├── stream()
 ├── health()
@@ -11,12 +14,14 @@ Adapters:
 - GeminiProvider
 - OpenAIProvider
 - AnthropicProvider
+- OllamaProvider
+- LocalASTProvider
 - MockProvider
 
 Features:
 - Provider registry
-- Dynamic routing with fallback
-- Timeout and error handling
+- Dynamic routing with fallback cascade
+- Timeout, circuit breaker, and retry handling
 - Explicit NOT_CONFIGURED status for unconfigured real providers
 - Model metadata & token/cost accounting ($0.00 zero-cost guardrail)
 """
@@ -24,260 +29,29 @@ Features:
 import os
 import asyncio
 from abc import ABC, abstractmethod
-from typing import Dict, Any, Optional, AsyncGenerator, List
+from typing import Dict, Any, Optional, AsyncGenerator, List, Tuple
 
-class AIProvider(ABC):
-    """Unified AI Provider Abstract Interface."""
+from orchestrator.providers import (
+    BaseLLMProvider,
+    AIProvider,
+    AIProviderAdapter,
+    GeminiProvider,
+    OpenAIProvider,
+    AnthropicProvider,
+    OllamaProvider,
+    LocalASTProvider,
+    MockProvider,
+    MockProviderAdapter,
+    ProviderRouter,
+    provider_router,
+    usage_tracker
+)
 
-    @abstractmethod
-    async def generate(self, prompt: str, system_instruction: Optional[str] = None, **kwargs) -> Dict[str, Any]:
-        """Generates unified model response across LLM providers."""
-        pass
 
-    @abstractmethod
-    async def stream(self, prompt: str, **kwargs) -> AsyncGenerator[str, None]:
-        """Streams text chunks from the model."""
-        pass
+# =============================================================================
+# Provider Registry & Factory
+# =============================================================================
 
-    @abstractmethod
-    def health(self) -> Dict[str, Any]:
-        """Returns provider availability and configuration status."""
-        pass
-
-    @abstractmethod
-    def metadata(self) -> Dict[str, Any]:
-        """Returns model and provider capabilities."""
-        pass
-
-    # Backward compatibility alias
-    async def generate_response(self, prompt: str, system_instruction: Optional[str] = None, **kwargs) -> Dict[str, Any]:
-        return await self.generate(prompt, system_instruction, **kwargs)
-
-# Compatibility alias
-AIProviderAdapter = AIProvider
-
-# -----------------------------------------------------------------------------
-# 1. Mock Provider Adapter (Deterministic, zero-cost, offline)
-# -----------------------------------------------------------------------------
-class MockProvider(AIProvider):
-    """Zero-cost local deterministic synthesis for offline testing and air-gapped runtimes."""
-
-    def __init__(self):
-        self.provider_name = "MockEngine"
-        self.model_id = "nexus-mock-v1"
-
-    async def generate(self, prompt: str, system_instruction: Optional[str] = None, **kwargs) -> Dict[str, Any]:
-        return {
-            "provider": self.provider_name,
-            "model": self.model_id,
-            "content": f"[NEXUS Synthesizer] Evaluated directive: '{prompt[:90]}'. Policy constraints validated. Execution plan compiled.",
-            "tokens_used": 120,
-            "estimated_cost_usd": 0.0,
-            "finish_reason": "STOP"
-        }
-
-    async def stream(self, prompt: str, **kwargs) -> AsyncGenerator[str, None]:
-        chunks = ["[NEXUS] ", "Directive validated. ", "Plan compiled."]
-        for chunk in chunks:
-            yield chunk
-
-    def health(self) -> Dict[str, Any]:
-        return {
-            "provider": self.provider_name,
-            "status": "READY",
-            "available": True,
-            "configured": True,
-            "reason": "Local deterministic synthesizer active"
-        }
-
-    def metadata(self) -> Dict[str, Any]:
-        return {
-            "provider": self.provider_name,
-            "model": self.model_id,
-            "context_window": 32768,
-            "cost_per_1k_tokens": 0.0,
-            "supports_streaming": True
-        }
-
-MockProviderAdapter = MockProvider
-
-# -----------------------------------------------------------------------------
-# 2. Google Gemini Provider Adapter
-# -----------------------------------------------------------------------------
-class GeminiProvider(AIProvider):
-    """Google Gemini model adapter."""
-
-    def __init__(self, api_key: Optional[str] = None):
-        self.api_key = api_key or os.getenv("GEMINI_API_KEY")
-        self.provider_name = "Google Gemini"
-        self.model_id = "gemini-2.0-flash"
-
-    def health(self) -> Dict[str, Any]:
-        if not self.api_key:
-            return {
-                "provider": self.provider_name,
-                "status": "NOT_CONFIGURED",
-                "available": False,
-                "configured": False,
-                "reason": "GEMINI_API_KEY environment variable is not set"
-            }
-        return {
-            "provider": self.provider_name,
-            "status": "READY",
-            "available": True,
-            "configured": True,
-            "reason": "API key present"
-        }
-
-    def metadata(self) -> Dict[str, Any]:
-        return {
-            "provider": self.provider_name,
-            "model": self.model_id,
-            "context_window": 1048576,
-            "cost_per_1k_tokens": 0.0001,
-            "supports_streaming": True
-        }
-
-    async def generate(self, prompt: str, system_instruction: Optional[str] = None, **kwargs) -> Dict[str, Any]:
-        h = self.health()
-        if not h["available"]:
-            raise RuntimeError(f"GeminiProvider error: {h['status']} - {h['reason']}")
-        return {
-            "provider": self.provider_name,
-            "model": kwargs.get("model", self.model_id),
-            "content": f"[Gemini Flash] Generated response for: '{prompt[:60]}'",
-            "tokens_used": 240,
-            "estimated_cost_usd": 0.0,
-            "finish_reason": "STOP"
-        }
-
-    async def stream(self, prompt: str, **kwargs) -> AsyncGenerator[str, None]:
-        h = self.health()
-        if not h["available"]:
-            raise RuntimeError(f"GeminiProvider error: {h['status']} - {h['reason']}")
-        yield f"[Gemini] {prompt[:30]}"
-
-GeminiProviderAdapter = GeminiProvider
-
-# -----------------------------------------------------------------------------
-# 3. OpenAI Provider Adapter
-# -----------------------------------------------------------------------------
-class OpenAIProvider(AIProvider):
-    """OpenAI GPT-4o adapter."""
-
-    def __init__(self, api_key: Optional[str] = None):
-        self.api_key = api_key or os.getenv("OPENAI_API_KEY")
-        self.provider_name = "OpenAI"
-        self.model_id = "gpt-4o"
-
-    def health(self) -> Dict[str, Any]:
-        if not self.api_key:
-            return {
-                "provider": self.provider_name,
-                "status": "NOT_CONFIGURED",
-                "available": False,
-                "configured": False,
-                "reason": "OPENAI_API_KEY environment variable is not set"
-            }
-        return {
-            "provider": self.provider_name,
-            "status": "READY",
-            "available": True,
-            "configured": True,
-            "reason": "API key present"
-        }
-
-    def metadata(self) -> Dict[str, Any]:
-        return {
-            "provider": self.provider_name,
-            "model": self.model_id,
-            "context_window": 128000,
-            "cost_per_1k_tokens": 0.005,
-            "supports_streaming": True
-        }
-
-    async def generate(self, prompt: str, system_instruction: Optional[str] = None, **kwargs) -> Dict[str, Any]:
-        h = self.health()
-        if not h["available"]:
-            raise RuntimeError(f"OpenAIProvider error: {h['status']} - {h['reason']}")
-        return {
-            "provider": self.provider_name,
-            "model": kwargs.get("model", self.model_id),
-            "content": f"[GPT-4o] Generated response for: '{prompt[:60]}'",
-            "tokens_used": 280,
-            "estimated_cost_usd": 0.0,
-            "finish_reason": "STOP"
-        }
-
-    async def stream(self, prompt: str, **kwargs) -> AsyncGenerator[str, None]:
-        h = self.health()
-        if not h["available"]:
-            raise RuntimeError(f"OpenAIProvider error: {h['status']} - {h['reason']}")
-        yield f"[OpenAI] {prompt[:30]}"
-
-OpenAIProviderAdapter = OpenAIProvider
-
-# -----------------------------------------------------------------------------
-# 4. Anthropic Provider Adapter
-# -----------------------------------------------------------------------------
-class AnthropicProvider(AIProvider):
-    """Anthropic Claude 3.5 Sonnet adapter."""
-
-    def __init__(self, api_key: Optional[str] = None):
-        self.api_key = api_key or os.getenv("ANTHROPIC_API_KEY")
-        self.provider_name = "Anthropic"
-        self.model_id = "claude-3-5-sonnet-20241022"
-
-    def health(self) -> Dict[str, Any]:
-        if not self.api_key:
-            return {
-                "provider": self.provider_name,
-                "status": "NOT_CONFIGURED",
-                "available": False,
-                "configured": False,
-                "reason": "ANTHROPIC_API_KEY environment variable is not set"
-            }
-        return {
-            "provider": self.provider_name,
-            "status": "READY",
-            "available": True,
-            "configured": True,
-            "reason": "API key present"
-        }
-
-    def metadata(self) -> Dict[str, Any]:
-        return {
-            "provider": self.provider_name,
-            "model": self.model_id,
-            "context_window": 200000,
-            "cost_per_1k_tokens": 0.003,
-            "supports_streaming": True
-        }
-
-    async def generate(self, prompt: str, system_instruction: Optional[str] = None, **kwargs) -> Dict[str, Any]:
-        h = self.health()
-        if not h["available"]:
-            raise RuntimeError(f"AnthropicProvider error: {h['status']} - {h['reason']}")
-        return {
-            "provider": self.provider_name,
-            "model": kwargs.get("model", self.model_id),
-            "content": f"[Claude 3.5 Sonnet] Generated response for: '{prompt[:60]}'",
-            "tokens_used": 260,
-            "estimated_cost_usd": 0.0,
-            "finish_reason": "STOP"
-        }
-
-    async def stream(self, prompt: str, **kwargs) -> AsyncGenerator[str, None]:
-        h = self.health()
-        if not h["available"]:
-            raise RuntimeError(f"AnthropicProvider error: {h['status']} - {h['reason']}")
-        yield f"[Claude] {prompt[:30]}"
-
-AnthropicProviderAdapter = AnthropicProvider
-
-# -----------------------------------------------------------------------------
-# 5. Provider Registry & Factory
-# -----------------------------------------------------------------------------
 class AIProviderRegistry:
     """Registry coordinating available AI providers and status resolution."""
 
@@ -286,7 +60,9 @@ class AIProviderRegistry:
             "mock": MockProvider(),
             "gemini": GeminiProvider(),
             "openai": OpenAIProvider(),
-            "anthropic": AnthropicProvider()
+            "anthropic": AnthropicProvider(),
+            "ollama": OllamaProvider(),
+            "local": LocalASTProvider()
         }
 
     def get_provider(self, name: str) -> Optional[AIProvider]:
@@ -295,10 +71,12 @@ class AIProviderRegistry:
     def list_providers(self) -> List[Dict[str, Any]]:
         results = []
         for name, p in self._providers.items():
+            h = p.health()
+            m = p.metadata()
             results.append({
                 "name": name,
-                "health": p.health(),
-                "metadata": p.metadata()
+                "health": h.model_dump() if hasattr(h, "model_dump") else (h.dict() if hasattr(h, "dict") else h),
+                "metadata": m.model_dump() if hasattr(m, "model_dump") else (m.dict() if hasattr(m, "dict") else m)
             })
         return results
 
@@ -306,14 +84,20 @@ class AIProviderRegistry:
         """Resolves preferred provider if ready, else falls back cleanly to MockProvider."""
         if preference:
             p = self.get_provider(preference)
-            if p and p.health()["available"]:
-                return p
+            if p:
+                h = p.health()
+                is_avail = h.get("available", False) if hasattr(h, "get") else getattr(h, "available", False)
+                if is_avail:
+                    return p
 
         # Check for configured real providers
-        for p_name in ["gemini", "openai", "anthropic"]:
-            p = self._providers[p_name]
-            if p.health()["available"]:
-                return p
+        for p_name in ["gemini", "openai", "anthropic", "ollama"]:
+            p = self._providers.get(p_name)
+            if p:
+                h = p.health()
+                is_avail = h.get("available", False) if hasattr(h, "get") else getattr(h, "available", False)
+                if is_avail:
+                    return p
 
         return self._providers["mock"]
 
@@ -323,9 +107,11 @@ def get_ai_adapter(provider_name: Optional[str] = None) -> AIProvider:
     """Convenience accessor resolving configured provider with safe mock fallback."""
     return provider_registry.resolve_provider(provider_name)
 
-# -----------------------------------------------------------------------------
-# 6. AI Router with Intent Classification
-# -----------------------------------------------------------------------------
+
+# =============================================================================
+# AI Router with Intent Classification
+# =============================================================================
+
 class AIRouter:
     """
     Provider-neutral AI Router.
@@ -367,11 +153,11 @@ class AIRouter:
             suggested_tool = "read_file"
 
         return {
-            "provider": response["provider"],
-            "model": response["model"],
+            "provider": response.get("provider", "MockEngine"),
+            "model": response.get("model", "nexus-mock-v1"),
             "target_agent": target_agent,
             "suggested_tool": suggested_tool,
-            "synthesized_response": response["content"],
+            "synthesized_response": response.get("content", ""),
             "tokens_used": response.get("tokens_used", 0),
             "estimated_cost_usd": response.get("estimated_cost_usd", 0.0)
         }

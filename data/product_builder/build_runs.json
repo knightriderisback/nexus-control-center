@@ -1,0 +1,410 @@
+{
+  "build-8d8c5628": {
+    "build_id": "build-8d8c5628",
+    "product_name": "customer-billing-engine",
+    "spec_id": "spec-1ae6f98a",
+    "workspace_path": "/root/control-center/data/product_builder/workspaces/build-8d8c5628",
+    "current_stage": "DELIVERY_VERIFICATION",
+    "state": "COMPLETED",
+    "components": [
+      {
+        "component_id": "comp-026fd9",
+        "name": "Core Backend Service",
+        "archetype": "MICROSERVICE_API",
+        "path": "backend",
+        "language": "Python",
+        "framework": "FastAPI",
+        "dependencies": [
+          "fastapi",
+          "uvicorn",
+          "pydantic",
+          "pytest"
+        ],
+        "generated_files": [
+          "backend/main.py",
+          "requirements.txt",
+          "Dockerfile",
+          "README.md"
+        ],
+        "status": "CODE_GENERATED",
+        "ast_verified": true,
+        "metadata": {}
+      },
+      {
+        "component_id": "comp-23ee79",
+        "name": "Verification & Test Suite",
+        "archetype": "MICROSERVICE_API",
+        "path": "tests",
+        "language": "Python",
+        "framework": "Pytest",
+        "dependencies": [
+          "pytest",
+          "httpx"
+        ],
+        "generated_files": [
+          "tests/test_product_api.py"
+        ],
+        "status": "TESTS_SYNTHESIZED",
+        "ast_verified": true,
+        "metadata": {}
+      }
+    ],
+    "iteration": 1,
+    "max_iterations": 5,
+    "test_results": {
+      "status": "PASSED",
+      "passed": 3,
+      "failed": 0,
+      "exit_code": 0,
+      "stdout_summary": "============================= test session starts ==============================\nplatform linux -- Python 3.14.4, pytest-9.1.1, pluggy-1.6.0 -- /usr/bin/python3\ncachedir: .pytest_cache\nrootdir: /root/control-center\nconfigfile: pytest.ini\nplugins: anyio-4.15.1, typeguard-4.4.4\ncollecting ... collected 3 items\n\ntests/test_product_api.py::test_health_check_endpoint PASSED             [ 33%]\ntests/test_product_api.py::test_create_and_get_item_lifecycle PASSED     [ 66%]\ntests/test_product_api.py::te"
+    },
+    "security_findings": [],
+    "corrections_applied": [],
+    "slsa_provenance_hash": "5ae2d48c15e49d78c0975a6915ec4bcd6f53c86fe13db4b70d62af38afcadd5d",
+    "provenance_chain_hash": "31265bd0d911d866",
+    "total_tokens_consumed": 850,
+    "created_at": "2026-09-18T10:46:31.859272+00:00",
+    "updated_at": "2026-09-18T10:46:31.859336+00:00",
+    "completed_at": "2026-09-18T10:46:37.697630+00:00"
+  },
+  "build-1e03510a": {
+    "build_id": "build-1e03510a",
+    "product_name": "customer-billing-engine",
+    "spec_id": "spec-9130cf51",
+    "workspace_path": "/root/control-center/data/product_builder/workspaces/build-1e03510a",
+    "current_stage": "DELIVERY_VERIFICATION",
+    "state": "COMPLETED",
+    "components": [
+      {
+        "component_id": "comp-eac979",
+        "name": "Core Backend Service",
+        "archetype": "MICROSERVICE_API",
+        "path": "backend",
+        "language": "Python",
+        "framework": "FastAPI",
+        "dependencies": [
+          "fastapi",
+          "uvicorn",
+          "pydantic",
+          "pytest"
+        ],
+        "generated_files": [
+          "backend/main.py",
+          "requirements.txt",
+          "Dockerfile",
+          "README.md"
+        ],
+        "status": "CODE_GENERATED",
+        "ast_verified": true,
+        "metadata": {}
+      },
+      {
+        "component_id": "comp-e860ff",
+        "name": "Verification & Test Suite",
+        "archetype": "MICROSERVICE_API",
+        "path": "tests",
+        "language": "Python",
+        "framework": "Pytest",
+        "dependencies": [
+          "pytest",
+          "httpx"
+        ],
+        "generated_files": [
+          "tests/test_product_api.py"
+        ],
+        "status": "TESTS_SYNTHESIZED",
+        "ast_verified": true,
+        "metadata": {}
+      }
+    ],
+    "iteration": 1,
+    "max_iterations": 5,
+    "test_results": {
+      "status": "PASSED",
+      "passed": 3,
+      "failed": 0,
+      "exit_code": 0,
+      "stdout_summary": "============================= test session starts ==============================\nplatform linux -- Python 3.14.4, pytest-9.1.1, pluggy-1.6.0 -- /usr/bin/python3\ncachedir: .pytest_cache\nrootdir: /root/control-center\nconfigfile: pytest.ini\nplugins: anyio-4.15.1, typeguard-4.4.4\ncollecting ... collected 3 items\n\ntests/test_product_api.py::test_health_check_endpoint PASSED             [ 33%]\ntests/test_product_api.py::test_create_and_get_item_lifecycle PASSED     [ 66%]\ntests/test_product_api.py::te"
+    },
+    "security_findings": [],
+    "corrections_applied": [],
+    "slsa_provenance_hash": "7e7682649606c2fdf43231699f1aa4df9fdc9cc0b2b187dcc67b2f0cd876709d",
+    "provenance_chain_hash": "42686a39eb4b2624",
+    "total_tokens_consumed": 850,
+    "created_at": "2026-09-18T10:50:03.833539+00:00",
+    "updated_at": "2026-09-18T10:50:03.833573+00:00",
+    "completed_at": "2026-09-18T10:50:10.842051+00:00"
+  },
+  "build-a9fd181c": {
+    "build_id": "build-a9fd181c",
+    "product_name": "customer-billing-engine",
+    "spec_id": "spec-2ccba3de",
+    "workspace_path": "/root/control-center/data/product_builder/workspaces/build-a9fd181c",
+    "current_stage": "DELIVERY_VERIFICATION",
+    "state": "COMPLETED",
+    "components": [
+      {
+        "component_id": "comp-b6d946",
+        "name": "Core Backend Service",
+        "archetype": "MICROSERVICE_API",
+        "path": "backend",
+        "language": "Python",
+        "framework": "FastAPI",
+        "dependencies": [
+          "fastapi",
+          "uvicorn",
+          "pydantic",
+          "pytest"
+        ],
+        "generated_files": [
+          "backend/main.py",
+          "requirements.txt",
+          "Dockerfile",
+          "README.md"
+        ],
+        "status": "CODE_GENERATED",
+        "ast_verified": true,
+        "metadata": {}
+      },
+      {
+        "component_id": "comp-447bb2",
+        "name": "Verification & Test Suite",
+        "archetype": "MICROSERVICE_API",
+        "path": "tests",
+        "language": "Python",
+        "framework": "Pytest",
+        "dependencies": [
+          "pytest",
+          "httpx"
+        ],
+        "generated_files": [
+          "tests/test_product_api.py"
+        ],
+        "status": "TESTS_SYNTHESIZED",
+        "ast_verified": true,
+        "metadata": {}
+      }
+    ],
+    "iteration": 1,
+    "max_iterations": 5,
+    "test_results": {
+      "status": "PASSED",
+      "passed": 3,
+      "failed": 0,
+      "exit_code": 0,
+      "stdout_summary": "============================= test session starts ==============================\nplatform linux -- Python 3.14.4, pytest-9.1.1, pluggy-1.6.0 -- /usr/bin/python3\ncachedir: .pytest_cache\nrootdir: /root/control-center\nconfigfile: pytest.ini\nplugins: anyio-4.15.1, typeguard-4.4.4\ncollecting ... collected 3 items\n\ntests/test_product_api.py::test_health_check_endpoint PASSED             [ 33%]\ntests/test_product_api.py::test_create_and_get_item_lifecycle PASSED     [ 66%]\ntests/test_product_api.py::te"
+    },
+    "security_findings": [],
+    "corrections_applied": [],
+    "slsa_provenance_hash": "c07430c135a5c186aaff378348f3a901e9aac22f6b3302002c22b3d6b00b53fe",
+    "provenance_chain_hash": "04c475060316a4b5",
+    "total_tokens_consumed": 850,
+    "created_at": "2026-09-18T10:59:12.470082+00:00",
+    "updated_at": "2026-09-18T10:59:12.470123+00:00",
+    "completed_at": "2026-09-18T10:59:19.037166+00:00"
+  },
+  "build-f3dec712": {
+    "build_id": "build-f3dec712",
+    "product_name": "customer-billing-engine",
+    "spec_id": "spec-bccfc811",
+    "workspace_path": "/root/control-center/data/product_builder/workspaces/build-f3dec712",
+    "current_stage": "DELIVERY_VERIFICATION",
+    "state": "COMPLETED",
+    "components": [
+      {
+        "component_id": "comp-a05ccc",
+        "name": "Core Backend Service",
+        "archetype": "MICROSERVICE_API",
+        "path": "backend",
+        "language": "Python",
+        "framework": "FastAPI",
+        "dependencies": [
+          "fastapi",
+          "uvicorn",
+          "pydantic",
+          "pytest"
+        ],
+        "generated_files": [
+          "backend/main.py",
+          "requirements.txt",
+          "Dockerfile",
+          "README.md"
+        ],
+        "status": "CODE_GENERATED",
+        "ast_verified": true,
+        "metadata": {}
+      },
+      {
+        "component_id": "comp-3b6cb5",
+        "name": "Verification & Test Suite",
+        "archetype": "MICROSERVICE_API",
+        "path": "tests",
+        "language": "Python",
+        "framework": "Pytest",
+        "dependencies": [
+          "pytest",
+          "httpx"
+        ],
+        "generated_files": [
+          "tests/test_product_api.py"
+        ],
+        "status": "TESTS_SYNTHESIZED",
+        "ast_verified": true,
+        "metadata": {}
+      }
+    ],
+    "iteration": 1,
+    "max_iterations": 5,
+    "test_results": {
+      "status": "PASSED",
+      "passed": 3,
+      "failed": 0,
+      "exit_code": 0,
+      "stdout_summary": "============================= test session starts ==============================\nplatform linux -- Python 3.14.4, pytest-9.1.1, pluggy-1.6.0 -- /usr/bin/python3\ncachedir: .pytest_cache\nrootdir: /root/control-center\nconfigfile: pytest.ini\nplugins: anyio-4.15.1, typeguard-4.4.4\ncollecting ... collected 3 items\n\ntests/test_product_api.py::test_health_check_endpoint PASSED             [ 33%]\ntests/test_product_api.py::test_create_and_get_item_lifecycle PASSED     [ 66%]\ntests/test_product_api.py::te"
+    },
+    "security_findings": [],
+    "corrections_applied": [],
+    "slsa_provenance_hash": "503f4fb0e816fe6e45f1b3911d19e2996ce9e198bc49fc18ac355d7c12ff9513",
+    "provenance_chain_hash": "729983fb839a698c",
+    "total_tokens_consumed": 850,
+    "created_at": "2026-09-18T11:05:41.851610+00:00",
+    "updated_at": "2026-09-18T11:05:41.851674+00:00",
+    "completed_at": "2026-09-18T11:05:51.765333+00:00"
+  },
+  "build-6466145d": {
+    "build_id": "build-6466145d",
+    "product_name": "customer-billing-engine",
+    "spec_id": "spec-809b00b2",
+    "workspace_path": "/root/control-center/data/product_builder/workspaces/build-6466145d",
+    "current_stage": "DELIVERY_VERIFICATION",
+    "state": "COMPLETED",
+    "components": [
+      {
+        "component_id": "comp-4febdf",
+        "name": "Core Backend Service",
+        "archetype": "MICROSERVICE_API",
+        "path": "backend",
+        "language": "Python",
+        "framework": "FastAPI",
+        "dependencies": [
+          "fastapi",
+          "uvicorn",
+          "pydantic",
+          "pytest"
+        ],
+        "generated_files": [
+          "backend/main.py",
+          "requirements.txt",
+          "Dockerfile",
+          "README.md"
+        ],
+        "status": "CODE_GENERATED",
+        "ast_verified": true,
+        "metadata": {}
+      },
+      {
+        "component_id": "comp-30cc75",
+        "name": "Verification & Test Suite",
+        "archetype": "MICROSERVICE_API",
+        "path": "tests",
+        "language": "Python",
+        "framework": "Pytest",
+        "dependencies": [
+          "pytest",
+          "httpx"
+        ],
+        "generated_files": [
+          "tests/test_product_api.py"
+        ],
+        "status": "TESTS_SYNTHESIZED",
+        "ast_verified": true,
+        "metadata": {}
+      }
+    ],
+    "iteration": 1,
+    "max_iterations": 5,
+    "test_results": {
+      "status": "PASSED",
+      "passed": 3,
+      "failed": 0,
+      "exit_code": 0,
+      "stdout_summary": "============================= test session starts ==============================\nplatform linux -- Python 3.14.4, pytest-9.1.1, pluggy-1.6.0 -- /usr/bin/python3\ncachedir: .pytest_cache\nrootdir: /root/control-center\nconfigfile: pytest.ini\nplugins: anyio-4.15.1, typeguard-4.4.4\ncollecting ... collected 3 items\n\ntests/test_product_api.py::test_health_check_endpoint PASSED             [ 33%]\ntests/test_product_api.py::test_create_and_get_item_lifecycle PASSED     [ 66%]\ntests/test_product_api.py::te"
+    },
+    "security_findings": [],
+    "corrections_applied": [],
+    "slsa_provenance_hash": "b354d3ebbbe87c1e95c8ca17489e950f0a500b4cea3ddb151fdcf95d3c79cf5a",
+    "provenance_chain_hash": "83bb456014ac707c",
+    "total_tokens_consumed": 850,
+    "created_at": "2026-09-18T15:00:37.166025+00:00",
+    "updated_at": "2026-09-18T15:00:37.166128+00:00",
+    "completed_at": "2026-09-18T15:00:42.162416+00:00"
+  },
+  "build-cb10b7e0": {
+    "build_id": "build-cb10b7e0",
+    "product_name": "customer-billing-engine",
+    "spec_id": "spec-331e3600",
+    "workspace_path": "/root/control-center/data/product_builder/workspaces/build-cb10b7e0",
+    "current_stage": "DELIVERY_VERIFICATION",
+    "state": "COMPLETED",
+    "components": [
+      {
+        "component_id": "comp-8aa168",
+        "name": "Core Backend Service",
+        "archetype": "MICROSERVICE_API",
+        "path": "backend",
+        "language": "Python",
+        "framework": "FastAPI",
+        "dependencies": [
+          "fastapi",
+          "uvicorn",
+          "pydantic",
+          "pytest"
+        ],
+        "generated_files": [
+          "backend/main.py",
+          "requirements.txt",
+          "Dockerfile",
+          "README.md"
+        ],
+        "status": "CODE_GENERATED",
+        "ast_verified": true,
+        "metadata": {}
+      },
+      {
+        "component_id": "comp-7a62c1",
+        "name": "Verification & Test Suite",
+        "archetype": "MICROSERVICE_API",
+        "path": "tests",
+        "language": "Python",
+        "framework": "Pytest",
+        "dependencies": [
+          "pytest",
+          "httpx"
+        ],
+        "generated_files": [
+          "tests/test_product_api.py"
+        ],
+        "status": "TESTS_SYNTHESIZED",
+        "ast_verified": true,
+        "metadata": {}
+      }
+    ],
+    "iteration": 1,
+    "max_iterations": 5,
+    "test_results": {
+      "status": "PASSED",
+      "passed": 3,
+      "failed": 0,
+      "exit_code": 0,
+      "stdout_summary": "============================= test session starts ==============================\nplatform linux -- Python 3.14.4, pytest-9.1.1, pluggy-1.6.0 -- /usr/bin/python3\ncachedir: .pytest_cache\nrootdir: /root/control-center\nconfigfile: pytest.ini\nplugins: anyio-4.15.1, typeguard-4.4.4\ncollecting ... collected 3 items\n\ntests/test_product_api.py::test_health_check_endpoint PASSED             [ 33%]\ntests/test_product_api.py::test_create_and_get_item_lifecycle PASSED     [ 66%]\ntests/test_product_api.py::te"
+    },
+    "security_findings": [],
+    "corrections_applied": [],
+    "slsa_provenance_hash": "f57e39588abd2b9af4bbe17e48d2de7ca8bab29eebbf2d3cf4fde77b34ce874a",
+    "provenance_chain_hash": "414fc7a4da7f2f26",
+    "total_tokens_consumed": 850,
+    "created_at": "2026-09-18T15:30:01.982693+00:00",
+    "updated_at": "2026-09-18T15:30:01.982780+00:00",
+    "completed_at": "2026-09-18T15:30:14.950326+00:00"
+  }
+}

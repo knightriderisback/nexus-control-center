@@ -82,6 +82,41 @@ jobs:
         run: |
           python3 -c "from backend.core.policy import policy_engine; print('Rules validated:', len(policy_engine.rules)); assert len(policy_engine.rules) >= 9"
 
+      # Stage 6b: Phase 17 Autonomous Self-Healing & Recovery Verification Gate
+      - name: Stage 6b - Phase 17 Autonomous Self-Healing & Operations Verification
+        run: |
+          PYTHONPATH=backend:tests pytest tests/test_phase17_self_healing_operations.py -v
+
+      # Stage 6c: Phase 18 Autonomous Security & Compliance Operations Verification Gate
+      - name: Stage 6c - Phase 18 Autonomous Security & Compliance Verification
+        run: |
+          PYTHONPATH=backend:tests pytest tests/test_phase18_security_compliance_engine.py -v
+
+      # Stage 6d: Phase 19 Autonomous Knowledge, Learning & Optimization Verification Gate
+      - name: Stage 6d - Phase 19 Autonomous Knowledge, Learning & Optimization Verification
+        run: |
+          PYTHONPATH=backend:tests pytest tests/test_phase19_knowledge_learning_engine.py -v
+          PYTHONPATH=backend python3 scripts/e2e_phase19_knowledge_learning.py
+
+      # Stage 6e: Phase 20 Autonomous Mission Intelligence & Adaptive Execution Verification Gate
+      - name: Stage 6e - Phase 20 Autonomous Mission Intelligence & Adaptive Execution Verification
+        run: |
+          PYTHONPATH=backend:tests pytest tests/test_phase20_mission_intelligence.py -v
+          PYTHONPATH=backend python3 scripts/e2e_phase20_mission_intelligence.py
+
+      # Stage 6f: Phase 21 Autonomous Software Factory & Product Builder Verification Gate
+      - name: Stage 6f - Phase 21 Autonomous Software Factory & Product Builder Verification
+        run: |
+          PYTHONPATH=backend:tests pytest tests/test_phase21_product_builder.py -v
+          PYTHONPATH=backend python3 scripts/e2e_phase21_product_builder.py
+
+      # Stage 6g: Phase 22 Autonomous Project Operations & Lifecycle Control Verification Gate
+      - name: Stage 6g - Phase 22 Autonomous Project Operations & Lifecycle Control Verification
+        run: |
+          PYTHONPATH=backend:tests pytest tests/test_phase22_project_operations.py -v
+          PYTHONPATH=backend python3 scripts/e2e_phase22_project_operations.py
+
+
   # =========================================================================
   # STAGE 7 - 12: CD DEPLOYMENT, SMOKE TEST & ROLLBACK
   # =========================================================================

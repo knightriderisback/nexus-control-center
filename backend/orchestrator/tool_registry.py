@@ -204,37 +204,154 @@ STANDARD_TOOLS: List[ToolDefinition] = [
         timeout=15,
         write_capability=False,
         workspace_restriction="workspace_boundary"
+    ),
+    ToolDefinition(
+        tool_id="agent.handoff",
+        name="Agent Autonomous Handoff Delegator",
+        description="Delegates a specialized subtask to another agent persona with structured context and depth tracking.",
+        input_schema={"target_agent_id": "str", "task_title": "str", "instructions": "str", "context": "Optional[Dict[str, Any]]"},
+        output_schema={"handoff_id": "str", "target_agent": "str", "status": "str", "result": "Dict[str, Any]"},
+        risk_level=RiskLevel.MEDIUM,
+        allowed_agents=[
+            "agent-research", "agent-dev", "agent-qa", "agent-security",
+            "agent-docs", "agent-devops", "agent-recovery", "agent-mon",
+            "agent-cost", "agent-ux", "agent-seo", "agent-infra", "agent-data"
+        ],
+        requires_approval=False,
+        execution_mode="safe_subprocess",
+        timeout=60,
+        write_capability=False,
+        workspace_restriction="workspace_boundary"
+    ),
+    ToolDefinition(
+        tool_id="devops.ci_audit",
+        name="CI/CD & Container Configuration Auditor",
+        description="Audits Dockerfile, container manifests, and GitHub Actions workflows for security and syntax.",
+        input_schema={"project_path": "Optional[str]"},
+        output_schema={"status": "str", "dockerfile_valid": "bool", "workflows_valid": "bool", "checks": "List[Dict[str, Any]]"},
+        risk_level=RiskLevel.LOW,
+        allowed_agents=["agent-devops", "agent-dev", "agent-security"],
+        requires_approval=False,
+        execution_mode="read_only",
+        timeout=15,
+        write_capability=False,
+        workspace_restriction="repo_root"
+    ),
+    ToolDefinition(
+        tool_id="recovery.state_audit",
+        name="Disaster Recovery & Workspace State Auditor",
+        description="Probes system integrity, uncommitted workspace drift, stash health, and rollback readiness.",
+        input_schema={"repo_path": "Optional[str]"},
+        output_schema={"status": "str", "clean": "bool", "rollback_ready": "bool", "details": "Dict[str, Any]"},
+        risk_level=RiskLevel.LOW,
+        allowed_agents=["agent-recovery", "agent-devops"],
+        requires_approval=False,
+        execution_mode="read_only",
+        timeout=15,
+        write_capability=False,
+        workspace_restriction="repo_root"
+    ),
+    ToolDefinition(
+        tool_id="mon.system_probe",
+        name="System Metrics & Socket Health Prober",
+        description="Probes real CPU load, RAM usage, swap, disk capacity, and control plane socket availability.",
+        input_schema={"target_port": "Optional[int]"},
+        output_schema={"status": "str", "cpu_percent": "float", "ram_used_mb": "float", "socket_healthy": "bool"},
+        risk_level=RiskLevel.LOW,
+        allowed_agents=["agent-mon", "agent-devops"],
+        requires_approval=False,
+        execution_mode="read_only",
+        timeout=10,
+        write_capability=False,
+        workspace_restriction="workspace_boundary"
+    ),
+    ToolDefinition(
+        tool_id="cost.finops_audit",
+        name="FinOps & Zero-Spend Guardrail Auditor",
+        description="Audits active cloud spend, billing linkage status, and free-tier allocation to enforce $0.00 spend.",
+        input_schema={"project_id": "Optional[str]"},
+        output_schema={"status": "str", "current_spend_usd": "float", "billing_linked": "bool", "guardrail_active": "bool"},
+        risk_level=RiskLevel.LOW,
+        allowed_agents=["agent-cost", "agent-security"],
+        requires_approval=False,
+        execution_mode="read_only",
+        timeout=10,
+        write_capability=False,
+        workspace_restriction="memory_vault"
+    ),
+    ToolDefinition(
+        tool_id="ux.hud_audit",
+        name="Cyber-HUD & Frontend Asset Auditor",
+        description="Analyzes Cyber-HUD component structure, styling tokens, and compiled build bundle sizes.",
+        input_schema={"frontend_path": "Optional[str]"},
+        output_schema={"status": "str", "components_count": "int", "bundle_size_kb": "float", "assets": "List[str]"},
+        risk_level=RiskLevel.LOW,
+        allowed_agents=["agent-ux", "agent-dev"],
+        requires_approval=False,
+        execution_mode="read_only",
+        timeout=15,
+        write_capability=False,
+        workspace_restriction="workspace_boundary"
+    ),
+    ToolDefinition(
+        tool_id="seo.audit",
+        name="SEO & Metadata Tag Auditor",
+        description="Audits HTML files for title, description, viewport, OpenGraph tags, and semantic structure.",
+        input_schema={"target_html": "Optional[str]"},
+        output_schema={"status": "str", "score": "int", "passed_checks": "List[str]", "missing_tags": "List[str]"},
+        risk_level=RiskLevel.LOW,
+        allowed_agents=["agent-seo", "agent-ux"],
+        requires_approval=False,
+        execution_mode="read_only",
+        timeout=10,
+        write_capability=False,
+        workspace_restriction="workspace_boundary"
+    ),
+    ToolDefinition(
+        tool_id="infra.topology_audit",
+        name="GCP Topology & Zero-Key Security Auditor",
+        description="Audits Workload Identity Federation, Service Account topology, and verifies zero static JSON keys.",
+        input_schema={"manifest_path": "Optional[str]"},
+        output_schema={"status": "str", "wif_active": "bool", "service_accounts_count": "int", "static_keys_count": "int"},
+        risk_level=RiskLevel.LOW,
+        allowed_agents=["agent-infra", "agent-security"],
+        requires_approval=False,
+        execution_mode="read_only",
+        timeout=10,
+        write_capability=False,
+        workspace_restriction="repo_root"
     )
 ]
 
 AGENT_PERMISSION_PROFILES: Dict[str, List[str]] = {
     # Research: read-only
-    "agent-research": ["filesystem.read", "filesystem.list", "git.log", "docs.read", "codebase_search"],
-    # Developer: read + controlled write + tests + git diff
-    "agent-dev": ["filesystem.read", "filesystem.list", "filesystem.write", "git.status", "git.diff", "git.branch", "git.log", "test.pytest", "shell.safe"],
-    # QA: read + test execution
-    "agent-qa": ["filesystem.read", "filesystem.list", "git.diff", "test.pytest"],
-    # Security: read + security tools
-    "agent-security": ["filesystem.read", "filesystem.list", "security.secret_scan"],
-    # Documentation: read + docs-only write + git diff
-    "agent-docs": ["filesystem.read", "filesystem.list", "docs.read", "docs.write", "git.diff"],
-    # DevOps: read-only initially (+ shell.safe requiring approval)
-    "agent-devops": ["filesystem.read", "filesystem.list", "git.status", "git.log", "shell.safe"],
-    # Infrastructure: read-only initially
-    "agent-infra": ["filesystem.read", "git.status"],
-    # Data: read-only initially
-    "agent-data": ["filesystem.read", "filesystem.list", "docs.read"],
-    # UX: read-only initially
-    "agent-ux": ["filesystem.read", "filesystem.list"],
-    # SEO: read-only initially
-    "agent-seo": ["filesystem.read", "filesystem.list"],
-    # Cost: read-only
-    "agent-cost": ["filesystem.read"],
-    # Monitoring: read-only
-    "agent-mon": ["filesystem.read"],
-    # Recovery: read-only + approved recovery actions
-    "agent-recovery": ["filesystem.read", "git.status", "git.log"]
+    "agent-research": ["filesystem.read", "filesystem.list", "git.log", "docs.read", "codebase_search", "agent.handoff"],
+    # Developer: read + controlled write + tests + git diff + handoff
+    "agent-dev": ["filesystem.read", "filesystem.list", "filesystem.write", "git.status", "git.diff", "git.branch", "git.log", "test.pytest", "shell.safe", "agent.handoff", "devops.ci_audit", "ux.hud_audit"],
+    # QA: read + test execution + handoff
+    "agent-qa": ["filesystem.read", "filesystem.list", "git.diff", "test.pytest", "agent.handoff"],
+    # Security: read + security tools + handoff
+    "agent-security": ["filesystem.read", "filesystem.list", "security.secret_scan", "devops.ci_audit", "cost.finops_audit", "infra.topology_audit", "agent.handoff"],
+    # Documentation: read + docs-only write + git diff + handoff
+    "agent-docs": ["filesystem.read", "filesystem.list", "docs.read", "docs.write", "git.diff", "agent.handoff"],
+    # DevOps: read + ci_audit + mon + shell.safe + handoff
+    "agent-devops": ["filesystem.read", "filesystem.list", "git.status", "git.log", "shell.safe", "devops.ci_audit", "mon.system_probe", "agent.handoff"],
+    # Infrastructure: read + topology audit + handoff
+    "agent-infra": ["filesystem.read", "git.status", "infra.topology_audit", "agent.handoff"],
+    # Data: read-only + handoff
+    "agent-data": ["filesystem.read", "filesystem.list", "docs.read", "agent.handoff"],
+    # UX: read + hud_audit + seo + handoff
+    "agent-ux": ["filesystem.read", "filesystem.list", "ux.hud_audit", "seo.audit", "agent.handoff"],
+    # SEO: read + seo + handoff
+    "agent-seo": ["filesystem.read", "filesystem.list", "seo.audit", "agent.handoff"],
+    # Cost: read + finops audit + handoff
+    "agent-cost": ["filesystem.read", "cost.finops_audit", "agent.handoff"],
+    # Monitoring: read + system probe + handoff
+    "agent-mon": ["filesystem.read", "mon.system_probe", "agent.handoff"],
+    # Recovery: read + recovery audit + handoff
+    "agent-recovery": ["filesystem.read", "git.status", "git.log", "recovery.state_audit", "agent.handoff"]
 }
+
 
 class ToolRegistry:
     """Central repository and policy enforcement point for agent tools."""
@@ -251,6 +368,9 @@ class ToolRegistry:
             return list(self._tools.values())
         allowed_tool_ids = self.profiles.get(agent_id, [])
         return [t for t in self._tools.values() if t.tool_id in allowed_tool_ids or agent_id in t.allowed_agents]
+
+    def get_allowed_tools(self, agent_id: str) -> List[str]:
+        return self.profiles.get(agent_id, [])
 
     def register_tool(self, tool: ToolDefinition):
         self._tools[tool.tool_id] = tool

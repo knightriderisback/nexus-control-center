@@ -3,7 +3,7 @@ Mobile Termux Integration Adapter.
 Maintains mobile heartbeat, battery status, and remote terminal commands.
 """
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any
 
 class TermuxAdapter:
@@ -14,13 +14,13 @@ class TermuxAdapter:
             "battery_percent": 84,
             "charging": False,
             "network": "Wi-Fi 6",
-            "last_ping": datetime.utcnow().isoformat() + "Z",
+            "last_ping": datetime.now(timezone.utc).isoformat(),
             "storage_free_gb": 42.6
         }
 
     def record_heartbeat(self, payload: Dict[str, Any]) -> Dict[str, Any]:
         self.device_state.update(payload)
-        self.device_state["last_ping"] = datetime.utcnow().isoformat() + "Z"
+        self.device_state["last_ping"] = datetime.now(timezone.utc).isoformat()
         self.device_state["status"] = "ONLINE"
         return self.device_state
 

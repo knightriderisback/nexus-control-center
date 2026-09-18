@@ -1,0 +1,19 @@
+{
+  "cmd-95c4f7be": {
+    "directive_id": "cmd-95c4f7be",
+    "state": "FAILED",
+    "raw_prompt": "Inspect fleet health and drift radar",
+    "resolved_intent": "AMBIGUOUS_OR_UNAUTHORIZED_TARGET",
+    "risk_level": "MEDIUM",
+    "dispatched_subsystems": [],
+    "execution_trace": [],
+    "artifacts": [],
+    "stdout": "",
+    "stderr": "CommandExecutionBlocked: Could not unambiguously resolve target project. Please specify target_project_ids.",
+    "finops_cost_usd": 0.0,
+    "duration_ms": 49.91,
+    "requires_approval": false,
+    "approval_id": null,
+    "completed_at": "2026-09-18T17:54:34.902347+00:00"
+  }
+}

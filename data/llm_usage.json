@@ -1,0 +1,430 @@
+{
+  "total_tokens": 1906,
+  "total_prompt_tokens": 265,
+  "total_completion_tokens": 1641,
+  "total_cost_usd": 0.0,
+  "total_requests": 37,
+  "by_provider": {
+    "local": {
+      "requests": 37,
+      "tokens": 1906,
+      "cost_usd": 0.0
+    }
+  },
+  "by_model": {
+    "nexus-local-ast-v1": {
+      "requests": 37,
+      "tokens": 1906,
+      "cost_usd": 0.0
+    }
+  },
+  "recent_invocations": [
+    {
+      "timestamp": "2026-09-14T12:23:01.493256+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.55,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T12:23:01.558675+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.14,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T12:23:53.416836+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.48,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T12:23:53.458007+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.21,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T12:30:16.915718+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.42,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T12:30:16.936050+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.06,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T12:30:56.024098+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 13,
+      "completion_tokens": 39,
+      "total_tokens": 52,
+      "cost_usd": 0.0,
+      "latency_ms": 0.6,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T12:31:24.391018+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.42,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T12:31:24.458829+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.14,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T13:03:52.027990+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.43,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T13:03:52.101744+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.17,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T13:13:53.866241+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.44,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T13:13:53.881811+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.05,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T13:55:36.302675+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.31,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T13:55:36.328008+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.1,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T14:04:25.972463+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.37,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T14:04:25.994162+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.05,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T14:29:24.436769+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.26,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T14:29:24.452557+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.04,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T14:35:52.617177+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.28,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T14:35:52.628110+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.03,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T14:51:02.392277+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.34,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-14T14:51:02.408857+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.04,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-15T07:42:57.822954+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.31,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-15T07:42:57.845352+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.06,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-16T14:53:24.373918+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.33,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-16T14:53:24.405803+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.05,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-16T19:56:40.980717+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.27,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-16T19:56:40.999225+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.07,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-17T11:45:02.142365+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.44,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-17T11:45:02.159489+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.05,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-17T12:42:54.967510+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.46,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-17T12:42:55.013991+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.17,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-17T12:55:58.851737+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.48,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-17T12:55:58.904543+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.13,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-17T13:40:08.930499+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.29,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-17T13:40:08.979828+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.05,
+      "fallback_triggered": false
+    }
+  ]
+}

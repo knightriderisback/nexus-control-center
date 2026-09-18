@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from datetime import datetime
+from datetime import datetime, timezone
 from integrations.gcp import get_gcp_system_status
 from core.audit import record_audit
 from models.schemas import RiskLevel
@@ -22,7 +22,7 @@ def run_cloud_audit():
         result="VERIFIED_SAFE"
     )
     return {
-        "timestamp": datetime.utcnow().isoformat() + "Z",
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "status": "VERIFIED_SAFE",
         "project": status["project_id"],
         "billable_resources": 0,
