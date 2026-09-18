@@ -3400,5 +3400,1229 @@
     ],
     "token_budget": 4000,
     "created_at": "2026-09-18T15:25:09.427915+00:00"
+  },
+  "ctx-13d4d60a": {
+    "context_id": "ctx-13d4d60a",
+    "mission_id": "mis-pending-c51c6e",
+    "goal": "Refactor database pooling with zero cost",
+    "similar_missions": [],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-19d636e6",
+        "tier": "SEMANTIC",
+        "category": "PERFORMANCE",
+        "title": "Insight: Local AST Scan Speed Advantage",
+        "content": "Pattern: Deterministic local AST security sweeps execute in under 50ms with zero network overhead.\nRationale: AST parsing without external cloud lookups eliminates latency bottlenecks.\nRecommended Action: Default to local AST parsers for pre-commit / pre-merge gates.",
+        "tags": [
+          "secops",
+          "compiler",
+          "toolchain"
+        ],
+        "fingerprint": "238449c025181356",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 50,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.704208+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:01:07.634029+00:00",
+        "updated_at": "2026-09-18T18:05:17.150950+00:00",
+        "metadata": {
+          "insight_id": "ins-3d5429af"
+        }
+      },
+      {
+        "node_id": "kn-7b0d0bc9",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Fallback adaptation test",
+        "content": "Goal: Fallback adaptation test. Strategy: Wave schedule with 5 tasks. Provenance: 25fa2413c37b45c8",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "fae82919a3fb0243",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-23120eea",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 36,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.704761+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:26.445700+00:00",
+        "updated_at": "2026-09-18T18:05:17.150992+00:00",
+        "metadata": {
+          "adaptations": 1,
+          "feedback_id": "fb-920eb1ee"
+        }
+      },
+      {
+        "node_id": "kn-672009b5",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Telemetry authenticity check",
+        "content": "Goal: Telemetry authenticity check. Strategy: Wave schedule with 5 tasks. Provenance: 0b62332d691d9583",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "0e092439119c0084",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-169f5ab4",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 26,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.704909+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:35.389597+00:00",
+        "updated_at": "2026-09-18T18:05:17.150999+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-699627b5"
+        }
+      },
+      {
+        "node_id": "kn-9247fe71",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Fallback adaptation test",
+        "content": "Goal: Fallback adaptation test. Strategy: Wave schedule with 5 tasks. Provenance: 0f76e57631eee576",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "bfb5a6aef1ef2783",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-3ac04033",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 24,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.705084+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:57:32.495956+00:00",
+        "updated_at": "2026-09-18T18:05:17.151004+00:00",
+        "metadata": {
+          "adaptations": 1,
+          "feedback_id": "fb-6facadc0"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-1343af",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T18:05:17.219241+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 3000,
+    "created_at": "2026-09-18T18:05:17.219379+00:00"
+  },
+  "ctx-db424dc4": {
+    "context_id": "ctx-db424dc4",
+    "mission_id": "mis-adapt-99a69046",
+    "goal": "Synthesize full plan through API",
+    "similar_missions": [
+      {
+        "mission_id": "mis-adapt-33db7a27",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "plan",
+          "full",
+          "synthesize",
+          "through"
+        ],
+        "reusable_patterns": []
+      },
+      {
+        "mission_id": "mis-adapt-3da85dde",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "FAILED",
+        "matching_factors": [
+          "plan",
+          "full",
+          "synthesize",
+          "through"
+        ],
+        "reusable_patterns": [
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification",
+          "Delivery & Knowledge Reconciliation"
+        ]
+      },
+      {
+        "mission_id": "mis-adapt-9a1faf8d",
+        "goal": "Synthesize full plan through API",
+        "similarity_score": 1.0,
+        "outcome": "COMPLETED",
+        "matching_factors": [
+          "plan",
+          "full",
+          "synthesize",
+          "through"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Core Implementation & Execution",
+          "Automated Security & Regression Verification"
+        ]
+      }
+    ],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "kn-cbc9f608",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 82512ad227ff2f78",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "0f5c63a0ab2cf6b1",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-08757b62",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 9,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.704966+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:56:39.954628+00:00",
+        "updated_at": "2026-09-18T18:05:17.302616+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-b5a9a6f9"
+        }
+      },
+      {
+        "node_id": "kn-50fcc617",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 02573c73197698ff",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation"
+        ],
+        "fingerprint": "beb1e8112ea8626f",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-f177fcc8",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 8,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.705259+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:57:49.236224+00:00",
+        "updated_at": "2026-09-18T18:05:17.302645+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-4914083e"
+        }
+      },
+      {
+        "node_id": "kn-327ae582",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Mission mis-adapt-e0373f97. Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: c45739f0b69d0db5",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation",
+          "mis-adapt-e0373f97"
+        ],
+        "fingerprint": "3d0d2b9c9918bf8f",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-e0373f97",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 7,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.705546+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T09:59:12.735614+00:00",
+        "updated_at": "2026-09-18T18:05:17.302651+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-6705dc85"
+        }
+      },
+      {
+        "node_id": "kn-f79c42e6",
+        "tier": "PROCEDURAL",
+        "category": "OPERATIONAL",
+        "title": "Adaptive Execution Workflow: Synthesize full plan through API",
+        "content": "Mission mis-adapt-43cedee6. Goal: Synthesize full plan through API. Strategy: Wave schedule with 5 tasks. Provenance: 2b06864c898433ee",
+        "tags": [
+          "adaptive_mission",
+          "wave_schedule",
+          "remediation",
+          "mis-adapt-43cedee6"
+        ],
+        "fingerprint": "b63c91c27384ecab",
+        "status": "ACTIVE",
+        "source_mission_id": "mis-adapt-43cedee6",
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 6,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.705889+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T10:01:15.945232+00:00",
+        "updated_at": "2026-09-18T18:05:17.302657+00:00",
+        "metadata": {
+          "adaptations": 0,
+          "feedback_id": "fb-bbdd3ed4"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-b03183",
+        "mission_id": "pending",
+        "signal_type": "HISTORICAL_FAILURE_PRECEDENT",
+        "severity": "MEDIUM",
+        "evidence": [
+          "Prior mission mis-adapt-3da85dde with similar goal failed."
+        ],
+        "affected_components": [
+          "adaptive_execution"
+        ],
+        "recommendation": "Pre-compute resilient fallback branches in execution DAG.",
+        "detected_at": "2026-09-18T18:05:17.348389+00:00"
+      },
+      {
+        "signal_id": "sig-3b90ab",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T18:05:17.348442+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 4000,
+    "created_at": "2026-09-18T18:05:17.348487+00:00"
+  },
+  "ctx-d47e5dde": {
+    "context_id": "ctx-d47e5dde",
+    "mission_id": "mis-adapt-1221662b",
+    "goal": "Refactor authentication middleware with zero-trust token validation, automated AST security audit, and resilient canary deployment.",
+    "similar_missions": [
+      {
+        "mission_id": "mis-adapt-8c7f8bd9",
+        "goal": "Refactor authentication middleware with zero-trust token validation, automated AST security audit, and resilient canary deployment.",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "resilient",
+          "authentication",
+          "with",
+          "middleware",
+          "audit"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Secondary Resilient Execution Fallback"
+        ]
+      },
+      {
+        "mission_id": "mis-adapt-a1286d56",
+        "goal": "Refactor authentication middleware with zero-trust token validation, automated AST security audit, and resilient canary deployment.",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "resilient",
+          "authentication",
+          "with",
+          "middleware",
+          "audit"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Secondary Resilient Execution Fallback"
+        ]
+      }
+    ],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "ARCH-004",
+        "tier": "PROCEDURAL",
+        "category": "SECURITY",
+        "title": "Zero-Leakage Secret Interception and 0600 Quarantine",
+        "content": "Compromised credentials trigger in-place regex redaction and isolation of offending files to data/secops/quarantine/ with POSIX 0600 mode.",
+        "tags": [
+          "security",
+          "secrets",
+          "quarantine",
+          "redaction"
+        ],
+        "fingerprint": "366cfcee82788570",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 10,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.703961+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:56:09.810661+00:00",
+        "updated_at": "2026-09-18T18:45:27.914019+00:00",
+        "metadata": {}
+      },
+      {
+        "node_id": "kn-037c9287",
+        "tier": "SEMANTIC",
+        "category": "SECURITY",
+        "title": "Insight: Security Posture Vulnerability Cluster: SAST_INJECTION",
+        "content": "Pattern: Detected 33 instances of SAST_INJECTION vulnerabilities across repository sweeps.\nRationale: Static AST analysis and dependency audits flag recurring security anti-patterns early.\nRecommended Action: Enforce automated pre-commit AST guards and 0600 quarantine for SAST_INJECTION.",
+        "tags": [
+          "secops",
+          "codebase",
+          "compliance"
+        ],
+        "fingerprint": "4bd0a68b254d394a",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 33,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.704063+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:57:02.606429+00:00",
+        "updated_at": "2026-09-18T18:45:27.914076+00:00",
+        "metadata": {
+          "insight_id": "ins-69ccb3ae"
+        }
+      },
+      {
+        "node_id": "kn-46953c7d",
+        "tier": "SEMANTIC",
+        "category": "SECURITY",
+        "title": "Insight: Security Posture Vulnerability Cluster: LICENSE_NONCOMPLIANCE",
+        "content": "Pattern: Detected 6 instances of LICENSE_NONCOMPLIANCE vulnerabilities across repository sweeps.\nRationale: Static AST analysis and dependency audits flag recurring security anti-patterns early.\nRecommended Action: Enforce automated pre-commit AST guards and 0600 quarantine for LICENSE_NONCOMPLIANCE.",
+        "tags": [
+          "secops",
+          "codebase",
+          "compliance"
+        ],
+        "fingerprint": "2abd075f1650d7eb",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 29,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.704101+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:57:02.832763+00:00",
+        "updated_at": "2026-09-18T18:45:27.914088+00:00",
+        "metadata": {
+          "insight_id": "ins-a37d2ca5"
+        }
+      },
+      {
+        "node_id": "kn-713b3c73",
+        "tier": "SEMANTIC",
+        "category": "SECURITY",
+        "title": "Insight: Security Posture Vulnerability Cluster: DEPENDENCY_CVE",
+        "content": "Pattern: Detected 6 instances of DEPENDENCY_CVE vulnerabilities across repository sweeps.\nRationale: Static AST analysis and dependency audits flag recurring security anti-patterns early.\nRecommended Action: Enforce automated pre-commit AST guards and 0600 quarantine for DEPENDENCY_CVE.",
+        "tags": [
+          "secops",
+          "codebase",
+          "compliance"
+        ],
+        "fingerprint": "ce5572f7e6ab2db2",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 26,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.704135+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:57:03.082577+00:00",
+        "updated_at": "2026-09-18T18:45:27.914093+00:00",
+        "metadata": {
+          "insight_id": "ins-24c30d21"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-e0a6b0",
+        "mission_id": "pending",
+        "signal_type": "BLAST_RADIUS_RISK",
+        "severity": "HIGH",
+        "evidence": [
+          "Goal touches production infrastructure or deployment targets."
+        ],
+        "affected_components": [
+          "deployment_engine",
+          "canary_gate"
+        ],
+        "recommendation": "Enforce pre-deployment static AST compliance scans and staged canary.",
+        "detected_at": "2026-09-18T18:45:27.966108+00:00"
+      },
+      {
+        "signal_id": "sig-f7f48c",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T18:45:27.966196+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 4500,
+    "created_at": "2026-09-18T18:45:27.966261+00:00"
+  },
+  "ctx-e021cd95": {
+    "context_id": "ctx-e021cd95",
+    "mission_id": "mis-adapt-591c315e",
+    "goal": "Refactor authentication middleware with zero-trust token validation, automated AST security audit, and resilient canary deployment.",
+    "similar_missions": [
+      {
+        "mission_id": "mis-adapt-8c7f8bd9",
+        "goal": "Refactor authentication middleware with zero-trust token validation, automated AST security audit, and resilient canary deployment.",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "middleware",
+          "token",
+          "security",
+          "resilient",
+          "authentication"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Secondary Resilient Execution Fallback"
+        ]
+      },
+      {
+        "mission_id": "mis-adapt-a1286d56",
+        "goal": "Refactor authentication middleware with zero-trust token validation, automated AST security audit, and resilient canary deployment.",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "middleware",
+          "token",
+          "security",
+          "resilient",
+          "authentication"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Secondary Resilient Execution Fallback"
+        ]
+      },
+      {
+        "mission_id": "mis-adapt-1221662b",
+        "goal": "Refactor authentication middleware with zero-trust token validation, automated AST security audit, and resilient canary deployment.",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "middleware",
+          "token",
+          "security",
+          "resilient",
+          "authentication"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Secondary Resilient Execution Fallback"
+        ]
+      }
+    ],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "ARCH-004",
+        "tier": "PROCEDURAL",
+        "category": "SECURITY",
+        "title": "Zero-Leakage Secret Interception and 0600 Quarantine",
+        "content": "Compromised credentials trigger in-place regex redaction and isolation of offending files to data/secops/quarantine/ with POSIX 0600 mode.",
+        "tags": [
+          "security",
+          "secrets",
+          "quarantine",
+          "redaction"
+        ],
+        "fingerprint": "366cfcee82788570",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 11,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.703961+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:56:09.810661+00:00",
+        "updated_at": "2026-09-18T18:45:31.437020+00:00",
+        "metadata": {}
+      },
+      {
+        "node_id": "kn-037c9287",
+        "tier": "SEMANTIC",
+        "category": "SECURITY",
+        "title": "Insight: Security Posture Vulnerability Cluster: SAST_INJECTION",
+        "content": "Pattern: Detected 33 instances of SAST_INJECTION vulnerabilities across repository sweeps.\nRationale: Static AST analysis and dependency audits flag recurring security anti-patterns early.\nRecommended Action: Enforce automated pre-commit AST guards and 0600 quarantine for SAST_INJECTION.",
+        "tags": [
+          "secops",
+          "codebase",
+          "compliance"
+        ],
+        "fingerprint": "4bd0a68b254d394a",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 35,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.704063+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:57:02.606429+00:00",
+        "updated_at": "2026-09-18T18:45:31.437067+00:00",
+        "metadata": {
+          "insight_id": "ins-69ccb3ae"
+        }
+      },
+      {
+        "node_id": "kn-46953c7d",
+        "tier": "SEMANTIC",
+        "category": "SECURITY",
+        "title": "Insight: Security Posture Vulnerability Cluster: LICENSE_NONCOMPLIANCE",
+        "content": "Pattern: Detected 6 instances of LICENSE_NONCOMPLIANCE vulnerabilities across repository sweeps.\nRationale: Static AST analysis and dependency audits flag recurring security anti-patterns early.\nRecommended Action: Enforce automated pre-commit AST guards and 0600 quarantine for LICENSE_NONCOMPLIANCE.",
+        "tags": [
+          "secops",
+          "codebase",
+          "compliance"
+        ],
+        "fingerprint": "2abd075f1650d7eb",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 31,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.704101+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:57:02.832763+00:00",
+        "updated_at": "2026-09-18T18:45:31.437075+00:00",
+        "metadata": {
+          "insight_id": "ins-a37d2ca5"
+        }
+      },
+      {
+        "node_id": "kn-713b3c73",
+        "tier": "SEMANTIC",
+        "category": "SECURITY",
+        "title": "Insight: Security Posture Vulnerability Cluster: DEPENDENCY_CVE",
+        "content": "Pattern: Detected 6 instances of DEPENDENCY_CVE vulnerabilities across repository sweeps.\nRationale: Static AST analysis and dependency audits flag recurring security anti-patterns early.\nRecommended Action: Enforce automated pre-commit AST guards and 0600 quarantine for DEPENDENCY_CVE.",
+        "tags": [
+          "secops",
+          "codebase",
+          "compliance"
+        ],
+        "fingerprint": "ce5572f7e6ab2db2",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 27,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.704135+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:57:03.082577+00:00",
+        "updated_at": "2026-09-18T18:45:31.437080+00:00",
+        "metadata": {
+          "insight_id": "ins-24c30d21"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-bf4a38",
+        "mission_id": "pending",
+        "signal_type": "BLAST_RADIUS_RISK",
+        "severity": "HIGH",
+        "evidence": [
+          "Goal touches production infrastructure or deployment targets."
+        ],
+        "affected_components": [
+          "deployment_engine",
+          "canary_gate"
+        ],
+        "recommendation": "Enforce pre-deployment static AST compliance scans and staged canary.",
+        "detected_at": "2026-09-18T18:45:31.499152+00:00"
+      },
+      {
+        "signal_id": "sig-63989f",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T18:45:31.499218+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 4500,
+    "created_at": "2026-09-18T18:45:31.499266+00:00"
+  },
+  "ctx-e4657d61": {
+    "context_id": "ctx-e4657d61",
+    "mission_id": "mis-adapt-df6de8f0",
+    "goal": "Refactor authentication middleware with zero-trust token validation, automated AST security audit, and resilient canary deployment.",
+    "similar_missions": [
+      {
+        "mission_id": "mis-adapt-8c7f8bd9",
+        "goal": "Refactor authentication middleware with zero-trust token validation, automated AST security audit, and resilient canary deployment.",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "automated",
+          "resilient",
+          "token",
+          "zero-trust",
+          "refactor"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Secondary Resilient Execution Fallback"
+        ]
+      },
+      {
+        "mission_id": "mis-adapt-a1286d56",
+        "goal": "Refactor authentication middleware with zero-trust token validation, automated AST security audit, and resilient canary deployment.",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "automated",
+          "resilient",
+          "token",
+          "zero-trust",
+          "refactor"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Secondary Resilient Execution Fallback"
+        ]
+      },
+      {
+        "mission_id": "mis-adapt-1221662b",
+        "goal": "Refactor authentication middleware with zero-trust token validation, automated AST security audit, and resilient canary deployment.",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "automated",
+          "resilient",
+          "token",
+          "zero-trust",
+          "refactor"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Secondary Resilient Execution Fallback"
+        ]
+      }
+    ],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "ARCH-004",
+        "tier": "PROCEDURAL",
+        "category": "SECURITY",
+        "title": "Zero-Leakage Secret Interception and 0600 Quarantine",
+        "content": "Compromised credentials trigger in-place regex redaction and isolation of offending files to data/secops/quarantine/ with POSIX 0600 mode.",
+        "tags": [
+          "security",
+          "secrets",
+          "quarantine",
+          "redaction"
+        ],
+        "fingerprint": "366cfcee82788570",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 14,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.703961+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:56:09.810661+00:00",
+        "updated_at": "2026-09-18T18:51:35.274074+00:00",
+        "metadata": {}
+      },
+      {
+        "node_id": "kn-037c9287",
+        "tier": "SEMANTIC",
+        "category": "SECURITY",
+        "title": "Insight: Security Posture Vulnerability Cluster: SAST_INJECTION",
+        "content": "Pattern: Detected 33 instances of SAST_INJECTION vulnerabilities across repository sweeps.\nRationale: Static AST analysis and dependency audits flag recurring security anti-patterns early.\nRecommended Action: Enforce automated pre-commit AST guards and 0600 quarantine for SAST_INJECTION.",
+        "tags": [
+          "secops",
+          "codebase",
+          "compliance"
+        ],
+        "fingerprint": "4bd0a68b254d394a",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 37,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.704063+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:57:02.606429+00:00",
+        "updated_at": "2026-09-18T18:51:35.274124+00:00",
+        "metadata": {
+          "insight_id": "ins-69ccb3ae"
+        }
+      },
+      {
+        "node_id": "kn-46953c7d",
+        "tier": "SEMANTIC",
+        "category": "SECURITY",
+        "title": "Insight: Security Posture Vulnerability Cluster: LICENSE_NONCOMPLIANCE",
+        "content": "Pattern: Detected 6 instances of LICENSE_NONCOMPLIANCE vulnerabilities across repository sweeps.\nRationale: Static AST analysis and dependency audits flag recurring security anti-patterns early.\nRecommended Action: Enforce automated pre-commit AST guards and 0600 quarantine for LICENSE_NONCOMPLIANCE.",
+        "tags": [
+          "secops",
+          "codebase",
+          "compliance"
+        ],
+        "fingerprint": "2abd075f1650d7eb",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 33,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.704101+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:57:02.832763+00:00",
+        "updated_at": "2026-09-18T18:51:35.274132+00:00",
+        "metadata": {
+          "insight_id": "ins-a37d2ca5"
+        }
+      },
+      {
+        "node_id": "kn-713b3c73",
+        "tier": "SEMANTIC",
+        "category": "SECURITY",
+        "title": "Insight: Security Posture Vulnerability Cluster: DEPENDENCY_CVE",
+        "content": "Pattern: Detected 6 instances of DEPENDENCY_CVE vulnerabilities across repository sweeps.\nRationale: Static AST analysis and dependency audits flag recurring security anti-patterns early.\nRecommended Action: Enforce automated pre-commit AST guards and 0600 quarantine for DEPENDENCY_CVE.",
+        "tags": [
+          "secops",
+          "codebase",
+          "compliance"
+        ],
+        "fingerprint": "ce5572f7e6ab2db2",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 28,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.704135+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:57:03.082577+00:00",
+        "updated_at": "2026-09-18T18:51:35.274137+00:00",
+        "metadata": {
+          "insight_id": "ins-24c30d21"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-5cb02f",
+        "mission_id": "pending",
+        "signal_type": "BLAST_RADIUS_RISK",
+        "severity": "HIGH",
+        "evidence": [
+          "Goal touches production infrastructure or deployment targets."
+        ],
+        "affected_components": [
+          "deployment_engine",
+          "canary_gate"
+        ],
+        "recommendation": "Enforce pre-deployment static AST compliance scans and staged canary.",
+        "detected_at": "2026-09-18T18:51:35.327342+00:00"
+      },
+      {
+        "signal_id": "sig-ae559f",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T18:51:35.327420+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 4500,
+    "created_at": "2026-09-18T18:51:35.327476+00:00"
+  },
+  "ctx-f3237cfa": {
+    "context_id": "ctx-f3237cfa",
+    "mission_id": "mis-adapt-5671b647",
+    "goal": "Refactor authentication middleware with zero-trust token validation, automated AST security audit, and resilient canary deployment.",
+    "similar_missions": [
+      {
+        "mission_id": "mis-adapt-8c7f8bd9",
+        "goal": "Refactor authentication middleware with zero-trust token validation, automated AST security audit, and resilient canary deployment.",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "automated",
+          "token",
+          "authentication",
+          "canary",
+          "middleware"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Secondary Resilient Execution Fallback"
+        ]
+      },
+      {
+        "mission_id": "mis-adapt-a1286d56",
+        "goal": "Refactor authentication middleware with zero-trust token validation, automated AST security audit, and resilient canary deployment.",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "automated",
+          "token",
+          "authentication",
+          "canary",
+          "middleware"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Secondary Resilient Execution Fallback"
+        ]
+      },
+      {
+        "mission_id": "mis-adapt-1221662b",
+        "goal": "Refactor authentication middleware with zero-trust token validation, automated AST security audit, and resilient canary deployment.",
+        "similarity_score": 1.0,
+        "outcome": "READY",
+        "matching_factors": [
+          "automated",
+          "token",
+          "authentication",
+          "canary",
+          "middleware"
+        ],
+        "reusable_patterns": [
+          "Environment & Knowledge Precondition Scan",
+          "Secondary Resilient Execution Fallback"
+        ]
+      }
+    ],
+    "relevant_knowledge_nodes": [
+      {
+        "node_id": "ARCH-004",
+        "tier": "PROCEDURAL",
+        "category": "SECURITY",
+        "title": "Zero-Leakage Secret Interception and 0600 Quarantine",
+        "content": "Compromised credentials trigger in-place regex redaction and isolation of offending files to data/secops/quarantine/ with POSIX 0600 mode.",
+        "tags": [
+          "security",
+          "secrets",
+          "quarantine",
+          "redaction"
+        ],
+        "fingerprint": "366cfcee82788570",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 15,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.703961+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:56:09.810661+00:00",
+        "updated_at": "2026-09-18T18:51:38.939818+00:00",
+        "metadata": {}
+      },
+      {
+        "node_id": "kn-037c9287",
+        "tier": "SEMANTIC",
+        "category": "SECURITY",
+        "title": "Insight: Security Posture Vulnerability Cluster: SAST_INJECTION",
+        "content": "Pattern: Detected 33 instances of SAST_INJECTION vulnerabilities across repository sweeps.\nRationale: Static AST analysis and dependency audits flag recurring security anti-patterns early.\nRecommended Action: Enforce automated pre-commit AST guards and 0600 quarantine for SAST_INJECTION.",
+        "tags": [
+          "secops",
+          "codebase",
+          "compliance"
+        ],
+        "fingerprint": "4bd0a68b254d394a",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 39,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.704063+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:57:02.606429+00:00",
+        "updated_at": "2026-09-18T18:51:38.939885+00:00",
+        "metadata": {
+          "insight_id": "ins-69ccb3ae"
+        }
+      },
+      {
+        "node_id": "kn-46953c7d",
+        "tier": "SEMANTIC",
+        "category": "SECURITY",
+        "title": "Insight: Security Posture Vulnerability Cluster: LICENSE_NONCOMPLIANCE",
+        "content": "Pattern: Detected 6 instances of LICENSE_NONCOMPLIANCE vulnerabilities across repository sweeps.\nRationale: Static AST analysis and dependency audits flag recurring security anti-patterns early.\nRecommended Action: Enforce automated pre-commit AST guards and 0600 quarantine for LICENSE_NONCOMPLIANCE.",
+        "tags": [
+          "secops",
+          "codebase",
+          "compliance"
+        ],
+        "fingerprint": "2abd075f1650d7eb",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 35,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.704101+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:57:02.832763+00:00",
+        "updated_at": "2026-09-18T18:51:38.939895+00:00",
+        "metadata": {
+          "insight_id": "ins-a37d2ca5"
+        }
+      },
+      {
+        "node_id": "kn-713b3c73",
+        "tier": "SEMANTIC",
+        "category": "SECURITY",
+        "title": "Insight: Security Posture Vulnerability Cluster: DEPENDENCY_CVE",
+        "content": "Pattern: Detected 6 instances of DEPENDENCY_CVE vulnerabilities across repository sweeps.\nRationale: Static AST analysis and dependency audits flag recurring security anti-patterns early.\nRecommended Action: Enforce automated pre-commit AST guards and 0600 quarantine for DEPENDENCY_CVE.",
+        "tags": [
+          "secops",
+          "codebase",
+          "compliance"
+        ],
+        "fingerprint": "ce5572f7e6ab2db2",
+        "status": "ACTIVE",
+        "source_mission_id": null,
+        "source_incident_id": null,
+        "source_finding_id": null,
+        "confidence": "HIGH",
+        "success_score": 1.0,
+        "access_count": 29,
+        "decay_factor": 1.0,
+        "revalidated_at": "2026-09-18T18:05:08.704135+00:00",
+        "contradicted_by": null,
+        "created_at": "2026-09-18T08:57:03.082577+00:00",
+        "updated_at": "2026-09-18T18:51:38.939901+00:00",
+        "metadata": {
+          "insight_id": "ins-24c30d21"
+        }
+      }
+    ],
+    "risk_signals": [
+      {
+        "signal_id": "sig-ce4f07",
+        "mission_id": "pending",
+        "signal_type": "BLAST_RADIUS_RISK",
+        "severity": "HIGH",
+        "evidence": [
+          "Goal touches production infrastructure or deployment targets."
+        ],
+        "affected_components": [
+          "deployment_engine",
+          "canary_gate"
+        ],
+        "recommendation": "Enforce pre-deployment static AST compliance scans and staged canary.",
+        "detected_at": "2026-09-18T18:51:39.013004+00:00"
+      },
+      {
+        "signal_id": "sig-d27d36",
+        "mission_id": "pending",
+        "signal_type": "FINOPS_ZERO_COST_GUARD",
+        "severity": "LOW",
+        "evidence": [
+          "Zero-spend invariant active ($0.00 total monthly billing)."
+        ],
+        "affected_components": [
+          "cloud_guard",
+          "cost_guard"
+        ],
+        "recommendation": "Execute strictly in local sandbox environments.",
+        "detected_at": "2026-09-18T18:51:39.013069+00:00"
+      }
+    ],
+    "recommended_agents": {
+      "Architect": 0.95,
+      "Coder": 0.9,
+      "SecOps": 0.98,
+      "Optimizer": 0.85
+    },
+    "recommended_tools": [
+      "filesystem.read",
+      "ast.verify",
+      "safe_runner.execute",
+      "knowledge.query"
+    ],
+    "token_budget": 4500,
+    "created_at": "2026-09-18T18:51:39.013116+00:00"
   }
 }

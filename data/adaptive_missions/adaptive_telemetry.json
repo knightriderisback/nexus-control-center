@@ -1,11 +1,11 @@
 {
-  "active_missions": 13,
+  "active_missions": 18,
   "completed_missions": 4,
-  "total_adaptations": 7,
-  "total_replans": 8,
-  "successful_recoveries": 7,
+  "total_adaptations": 15,
+  "total_replans": 9,
+  "successful_recoveries": 15,
   "average_task_latency_ms": 18.4,
   "tokens_saved_by_optimization": 5920,
   "finops_zero_cost_verified": true,
-  "last_heartbeat": "2026-09-18T15:25:39.027123+00:00"
+  "last_heartbeat": "2026-09-18T18:51:39.839469+00:00"
 }

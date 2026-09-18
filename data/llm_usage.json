@@ -1,20 +1,20 @@
 {
-  "total_tokens": 1906,
-  "total_prompt_tokens": 265,
-  "total_completion_tokens": 1641,
+  "total_tokens": 2112,
+  "total_prompt_tokens": 293,
+  "total_completion_tokens": 1819,
   "total_cost_usd": 0.0,
-  "total_requests": 37,
+  "total_requests": 41,
   "by_provider": {
     "local": {
-      "requests": 37,
-      "tokens": 1906,
+      "requests": 41,
+      "tokens": 2112,
       "cost_usd": 0.0
     }
   },
   "by_model": {
     "nexus-local-ast-v1": {
-      "requests": 37,
-      "tokens": 1906,
+      "requests": 41,
+      "tokens": 2112,
       "cost_usd": 0.0
     }
   },
@@ -424,6 +424,50 @@
       "total_tokens": 47,
       "cost_usd": 0.0,
       "latency_ms": 0.05,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-18T18:26:59.089423+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.3,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-18T18:26:59.133892+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.08,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-18T18:35:33.063482+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 9,
+      "completion_tokens": 47,
+      "total_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 0.41,
+      "fallback_triggered": false
+    },
+    {
+      "timestamp": "2026-09-18T18:35:33.091719+00:00",
+      "provider": "local",
+      "model": "nexus-local-ast-v1",
+      "prompt_tokens": 5,
+      "completion_tokens": 42,
+      "total_tokens": 47,
+      "cost_usd": 0.0,
+      "latency_ms": 0.08,
       "fallback_triggered": false
     }
   ]

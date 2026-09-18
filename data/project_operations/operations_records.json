@@ -233,9 +233,33 @@
         "expected_state": "Clean working tree",
         "observed_state": "Dirty working tree with uncommitted modifications",
         "diff": "M data/audit/audit_trail.jsonl\n M data/command_control/directives_journal.json\n M data/command_control/event_stream.json\n M data/command_control/operations_timeline.json\n M data/knowledge/knowledge_nodes.json\n M data/project_operations/operations_records.json\n M data/projects/projects_registry.json",
+        "remediated": true,
+        "remediated_at": "2026-09-18T18:00:36.962890+00:00",
+        "timestamp": "2026-09-18T18:00:34.590419+00:00"
+      },
+      {
+        "drift_id": "drift-241f9daf",
+        "project_id": "personal-engineering-os-2026",
+        "drift_type": "CONFIG_DRIFT",
+        "severity": "LOW",
+        "expected_state": "Clean working tree",
+        "observed_state": "Dirty working tree with uncommitted modifications",
+        "diff": "M backend/orchestrator/command_control_kernel.py\n M data/adaptive_missions/adaptive_missions.json\n M data/adaptive_missions/adaptive_telemetry.json\n M data/adaptive_missions/knowledge_feedback.json\n M data/adaptive_missions/mission_contexts.json\n M data/adaptive_missions/mission_decisions.json\n M da",
         "remediated": false,
         "remediated_at": null,
-        "timestamp": "2026-09-18T18:00:34.590419+00:00"
+        "timestamp": "2026-09-18T18:07:22.773348+00:00"
+      },
+      {
+        "drift_id": "drift-96a27a67",
+        "project_id": "personal-engineering-os-2026",
+        "drift_type": "CONFIG_DRIFT",
+        "severity": "LOW",
+        "expected_state": "Clean working tree",
+        "observed_state": "Dirty working tree with uncommitted modifications",
+        "diff": "M .github/workflows/production-pipeline.yml\n M backend/models/schemas.py\n M backend/orchestrator/command_control_kernel.py\n M backend/orchestrator/tool_runner.py\n M data/adaptive_missions/adaptation_events.json\n M data/adaptive_missions/adaptive_missions.json\n M data/adaptive_missions/adaptive_telem",
+        "remediated": false,
+        "remediated_at": null,
+        "timestamp": "2026-09-18T19:07:52.634190+00:00"
       }
     ],
     "maintenance_history": [],
@@ -247,7 +271,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.201849+00:00",
-    "updated_at": "2026-09-18T18:00:34.590493+00:00"
+    "updated_at": "2026-09-18T19:07:52.634321+00:00"
   },
   "control-center": {
     "project_id": "control-center",
@@ -414,6 +438,18 @@
         "remediated": false,
         "remediated_at": null,
         "timestamp": "2026-09-18T15:39:24.359097+00:00"
+      },
+      {
+        "drift_id": "drift-ac2c7edc",
+        "project_id": "control-center",
+        "drift_type": "CONFIG_DRIFT",
+        "severity": "LOW",
+        "expected_state": "Clean working tree",
+        "observed_state": "Dirty working tree with uncommitted modifications",
+        "diff": "M backend/orchestrator/command_control_kernel.py\n M data/adaptive_missions/adaptive_missions.json\n M data/adaptive_missions/adaptive_telemetry.json\n M data/adaptive_missions/knowledge_feedback.json\n M data/adaptive_missions/mission_contexts.json\n M data/adaptive_missions/mission_decisions.json\n M da",
+        "remediated": false,
+        "remediated_at": null,
+        "timestamp": "2026-09-18T18:07:23.330534+00:00"
       }
     ],
     "maintenance_history": [],
@@ -425,7 +461,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.201940+00:00",
-    "updated_at": "2026-09-18T15:39:24.359205+00:00"
+    "updated_at": "2026-09-18T18:07:23.330698+00:00"
   },
   "portfolio": {
     "project_id": "portfolio",
@@ -520,6 +556,18 @@
         "remediated": false,
         "remediated_at": null,
         "timestamp": "2026-09-18T15:39:24.363347+00:00"
+      },
+      {
+        "drift_id": "drift-f7c2d659",
+        "project_id": "portfolio",
+        "drift_type": "CONFIG_DRIFT",
+        "severity": "MEDIUM",
+        "expected_state": "File 'pyproject.toml' present",
+        "observed_state": "File 'pyproject.toml' missing",
+        "diff": "- pyproject.toml",
+        "remediated": false,
+        "remediated_at": null,
+        "timestamp": "2026-09-18T18:07:23.331910+00:00"
       }
     ],
     "maintenance_history": [],
@@ -531,7 +579,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.201982+00:00",
-    "updated_at": "2026-09-18T15:39:24.564201+00:00"
+    "updated_at": "2026-09-18T18:07:23.431547+00:00"
   },
   "project-analytics-ingestion-engine": {
     "project_id": "project-analytics-ingestion-engine",
@@ -626,6 +674,18 @@
         "remediated": false,
         "remediated_at": null,
         "timestamp": "2026-09-18T15:39:24.564781+00:00"
+      },
+      {
+        "drift_id": "drift-7cbe38dc",
+        "project_id": "project-analytics-ingestion-engine",
+        "drift_type": "ENVIRONMENT_DRIFT",
+        "severity": "CRITICAL",
+        "expected_state": "Directory '/tmp/nexus_factory_test_4vble80o/analytics-ingestion-engine' exists",
+        "observed_state": "Directory missing",
+        "diff": "Missing project workspace on disk",
+        "remediated": false,
+        "remediated_at": null,
+        "timestamp": "2026-09-18T18:07:23.431832+00:00"
       }
     ],
     "maintenance_history": [],
@@ -732,6 +792,18 @@
         "remediated": false,
         "remediated_at": null,
         "timestamp": "2026-09-18T15:39:24.565734+00:00"
+      },
+      {
+        "drift_id": "drift-0596c337",
+        "project_id": "project-api-micro-service-test",
+        "drift_type": "ENVIRONMENT_DRIFT",
+        "severity": "CRITICAL",
+        "expected_state": "Directory '/tmp/nexus_factory_test_hc7gqvj8/api-micro-service-test' exists",
+        "observed_state": "Directory missing",
+        "diff": "Missing project workspace on disk",
+        "remediated": false,
+        "remediated_at": null,
+        "timestamp": "2026-09-18T18:07:23.432225+00:00"
       }
     ],
     "maintenance_history": [],
@@ -776,7 +848,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.202097+00:00",
-    "updated_at": "2026-09-18T15:39:24.717213+00:00"
+    "updated_at": "2026-09-18T18:07:23.515802+00:00"
   },
   "project-quick-ping-health": {
     "project_id": "project-quick-ping-health",
@@ -809,7 +881,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.202134+00:00",
-    "updated_at": "2026-09-18T15:39:24.865830+00:00"
+    "updated_at": "2026-09-18T18:07:23.574945+00:00"
   },
   "rate-limiter-service": {
     "project_id": "rate-limiter-service",
@@ -904,6 +976,18 @@
         "remediated": false,
         "remediated_at": null,
         "timestamp": "2026-09-18T15:39:25.007123+00:00"
+      },
+      {
+        "drift_id": "drift-168dcedc",
+        "project_id": "rate-limiter-service",
+        "drift_type": "CONFIG_DRIFT",
+        "severity": "LOW",
+        "expected_state": "Clean working tree",
+        "observed_state": "Dirty working tree with uncommitted modifications",
+        "diff": "M README.md\n?? Dockerfile\n?? asynchronous_rate_limiter.py\n?? pytest.ini\n?? tests/",
+        "remediated": false,
+        "remediated_at": null,
+        "timestamp": "2026-09-18T18:07:23.665129+00:00"
       }
     ],
     "maintenance_history": [],
@@ -915,7 +999,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.202167+00:00",
-    "updated_at": "2026-09-18T15:39:25.007235+00:00"
+    "updated_at": "2026-09-18T18:07:23.665255+00:00"
   },
   "mem-storage-unit": {
     "project_id": "mem-storage-unit",
@@ -1010,6 +1094,18 @@
         "remediated": false,
         "remediated_at": null,
         "timestamp": "2026-09-18T15:39:25.154843+00:00"
+      },
+      {
+        "drift_id": "drift-e40d6bef",
+        "project_id": "mem-storage-unit",
+        "drift_type": "CONFIG_DRIFT",
+        "severity": "LOW",
+        "expected_state": "Clean working tree",
+        "observed_state": "Dirty working tree with uncommitted modifications",
+        "diff": "M README.md\n?? Dockerfile\n?? pytest.ini\n?? tests/\n?? thread_safe_memory.py",
+        "remediated": false,
+        "remediated_at": null,
+        "timestamp": "2026-09-18T18:07:23.749140+00:00"
       }
     ],
     "maintenance_history": [],
@@ -1021,7 +1117,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.202203+00:00",
-    "updated_at": "2026-09-18T15:39:25.154997+00:00"
+    "updated_at": "2026-09-18T18:07:23.749187+00:00"
   },
   "auth-sec-service": {
     "project_id": "auth-sec-service",
@@ -1116,6 +1212,18 @@
         "remediated": false,
         "remediated_at": null,
         "timestamp": "2026-09-18T15:39:25.274095+00:00"
+      },
+      {
+        "drift_id": "drift-dd054a12",
+        "project_id": "auth-sec-service",
+        "drift_type": "CONFIG_DRIFT",
+        "severity": "LOW",
+        "expected_state": "Clean working tree",
+        "observed_state": "Dirty working tree with uncommitted modifications",
+        "diff": "M README.md\n?? Dockerfile\n?? pytest.ini\n?? secure_user_authentication.py\n?? tests/",
+        "remediated": false,
+        "remediated_at": null,
+        "timestamp": "2026-09-18T18:07:23.844596+00:00"
       }
     ],
     "maintenance_history": [],
@@ -1127,7 +1235,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.202238+00:00",
-    "updated_at": "2026-09-18T15:39:25.274187+00:00"
+    "updated_at": "2026-09-18T18:07:23.844687+00:00"
   },
   "math-calc-service": {
     "project_id": "math-calc-service",
@@ -1160,7 +1268,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.202270+00:00",
-    "updated_at": "2026-09-18T15:39:25.431205+00:00"
+    "updated_at": "2026-09-18T18:07:23.939927+00:00"
   },
   "inventory-catalog-api": {
     "project_id": "inventory-catalog-api",
@@ -1255,6 +1363,18 @@
         "remediated": false,
         "remediated_at": null,
         "timestamp": "2026-09-18T15:39:25.581185+00:00"
+      },
+      {
+        "drift_id": "drift-e32da912",
+        "project_id": "inventory-catalog-api",
+        "drift_type": "CONFIG_DRIFT",
+        "severity": "LOW",
+        "expected_state": "Clean working tree",
+        "observed_state": "Dirty working tree with uncommitted modifications",
+        "diff": "M README.md\n?? Dockerfile\n?? inventory_catalog_api.py\n?? pytest.ini\n?? tests/",
+        "remediated": false,
+        "remediated_at": null,
+        "timestamp": "2026-09-18T18:07:24.067033+00:00"
       }
     ],
     "maintenance_history": [],
@@ -1266,7 +1386,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.202302+00:00",
-    "updated_at": "2026-09-18T15:39:25.581317+00:00"
+    "updated_at": "2026-09-18T18:07:24.067117+00:00"
   },
   "eval-dynamic-svc": {
     "project_id": "eval-dynamic-svc",
@@ -1361,6 +1481,18 @@
         "remediated": false,
         "remediated_at": null,
         "timestamp": "2026-09-18T15:39:25.692339+00:00"
+      },
+      {
+        "drift_id": "drift-504727bc",
+        "project_id": "eval-dynamic-svc",
+        "drift_type": "CONFIG_DRIFT",
+        "severity": "LOW",
+        "expected_state": "Clean working tree",
+        "observed_state": "Dirty working tree with uncommitted modifications",
+        "diff": "M README.md\n?? Dockerfile\n?? dynamic_evaluator_service.py\n?? insecure_eval.py\n?? pytest.ini\n?? tests/",
+        "remediated": false,
+        "remediated_at": null,
+        "timestamp": "2026-09-18T18:07:24.174234+00:00"
       }
     ],
     "maintenance_history": [],
@@ -1372,7 +1504,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.202332+00:00",
-    "updated_at": "2026-09-18T15:39:25.692479+00:00"
+    "updated_at": "2026-09-18T18:07:24.174297+00:00"
   },
   "broken-unit-test": {
     "project_id": "broken-unit-test",
@@ -1467,6 +1599,18 @@
         "remediated": false,
         "remediated_at": null,
         "timestamp": "2026-09-18T15:39:25.903176+00:00"
+      },
+      {
+        "drift_id": "drift-725240e1",
+        "project_id": "broken-unit-test",
+        "drift_type": "CONFIG_DRIFT",
+        "severity": "LOW",
+        "expected_state": "Clean working tree",
+        "observed_state": "Dirty working tree with uncommitted modifications",
+        "diff": "M README.md\n?? Dockerfile\n?? intentionally_broken_unit.py\n?? pytest.ini\n?? tests/",
+        "remediated": false,
+        "remediated_at": null,
+        "timestamp": "2026-09-18T18:07:24.279566+00:00"
       }
     ],
     "maintenance_history": [],
@@ -1478,7 +1622,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.202371+00:00",
-    "updated_at": "2026-09-18T15:39:25.903310+00:00"
+    "updated_at": "2026-09-18T18:07:24.279658+00:00"
   },
   "payment-tx-processor": {
     "project_id": "payment-tx-processor",
@@ -1573,6 +1717,18 @@
         "remediated": false,
         "remediated_at": null,
         "timestamp": "2026-09-18T15:39:26.001360+00:00"
+      },
+      {
+        "drift_id": "drift-8cca8e23",
+        "project_id": "payment-tx-processor",
+        "drift_type": "CONFIG_DRIFT",
+        "severity": "LOW",
+        "expected_state": "Clean working tree",
+        "observed_state": "Dirty working tree with uncommitted modifications",
+        "diff": "M README.md\n?? Dockerfile\n?? payment_transaction_processor.py\n?? pytest.ini\n?? tests/",
+        "remediated": false,
+        "remediated_at": null,
+        "timestamp": "2026-09-18T18:07:24.376200+00:00"
       }
     ],
     "maintenance_history": [],
@@ -1584,7 +1740,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.202401+00:00",
-    "updated_at": "2026-09-18T15:39:26.001473+00:00"
+    "updated_at": "2026-09-18T18:07:24.376264+00:00"
   },
   "cache-store-engine": {
     "project_id": "cache-store-engine",
@@ -1617,7 +1773,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.202431+00:00",
-    "updated_at": "2026-09-18T15:39:26.078296+00:00"
+    "updated_at": "2026-09-18T18:07:24.473337+00:00"
   },
   "beta-frontend": {
     "project_id": "beta-frontend",
@@ -1664,6 +1820,18 @@
         "remediated": false,
         "remediated_at": null,
         "timestamp": "2026-09-18T15:39:26.078899+00:00"
+      },
+      {
+        "drift_id": "drift-b7b670de",
+        "project_id": "beta-frontend",
+        "drift_type": "ENVIRONMENT_DRIFT",
+        "severity": "CRITICAL",
+        "expected_state": "Directory '/tmp/nexus-test-ops-m3yvl152/beta-frontend' exists",
+        "observed_state": "Directory missing",
+        "diff": "Missing project workspace on disk",
+        "remediated": false,
+        "remediated_at": null,
+        "timestamp": "2026-09-18T18:07:24.473719+00:00"
       }
     ],
     "maintenance_history": [],
@@ -1680,7 +1848,7 @@
   "project-alpha": {
     "project_id": "project-alpha",
     "project_name": "Project Alpha",
-    "project_path": "/tmp/nexus-phase22-e2e-2rosbds4/project-alpha",
+    "project_path": "/tmp/nexus-phase23-e2e-i2rpj8o2/project-alpha",
     "lifecycle_state": "ACTIVE",
     "health_score": 100.0,
     "current_version": "0.1.0",
@@ -1689,29 +1857,16 @@
     "sla": {
       "uptime_target_pct": 99.9,
       "observed_uptime_pct": 100.0,
-      "p95_latency_target_ms": 120.0,
-      "observed_p95_latency_ms": 10.5,
+      "p95_latency_target_ms": 150.0,
+      "observed_p95_latency_ms": 12.0,
       "max_error_rate_pct": 0.1,
       "observed_error_rate_pct": 0.0,
       "error_budget_remaining_pct": 100.0,
       "burn_rate": 0.0,
       "sla_status": "COMPLIANT",
-      "last_evaluated": "2026-09-18T15:13:51.066471+00:00"
+      "last_evaluated": "2026-09-18T18:57:29.646810+00:00"
     },
-    "active_drifts": [
-      {
-        "drift_id": "drift-453da498",
-        "project_id": "project-alpha",
-        "drift_type": "ENVIRONMENT_DRIFT",
-        "severity": "CRITICAL",
-        "expected_state": "Directory '/tmp/nexus-phase22-e2e-2rosbds4/project-alpha' exists",
-        "observed_state": "Directory missing",
-        "diff": "Missing project workspace on disk",
-        "remediated": false,
-        "remediated_at": null,
-        "timestamp": "2026-09-18T15:39:26.079319+00:00"
-      }
-    ],
+    "active_drifts": [],
     "maintenance_history": [],
     "resource_governance": {
       "max_local_memory_mb": 512,
@@ -1720,13 +1875,13 @@
       "finops_spend_usd": 0.0
     },
     "tombstone": null,
-    "created_at": "2026-09-18T15:13:51.066574+00:00",
-    "updated_at": "2026-09-18T15:13:51.066587+00:00"
+    "created_at": "2026-09-18T18:57:29.646922+00:00",
+    "updated_at": "2026-09-18T18:57:29.646935+00:00"
   },
   "project-beta": {
     "project_id": "project-beta",
     "project_name": "Project Beta",
-    "project_path": "/tmp/nexus-phase22-e2e-2rosbds4/project-beta",
+    "project_path": "/tmp/nexus-phase23-e2e-i2rpj8o2/project-beta",
     "lifecycle_state": "ACTIVE",
     "health_score": 100.0,
     "current_version": "0.1.0",
@@ -1735,29 +1890,16 @@
     "sla": {
       "uptime_target_pct": 99.9,
       "observed_uptime_pct": 100.0,
-      "p95_latency_target_ms": 120.0,
-      "observed_p95_latency_ms": 10.5,
+      "p95_latency_target_ms": 150.0,
+      "observed_p95_latency_ms": 12.0,
       "max_error_rate_pct": 0.1,
       "observed_error_rate_pct": 0.0,
       "error_budget_remaining_pct": 100.0,
       "burn_rate": 0.0,
       "sla_status": "COMPLIANT",
-      "last_evaluated": "2026-09-18T15:13:51.066617+00:00"
+      "last_evaluated": "2026-09-18T18:57:29.666976+00:00"
     },
-    "active_drifts": [
-      {
-        "drift_id": "drift-e5aba4e4",
-        "project_id": "project-beta",
-        "drift_type": "ENVIRONMENT_DRIFT",
-        "severity": "CRITICAL",
-        "expected_state": "Directory '/tmp/nexus-phase22-e2e-2rosbds4/project-beta' exists",
-        "observed_state": "Directory missing",
-        "diff": "Missing project workspace on disk",
-        "remediated": false,
-        "remediated_at": null,
-        "timestamp": "2026-09-18T15:39:26.079644+00:00"
-      }
-    ],
+    "active_drifts": [],
     "maintenance_history": [],
     "resource_governance": {
       "max_local_memory_mb": 512,
@@ -1766,7 +1908,40 @@
       "finops_spend_usd": 0.0
     },
     "tombstone": null,
-    "created_at": "2026-09-18T15:13:51.066645+00:00",
-    "updated_at": "2026-09-18T15:13:51.066653+00:00"
+    "created_at": "2026-09-18T18:57:29.667070+00:00",
+    "updated_at": "2026-09-18T18:57:29.667081+00:00"
+  },
+  "c2-alpha-service": {
+    "project_id": "c2-alpha-service",
+    "project_name": "c2-alpha-service",
+    "project_path": "/tmp/nexus-test-c2-gcaw0o1f/c2-alpha-service",
+    "lifecycle_state": "ACTIVE",
+    "health_score": 100.0,
+    "current_version": "0.1.0",
+    "active_release_id": null,
+    "releases": [],
+    "sla": {
+      "uptime_target_pct": 99.9,
+      "observed_uptime_pct": 100.0,
+      "p95_latency_target_ms": 150.0,
+      "observed_p95_latency_ms": 12.0,
+      "max_error_rate_pct": 0.1,
+      "observed_error_rate_pct": 0.0,
+      "error_budget_remaining_pct": 100.0,
+      "burn_rate": 0.0,
+      "sla_status": "COMPLIANT",
+      "last_evaluated": "2026-09-18T18:07:30.739535+00:00"
+    },
+    "active_drifts": [],
+    "maintenance_history": [],
+    "resource_governance": {
+      "max_local_memory_mb": 512,
+      "max_cpu_cores": 1.0,
+      "zero_cloud_cost": true,
+      "finops_spend_usd": 0.0
+    },
+    "tombstone": null,
+    "created_at": "2026-09-18T18:07:30.739715+00:00",
+    "updated_at": "2026-09-18T18:07:30.739738+00:00"
   }
 }

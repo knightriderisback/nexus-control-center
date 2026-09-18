@@ -92,13 +92,13 @@
     "recommended_action": "Maintain memory-mapped token cache.",
     "supporting_evidence": [],
     "confidence": "HIGH",
-    "recurrence_count": 13,
+    "recurrence_count": 14,
     "impacted_subsystems": [
       "general"
     ],
     "source_references": [],
     "created_at": "2026-09-18T09:00:23.594874+00:00",
-    "updated_at": "2026-09-18T15:24:00.837729+00:00"
+    "updated_at": "2026-09-18T18:05:06.209925+00:00"
   },
   "ins-3d5429af": {
     "insight_id": "ins-3d5429af",
@@ -175,7 +175,7 @@
       "Zero external I/O overhead."
     ],
     "confidence": "HIGH",
-    "recurrence_count": 3,
+    "recurrence_count": 5,
     "impacted_subsystems": [
       "secops",
       "compiler",
@@ -183,7 +183,7 @@
     ],
     "source_references": [],
     "created_at": "2026-09-18T09:19:27.327747+00:00",
-    "updated_at": "2026-09-18T09:29:31.930155+00:00"
+    "updated_at": "2026-09-18T18:51:07.830642+00:00"
   },
   "ins-a2acf387": {
     "insight_id": "ins-a2acf387",
@@ -729,17 +729,18 @@
       "Provenance Hash: 1e85e072d994ee93",
       "Provenance Hash: f04814a91c6604de",
       "Provenance Hash: 13f0f3b3a320bf75",
-      "Provenance Hash: 8288b0a21f3b765c"
+      "Provenance Hash: 8288b0a21f3b765c",
+      "Provenance Hash: 6d9c3e7fecc8b3aa"
     ],
     "confidence": "HIGH",
-    "recurrence_count": 6,
+    "recurrence_count": 7,
     "impacted_subsystems": [
       "software_factory",
       "product_builder"
     ],
     "source_references": [],
     "created_at": "2026-09-18T10:46:03.948896+00:00",
-    "updated_at": "2026-09-18T15:26:52.213049+00:00"
+    "updated_at": "2026-09-18T18:05:24.138693+00:00"
   },
   "ins-41cac61d": {
     "insight_id": "ins-41cac61d",
@@ -803,17 +804,18 @@
       "Provenance Hash: daa8f78c4dc9bf7d",
       "Provenance Hash: 21e4b86c147acebf",
       "Provenance Hash: 4ba899c15fe00b16",
-      "Provenance Hash: 0a8af2e25544d1f3"
+      "Provenance Hash: 0a8af2e25544d1f3",
+      "Provenance Hash: 1eab2ec53050ea01"
     ],
     "confidence": "HIGH",
-    "recurrence_count": 6,
+    "recurrence_count": 7,
     "impacted_subsystems": [
       "software_factory",
       "product_builder"
     ],
     "source_references": [],
     "created_at": "2026-09-18T10:46:24.964621+00:00",
-    "updated_at": "2026-09-18T15:29:41.422196+00:00"
+    "updated_at": "2026-09-18T18:05:43.056592+00:00"
   },
   "ins-c7f1ec3f": {
     "insight_id": "ins-c7f1ec3f",
@@ -831,17 +833,18 @@
       "Provenance Hash: 1f2150dae291228a",
       "Provenance Hash: 3e81d42fed0e6bc5",
       "Provenance Hash: d99b50ae2d9ba4c4",
-      "Provenance Hash: d40e037529b086eb"
+      "Provenance Hash: d40e037529b086eb",
+      "Provenance Hash: 4ef8776adba00d3b"
     ],
     "confidence": "HIGH",
-    "recurrence_count": 6,
+    "recurrence_count": 7,
     "impacted_subsystems": [
       "software_factory",
       "product_builder"
     ],
     "source_references": [],
     "created_at": "2026-09-18T10:46:30.489354+00:00",
-    "updated_at": "2026-09-18T15:30:00.210957+00:00"
+    "updated_at": "2026-09-18T18:05:47.879854+00:00"
   },
   "ins-c9d23f9e": {
     "insight_id": "ins-c9d23f9e",
@@ -859,17 +862,18 @@
       "Provenance Hash: 04c475060316a4b5",
       "Provenance Hash: 729983fb839a698c",
       "Provenance Hash: 83bb456014ac707c",
-      "Provenance Hash: 414fc7a4da7f2f26"
+      "Provenance Hash: 414fc7a4da7f2f26",
+      "Provenance Hash: 6556f2ef8bb9595e"
     ],
     "confidence": "HIGH",
-    "recurrence_count": 6,
+    "recurrence_count": 7,
     "impacted_subsystems": [
       "software_factory",
       "product_builder"
     ],
     "source_references": [],
     "created_at": "2026-09-18T10:46:37.699330+00:00",
-    "updated_at": "2026-09-18T15:30:14.950880+00:00"
+    "updated_at": "2026-09-18T18:05:53.161122+00:00"
   },
   "ins-3b1ae656": {
     "insight_id": "ins-3b1ae656",
@@ -882,17 +886,19 @@
       "Build State: COMPLETED",
       "Provenance Hash: c2031da8b095cf60",
       "Tests Passed: 3",
-      "Security Findings: 0"
+      "Security Findings: 0",
+      "Provenance Hash: fdb5501a35629196",
+      "Provenance Hash: 6722584196dd5352"
     ],
     "confidence": "HIGH",
-    "recurrence_count": 1,
+    "recurrence_count": 3,
     "impacted_subsystems": [
       "software_factory",
       "product_builder"
     ],
     "source_references": [],
     "created_at": "2026-09-18T10:47:07.079656+00:00",
-    "updated_at": "2026-09-18T10:47:07.079673+00:00"
+    "updated_at": "2026-09-18T18:51:49.651550+00:00"
   },
   "ins-94f8e677": {
     "insight_id": "ins-94f8e677",
@@ -1455,14 +1461,14 @@
       "Current Version: 0.1.1"
     ],
     "confidence": "HIGH",
-    "recurrence_count": 6,
+    "recurrence_count": 7,
     "impacted_subsystems": [
       "project_operations",
       "deployment_engine"
     ],
     "source_references": [],
     "created_at": "2026-09-18T14:54:51.741716+00:00",
-    "updated_at": "2026-09-18T15:39:00.924891+00:00"
+    "updated_at": "2026-09-18T18:07:17.039071+00:00"
   },
   "ins-4af4b3ac": {
     "insight_id": "ins-4af4b3ac",
@@ -1717,14 +1723,14 @@
       "Current Version: 0.2.0"
     ],
     "confidence": "HIGH",
-    "recurrence_count": 4,
+    "recurrence_count": 6,
     "impacted_subsystems": [
       "project_operations",
       "deployment_engine"
     ],
     "source_references": [],
     "created_at": "2026-09-18T15:13:24.415895+00:00",
-    "updated_at": "2026-09-18T15:17:16.134651+00:00"
+    "updated_at": "2026-09-18T18:57:25.135721+00:00"
   },
   "ins-83e583e7": {
     "insight_id": "ins-83e583e7",
@@ -1945,5 +1951,267 @@
     "source_references": [],
     "created_at": "2026-09-18T15:30:39.857817+00:00",
     "updated_at": "2026-09-18T15:30:39.857880+00:00"
+  },
+  "ins-b6970f4e": {
+    "insight_id": "ins-b6970f4e",
+    "title": "Security Posture Vulnerability Cluster: SECRET_LEAK",
+    "category": "SECURITY",
+    "pattern": "Detected 671 instances of SECRET_LEAK vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SECRET_LEAK.",
+    "supporting_evidence": [
+      "Detected 671 findings in category SECRET_LEAK"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T18:05:05.759293+00:00",
+    "updated_at": "2026-09-18T18:05:05.759369+00:00"
+  },
+  "ins-757cc99f": {
+    "insight_id": "ins-757cc99f",
+    "title": "Security Posture Vulnerability Cluster: SAST_INJECTION",
+    "category": "SECURITY",
+    "pattern": "Detected 40 instances of SAST_INJECTION vulnerabilities across repository sweeps.",
+    "rationale": "Static AST analysis and dependency audits flag recurring security anti-patterns early.",
+    "recommended_action": "Enforce automated pre-commit AST guards and 0600 quarantine for SAST_INJECTION.",
+    "supporting_evidence": [
+      "Detected 40 findings in category SAST_INJECTION"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "secops",
+      "codebase",
+      "compliance"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T18:05:05.882496+00:00",
+    "updated_at": "2026-09-18T18:05:05.882524+00:00"
+  },
+  "ins-10ec6522": {
+    "insight_id": "ins-10ec6522",
+    "title": "Execution Learning: Happy path task execution",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-62f0f191 (Happy path task execution) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T18:05:11.280898+00:00",
+    "updated_at": "2026-09-18T18:05:11.280923+00:00"
+  },
+  "ins-b1a126f1": {
+    "insight_id": "ins-b1a126f1",
+    "title": "Execution Learning: Fallback adaptation test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-8c79f532 (Fallback adaptation test) completed with 1 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 1470/5000",
+      "Replans Count: 0/3",
+      "Adaptation DYNAMIC_FALLBACK_BRANCH: Primary task 'Core Implementation & Execution' encountered failure. Activating pre-computed resilient fallback."
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T18:05:12.854128+00:00",
+    "updated_at": "2026-09-18T18:05:12.854163+00:00"
+  },
+  "ins-5fcce068": {
+    "insight_id": "ins-5fcce068",
+    "title": "Execution Learning: Execution feedback capture test",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-eaa25c9a (Execution feedback capture test) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 2,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T18:05:14.229446+00:00",
+    "updated_at": "2026-09-18T18:05:14.428142+00:00"
+  },
+  "ins-162d33f1": {
+    "insight_id": "ins-162d33f1",
+    "title": "Execution Learning: Telemetry authenticity check",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-59ec943a (Telemetry authenticity check) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/5000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T18:05:16.894233+00:00",
+    "updated_at": "2026-09-18T18:05:16.894255+00:00"
+  },
+  "ins-f8b203f7": {
+    "insight_id": "ins-f8b203f7",
+    "title": "Execution Learning: Synthesize full plan through API",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-99a69046 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "rationale": "Closed-loop telemetry captured from real mission execution cycle.",
+    "recommended_action": "Reuse successful wave scheduling and fallback structures in future similar goals.",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "mission_intelligence",
+      "adaptive_execution"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T18:05:18.787076+00:00",
+    "updated_at": "2026-09-18T18:05:18.787101+00:00"
+  },
+  "ins-11f02cb3": {
+    "insight_id": "ins-11f02cb3",
+    "title": "Product Factory Learning: resilient-cache-microservice-0d4f",
+    "category": "OPERATIONAL",
+    "pattern": "Product resilient-cache-microservice-0d4f (MICROSERVICE_API) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future MICROSERVICE_API goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: 7a957e24d624b7bf",
+      "Tests Passed: 3",
+      "Security Findings: 0"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T18:05:28.835857+00:00",
+    "updated_at": "2026-09-18T18:05:28.835867+00:00"
+  },
+  "ins-d2a9590d": {
+    "insight_id": "ins-d2a9590d",
+    "title": "Product Factory Learning: secure-authentication-service-9d3f",
+    "category": "OPERATIONAL",
+    "pattern": "Product secure-authentication-service-9d3f (MICROSERVICE_API) built successfully with 2 components and 0 self-corrections.",
+    "rationale": "Captured from successful autonomous end-to-end product delivery.",
+    "recommended_action": "Reuse scaffolding blueprint and FastAPI schema for future MICROSERVICE_API goals.",
+    "supporting_evidence": [
+      "Build State: COMPLETED",
+      "Provenance Hash: 280d0256aa9d9bee",
+      "Tests Passed: 3",
+      "Security Findings: 0"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "product_builder"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T18:05:38.237733+00:00",
+    "updated_at": "2026-09-18T18:05:38.237746+00:00"
+  },
+  "ins-a1fbd69d": {
+    "insight_id": "ins-a1fbd69d",
+    "title": "Factory Mission Learning: High Performance Math",
+    "category": "OPERATIONAL",
+    "pattern": "Factory fact-6b1eb3b1 (fastapi_service) delivered cleanly with 9 artifacts.",
+    "rationale": "Captured from successful autonomous software factory delivery cycle.",
+    "recommended_action": "Reuse fastapi_service architecture for similar software goals.",
+    "supporting_evidence": [
+      "Commit Hash: 7f634bdf",
+      "Deployment ID: dep-5bea4302"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "mission_engine"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T18:05:57.166353+00:00",
+    "updated_at": "2026-09-18T18:05:57.166390+00:00"
+  },
+  "ins-0d3dc345": {
+    "insight_id": "ins-0d3dc345",
+    "title": "Factory Mission Learning: High Performance In",
+    "category": "OPERATIONAL",
+    "pattern": "Factory fact-a81567d0 (cache_engine) delivered cleanly with 9 artifacts.",
+    "rationale": "Captured from successful autonomous software factory delivery cycle.",
+    "recommended_action": "Reuse cache_engine architecture for similar software goals.",
+    "supporting_evidence": [
+      "Commit Hash: c80cdbab",
+      "Deployment ID: dep-17082fee"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "mission_engine"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T18:46:36.627599+00:00",
+    "updated_at": "2026-09-18T18:46:36.627627+00:00"
+  },
+  "ins-752da80e": {
+    "insight_id": "ins-752da80e",
+    "title": "Factory Mission Learning: High Performance In",
+    "category": "OPERATIONAL",
+    "pattern": "Factory fact-8c5d33f2 (cache_engine) delivered cleanly with 9 artifacts.",
+    "rationale": "Captured from successful autonomous software factory delivery cycle.",
+    "recommended_action": "Reuse cache_engine architecture for similar software goals.",
+    "supporting_evidence": [
+      "Commit Hash: c80cdbab",
+      "Deployment ID: dep-03f53861"
+    ],
+    "confidence": "HIGH",
+    "recurrence_count": 1,
+    "impacted_subsystems": [
+      "software_factory",
+      "mission_engine"
+    ],
+    "source_references": [],
+    "created_at": "2026-09-18T18:53:56.318473+00:00",
+    "updated_at": "2026-09-18T18:53:56.318630+00:00"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "deployment_id": "dep-6b15a668",
+  "deployment_id": "dep-30df71a8",
   "project_id": "portfolio",
   "service_name": "portfolio-app",
   "version": "v2.1.0",
@@ -13,8 +13,8 @@
     {
       "stage_name": "PRE_FLIGHT",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:11.219666+00:00",
-      "completed_at": "2026-09-18T17:58:11.219729+00:00",
+      "started_at": "2026-09-18T18:27:55.575203+00:00",
+      "completed_at": "2026-09-18T18:27:55.575267+00:00",
       "duration_ms": 0.02,
       "logs": [
         "Verifying pre-flight conditions for project 'portfolio'...",
@@ -29,8 +29,8 @@
     {
       "stage_name": "BUILD_PACKAGING",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:11.279599+00:00",
-      "completed_at": "2026-09-18T17:58:11.279689+00:00",
+      "started_at": "2026-09-18T18:27:55.579962+00:00",
+      "completed_at": "2026-09-18T18:27:55.580033+00:00",
       "duration_ms": 0.03,
       "logs": [
         "Executing packaging strategy for target 'VERCEL_EDGE'...",
@@ -44,12 +44,12 @@
     {
       "stage_name": "POLICY_FINOPS",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:11.341158+00:00",
-      "completed_at": "2026-09-18T17:58:14.712754+00:00",
-      "duration_ms": 3371.49,
+      "started_at": "2026-09-18T18:27:55.584840+00:00",
+      "completed_at": "2026-09-18T18:27:58.717601+00:00",
+      "duration_ms": 3132.7,
       "logs": [
         "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
-        "Security Gate dep-ev-3871bfe9: 5 findings, decision=BLOCK",
+        "Security Gate dep-ev-532ae5ba: 5 findings, decision=BLOCK",
         "Current incurred cost: $0.00. Budget limit: $0.00.",
         "[PASS] Strict zero-spend policy & Security Gate verified."
       ],
@@ -59,9 +59,9 @@
     {
       "stage_name": "APPROVAL_GATE",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:14.838205+00:00",
-      "completed_at": "2026-09-18T17:58:14.838285+00:00",
-      "duration_ms": 0.02,
+      "started_at": "2026-09-18T18:27:58.722465+00:00",
+      "completed_at": "2026-09-18T18:27:58.722520+00:00",
+      "duration_ms": 0.01,
       "logs": [
         "Evaluating approval policy (Risk Level: LOW)...",
         "[PASS] Auto-approved for PREVIEW deployment tier."
@@ -72,8 +72,8 @@
     {
       "stage_name": "DISPATCH_DEPLOY",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:14.897447+00:00",
-      "completed_at": "2026-09-18T17:58:14.897523+00:00",
+      "started_at": "2026-09-18T18:27:58.727242+00:00",
+      "completed_at": "2026-09-18T18:27:58.727319+00:00",
       "duration_ms": 0.03,
       "logs": [
         "Dispatching payload to target 'VERCEL_EDGE'...",
@@ -86,9 +86,9 @@
     {
       "stage_name": "HEALTH_PROBE",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:14.957172+00:00",
-      "completed_at": "2026-09-18T17:58:14.957275+00:00",
-      "duration_ms": 0.04,
+      "started_at": "2026-09-18T18:27:58.734234+00:00",
+      "completed_at": "2026-09-18T18:27:58.734307+00:00",
+      "duration_ms": 0.03,
       "logs": [
         "Executing synthetic SLA health probe on https://portfolio-app-v2-1-0.vercel.app...",
         "Verifying Vercel edge endpoint status for https://portfolio-app-v2-1-0.vercel.app...",
@@ -103,8 +103,8 @@
     {
       "stage_name": "PROMOTE_CANARY",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:15.061526+00:00",
-      "completed_at": "2026-09-18T17:58:15.061604+00:00",
+      "started_at": "2026-09-18T18:27:58.740200+00:00",
+      "completed_at": "2026-09-18T18:27:58.740264+00:00",
       "duration_ms": 0.02,
       "logs": [
         "Applying deployment strategy: BLUE_GREEN...",
@@ -124,12 +124,12 @@
   "requires_approval": false,
   "approval_id": null,
   "created_by": "test-suite",
-  "created_at": "2026-09-18T17:58:11.159822+00:00",
-  "completed_at": "2026-09-18T17:58:15.141282+00:00",
-  "duration_seconds": 3.92,
+  "created_at": "2026-09-18T18:27:55.568465+00:00",
+  "completed_at": "2026-09-18T18:27:58.745107+00:00",
+  "duration_seconds": 3.17,
   "rollback_target_id": null,
   "changelog": [],
-  "dora_lead_time_seconds": 3.92,
+  "dora_lead_time_seconds": 3.17,
   "metadata": {
     "notes": null,
     "health_check_path": "/api/health",

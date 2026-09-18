@@ -442,5 +442,895 @@
     },
     "provenance_hash": "0d623a46f88986f4",
     "timestamp": "2026-09-18T18:00:34.062388+00:00"
+  },
+  {
+    "event_id": "evt-880ecda1",
+    "event_type": "COMMAND_COMPLETED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-fb916055",
+    "payload": {
+      "command_id": "cmd-fb916055",
+      "state": "COMPLETED",
+      "duration_ms": 3112.85
+    },
+    "provenance_hash": "31d0ef3fd14fbf29",
+    "timestamp": "2026-09-18T18:00:37.146249+00:00"
+  },
+  {
+    "event_id": "evt-c9880917",
+    "event_type": "COMMAND_RECEIVED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-280d842c",
+    "payload": {
+      "command_id": "cmd-280d842c",
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "dry_run": true
+    },
+    "provenance_hash": "03265a313cb76a9b",
+    "timestamp": "2026-09-18T18:01:41.960048+00:00"
+  },
+  {
+    "event_id": "evt-404f00a2",
+    "event_type": "COMMAND_PLANNED",
+    "source_subsystem": "c2_kernel",
+    "project_id": "personal-engineering-os-2026",
+    "mission_id": null,
+    "command_id": "cmd-851b6cd3",
+    "payload": {
+      "plan_id": "plan-4a5e489b",
+      "command_id": "cmd-851b6cd3",
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "resolved_intent": "FLEET_HEALTH_INSPECTION",
+      "target_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta"
+      ],
+      "planned_actions": [
+        "evaluate_git_status",
+        "run_local_pytest",
+        "inspect_sla_meters"
+      ],
+      "dependencies": [
+        "project_operations_engine"
+      ],
+      "risk_level": "LOW",
+      "required_approvals": [],
+      "affected_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta"
+      ],
+      "expected_artifacts": [
+        "ProjectHealthDetail"
+      ],
+      "rollback_recovery_path": [],
+      "is_safe_to_execute": true,
+      "block_reason": null,
+      "created_at": "2026-09-18T18:01:41.966571+00:00"
+    },
+    "provenance_hash": "01082609cd160f04",
+    "timestamp": "2026-09-18T18:01:41.966654+00:00"
+  },
+  {
+    "event_id": "evt-9775bdba",
+    "event_type": "COMMAND_RECEIVED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-485a69eb",
+    "payload": {
+      "command_id": "cmd-485a69eb",
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "dry_run": false
+    },
+    "provenance_hash": "5906266e707a7b2f",
+    "timestamp": "2026-09-18T18:01:42.020934+00:00"
+  },
+  {
+    "event_id": "evt-ec42c1c1",
+    "event_type": "COMMAND_PLANNED",
+    "source_subsystem": "c2_kernel",
+    "project_id": "personal-engineering-os-2026",
+    "mission_id": null,
+    "command_id": "cmd-c6cce552",
+    "payload": {
+      "plan_id": "plan-ac9c515a",
+      "command_id": "cmd-c6cce552",
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "resolved_intent": "FLEET_HEALTH_INSPECTION",
+      "target_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta"
+      ],
+      "planned_actions": [
+        "evaluate_git_status",
+        "run_local_pytest",
+        "inspect_sla_meters"
+      ],
+      "dependencies": [
+        "project_operations_engine"
+      ],
+      "risk_level": "LOW",
+      "required_approvals": [],
+      "affected_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta"
+      ],
+      "expected_artifacts": [
+        "ProjectHealthDetail"
+      ],
+      "rollback_recovery_path": [],
+      "is_safe_to_execute": true,
+      "block_reason": null,
+      "created_at": "2026-09-18T18:01:42.029585+00:00"
+    },
+    "provenance_hash": "315b0100abcfc3a7",
+    "timestamp": "2026-09-18T18:01:42.029693+00:00"
+  },
+  {
+    "event_id": "evt-3a6ba946",
+    "event_type": "COMMAND_STARTED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-485a69eb",
+    "payload": {
+      "command_id": "cmd-485a69eb",
+      "actions": [
+        "evaluate_git_status",
+        "run_local_pytest",
+        "inspect_sla_meters"
+      ]
+    },
+    "provenance_hash": "b0949fa57a550607",
+    "timestamp": "2026-09-18T18:01:42.047778+00:00"
+  },
+  {
+    "event_id": "evt-99b15499",
+    "event_type": "COMMAND_COMPLETED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-485a69eb",
+    "payload": {
+      "command_id": "cmd-485a69eb",
+      "state": "COMPLETED",
+      "duration_ms": 203.59
+    },
+    "provenance_hash": "64d782afc2df6394",
+    "timestamp": "2026-09-18T18:01:42.213447+00:00"
+  },
+  {
+    "event_id": "evt-20868246",
+    "event_type": "COMMAND_RECEIVED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-abf96642",
+    "payload": {
+      "command_id": "cmd-abf96642",
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "dry_run": true
+    },
+    "provenance_hash": "fb7128641cacaa6e",
+    "timestamp": "2026-09-18T18:02:27.785048+00:00"
+  },
+  {
+    "event_id": "evt-15488988",
+    "event_type": "COMMAND_PLANNED",
+    "source_subsystem": "c2_kernel",
+    "project_id": "personal-engineering-os-2026",
+    "mission_id": null,
+    "command_id": "cmd-c1d23519",
+    "payload": {
+      "plan_id": "plan-a5668a6c",
+      "command_id": "cmd-c1d23519",
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "resolved_intent": "FLEET_HEALTH_INSPECTION",
+      "target_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta"
+      ],
+      "planned_actions": [
+        "evaluate_git_status",
+        "run_local_pytest",
+        "inspect_sla_meters"
+      ],
+      "dependencies": [
+        "project_operations_engine"
+      ],
+      "risk_level": "LOW",
+      "required_approvals": [],
+      "affected_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta"
+      ],
+      "expected_artifacts": [
+        "ProjectHealthDetail"
+      ],
+      "rollback_recovery_path": [],
+      "is_safe_to_execute": true,
+      "block_reason": null,
+      "created_at": "2026-09-18T18:02:27.796082+00:00"
+    },
+    "provenance_hash": "b1b08b88f6452f4f",
+    "timestamp": "2026-09-18T18:02:27.796194+00:00"
+  },
+  {
+    "event_id": "evt-c020412e",
+    "event_type": "COMMAND_RECEIVED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-46d6ee6d",
+    "payload": {
+      "command_id": "cmd-46d6ee6d",
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "dry_run": false
+    },
+    "provenance_hash": "95e8cc76c9faa902",
+    "timestamp": "2026-09-18T18:02:27.860802+00:00"
+  },
+  {
+    "event_id": "evt-e3d5bad3",
+    "event_type": "COMMAND_PLANNED",
+    "source_subsystem": "c2_kernel",
+    "project_id": "personal-engineering-os-2026",
+    "mission_id": null,
+    "command_id": "cmd-7be0a4c4",
+    "payload": {
+      "plan_id": "plan-f2904803",
+      "command_id": "cmd-7be0a4c4",
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "resolved_intent": "FLEET_HEALTH_INSPECTION",
+      "target_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta"
+      ],
+      "planned_actions": [
+        "evaluate_git_status",
+        "run_local_pytest",
+        "inspect_sla_meters"
+      ],
+      "dependencies": [
+        "project_operations_engine"
+      ],
+      "risk_level": "LOW",
+      "required_approvals": [],
+      "affected_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta"
+      ],
+      "expected_artifacts": [
+        "ProjectHealthDetail"
+      ],
+      "rollback_recovery_path": [],
+      "is_safe_to_execute": true,
+      "block_reason": null,
+      "created_at": "2026-09-18T18:02:27.868125+00:00"
+    },
+    "provenance_hash": "f829d6f5116886ba",
+    "timestamp": "2026-09-18T18:02:27.868204+00:00"
+  },
+  {
+    "event_id": "evt-b562f700",
+    "event_type": "COMMAND_STARTED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-46d6ee6d",
+    "payload": {
+      "command_id": "cmd-46d6ee6d",
+      "actions": [
+        "evaluate_git_status",
+        "run_local_pytest",
+        "inspect_sla_meters"
+      ]
+    },
+    "provenance_hash": "b89e0c81606e3225",
+    "timestamp": "2026-09-18T18:02:27.879744+00:00"
+  },
+  {
+    "event_id": "evt-dcdd540c",
+    "event_type": "COMMAND_COMPLETED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-46d6ee6d",
+    "payload": {
+      "command_id": "cmd-46d6ee6d",
+      "state": "COMPLETED",
+      "duration_ms": 121.69
+    },
+    "provenance_hash": "b7a6ac6c5792983d",
+    "timestamp": "2026-09-18T18:02:27.976097+00:00"
+  },
+  {
+    "event_id": "evt-7d8a6398",
+    "event_type": "COMMAND_RECEIVED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-4fa5936f",
+    "payload": {
+      "command_id": "cmd-4fa5936f",
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "dry_run": true
+    },
+    "provenance_hash": "f256ae17bc87f606",
+    "timestamp": "2026-09-18T18:07:30.930371+00:00"
+  },
+  {
+    "event_id": "evt-33797d6f",
+    "event_type": "COMMAND_PLANNED",
+    "source_subsystem": "c2_kernel",
+    "project_id": "personal-engineering-os-2026",
+    "mission_id": null,
+    "command_id": "cmd-24fb9222",
+    "payload": {
+      "plan_id": "plan-927e7d40",
+      "command_id": "cmd-24fb9222",
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "resolved_intent": "FLEET_HEALTH_INSPECTION",
+      "target_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta"
+      ],
+      "planned_actions": [
+        "evaluate_git_status",
+        "run_local_pytest",
+        "inspect_sla_meters"
+      ],
+      "dependencies": [
+        "project_operations_engine"
+      ],
+      "risk_level": "LOW",
+      "required_approvals": [],
+      "affected_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta"
+      ],
+      "expected_artifacts": [
+        "ProjectHealthDetail"
+      ],
+      "rollback_recovery_path": [],
+      "is_safe_to_execute": true,
+      "block_reason": null,
+      "created_at": "2026-09-18T18:07:30.938303+00:00"
+    },
+    "provenance_hash": "1bd13da54b42fe4e",
+    "timestamp": "2026-09-18T18:07:30.938383+00:00"
+  },
+  {
+    "event_id": "evt-437d2232",
+    "event_type": "COMMAND_RECEIVED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-148a1482",
+    "payload": {
+      "command_id": "cmd-148a1482",
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "dry_run": false
+    },
+    "provenance_hash": "122445a5ec6ffcbb",
+    "timestamp": "2026-09-18T18:07:31.001594+00:00"
+  },
+  {
+    "event_id": "evt-7e35fd9c",
+    "event_type": "COMMAND_PLANNED",
+    "source_subsystem": "c2_kernel",
+    "project_id": "personal-engineering-os-2026",
+    "mission_id": null,
+    "command_id": "cmd-e807d6eb",
+    "payload": {
+      "plan_id": "plan-1dccd10a",
+      "command_id": "cmd-e807d6eb",
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "resolved_intent": "FLEET_HEALTH_INSPECTION",
+      "target_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta"
+      ],
+      "planned_actions": [
+        "evaluate_git_status",
+        "run_local_pytest",
+        "inspect_sla_meters"
+      ],
+      "dependencies": [
+        "project_operations_engine"
+      ],
+      "risk_level": "LOW",
+      "required_approvals": [],
+      "affected_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta"
+      ],
+      "expected_artifacts": [
+        "ProjectHealthDetail"
+      ],
+      "rollback_recovery_path": [],
+      "is_safe_to_execute": true,
+      "block_reason": null,
+      "created_at": "2026-09-18T18:07:31.008395+00:00"
+    },
+    "provenance_hash": "32a8ab16f010501f",
+    "timestamp": "2026-09-18T18:07:31.008499+00:00"
+  },
+  {
+    "event_id": "evt-111b7ca8",
+    "event_type": "COMMAND_STARTED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-148a1482",
+    "payload": {
+      "command_id": "cmd-148a1482",
+      "actions": [
+        "evaluate_git_status",
+        "run_local_pytest",
+        "inspect_sla_meters"
+      ]
+    },
+    "provenance_hash": "58931d15ff016f1a",
+    "timestamp": "2026-09-18T18:07:31.023846+00:00"
+  },
+  {
+    "event_id": "evt-8a70254e",
+    "event_type": "COMMAND_COMPLETED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-148a1482",
+    "payload": {
+      "command_id": "cmd-148a1482",
+      "state": "COMPLETED",
+      "duration_ms": 141.84
+    },
+    "provenance_hash": "499d27d02504ae29",
+    "timestamp": "2026-09-18T18:07:31.137786+00:00"
+  },
+  {
+    "event_id": "evt-3e2bde18",
+    "event_type": "COMMAND_RECEIVED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-243ac635",
+    "payload": {
+      "command_id": "cmd-243ac635",
+      "raw_prompt": "Inspect fleet health and drift status across all projects",
+      "dry_run": false
+    },
+    "provenance_hash": "88c405c484a44f6a",
+    "timestamp": "2026-09-18T19:07:51.858193+00:00"
+  },
+  {
+    "event_id": "evt-e194b26f",
+    "event_type": "COMMAND_PLANNED",
+    "source_subsystem": "c2_kernel",
+    "project_id": "personal-engineering-os-2026",
+    "mission_id": null,
+    "command_id": "cmd-3a7fd8e1",
+    "payload": {
+      "plan_id": "plan-2146db27",
+      "command_id": "cmd-3a7fd8e1",
+      "raw_prompt": "Inspect fleet health and drift status across all projects",
+      "resolved_intent": "FLEET_HEALTH_INSPECTION",
+      "target_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta",
+        "c2-alpha-service"
+      ],
+      "planned_actions": [
+        "evaluate_git_status",
+        "run_local_pytest",
+        "inspect_sla_meters"
+      ],
+      "dependencies": [
+        "project_operations_engine"
+      ],
+      "risk_level": "LOW",
+      "required_approvals": [],
+      "affected_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta",
+        "c2-alpha-service"
+      ],
+      "expected_artifacts": [
+        "ProjectHealthDetail"
+      ],
+      "rollback_recovery_path": [],
+      "is_safe_to_execute": true,
+      "block_reason": null,
+      "created_at": "2026-09-18T19:07:51.865887+00:00"
+    },
+    "provenance_hash": "e02e82618f2835d2",
+    "timestamp": "2026-09-18T19:07:51.866014+00:00"
+  },
+  {
+    "event_id": "evt-1efa58fe",
+    "event_type": "COMMAND_STARTED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-243ac635",
+    "payload": {
+      "command_id": "cmd-243ac635",
+      "actions": [
+        "evaluate_git_status",
+        "run_local_pytest",
+        "inspect_sla_meters"
+      ]
+    },
+    "provenance_hash": "d436af0fa2b1bd3f",
+    "timestamp": "2026-09-18T19:07:51.882987+00:00"
+  },
+  {
+    "event_id": "evt-a0451ecd",
+    "event_type": "COMMAND_COMPLETED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-243ac635",
+    "payload": {
+      "command_id": "cmd-243ac635",
+      "state": "COMPLETED",
+      "duration_ms": 195.55
+    },
+    "provenance_hash": "147a7a44c81892df",
+    "timestamp": "2026-09-18T19:07:52.055216+00:00"
+  },
+  {
+    "event_id": "evt-850b000d",
+    "event_type": "COMMAND_RECEIVED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-a6562568",
+    "payload": {
+      "command_id": "cmd-a6562568",
+      "raw_prompt": "Query knowledge graph for procedural self-healing patterns",
+      "dry_run": false
+    },
+    "provenance_hash": "2f7c22f437103859",
+    "timestamp": "2026-09-18T19:07:52.088799+00:00"
+  },
+  {
+    "event_id": "evt-b19c49ff",
+    "event_type": "COMMAND_PLANNED",
+    "source_subsystem": "c2_kernel",
+    "project_id": "personal-engineering-os-2026",
+    "mission_id": null,
+    "command_id": "cmd-38e97aaa",
+    "payload": {
+      "plan_id": "plan-ff216c4a",
+      "command_id": "cmd-38e97aaa",
+      "raw_prompt": "Query knowledge graph for procedural self-healing patterns",
+      "resolved_intent": "SELF_HEALING_DRIFT_RECONCILE",
+      "target_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta",
+        "c2-alpha-service"
+      ],
+      "planned_actions": [
+        "inspect_filesystem_drift",
+        "restore_baseline_config",
+        "verify_git_cleanliness"
+      ],
+      "dependencies": [
+        "project_operations_engine",
+        "self_healing_engine"
+      ],
+      "risk_level": "LOW",
+      "required_approvals": [],
+      "affected_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta",
+        "c2-alpha-service"
+      ],
+      "expected_artifacts": [],
+      "rollback_recovery_path": [
+        "restore_git_stash"
+      ],
+      "is_safe_to_execute": true,
+      "block_reason": null,
+      "created_at": "2026-09-18T19:07:52.097601+00:00"
+    },
+    "provenance_hash": "c90b5885c553533c",
+    "timestamp": "2026-09-18T19:07:52.097725+00:00"
+  },
+  {
+    "event_id": "evt-502fe8c0",
+    "event_type": "COMMAND_STARTED",
+    "source_subsystem": "c2_kernel",
+    "project_id": null,
+    "mission_id": null,
+    "command_id": "cmd-a6562568",
+    "payload": {
+      "command_id": "cmd-a6562568",
+      "actions": [
+        "inspect_filesystem_drift",
+        "restore_baseline_config",
+        "verify_git_cleanliness"
+      ]
+    },
+    "provenance_hash": "8ecb1de0a864553e",
+    "timestamp": "2026-09-18T19:07:52.116210+00:00"
   }
 ]

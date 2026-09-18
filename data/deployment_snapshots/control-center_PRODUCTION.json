@@ -1,5 +1,5 @@
 {
-  "deployment_id": "dep-43f75e88",
+  "deployment_id": "dep-efe84d63",
   "project_id": "control-center",
   "service_name": "nexus-core-prod",
   "version": "v2.0.0-prod",
@@ -13,9 +13,9 @@
     {
       "stage_name": "PRE_FLIGHT",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:37.826248+00:00",
-      "completed_at": "2026-09-18T17:58:37.827920+00:00",
-      "duration_ms": 1.62,
+      "started_at": "2026-09-18T18:28:17.175523+00:00",
+      "completed_at": "2026-09-18T18:28:17.177048+00:00",
+      "duration_ms": 1.47,
       "logs": [
         "Verifying pre-flight conditions for project 'control-center'...",
         "Target: GCP_CLOUD_RUN | Env: PRODUCTION | Strategy: BLUE_GREEN",
@@ -34,9 +34,9 @@
     {
       "stage_name": "BUILD_PACKAGING",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:37.889274+00:00",
-      "completed_at": "2026-09-18T17:58:37.889369+00:00",
-      "duration_ms": 0.04,
+      "started_at": "2026-09-18T18:28:17.183449+00:00",
+      "completed_at": "2026-09-18T18:28:17.183520+00:00",
+      "duration_ms": 0.02,
       "logs": [
         "Executing packaging strategy for target 'GCP_CLOUD_RUN'...",
         "Synthesizing keyless Cloud Build container image: asia-south1-docker.pkg.dev/personal-engineering-os-2026/nexus-repo/nexus-core-prod:v2.0.0-prod",
@@ -55,16 +55,16 @@
     {
       "stage_name": "POLICY_FINOPS",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:37.948296+00:00",
-      "completed_at": "2026-09-18T17:58:41.560229+00:00",
-      "duration_ms": 3611.85,
+      "started_at": "2026-09-18T18:28:17.190118+00:00",
+      "completed_at": "2026-09-18T18:28:20.628819+00:00",
+      "duration_ms": 3438.64,
       "logs": [
         "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
-        "Security Gate dep-ev-8bb805b3: 5 findings, decision=BLOCK",
+        "Security Gate dep-ev-a1aa883c: 5 findings, decision=BLOCK",
         "Current incurred cost: $0.00. Budget limit: $0.00.",
         "[PASS] Strict zero-spend policy & Security Gate verified.",
         "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
-        "Security Gate dep-ev-88a26949: 5 findings, decision=BLOCK",
+        "Security Gate dep-ev-6dffa58e: 5 findings, decision=BLOCK",
         "Current incurred cost: $0.00. Budget limit: $0.00.",
         "[PASS] Strict zero-spend policy & Security Gate verified."
       ],
@@ -74,13 +74,13 @@
     {
       "stage_name": "APPROVAL_GATE",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:41.665942+00:00",
-      "completed_at": "2026-09-18T17:58:41.666007+00:00",
-      "duration_ms": 0.02,
+      "started_at": "2026-09-18T18:28:20.635070+00:00",
+      "completed_at": "2026-09-18T18:28:20.635131+00:00",
+      "duration_ms": 0.01,
       "logs": [
         "Evaluating approval policy (Risk Level: CRITICAL)...",
         "[HOLD] Requesting Human Approval for CRITICAL PRODUCTION deployment...",
-        "Registered pending Approval Request: appr-e1dfd2",
+        "Registered pending Approval Request: appr-3c9a99",
         "Evaluating approval policy (Risk Level: CRITICAL)...",
         "[PASS] Auto-approved for PRODUCTION deployment tier."
       ],
@@ -90,8 +90,8 @@
     {
       "stage_name": "DISPATCH_DEPLOY",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:41.828740+00:00",
-      "completed_at": "2026-09-18T17:58:41.828859+00:00",
+      "started_at": "2026-09-18T18:28:20.641941+00:00",
+      "completed_at": "2026-09-18T18:28:20.642056+00:00",
       "duration_ms": 0.05,
       "logs": [
         "Dispatching payload to target 'GCP_CLOUD_RUN'...",
@@ -104,9 +104,9 @@
     {
       "stage_name": "HEALTH_PROBE",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:41.933404+00:00",
-      "completed_at": "2026-09-18T17:58:41.933564+00:00",
-      "duration_ms": 0.05,
+      "started_at": "2026-09-18T18:28:20.649239+00:00",
+      "completed_at": "2026-09-18T18:28:20.649301+00:00",
+      "duration_ms": 0.02,
       "logs": [
         "Executing synthetic SLA health probe on https://nexus-core-prod-582208055065.asia-south1.run.app...",
         "Probing Cloud Run container SLA health on https://nexus-core-prod-582208055065.asia-south1.run.app...",
@@ -121,9 +121,9 @@
     {
       "stage_name": "PROMOTE_CANARY",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:42.034579+00:00",
-      "completed_at": "2026-09-18T17:58:42.034696+00:00",
-      "duration_ms": 0.03,
+      "started_at": "2026-09-18T18:28:20.657330+00:00",
+      "completed_at": "2026-09-18T18:28:20.657387+00:00",
+      "duration_ms": 0.01,
       "logs": [
         "Applying deployment strategy: BLUE_GREEN...",
         "100% traffic switched to active release v2.0.0-prod.",
@@ -140,14 +140,14 @@
   "error": null,
   "risk_level": "CRITICAL",
   "requires_approval": false,
-  "approval_id": "appr-e1dfd2",
+  "approval_id": "appr-3c9a99",
   "created_by": "test-suite",
-  "created_at": "2026-09-18T17:58:33.358124+00:00",
-  "completed_at": "2026-09-18T17:58:42.132850+00:00",
-  "duration_seconds": 4.31,
+  "created_at": "2026-09-18T18:28:13.404040+00:00",
+  "completed_at": "2026-09-18T18:28:20.665578+00:00",
+  "duration_seconds": 3.49,
   "rollback_target_id": null,
   "changelog": [],
-  "dora_lead_time_seconds": 4.31,
+  "dora_lead_time_seconds": 3.49,
   "metadata": {
     "notes": null,
     "health_check_path": "/api/health",

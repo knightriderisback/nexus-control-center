@@ -97,28 +97,26 @@ def run_e2e_verification():
         subprocess.run(["git", "add", "-A"], cwd=beta_dir, capture_output=True, check=True)
         subprocess.run(["git", "commit", "-m", "Initial commit for project beta"], cwd=beta_dir, capture_output=True, check=True)
 
-        # Instantiate C2 Kernel & Project Operations Engine with isolated test dirs
+        # Instantiate C2 Kernel with isolated test dir
         c2_kernel = CommandControlKernel(data_dir=os.path.join(e2e_root, "c2_data"))
-        ops_engine = ProjectOperationsEngine(data_dir=os.path.join(e2e_root, "ops_data"))
+        from orchestrator.project_operations_engine import project_operations_engine
 
         # Register projects into operational state
-        ops_engine.register_project(ProjectRegistryItem(
+        project_operations_engine.register_project(ProjectRegistryItem(
             id="project-alpha",
             name="Project Alpha",
             path=alpha_dir,
-            type="fastapi",
-            branch="main",
-            health_score=100.0,
-            status=ProjectStatus.HEALTHY
+            health_score=100,
+            status=ProjectStatus.HEALTHY,
+            description="Autonomous payment processor."
         ))
-        ops_engine.register_project(ProjectRegistryItem(
+        project_operations_engine.register_project(ProjectRegistryItem(
             id="project-beta",
             name="Project Beta",
             path=beta_dir,
-            type="react_vite",
-            branch="main",
-            health_score=100.0,
-            status=ProjectStatus.HEALTHY
+            health_score=100,
+            status=ProjectStatus.HEALTHY,
+            description="Autonomous analytics visualizer."
         ))
 
         # ---------------------------------------------------------------------
@@ -293,6 +291,13 @@ def run_e2e_verification():
         return True
 
     finally:
+        try:
+            from orchestrator.project_operations_engine import project_operations_engine
+            with project_operations_engine._lock:
+                project_operations_engine._records.pop("project-alpha", None)
+                project_operations_engine._records.pop("project-beta", None)
+        except Exception:
+            pass
         shutil.rmtree(e2e_root, ignore_errors=True)
 
 

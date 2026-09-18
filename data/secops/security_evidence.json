@@ -2293,5 +2293,974 @@
       "policy_decision": "BLOCK",
       "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
     }
+  },
+  "dep-ev-bb57f29c": {
+    "evidence_id": "dep-ev-bb57f29c",
+    "session_id": "dep-2f465f64",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-35fb21e9",
+    "timestamp": "2026-09-18T18:03:57.912733+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-67c1cdbf": {
+    "evidence_id": "dep-ev-67c1cdbf",
+    "session_id": "dep-03ce6e97",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-0014e073",
+    "timestamp": "2026-09-18T18:04:02.114857+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-9eb542c5": {
+    "evidence_id": "dep-ev-9eb542c5",
+    "session_id": "dep-a354f0c1",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-409388b9",
+    "timestamp": "2026-09-18T18:04:05.949769+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "PREVIEW",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-a60d908d": {
+    "evidence_id": "dep-ev-a60d908d",
+    "session_id": "dep-00e8acc1",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-e404a0c9",
+    "timestamp": "2026-09-18T18:04:09.720815+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-8842d469": {
+    "evidence_id": "dep-ev-8842d469",
+    "session_id": "dep-10bf9dc6",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-d857d53d",
+    "timestamp": "2026-09-18T18:04:14.403854+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "STAGING",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-5343157c": {
+    "evidence_id": "dep-ev-5343157c",
+    "session_id": "dep-5d468e9a",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-3d38c3ac",
+    "timestamp": "2026-09-18T18:04:19.179003+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-4779fa09": {
+    "evidence_id": "dep-ev-4779fa09",
+    "session_id": "dep-2773b2d5",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-4bd011e0",
+    "timestamp": "2026-09-18T18:04:23.557042+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-f90a5342": {
+    "evidence_id": "dep-ev-f90a5342",
+    "session_id": "dep-602c6791",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-89b876f0",
+    "timestamp": "2026-09-18T18:04:27.879158+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "PRODUCTION",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-af572a94": {
+    "evidence_id": "dep-ev-af572a94",
+    "session_id": "dep-602c6791",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-c61a4023",
+    "timestamp": "2026-09-18T18:04:32.088152+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "PRODUCTION",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-b2764492": {
+    "evidence_id": "dep-ev-b2764492",
+    "session_id": "dep-36db7f00",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-fe48107e",
+    "timestamp": "2026-09-18T18:04:36.568394+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-967ffebb": {
+    "evidence_id": "dep-ev-967ffebb",
+    "session_id": "dep-1728dca8",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-7893dba8",
+    "timestamp": "2026-09-18T18:04:41.219612+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-4b37895d": {
+    "evidence_id": "dep-ev-4b37895d",
+    "session_id": "dep-c36df780",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-c803cc5f",
+    "timestamp": "2026-09-18T18:04:46.179613+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-2e25067b": {
+    "evidence_id": "dep-ev-2e25067b",
+    "session_id": "dep-6a1494cc",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-9ef25796",
+    "timestamp": "2026-09-18T18:04:50.868033+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "sec-ev-64b4bbb8": {
+    "evidence_id": "sec-ev-64b4bbb8",
+    "session_id": "sess-merge-001",
+    "branch": "feature/nexus-secops",
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-edca1808",
+    "timestamp": "2026-09-18T18:05:00.887022+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 0,
+    "passed": true,
+    "details": {
+      "changed_files_count": 1,
+      "critical_findings": 0,
+      "gate_status": "PASSED"
+    }
+  },
+  "dep-ev-983200ef": {
+    "evidence_id": "dep-ev-983200ef",
+    "session_id": "dep-sess-001",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-5441cf5e",
+    "timestamp": "2026-09-18T18:05:01.621370+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 0,
+    "passed": true,
+    "details": {
+      "target_env": "local",
+      "policy_decision": "ALLOW",
+      "reason": "Security policy criteria satisfied."
+    }
+  },
+  "dep-ev-4a631cfa": {
+    "evidence_id": "dep-ev-4a631cfa",
+    "session_id": "dep-f6e45b4f",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-7779151d",
+    "timestamp": "2026-09-18T18:24:49.498891+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-9a6d684b": {
+    "evidence_id": "dep-ev-9a6d684b",
+    "session_id": "dep-099919fa",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-278eb279",
+    "timestamp": "2026-09-18T18:24:54.156757+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-d2e449f2": {
+    "evidence_id": "dep-ev-d2e449f2",
+    "session_id": "dep-a7f3c7de",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-e918625c",
+    "timestamp": "2026-09-18T18:24:58.869439+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "PREVIEW",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-4f2d5d9b": {
+    "evidence_id": "dep-ev-4f2d5d9b",
+    "session_id": "dep-f178e740",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-c66b5138",
+    "timestamp": "2026-09-18T18:25:03.731749+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-91b7e2ec": {
+    "evidence_id": "dep-ev-91b7e2ec",
+    "session_id": "dep-5d8b90d9",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-e5ed20ef",
+    "timestamp": "2026-09-18T18:25:09.340889+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "STAGING",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-797171d3": {
+    "evidence_id": "dep-ev-797171d3",
+    "session_id": "dep-295faead",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-8195e9ac",
+    "timestamp": "2026-09-18T18:25:15.103931+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-a667b198": {
+    "evidence_id": "dep-ev-a667b198",
+    "session_id": "dep-fd3a72ab",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-de826dca",
+    "timestamp": "2026-09-18T18:25:19.568595+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-7abbf55e": {
+    "evidence_id": "dep-ev-7abbf55e",
+    "session_id": "dep-d126d937",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-725e1d4a",
+    "timestamp": "2026-09-18T18:25:23.430580+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "PRODUCTION",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-b7bce06d": {
+    "evidence_id": "dep-ev-b7bce06d",
+    "session_id": "dep-d126d937",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-33bad9a2",
+    "timestamp": "2026-09-18T18:25:27.377898+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "PRODUCTION",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-929ed458": {
+    "evidence_id": "dep-ev-929ed458",
+    "session_id": "dep-3df74868",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-0c4994fd",
+    "timestamp": "2026-09-18T18:25:31.793113+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-a660fdd9": {
+    "evidence_id": "dep-ev-a660fdd9",
+    "session_id": "dep-c83fad27",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-e0886f9d",
+    "timestamp": "2026-09-18T18:26:21.236700+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-7ce7f153": {
+    "evidence_id": "dep-ev-7ce7f153",
+    "session_id": "dep-6d273c67",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-266d57da",
+    "timestamp": "2026-09-18T18:26:24.510349+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-f19968aa": {
+    "evidence_id": "dep-ev-f19968aa",
+    "session_id": "dep-3c853c0e",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-770cc064",
+    "timestamp": "2026-09-18T18:26:28.008097+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "PREVIEW",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-5df6eb66": {
+    "evidence_id": "dep-ev-5df6eb66",
+    "session_id": "dep-2d6b262d",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-389104d8",
+    "timestamp": "2026-09-18T18:26:31.563161+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-0ca09634": {
+    "evidence_id": "dep-ev-0ca09634",
+    "session_id": "dep-6dafff4d",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-84694021",
+    "timestamp": "2026-09-18T18:26:35.174547+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "STAGING",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-884c7565": {
+    "evidence_id": "dep-ev-884c7565",
+    "session_id": "dep-f16cd23d",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-6bc2f6a2",
+    "timestamp": "2026-09-18T18:26:38.964939+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-cae8d9e8": {
+    "evidence_id": "dep-ev-cae8d9e8",
+    "session_id": "dep-1144a4d6",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-cab38fa7",
+    "timestamp": "2026-09-18T18:26:43.313554+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-4ea430bd": {
+    "evidence_id": "dep-ev-4ea430bd",
+    "session_id": "dep-6132fa7c",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-12a1370d",
+    "timestamp": "2026-09-18T18:26:47.282264+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "PRODUCTION",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-15223411": {
+    "evidence_id": "dep-ev-15223411",
+    "session_id": "dep-6132fa7c",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-bdb4685b",
+    "timestamp": "2026-09-18T18:26:50.840099+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "PRODUCTION",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-dc83fd92": {
+    "evidence_id": "dep-ev-dc83fd92",
+    "session_id": "dep-77a01f68",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-d27a22d2",
+    "timestamp": "2026-09-18T18:26:54.862650+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-53843e0d": {
+    "evidence_id": "dep-ev-53843e0d",
+    "session_id": "dep-0e37f9cc",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-363e631d",
+    "timestamp": "2026-09-18T18:27:14.990549+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-f45405e0": {
+    "evidence_id": "dep-ev-f45405e0",
+    "session_id": "dep-6bf1ccd7",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-968f049b",
+    "timestamp": "2026-09-18T18:27:18.062100+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-7b4c61d3": {
+    "evidence_id": "dep-ev-7b4c61d3",
+    "session_id": "dep-98d07665",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-796216c4",
+    "timestamp": "2026-09-18T18:27:21.350055+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "PREVIEW",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-267e2276": {
+    "evidence_id": "dep-ev-267e2276",
+    "session_id": "dep-227020c3",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-13dc77ee",
+    "timestamp": "2026-09-18T18:27:51.733134+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-c6dac940": {
+    "evidence_id": "dep-ev-c6dac940",
+    "session_id": "dep-f4ccc047",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-b2c70cb8",
+    "timestamp": "2026-09-18T18:27:55.321040+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-532ae5ba": {
+    "evidence_id": "dep-ev-532ae5ba",
+    "session_id": "dep-30df71a8",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-f3e32daf",
+    "timestamp": "2026-09-18T18:27:58.543967+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "PREVIEW",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-054d987a": {
+    "evidence_id": "dep-ev-054d987a",
+    "session_id": "dep-14e9d765",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-412909ae",
+    "timestamp": "2026-09-18T18:28:01.878968+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-063bf012": {
+    "evidence_id": "dep-ev-063bf012",
+    "session_id": "dep-2a6be492",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-42495b25",
+    "timestamp": "2026-09-18T18:28:05.656143+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "STAGING",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-28eec0ea": {
+    "evidence_id": "dep-ev-28eec0ea",
+    "session_id": "dep-eef0a621",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-30633a82",
+    "timestamp": "2026-09-18T18:28:09.331058+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-9d2bef6c": {
+    "evidence_id": "dep-ev-9d2bef6c",
+    "session_id": "dep-97809696",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-c02caddc",
+    "timestamp": "2026-09-18T18:28:13.105033+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-a1aa883c": {
+    "evidence_id": "dep-ev-a1aa883c",
+    "session_id": "dep-efe84d63",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-406d6953",
+    "timestamp": "2026-09-18T18:28:16.666334+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "PRODUCTION",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-6dffa58e": {
+    "evidence_id": "dep-ev-6dffa58e",
+    "session_id": "dep-efe84d63",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-c3338584",
+    "timestamp": "2026-09-18T18:28:20.415636+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "PRODUCTION",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-1d7287a0": {
+    "evidence_id": "dep-ev-1d7287a0",
+    "session_id": "dep-17e2db58",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-585a7aa9",
+    "timestamp": "2026-09-18T18:28:24.401838+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-ef76ad7e": {
+    "evidence_id": "dep-ev-ef76ad7e",
+    "session_id": "dep-d369fa3c",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-40de5b06",
+    "timestamp": "2026-09-18T18:28:28.146031+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-57f6eab3": {
+    "evidence_id": "dep-ev-57f6eab3",
+    "session_id": "dep-5f1b0c74",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-48f9a492",
+    "timestamp": "2026-09-18T18:28:32.207203+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-88f63d4c": {
+    "evidence_id": "dep-ev-88f63d4c",
+    "session_id": "dep-2106695c",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-9defc0b7",
+    "timestamp": "2026-09-18T18:28:36.083371+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-a35e416b": {
+    "evidence_id": "dep-ev-a35e416b",
+    "session_id": "dep-30733b0a",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-e4234b10",
+    "timestamp": "2026-09-18T18:36:19.246418+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-11217460": {
+    "evidence_id": "dep-ev-11217460",
+    "session_id": "dep-1b13961b",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-8ee35fb4",
+    "timestamp": "2026-09-18T18:36:33.429133+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-d8b02c11": {
+    "evidence_id": "dep-ev-d8b02c11",
+    "session_id": "dep-181613d9",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-7c913078",
+    "timestamp": "2026-09-18T18:36:43.858474+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-29146d00": {
+    "evidence_id": "dep-ev-29146d00",
+    "session_id": "dep-95d0d7c0",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-d428a990",
+    "timestamp": "2026-09-18T18:36:58.094843+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-bcb14af7": {
+    "evidence_id": "dep-ev-bcb14af7",
+    "session_id": "dep-1efe4607",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-ad61f658",
+    "timestamp": "2026-09-18T18:37:29.230570+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-82b630b8": {
+    "evidence_id": "dep-ev-82b630b8",
+    "session_id": "dep-a1045402",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-800f2dbd",
+    "timestamp": "2026-09-18T18:43:58.288712+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "LOCAL",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
   }
 }

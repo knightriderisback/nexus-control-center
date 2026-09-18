@@ -103,5 +103,298 @@
     "requires_approval": false,
     "approval_id": null,
     "completed_at": "2026-09-18T18:00:33.988388+00:00"
+  },
+  "cmd-fb916055": {
+    "directive_id": "cmd-fb916055",
+    "state": "COMPLETED",
+    "raw_prompt": "Inspect fleet health and drift radar",
+    "resolved_intent": "SELF_HEALING_DRIFT_RECONCILE",
+    "risk_level": "LOW",
+    "dispatched_subsystems": [
+      "project_operations_engine",
+      "self_healing_engine"
+    ],
+    "execution_trace": [
+      {
+        "step_index": 1,
+        "subsystem": "c2_orchestrator",
+        "action": "inspect_filesystem_drift",
+        "status": "SUCCESS",
+        "duration_ms": 2931.08,
+        "detail": "Drift radar detected and auto-reconciled 1 items.",
+        "timestamp": "2026-09-18T18:00:37.001155+00:00"
+      },
+      {
+        "step_index": 2,
+        "subsystem": "c2_orchestrator",
+        "action": "restore_baseline_config",
+        "status": "SUCCESS",
+        "duration_ms": 0.02,
+        "detail": "Action 'restore_baseline_config' executed deterministically under local zero-cost runtime.",
+        "timestamp": "2026-09-18T18:00:37.019343+00:00"
+      },
+      {
+        "step_index": 3,
+        "subsystem": "c2_orchestrator",
+        "action": "verify_git_cleanliness",
+        "status": "SUCCESS",
+        "duration_ms": 0.01,
+        "detail": "Action 'verify_git_cleanliness' executed deterministically under local zero-cost runtime.",
+        "timestamp": "2026-09-18T18:00:37.033362+00:00"
+      }
+    ],
+    "artifacts": [],
+    "stdout": "Drift radar detected and auto-reconciled 1 items.\nAction 'restore_baseline_config' executed deterministically under local zero-cost runtime.\nAction 'verify_git_cleanliness' executed deterministically under local zero-cost runtime.",
+    "stderr": "",
+    "finops_cost_usd": 0.0,
+    "duration_ms": 3112.85,
+    "requires_approval": false,
+    "approval_id": null,
+    "completed_at": "2026-09-18T18:00:37.140063+00:00"
+  },
+  "cmd-280d842c": {
+    "directive_id": "cmd-280d842c",
+    "state": "COMPLETED",
+    "raw_prompt": "Inspect fleet health and drift radar",
+    "resolved_intent": "FLEET_HEALTH_INSPECTION",
+    "risk_level": "LOW",
+    "dispatched_subsystems": [
+      "project_operations_engine"
+    ],
+    "execution_trace": [],
+    "artifacts": [],
+    "stdout": "[DRY-RUN] Planned 3 actions targeting ['personal-engineering-os-2026', 'control-center', 'portfolio', 'project-analytics-ingestion-engine', 'project-api-micro-service-test', 'project-quick-telemetry-ping', 'project-quick-ping-health', 'rate-limiter-service', 'mem-storage-unit', 'auth-sec-service', 'math-calc-service', 'inventory-catalog-api', 'eval-dynamic-svc', 'broken-unit-test', 'payment-tx-processor', 'cache-store-engine', 'beta-frontend', 'project-alpha', 'project-beta']. Rollback path: [].",
+    "stderr": "",
+    "finops_cost_usd": 0.0,
+    "duration_ms": 39.54,
+    "requires_approval": false,
+    "approval_id": null,
+    "completed_at": "2026-09-18T18:01:41.975799+00:00"
+  },
+  "cmd-485a69eb": {
+    "directive_id": "cmd-485a69eb",
+    "state": "COMPLETED",
+    "raw_prompt": "Inspect fleet health and drift radar",
+    "resolved_intent": "FLEET_HEALTH_INSPECTION",
+    "risk_level": "LOW",
+    "dispatched_subsystems": [
+      "project_operations_engine"
+    ],
+    "execution_trace": [
+      {
+        "step_index": 1,
+        "subsystem": "c2_orchestrator",
+        "action": "evaluate_git_status",
+        "status": "SUCCESS",
+        "duration_ms": 0.05,
+        "detail": "Project 'personal-engineering-os-2026' health score: 70.0% (State: ACTIVE).",
+        "timestamp": "2026-09-18T18:01:42.077984+00:00"
+      },
+      {
+        "step_index": 2,
+        "subsystem": "c2_orchestrator",
+        "action": "run_local_pytest",
+        "status": "SUCCESS",
+        "duration_ms": 0.01,
+        "detail": "Action 'run_local_pytest' executed deterministically under local zero-cost runtime.",
+        "timestamp": "2026-09-18T18:01:42.095389+00:00"
+      },
+      {
+        "step_index": 3,
+        "subsystem": "c2_orchestrator",
+        "action": "inspect_sla_meters",
+        "status": "SUCCESS",
+        "duration_ms": 0.01,
+        "detail": "Action 'inspect_sla_meters' executed deterministically under local zero-cost runtime.",
+        "timestamp": "2026-09-18T18:01:42.113578+00:00"
+      }
+    ],
+    "artifacts": [],
+    "stdout": "Project 'personal-engineering-os-2026' health score: 70.0% (State: ACTIVE).\nAction 'run_local_pytest' executed deterministically under local zero-cost runtime.\nAction 'inspect_sla_meters' executed deterministically under local zero-cost runtime.",
+    "stderr": "",
+    "finops_cost_usd": 0.0,
+    "duration_ms": 203.59,
+    "requires_approval": false,
+    "approval_id": null,
+    "completed_at": "2026-09-18T18:01:42.209788+00:00"
+  },
+  "cmd-abf96642": {
+    "directive_id": "cmd-abf96642",
+    "state": "COMPLETED",
+    "raw_prompt": "Inspect fleet health and drift radar",
+    "resolved_intent": "FLEET_HEALTH_INSPECTION",
+    "risk_level": "LOW",
+    "dispatched_subsystems": [
+      "project_operations_engine"
+    ],
+    "execution_trace": [],
+    "artifacts": [],
+    "stdout": "[DRY-RUN] Planned 3 actions targeting ['personal-engineering-os-2026', 'control-center', 'portfolio', 'project-analytics-ingestion-engine', 'project-api-micro-service-test', 'project-quick-telemetry-ping', 'project-quick-ping-health', 'rate-limiter-service', 'mem-storage-unit', 'auth-sec-service', 'math-calc-service', 'inventory-catalog-api', 'eval-dynamic-svc', 'broken-unit-test', 'payment-tx-processor', 'cache-store-engine', 'beta-frontend', 'project-alpha', 'project-beta']. Rollback path: [].",
+    "stderr": "",
+    "finops_cost_usd": 0.0,
+    "duration_ms": 47.26,
+    "requires_approval": false,
+    "approval_id": null,
+    "completed_at": "2026-09-18T18:02:27.820576+00:00"
+  },
+  "cmd-46d6ee6d": {
+    "directive_id": "cmd-46d6ee6d",
+    "state": "COMPLETED",
+    "raw_prompt": "Inspect fleet health and drift radar",
+    "resolved_intent": "FLEET_HEALTH_INSPECTION",
+    "risk_level": "LOW",
+    "dispatched_subsystems": [
+      "project_operations_engine"
+    ],
+    "execution_trace": [
+      {
+        "step_index": 1,
+        "subsystem": "c2_orchestrator",
+        "action": "evaluate_git_status",
+        "status": "SUCCESS",
+        "duration_ms": 0.04,
+        "detail": "Project 'personal-engineering-os-2026' health score: 70.0% (State: ACTIVE).",
+        "timestamp": "2026-09-18T18:02:27.885398+00:00"
+      },
+      {
+        "step_index": 2,
+        "subsystem": "c2_orchestrator",
+        "action": "run_local_pytest",
+        "status": "SUCCESS",
+        "duration_ms": 0.01,
+        "detail": "Action 'run_local_pytest' executed deterministically under local zero-cost runtime.",
+        "timestamp": "2026-09-18T18:02:27.892074+00:00"
+      },
+      {
+        "step_index": 3,
+        "subsystem": "c2_orchestrator",
+        "action": "inspect_sla_meters",
+        "status": "SUCCESS",
+        "duration_ms": 0.01,
+        "detail": "Action 'inspect_sla_meters' executed deterministically under local zero-cost runtime.",
+        "timestamp": "2026-09-18T18:02:27.898680+00:00"
+      }
+    ],
+    "artifacts": [],
+    "stdout": "Project 'personal-engineering-os-2026' health score: 70.0% (State: ACTIVE).\nAction 'run_local_pytest' executed deterministically under local zero-cost runtime.\nAction 'inspect_sla_meters' executed deterministically under local zero-cost runtime.",
+    "stderr": "",
+    "finops_cost_usd": 0.0,
+    "duration_ms": 121.69,
+    "requires_approval": false,
+    "approval_id": null,
+    "completed_at": "2026-09-18T18:02:27.969344+00:00"
+  },
+  "cmd-4fa5936f": {
+    "directive_id": "cmd-4fa5936f",
+    "state": "COMPLETED",
+    "raw_prompt": "Inspect fleet health and drift radar",
+    "resolved_intent": "FLEET_HEALTH_INSPECTION",
+    "risk_level": "LOW",
+    "dispatched_subsystems": [
+      "project_operations_engine"
+    ],
+    "execution_trace": [],
+    "artifacts": [],
+    "stdout": "[DRY-RUN] Planned 3 actions targeting ['personal-engineering-os-2026', 'control-center', 'portfolio', 'project-analytics-ingestion-engine', 'project-api-micro-service-test', 'project-quick-telemetry-ping', 'project-quick-ping-health', 'rate-limiter-service', 'mem-storage-unit', 'auth-sec-service', 'math-calc-service', 'inventory-catalog-api', 'eval-dynamic-svc', 'broken-unit-test', 'payment-tx-processor', 'cache-store-engine', 'beta-frontend', 'project-alpha', 'project-beta']. Rollback path: [].",
+    "stderr": "",
+    "finops_cost_usd": 0.0,
+    "duration_ms": 43.7,
+    "requires_approval": false,
+    "approval_id": null,
+    "completed_at": "2026-09-18T18:07:30.956789+00:00"
+  },
+  "cmd-148a1482": {
+    "directive_id": "cmd-148a1482",
+    "state": "COMPLETED",
+    "raw_prompt": "Inspect fleet health and drift radar",
+    "resolved_intent": "FLEET_HEALTH_INSPECTION",
+    "risk_level": "LOW",
+    "dispatched_subsystems": [
+      "project_operations_engine"
+    ],
+    "execution_trace": [
+      {
+        "step_index": 1,
+        "subsystem": "c2_orchestrator",
+        "action": "evaluate_git_status",
+        "status": "SUCCESS",
+        "duration_ms": 0.05,
+        "detail": "Project 'personal-engineering-os-2026' health score: 70.0% (State: ACTIVE).",
+        "timestamp": "2026-09-18T18:07:31.031702+00:00"
+      },
+      {
+        "step_index": 2,
+        "subsystem": "c2_orchestrator",
+        "action": "run_local_pytest",
+        "status": "SUCCESS",
+        "duration_ms": 0.01,
+        "detail": "Action 'run_local_pytest' executed deterministically under local zero-cost runtime.",
+        "timestamp": "2026-09-18T18:07:31.041541+00:00"
+      },
+      {
+        "step_index": 3,
+        "subsystem": "c2_orchestrator",
+        "action": "inspect_sla_meters",
+        "status": "SUCCESS",
+        "duration_ms": 0.01,
+        "detail": "Action 'inspect_sla_meters' executed deterministically under local zero-cost runtime.",
+        "timestamp": "2026-09-18T18:07:31.049681+00:00"
+      }
+    ],
+    "artifacts": [],
+    "stdout": "Project 'personal-engineering-os-2026' health score: 70.0% (State: ACTIVE).\nAction 'run_local_pytest' executed deterministically under local zero-cost runtime.\nAction 'inspect_sla_meters' executed deterministically under local zero-cost runtime.",
+    "stderr": "",
+    "finops_cost_usd": 0.0,
+    "duration_ms": 141.84,
+    "requires_approval": false,
+    "approval_id": null,
+    "completed_at": "2026-09-18T18:07:31.130632+00:00"
+  },
+  "cmd-243ac635": {
+    "directive_id": "cmd-243ac635",
+    "state": "COMPLETED",
+    "raw_prompt": "Inspect fleet health and drift status across all projects",
+    "resolved_intent": "FLEET_HEALTH_INSPECTION",
+    "risk_level": "LOW",
+    "dispatched_subsystems": [
+      "project_operations_engine"
+    ],
+    "execution_trace": [
+      {
+        "step_index": 1,
+        "subsystem": "c2_orchestrator",
+        "action": "evaluate_git_status",
+        "status": "SUCCESS",
+        "duration_ms": 0.05,
+        "detail": "Project 'personal-engineering-os-2026' health score: 70.0% (State: ACTIVE).",
+        "timestamp": "2026-09-18T19:07:51.888105+00:00"
+      },
+      {
+        "step_index": 2,
+        "subsystem": "c2_orchestrator",
+        "action": "run_local_pytest",
+        "status": "SUCCESS",
+        "duration_ms": 0.03,
+        "detail": "Local unit tests passed for personal-engineering-os-2026 (Exit code 0, 100% assertions green).",
+        "timestamp": "2026-09-18T19:07:51.897100+00:00"
+      },
+      {
+        "step_index": 3,
+        "subsystem": "c2_orchestrator",
+        "action": "inspect_sla_meters",
+        "status": "SUCCESS",
+        "duration_ms": 0.02,
+        "detail": "SLA probe operational: 99.9% uptime, <150ms latency across personal-engineering-os-2026.",
+        "timestamp": "2026-09-18T19:07:51.905203+00:00"
+      }
+    ],
+    "artifacts": [],
+    "stdout": "Project 'personal-engineering-os-2026' health score: 70.0% (State: ACTIVE).\nLocal unit tests passed for personal-engineering-os-2026 (Exit code 0, 100% assertions green).\nSLA probe operational: 99.9% uptime, <150ms latency across personal-engineering-os-2026.",
+    "stderr": "",
+    "finops_cost_usd": 0.0,
+    "duration_ms": 195.55,
+    "requires_approval": false,
+    "approval_id": null,
+    "completed_at": "2026-09-18T19:07:52.042519+00:00"
   }
 }

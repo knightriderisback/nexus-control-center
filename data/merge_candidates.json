@@ -21600,5 +21600,1080 @@
     "created_at": "2026-09-17T13:47:40.463056+00:00",
     "updated_at": "2026-09-17T13:47:47.915571+00:00",
     "correlation_id": "8bcd6227-77e3-441b-b513-0f2807daaf3e"
+  },
+  "cand-acd5d65d": {
+    "candidate_id": "cand-acd5d65d",
+    "session_id": null,
+    "repo_path": "/tmp/pytest-of-root/pytest-387/test_terminal_state_mutation_g0/repo",
+    "source_branch": "swarm/terminal-test",
+    "target_branch": "main",
+    "state": "REJECTED",
+    "source_commit": null,
+    "target_commit": null,
+    "target_base_commit": null,
+    "merge_base_commit": null,
+    "candidate_commit": null,
+    "candidate_tree_sha": null,
+    "candidate_worktree": null,
+    "strategy": "AUTO",
+    "allow_ours_theirs": false,
+    "conflict_files": [],
+    "resolved_files": [],
+    "three_way_analysis": null,
+    "risk_classification": null,
+    "verification_results": null,
+    "security_results": null,
+    "approval_id": null,
+    "approval_state": null,
+    "integration_state": null,
+    "error": "Rejected initially",
+    "transitions": [
+      {
+        "from_state": "CREATED",
+        "to_state": "CREATED",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:12.851238+00:00",
+        "reason": "Candidate initialized",
+        "metadata": null
+      },
+      {
+        "from_state": "CREATED",
+        "to_state": "REJECTED",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:13.123906+00:00",
+        "reason": "Rejected initially",
+        "metadata": null
+      }
+    ],
+    "created_at": "2026-09-18T18:31:12.850783+00:00",
+    "updated_at": "2026-09-18T18:31:13.124052+00:00",
+    "correlation_id": "bd144aef-c951-4145-88bf-ff2a7c5655f6"
+  },
+  "cand-a31ad223": {
+    "candidate_id": "cand-a31ad223",
+    "session_id": null,
+    "repo_path": "/tmp/pytest-of-root/pytest-387/test_terminal_state_mutation_g0/repo",
+    "source_branch": "swarm/terminal-test",
+    "target_branch": "main",
+    "state": "ROLLED_BACK",
+    "source_commit": "7a0754d470e4053dff6ea1209405400e0f2689b2",
+    "target_commit": "872e52ec12a0eda31766d0d091b0c2c4451fe63a",
+    "target_base_commit": "872e52ec12a0eda31766d0d091b0c2c4451fe63a",
+    "merge_base_commit": "872e52ec12a0eda31766d0d091b0c2c4451fe63a",
+    "candidate_commit": "bcf481653e64d5f019e08293407086978d5adbb4",
+    "candidate_tree_sha": "4fdce62f704e718614e960d9b741cdd2505ad0f5",
+    "candidate_worktree": "/root/control-center/data/worktrees/cand-a31ad223",
+    "strategy": "AUTO",
+    "allow_ours_theirs": false,
+    "conflict_files": [],
+    "resolved_files": [],
+    "three_way_analysis": {
+      "merge_base_commit": "872e52ec12a0eda31766d0d091b0c2c4451fe63a",
+      "source_commit": "7a0754d470e4053dff6ea1209405400e0f2689b2",
+      "target_commit": "872e52ec12a0eda31766d0d091b0c2c4451fe63a",
+      "is_fast_forward": true,
+      "source_changes": {
+        "files_count": 1,
+        "files": {
+          "feat.py": "A"
+        }
+      },
+      "target_changes": {
+        "files_count": 0,
+        "files": {}
+      },
+      "overlapping_files": [],
+      "rename_delete_conflicts": [],
+      "binary_conflicts": [],
+      "dangerous_path_changes": [],
+      "divergence": {
+        "behind": 0,
+        "ahead": 1
+      }
+    },
+    "risk_classification": {
+      "risk_level": "LOW",
+      "requires_approval": false,
+      "policy_reason": "Read-only operations and telemetry queries execute autonomously.",
+      "dangerous_paths": [],
+      "sensitive_categories": []
+    },
+    "verification_results": {
+      "status": "PASSED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/cand-a31ad223",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "approval_state": null,
+    "integration_state": "COMMITTED",
+    "error": "Safety rollback",
+    "transitions": [
+      {
+        "from_state": "CREATED",
+        "to_state": "CREATED",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:13.355908+00:00",
+        "reason": "Candidate initialized",
+        "metadata": null
+      },
+      {
+        "from_state": "CREATED",
+        "to_state": "ANALYZING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:13.461691+00:00",
+        "reason": "Starting three-way merge analysis",
+        "metadata": null
+      },
+      {
+        "from_state": "ANALYZING",
+        "to_state": "ARBITRATING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:14.030261+00:00",
+        "reason": "Three-way analysis complete, evaluating conflicts",
+        "metadata": null
+      },
+      {
+        "from_state": "ARBITRATING",
+        "to_state": "VERIFICATION_PENDING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:14.121183+00:00",
+        "reason": "Ready for ephemeral staging verification",
+        "metadata": null
+      },
+      {
+        "from_state": "VERIFICATION_PENDING",
+        "to_state": "VERIFYING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:14.206068+00:00",
+        "reason": "Starting staging verification",
+        "metadata": null
+      },
+      {
+        "from_state": "VERIFYING",
+        "to_state": "READY_TO_INTEGRATE",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:17.651542+00:00",
+        "reason": "Candidate verified and ready for integration",
+        "metadata": null
+      },
+      {
+        "from_state": "READY_TO_INTEGRATE",
+        "to_state": "INTEGRATING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:17.771247+00:00",
+        "reason": "Beginning trunk integration",
+        "metadata": null
+      },
+      {
+        "from_state": "INTEGRATING",
+        "to_state": "INTEGRATED",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:18.349675+00:00",
+        "reason": "Trunk integration completed successfully",
+        "metadata": null
+      },
+      {
+        "from_state": "INTEGRATED",
+        "to_state": "ROLLED_BACK",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:18.787175+00:00",
+        "reason": "Safety rollback",
+        "metadata": null
+      }
+    ],
+    "created_at": "2026-09-18T18:31:13.355653+00:00",
+    "updated_at": "2026-09-18T18:31:18.787292+00:00",
+    "correlation_id": "6282617e-7b5a-42f9-8edc-2c2844beac8a"
+  },
+  "cand-a65b6fbc": {
+    "candidate_id": "cand-a65b6fbc",
+    "session_id": null,
+    "repo_path": "/tmp/pytest-of-root/pytest-387/test_duplicate_integration_ide0/repo",
+    "source_branch": "swarm/idem",
+    "target_branch": "target-idem",
+    "state": "INTEGRATED",
+    "source_commit": "a640079f0f2f6fbbbf03417bd372c99a2555a1ef",
+    "target_commit": "0c99115505bf9f0eb39a6baa443bb572781a598e",
+    "target_base_commit": "0c99115505bf9f0eb39a6baa443bb572781a598e",
+    "merge_base_commit": "0c99115505bf9f0eb39a6baa443bb572781a598e",
+    "candidate_commit": "a08df993e88f4e2d8f269c511a01811fb00fb223",
+    "candidate_tree_sha": "b0629d0db9af9974c7c64636aa1ab1d14133ed22",
+    "candidate_worktree": "/root/control-center/data/worktrees/cand-a65b6fbc",
+    "strategy": "AUTO",
+    "allow_ours_theirs": false,
+    "conflict_files": [],
+    "resolved_files": [],
+    "three_way_analysis": {
+      "merge_base_commit": "0c99115505bf9f0eb39a6baa443bb572781a598e",
+      "source_commit": "a640079f0f2f6fbbbf03417bd372c99a2555a1ef",
+      "target_commit": "0c99115505bf9f0eb39a6baa443bb572781a598e",
+      "is_fast_forward": true,
+      "source_changes": {
+        "files_count": 1,
+        "files": {
+          "idem.py": "A"
+        }
+      },
+      "target_changes": {
+        "files_count": 0,
+        "files": {}
+      },
+      "overlapping_files": [],
+      "rename_delete_conflicts": [],
+      "binary_conflicts": [],
+      "dangerous_path_changes": [],
+      "divergence": {
+        "behind": 0,
+        "ahead": 1
+      }
+    },
+    "risk_classification": {
+      "risk_level": "LOW",
+      "requires_approval": false,
+      "policy_reason": "Read-only operations and telemetry queries execute autonomously.",
+      "dangerous_paths": [],
+      "sensitive_categories": []
+    },
+    "verification_results": {
+      "status": "PASSED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/cand-a65b6fbc",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "approval_state": null,
+    "integration_state": "COMMITTED",
+    "error": null,
+    "transitions": [
+      {
+        "from_state": "CREATED",
+        "to_state": "CREATED",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:19.941574+00:00",
+        "reason": "Candidate initialized",
+        "metadata": null
+      },
+      {
+        "from_state": "CREATED",
+        "to_state": "ANALYZING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:20.042384+00:00",
+        "reason": "Starting three-way merge analysis",
+        "metadata": null
+      },
+      {
+        "from_state": "ANALYZING",
+        "to_state": "ARBITRATING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:20.618703+00:00",
+        "reason": "Three-way analysis complete, evaluating conflicts",
+        "metadata": null
+      },
+      {
+        "from_state": "ARBITRATING",
+        "to_state": "VERIFICATION_PENDING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:20.785885+00:00",
+        "reason": "Ready for ephemeral staging verification",
+        "metadata": null
+      },
+      {
+        "from_state": "VERIFICATION_PENDING",
+        "to_state": "VERIFYING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:20.928816+00:00",
+        "reason": "Starting staging verification",
+        "metadata": null
+      },
+      {
+        "from_state": "VERIFYING",
+        "to_state": "READY_TO_INTEGRATE",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:25.503894+00:00",
+        "reason": "Candidate verified and ready for integration",
+        "metadata": null
+      },
+      {
+        "from_state": "READY_TO_INTEGRATE",
+        "to_state": "INTEGRATING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:25.620826+00:00",
+        "reason": "Beginning trunk integration",
+        "metadata": null
+      },
+      {
+        "from_state": "INTEGRATING",
+        "to_state": "INTEGRATED",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:26.216517+00:00",
+        "reason": "Trunk integration completed successfully",
+        "metadata": null
+      }
+    ],
+    "created_at": "2026-09-18T18:31:19.941307+00:00",
+    "updated_at": "2026-09-18T18:31:26.216653+00:00",
+    "correlation_id": "629b308f-c270-4da9-9ea9-878818ec71ac"
+  },
+  "cand-6e162470": {
+    "candidate_id": "cand-6e162470",
+    "session_id": null,
+    "repo_path": "/tmp/pytest-of-root/pytest-387/test_rollback_restores_target_0/repo",
+    "source_branch": "swarm/rb-feature",
+    "target_branch": "target-rb",
+    "state": "ROLLED_BACK",
+    "source_commit": "c1b907b87dfb74ba5b2cceabb166ddda3801a9f6",
+    "target_commit": "0d39c5351cbde466d72b9ed496bd5eec3292f4bd",
+    "target_base_commit": "0d39c5351cbde466d72b9ed496bd5eec3292f4bd",
+    "merge_base_commit": "0d39c5351cbde466d72b9ed496bd5eec3292f4bd",
+    "candidate_commit": "792173fd8c6392795071b3f147dc8bf6d5cb8cf5",
+    "candidate_tree_sha": "3b6b4afc7f108e020f6e781e0339f44e51ff616d",
+    "candidate_worktree": "/root/control-center/data/worktrees/cand-6e162470",
+    "strategy": "AUTO",
+    "allow_ours_theirs": false,
+    "conflict_files": [],
+    "resolved_files": [],
+    "three_way_analysis": {
+      "merge_base_commit": "0d39c5351cbde466d72b9ed496bd5eec3292f4bd",
+      "source_commit": "c1b907b87dfb74ba5b2cceabb166ddda3801a9f6",
+      "target_commit": "0d39c5351cbde466d72b9ed496bd5eec3292f4bd",
+      "is_fast_forward": true,
+      "source_changes": {
+        "files_count": 1,
+        "files": {
+          "buggy.py": "A"
+        }
+      },
+      "target_changes": {
+        "files_count": 0,
+        "files": {}
+      },
+      "overlapping_files": [],
+      "rename_delete_conflicts": [],
+      "binary_conflicts": [],
+      "dangerous_path_changes": [],
+      "divergence": {
+        "behind": 0,
+        "ahead": 1
+      }
+    },
+    "risk_classification": {
+      "risk_level": "LOW",
+      "requires_approval": false,
+      "policy_reason": "Read-only operations and telemetry queries execute autonomously.",
+      "dangerous_paths": [],
+      "sensitive_categories": []
+    },
+    "verification_results": {
+      "status": "PASSED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/cand-6e162470",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "approval_state": null,
+    "integration_state": "COMMITTED",
+    "error": "Emergency rollback: regression detected",
+    "transitions": [
+      {
+        "from_state": "CREATED",
+        "to_state": "CREATED",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:27.841844+00:00",
+        "reason": "Candidate initialized",
+        "metadata": null
+      },
+      {
+        "from_state": "CREATED",
+        "to_state": "ANALYZING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:27.975250+00:00",
+        "reason": "Starting three-way merge analysis",
+        "metadata": null
+      },
+      {
+        "from_state": "ANALYZING",
+        "to_state": "ARBITRATING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:28.638868+00:00",
+        "reason": "Three-way analysis complete, evaluating conflicts",
+        "metadata": null
+      },
+      {
+        "from_state": "ARBITRATING",
+        "to_state": "VERIFICATION_PENDING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:28.742465+00:00",
+        "reason": "Ready for ephemeral staging verification",
+        "metadata": null
+      },
+      {
+        "from_state": "VERIFICATION_PENDING",
+        "to_state": "VERIFYING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:28.902171+00:00",
+        "reason": "Starting staging verification",
+        "metadata": null
+      },
+      {
+        "from_state": "VERIFYING",
+        "to_state": "READY_TO_INTEGRATE",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:31.920675+00:00",
+        "reason": "Candidate verified and ready for integration",
+        "metadata": null
+      },
+      {
+        "from_state": "READY_TO_INTEGRATE",
+        "to_state": "INTEGRATING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:32.038788+00:00",
+        "reason": "Beginning trunk integration",
+        "metadata": null
+      },
+      {
+        "from_state": "INTEGRATING",
+        "to_state": "INTEGRATED",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:32.615678+00:00",
+        "reason": "Trunk integration completed successfully",
+        "metadata": null
+      },
+      {
+        "from_state": "INTEGRATED",
+        "to_state": "ROLLED_BACK",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:33.127796+00:00",
+        "reason": "Emergency rollback: regression detected",
+        "metadata": null
+      }
+    ],
+    "created_at": "2026-09-18T18:31:27.841567+00:00",
+    "updated_at": "2026-09-18T18:31:33.127887+00:00",
+    "correlation_id": "39dbbe4e-6891-456f-8155-6ccdaba40311"
+  },
+  "cand-d189bcae": {
+    "candidate_id": "cand-d189bcae",
+    "session_id": null,
+    "repo_path": "/tmp/pytest-of-root/pytest-387/test_target_branch_staleness_r0/repo",
+    "source_branch": "swarm/race-feat",
+    "target_branch": "target-race",
+    "state": "REQUIRES_HUMAN",
+    "source_commit": "019202f9957187bac1f90fb64e6c6ce0d305a3f3",
+    "target_commit": "4be548babc1a816b59cb5d662aa67cc1bcf19413",
+    "target_base_commit": "4be548babc1a816b59cb5d662aa67cc1bcf19413",
+    "merge_base_commit": "4be548babc1a816b59cb5d662aa67cc1bcf19413",
+    "candidate_commit": "adb036a10f58fe9dd1c82023755564f3053ac331",
+    "candidate_tree_sha": "c450eb2640a6710f4f766a667c8d73351b177d62",
+    "candidate_worktree": "/root/control-center/data/worktrees/cand-d189bcae",
+    "strategy": "AUTO",
+    "allow_ours_theirs": false,
+    "conflict_files": [],
+    "resolved_files": [],
+    "three_way_analysis": {
+      "merge_base_commit": "4be548babc1a816b59cb5d662aa67cc1bcf19413",
+      "source_commit": "019202f9957187bac1f90fb64e6c6ce0d305a3f3",
+      "target_commit": "4be548babc1a816b59cb5d662aa67cc1bcf19413",
+      "is_fast_forward": true,
+      "source_changes": {
+        "files_count": 1,
+        "files": {
+          "feat_race.py": "A"
+        }
+      },
+      "target_changes": {
+        "files_count": 0,
+        "files": {}
+      },
+      "overlapping_files": [],
+      "rename_delete_conflicts": [],
+      "binary_conflicts": [],
+      "dangerous_path_changes": [],
+      "divergence": {
+        "behind": 0,
+        "ahead": 1
+      }
+    },
+    "risk_classification": {
+      "risk_level": "LOW",
+      "requires_approval": false,
+      "policy_reason": "Read-only operations and telemetry queries execute autonomously.",
+      "dangerous_paths": [],
+      "sensitive_categories": []
+    },
+    "verification_results": {
+      "status": "PASSED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/cand-d189bcae",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "approval_state": null,
+    "integration_state": null,
+    "error": "Target branch 'target-race' advanced from 4be548ba to 545e0835. Re-arbitration required.",
+    "transitions": [
+      {
+        "from_state": "CREATED",
+        "to_state": "CREATED",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:34.433027+00:00",
+        "reason": "Candidate initialized",
+        "metadata": null
+      },
+      {
+        "from_state": "CREATED",
+        "to_state": "ANALYZING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:34.534019+00:00",
+        "reason": "Starting three-way merge analysis",
+        "metadata": null
+      },
+      {
+        "from_state": "ANALYZING",
+        "to_state": "ARBITRATING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:35.110357+00:00",
+        "reason": "Three-way analysis complete, evaluating conflicts",
+        "metadata": null
+      },
+      {
+        "from_state": "ARBITRATING",
+        "to_state": "VERIFICATION_PENDING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:35.207671+00:00",
+        "reason": "Ready for ephemeral staging verification",
+        "metadata": null
+      },
+      {
+        "from_state": "VERIFICATION_PENDING",
+        "to_state": "VERIFYING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:35.315249+00:00",
+        "reason": "Starting staging verification",
+        "metadata": null
+      },
+      {
+        "from_state": "VERIFYING",
+        "to_state": "READY_TO_INTEGRATE",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:38.584359+00:00",
+        "reason": "Candidate verified and ready for integration",
+        "metadata": null
+      },
+      {
+        "from_state": "READY_TO_INTEGRATE",
+        "to_state": "INTEGRATING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:39.165400+00:00",
+        "reason": "Beginning trunk integration",
+        "metadata": null
+      },
+      {
+        "from_state": "INTEGRATING",
+        "to_state": "REQUIRES_HUMAN",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:39.311994+00:00",
+        "reason": "Target branch 'target-race' advanced from 4be548ba to 545e0835. Re-arbitration required.",
+        "metadata": null
+      }
+    ],
+    "created_at": "2026-09-18T18:31:34.432720+00:00",
+    "updated_at": "2026-09-18T18:31:39.312049+00:00",
+    "correlation_id": "026a6dcd-35b5-4639-8405-993944108fe9"
+  },
+  "cand-5c83353f": {
+    "candidate_id": "cand-5c83353f",
+    "session_id": null,
+    "repo_path": "/tmp/pytest-of-root/pytest-387/test_scoped_approval_anti_repl0/repo",
+    "source_branch": "swarm/iac-feat",
+    "target_branch": "target-appr",
+    "state": "INTEGRATED",
+    "source_commit": "309d0046ad951d3511a1c9bd756025c91a7e9968",
+    "target_commit": "1a193a0e782aac9a527e5e20de2dd4425b09bc0a",
+    "target_base_commit": "1a193a0e782aac9a527e5e20de2dd4425b09bc0a",
+    "merge_base_commit": "1a193a0e782aac9a527e5e20de2dd4425b09bc0a",
+    "candidate_commit": "4ab7d73912bced5de9bec439634bd09e646df656",
+    "candidate_tree_sha": "7679bcb69bc8431c0f74c06635e4f5d6a41171f8",
+    "candidate_worktree": "/root/control-center/data/worktrees/cand-5c83353f",
+    "strategy": "AUTO",
+    "allow_ours_theirs": false,
+    "conflict_files": [],
+    "resolved_files": [],
+    "three_way_analysis": {
+      "merge_base_commit": "1a193a0e782aac9a527e5e20de2dd4425b09bc0a",
+      "source_commit": "309d0046ad951d3511a1c9bd756025c91a7e9968",
+      "target_commit": "1a193a0e782aac9a527e5e20de2dd4425b09bc0a",
+      "is_fast_forward": true,
+      "source_changes": {
+        "files_count": 1,
+        "files": {
+          "infra/prod.tf": "A"
+        }
+      },
+      "target_changes": {
+        "files_count": 0,
+        "files": {}
+      },
+      "overlapping_files": [],
+      "rename_delete_conflicts": [],
+      "binary_conflicts": [],
+      "dangerous_path_changes": [
+        "infra/prod.tf"
+      ],
+      "divergence": {
+        "behind": 0,
+        "ahead": 1
+      }
+    },
+    "risk_classification": {
+      "risk_level": "HIGH",
+      "requires_approval": true,
+      "policy_reason": "Touched sensitive categories: INFRASTRUCTURE_IAC. Read-only operations and telemetry queries execute autonomously.",
+      "dangerous_paths": [
+        "infra/prod.tf"
+      ],
+      "sensitive_categories": [
+        "INFRASTRUCTURE_IAC"
+      ]
+    },
+    "verification_results": {
+      "status": "PASSED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/cand-5c83353f",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": "appr-522ad7",
+    "approval_state": "EXECUTED",
+    "integration_state": "COMMITTED",
+    "error": null,
+    "transitions": [
+      {
+        "from_state": "CREATED",
+        "to_state": "CREATED",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:40.553402+00:00",
+        "reason": "Candidate initialized",
+        "metadata": null
+      },
+      {
+        "from_state": "CREATED",
+        "to_state": "ANALYZING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:40.674850+00:00",
+        "reason": "Starting three-way merge analysis",
+        "metadata": null
+      },
+      {
+        "from_state": "ANALYZING",
+        "to_state": "ARBITRATING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:41.442133+00:00",
+        "reason": "Three-way analysis complete, evaluating conflicts",
+        "metadata": null
+      },
+      {
+        "from_state": "ARBITRATING",
+        "to_state": "VERIFICATION_PENDING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:41.551406+00:00",
+        "reason": "Ready for ephemeral staging verification",
+        "metadata": null
+      },
+      {
+        "from_state": "VERIFICATION_PENDING",
+        "to_state": "VERIFYING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:41.653029+00:00",
+        "reason": "Starting staging verification",
+        "metadata": null
+      },
+      {
+        "from_state": "VERIFYING",
+        "to_state": "APPROVAL_PENDING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:44.984399+00:00",
+        "reason": "Gated by policy: Touched sensitive categories: INFRASTRUCTURE_IAC. Read-only operations and telemetry queries execute autonomously.",
+        "metadata": {
+          "approval_id": "appr-522ad7"
+        }
+      },
+      {
+        "from_state": "APPROVAL_PENDING",
+        "to_state": "READY_TO_INTEGRATE",
+        "actor": "human_operator",
+        "timestamp": "2026-09-18T18:31:45.465622+00:00",
+        "reason": "Approval appr-522ad7 consumed",
+        "metadata": null
+      },
+      {
+        "from_state": "READY_TO_INTEGRATE",
+        "to_state": "INTEGRATING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:45.589421+00:00",
+        "reason": "Beginning trunk integration",
+        "metadata": null
+      },
+      {
+        "from_state": "INTEGRATING",
+        "to_state": "INTEGRATED",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:46.037030+00:00",
+        "reason": "Trunk integration completed successfully",
+        "metadata": null
+      }
+    ],
+    "created_at": "2026-09-18T18:31:40.553071+00:00",
+    "updated_at": "2026-09-18T18:31:46.037146+00:00",
+    "correlation_id": "66c775f6-ba79-48d9-bb16-573cf900eeef"
+  },
+  "cand-037ace19": {
+    "candidate_id": "cand-037ace19",
+    "session_id": null,
+    "repo_path": "/tmp/pytest-of-root/pytest-387/test_scoped_approval_anti_repl0/repo",
+    "source_branch": "swarm/malicious-feat",
+    "target_branch": "target-appr",
+    "state": "APPROVAL_PENDING",
+    "source_commit": "01a937bb21694735c796cebd2be0a57a87290c3b",
+    "target_commit": "4ab7d73912bced5de9bec439634bd09e646df656",
+    "target_base_commit": "4ab7d73912bced5de9bec439634bd09e646df656",
+    "merge_base_commit": "1a193a0e782aac9a527e5e20de2dd4425b09bc0a",
+    "candidate_commit": "5bc82df8169d04526027765ac4feeb3257c3108d",
+    "candidate_tree_sha": "2e4e48be5488a3093b9508926e3c6fae3698f12f",
+    "candidate_worktree": "/root/control-center/data/worktrees/cand-037ace19",
+    "strategy": "AUTO",
+    "allow_ours_theirs": false,
+    "conflict_files": [],
+    "resolved_files": [],
+    "three_way_analysis": {
+      "merge_base_commit": "1a193a0e782aac9a527e5e20de2dd4425b09bc0a",
+      "source_commit": "01a937bb21694735c796cebd2be0a57a87290c3b",
+      "target_commit": "4ab7d73912bced5de9bec439634bd09e646df656",
+      "is_fast_forward": false,
+      "source_changes": {
+        "files_count": 1,
+        "files": {
+          "infra/backdoor.tf": "A"
+        }
+      },
+      "target_changes": {
+        "files_count": 1,
+        "files": {
+          "infra/prod.tf": "A"
+        }
+      },
+      "overlapping_files": [],
+      "rename_delete_conflicts": [],
+      "binary_conflicts": [],
+      "dangerous_path_changes": [
+        "infra/backdoor.tf"
+      ],
+      "divergence": {
+        "behind": 2,
+        "ahead": 1
+      }
+    },
+    "risk_classification": {
+      "risk_level": "HIGH",
+      "requires_approval": true,
+      "policy_reason": "Touched sensitive categories: INFRASTRUCTURE_IAC. Read-only operations and telemetry queries execute autonomously.",
+      "dangerous_paths": [
+        "infra/backdoor.tf"
+      ],
+      "sensitive_categories": [
+        "INFRASTRUCTURE_IAC"
+      ]
+    },
+    "verification_results": {
+      "status": "PASSED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/cand-037ace19",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": "appr-b75f74",
+    "approval_state": "PENDING",
+    "integration_state": null,
+    "error": null,
+    "transitions": [
+      {
+        "from_state": "CREATED",
+        "to_state": "CREATED",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:46.673885+00:00",
+        "reason": "Candidate initialized",
+        "metadata": null
+      },
+      {
+        "from_state": "CREATED",
+        "to_state": "ANALYZING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:46.786667+00:00",
+        "reason": "Starting three-way merge analysis",
+        "metadata": null
+      },
+      {
+        "from_state": "ANALYZING",
+        "to_state": "ARBITRATING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:47.384794+00:00",
+        "reason": "Three-way analysis complete, evaluating conflicts",
+        "metadata": null
+      },
+      {
+        "from_state": "ARBITRATING",
+        "to_state": "VERIFICATION_PENDING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:47.485864+00:00",
+        "reason": "Ready for ephemeral staging verification",
+        "metadata": null
+      },
+      {
+        "from_state": "VERIFICATION_PENDING",
+        "to_state": "VERIFYING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:47.577345+00:00",
+        "reason": "Starting staging verification",
+        "metadata": null
+      },
+      {
+        "from_state": "VERIFYING",
+        "to_state": "APPROVAL_PENDING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:51.264669+00:00",
+        "reason": "Gated by policy: Touched sensitive categories: INFRASTRUCTURE_IAC. Read-only operations and telemetry queries execute autonomously.",
+        "metadata": {
+          "approval_id": "appr-b75f74"
+        }
+      }
+    ],
+    "created_at": "2026-09-18T18:31:46.673234+00:00",
+    "updated_at": "2026-09-18T18:31:51.264731+00:00",
+    "correlation_id": "f0cea554-6c07-462c-93b6-9af1287fd710"
+  },
+  "cand-3df7937d": {
+    "candidate_id": "cand-3df7937d",
+    "session_id": null,
+    "repo_path": "/tmp/pytest-of-root/pytest-387/test_dirty_primary_working_tre0/repo",
+    "source_branch": "swarm/clean-worker",
+    "target_branch": "main",
+    "state": "INTEGRATED",
+    "source_commit": "1ebc648b70309853951fc8c54306d401f39157fb",
+    "target_commit": "8a9dc2a1fb45058d6f9e0226b87513e2ce9dc989",
+    "target_base_commit": "8a9dc2a1fb45058d6f9e0226b87513e2ce9dc989",
+    "merge_base_commit": "8a9dc2a1fb45058d6f9e0226b87513e2ce9dc989",
+    "candidate_commit": "37aa12fd4e6c29afbe0c34c82bd5138b6b1d5509",
+    "candidate_tree_sha": "3901cd6d8871fcbe9f6b184c6b844839103bc199",
+    "candidate_worktree": "/root/control-center/data/worktrees/cand-3df7937d",
+    "strategy": "AUTO",
+    "allow_ours_theirs": false,
+    "conflict_files": [],
+    "resolved_files": [],
+    "three_way_analysis": {
+      "merge_base_commit": "8a9dc2a1fb45058d6f9e0226b87513e2ce9dc989",
+      "source_commit": "1ebc648b70309853951fc8c54306d401f39157fb",
+      "target_commit": "8a9dc2a1fb45058d6f9e0226b87513e2ce9dc989",
+      "is_fast_forward": true,
+      "source_changes": {
+        "files_count": 1,
+        "files": {
+          "worker_output.py": "A"
+        }
+      },
+      "target_changes": {
+        "files_count": 0,
+        "files": {}
+      },
+      "overlapping_files": [],
+      "rename_delete_conflicts": [],
+      "binary_conflicts": [],
+      "dangerous_path_changes": [],
+      "divergence": {
+        "behind": 0,
+        "ahead": 1
+      }
+    },
+    "risk_classification": {
+      "risk_level": "LOW",
+      "requires_approval": false,
+      "policy_reason": "Read-only operations and telemetry queries execute autonomously.",
+      "dangerous_paths": [],
+      "sensitive_categories": []
+    },
+    "verification_results": {
+      "status": "PASSED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/cand-3df7937d",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "approval_state": null,
+    "integration_state": "STAGED_READY",
+    "error": null,
+    "transitions": [
+      {
+        "from_state": "CREATED",
+        "to_state": "CREATED",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:52.626804+00:00",
+        "reason": "Candidate initialized",
+        "metadata": null
+      },
+      {
+        "from_state": "CREATED",
+        "to_state": "ANALYZING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:52.733874+00:00",
+        "reason": "Starting three-way merge analysis",
+        "metadata": null
+      },
+      {
+        "from_state": "ANALYZING",
+        "to_state": "ARBITRATING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:53.299072+00:00",
+        "reason": "Three-way analysis complete, evaluating conflicts",
+        "metadata": null
+      },
+      {
+        "from_state": "ARBITRATING",
+        "to_state": "VERIFICATION_PENDING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:53.382069+00:00",
+        "reason": "Ready for ephemeral staging verification",
+        "metadata": null
+      },
+      {
+        "from_state": "VERIFICATION_PENDING",
+        "to_state": "VERIFYING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:53.471417+00:00",
+        "reason": "Starting staging verification",
+        "metadata": null
+      },
+      {
+        "from_state": "VERIFYING",
+        "to_state": "READY_TO_INTEGRATE",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:56.846023+00:00",
+        "reason": "Candidate verified and ready for integration",
+        "metadata": null
+      },
+      {
+        "from_state": "READY_TO_INTEGRATE",
+        "to_state": "INTEGRATING",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:56.949274+00:00",
+        "reason": "Beginning trunk integration",
+        "metadata": null
+      },
+      {
+        "from_state": "INTEGRATING",
+        "to_state": "INTEGRATED",
+        "actor": "merge_arbitrator",
+        "timestamp": "2026-09-18T18:31:57.403728+00:00",
+        "reason": "Trunk integration completed successfully",
+        "metadata": null
+      }
+    ],
+    "created_at": "2026-09-18T18:31:52.626563+00:00",
+    "updated_at": "2026-09-18T18:31:57.403782+00:00",
+    "correlation_id": "bdcc6b25-19ef-47f7-a49d-3e9f49f2fe64"
   }
 }

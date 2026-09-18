@@ -1,0 +1,34 @@
+{
+  "incident_id": "inc-4b384439",
+  "title": "Disposable Local Worker Process Termination",
+  "category": "PROCESS_FAILURE",
+  "severity": "MEDIUM",
+  "root_cause": "Automated RCA: PROCESS_FAILURE identified on disposable-worker-9876",
+  "diagnosis_evidence": {
+    "observed_facts": [
+      "Observed failure signal in category 'PROCESS_FAILURE'",
+      "Target resource impacted: 'disposable-worker-9876'",
+      "Severity classified as 'MEDIUM'",
+      "Telemetry metric 'pid': 14457",
+      "Telemetry metric 'port': 9876",
+      "Telemetry metric 'exit_code': -15",
+      "Telemetry metric 'reason': Synthetic worker drop test"
+    ],
+    "hypotheses": [
+      "Possible thread stall, memory lock, or zombie worker process."
+    ],
+    "evidence_sources": [
+      "system_watchdog",
+      "kernel_metrics",
+      "audit_log_stream"
+    ],
+    "confidence_score": 0.95,
+    "root_cause_candidate": "Automated RCA: PROCESS_FAILURE identified on disposable-worker-9876"
+  },
+  "playbook_applied": "Process Supervisor Restart & Port Release",
+  "recovery_attempts": 1,
+  "mttr_seconds": 0.03,
+  "remediation_steps_count": 4,
+  "generated_at": "2026-09-18T18:44:53.539490+00:00",
+  "status": "RESOLVED_AUTOMATICALLY"
+}

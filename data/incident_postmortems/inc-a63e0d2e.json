@@ -1,0 +1,30 @@
+{
+  "incident_id": "inc-a63e0d2e",
+  "title": "Self-healing trigger: PROCESS_FAILURE",
+  "category": "PROCESS_FAILURE",
+  "severity": "MEDIUM",
+  "root_cause": "Automated RCA: PROCESS_FAILURE identified on nexus-core",
+  "diagnosis_evidence": {
+    "observed_facts": [
+      "Observed failure signal in category 'PROCESS_FAILURE'",
+      "Target resource impacted: 'nexus-core'",
+      "Severity classified as 'MEDIUM'"
+    ],
+    "hypotheses": [
+      "Possible thread stall, memory lock, or zombie worker process."
+    ],
+    "evidence_sources": [
+      "system_watchdog",
+      "kernel_metrics",
+      "audit_log_stream"
+    ],
+    "confidence_score": 0.95,
+    "root_cause_candidate": "Automated RCA: PROCESS_FAILURE identified on nexus-core"
+  },
+  "playbook_applied": "Process Supervisor Restart & Port Release",
+  "recovery_attempts": 1,
+  "mttr_seconds": 0.01,
+  "remediation_steps_count": 4,
+  "generated_at": "2026-09-18T18:36:54.665034+00:00",
+  "status": "RESOLVED_AUTOMATICALLY"
+}

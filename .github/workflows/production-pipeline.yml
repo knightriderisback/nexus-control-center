@@ -116,6 +116,12 @@ jobs:
           PYTHONPATH=backend:tests pytest tests/test_phase22_project_operations.py -v
           PYTHONPATH=backend python3 scripts/e2e_phase22_project_operations.py
 
+      # Stage 6h: Phase 23 Unified Autonomous Command & Control Plane Verification Gate
+      - name: Stage 6h - Phase 23 Unified Autonomous Command & Control Verification
+        run: |
+          PYTHONPATH=backend:tests pytest tests/test_phase23_command_control.py -v
+          PYTHONPATH=backend python3 scripts/e2e_phase23_command_control.py
+
 
   # =========================================================================
   # STAGE 7 - 12: CD DEPLOYMENT, SMOKE TEST & ROLLBACK

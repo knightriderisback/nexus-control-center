@@ -8849,5 +8849,1971 @@
     },
     "outcome": "SUCCESS",
     "timestamp": "2026-09-18T18:00:25.171240+00:00"
+  },
+  {
+    "knowledge_id": "know-6ab82f76",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-core v1.16.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-2f465f64",
+      "project_id": "control-center",
+      "service_name": "nexus-core",
+      "version": "v1.16.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.99
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:03:58.554942+00:00"
+  },
+  {
+    "knowledge_id": "know-a3bfe3cf",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-hud v1.16.1 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-03ce6e97",
+      "project_id": "control-center",
+      "service_name": "nexus-hud",
+      "version": "v1.16.1",
+      "environment": "LOCAL",
+      "target_type": "STATIC_BUNDLE",
+      "deployed_url": "http://localhost:8000/dist",
+      "duration_seconds": 3.95
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:04:02.667561+00:00"
+  },
+  {
+    "knowledge_id": "know-b9e40512",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: portfolio-app v2.1.0 -> PREVIEW",
+    "details": {
+      "deployment_id": "dep-a354f0c1",
+      "project_id": "portfolio",
+      "service_name": "portfolio-app",
+      "version": "v2.1.0",
+      "environment": "PREVIEW",
+      "target_type": "VERCEL_EDGE",
+      "deployed_url": "https://portfolio-app-v2-1-0.vercel.app",
+      "duration_seconds": 3.63
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:04:06.494388+00:00"
+  },
+  {
+    "knowledge_id": "know-dcb56b02",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: mobile-receiver v1.0.5 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-00e8acc1",
+      "project_id": "termux-node",
+      "service_name": "mobile-receiver",
+      "version": "v1.0.5",
+      "environment": "LOCAL",
+      "target_type": "TERMUX_NODE",
+      "deployed_url": "http://127.0.0.1:8080/termux",
+      "duration_seconds": 3.48
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:04:10.155714+00:00"
+  },
+  {
+    "knowledge_id": "know-66c2963f",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-api v1.17.0 -> STAGING",
+    "details": {
+      "deployment_id": "dep-10bf9dc6",
+      "project_id": "control-center",
+      "service_name": "nexus-api",
+      "version": "v1.17.0",
+      "environment": "STAGING",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.58
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:04:15.046867+00:00"
+  },
+  {
+    "knowledge_id": "know-abaf5463",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: sample-svc v1.0.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-5d468e9a",
+      "project_id": "sample-app",
+      "service_name": "sample-svc",
+      "version": "v1.0.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.39
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:04:19.785962+00:00"
+  },
+  {
+    "knowledge_id": "know-2d98c66c",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: sample-svc v1.1.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-2773b2d5",
+      "project_id": "sample-app",
+      "service_name": "sample-svc",
+      "version": "v1.1.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.25
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:04:24.186258+00:00"
+  },
+  {
+    "knowledge_id": "know-2f15c829",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-core-prod v2.0.0-prod -> PRODUCTION",
+    "details": {
+      "deployment_id": "dep-602c6791",
+      "project_id": "control-center",
+      "service_name": "nexus-core-prod",
+      "version": "v2.0.0-prod",
+      "environment": "PRODUCTION",
+      "target_type": "GCP_CLOUD_RUN",
+      "deployed_url": "https://nexus-core-prod-582208055065.asia-south1.run.app",
+      "duration_seconds": 3.91
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:04:32.602237+00:00"
+  },
+  {
+    "knowledge_id": "know-5c9396d7",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-tool-svc v1.211.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-36db7f00",
+      "project_id": "control-center",
+      "service_name": "nexus-tool-svc",
+      "version": "v1.211.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.45
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:04:37.218384+00:00"
+  },
+  {
+    "knowledge_id": "know-82c08417",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-tool-canary v1.212.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-1728dca8",
+      "project_id": "control-center",
+      "service_name": "nexus-tool-canary",
+      "version": "v1.212.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.48
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:04:41.864367+00:00"
+  },
+  {
+    "knowledge_id": "know-90be144e",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-api-test v1.16.99 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-c36df780",
+      "project_id": "control-center",
+      "service_name": "nexus-api-test",
+      "version": "v1.16.99",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.41
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:04:46.852558+00:00"
+  },
+  {
+    "knowledge_id": "know-599e7302",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: rb-svc v1.0.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-6a1494cc",
+      "project_id": "api-rollback-test",
+      "service_name": "rb-svc",
+      "version": "v1.0.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.35
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:04:51.487419+00:00"
+  },
+  {
+    "knowledge_id": "know-7a79f488",
+    "category": "remediation",
+    "mission_id": "operations-self-healing",
+    "pattern": "Self-Healing: WORKTREE_FAILURE -> Deadlock Breaker & Resource Purge",
+    "details": {
+      "incident_id": "inc-3ef8afa9",
+      "title": "Stale Test Worktrees Cleanup",
+      "category": "WORKTREE_FAILURE",
+      "severity": "LOW",
+      "root_cause": "Automated RCA: WORKTREE_FAILURE identified on worktree_manager",
+      "diagnosis_evidence": {
+        "observed_facts": [
+          "Observed failure signal in category 'WORKTREE_FAILURE'",
+          "Target resource impacted: 'worktree_manager'",
+          "Severity classified as 'LOW'",
+          "Telemetry metric 'session_tag': test-prune-wt"
+        ],
+        "hypotheses": [
+          "Possible unreleased lock file or orphan branch worktree directory."
+        ],
+        "evidence_sources": [
+          "system_watchdog",
+          "kernel_metrics",
+          "audit_log_stream"
+        ],
+        "confidence_score": 0.95,
+        "root_cause_candidate": "Automated RCA: WORKTREE_FAILURE identified on worktree_manager"
+      },
+      "playbook_applied": "Deadlock Breaker & Resource Purge",
+      "recovery_attempts": 1,
+      "mttr_seconds": 0.34,
+      "remediation_steps_count": 4,
+      "generated_at": "2026-09-18T18:04:52.187890+00:00",
+      "status": "RESOLVED_AUTOMATICALLY"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:04:52.187964+00:00"
+  },
+  {
+    "knowledge_id": "know-8b8e7fd0",
+    "category": "remediation",
+    "mission_id": "operations-self-healing",
+    "pattern": "Self-Healing: HEALTH_CHECK_FAILURE -> Automated Production Deployment Rollback",
+    "details": {
+      "incident_id": "inc-45c5aa21",
+      "title": "Critical Production Latency Breach",
+      "category": "HEALTH_CHECK_FAILURE",
+      "severity": "CRITICAL",
+      "root_cause": "Automated RCA: HEALTH_CHECK_FAILURE identified on production-gateway-proxy",
+      "diagnosis_evidence": {
+        "observed_facts": [
+          "Observed failure signal in category 'HEALTH_CHECK_FAILURE'",
+          "Target resource impacted: 'production-gateway-proxy'",
+          "Severity classified as 'CRITICAL'",
+          "Telemetry metric 'latency_ms': 3200",
+          "Telemetry metric '5xx_rate': 18.2"
+        ],
+        "hypotheses": [
+          "Possible bad artifact build, port binding conflict, or broken dependency."
+        ],
+        "evidence_sources": [
+          "system_watchdog",
+          "kernel_metrics",
+          "audit_log_stream"
+        ],
+        "confidence_score": 0.95,
+        "root_cause_candidate": "Automated RCA: HEALTH_CHECK_FAILURE identified on production-gateway-proxy"
+      },
+      "playbook_applied": "Automated Production Deployment Rollback",
+      "recovery_attempts": 1,
+      "mttr_seconds": 0.06,
+      "remediation_steps_count": 4,
+      "generated_at": "2026-09-18T18:04:52.796908+00:00",
+      "status": "RESOLVED_AUTOMATICALLY"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:04:52.797024+00:00"
+  },
+  {
+    "knowledge_id": "know-ffe2c54a",
+    "category": "remediation",
+    "mission_id": "operations-self-healing",
+    "pattern": "Self-Healing: NETWORK_FAILURE -> Port Conflict Resolution & Sockets Reallocation",
+    "details": {
+      "incident_id": "inc-d3f344ed",
+      "title": "REST API Test Incident",
+      "category": "NETWORK_FAILURE",
+      "severity": "LOW",
+      "root_cause": "Automated RCA: NETWORK_FAILURE identified on rest-api-socket",
+      "diagnosis_evidence": {
+        "observed_facts": [
+          "Observed failure signal in category 'NETWORK_FAILURE'",
+          "Target resource impacted: 'rest-api-socket'",
+          "Severity classified as 'LOW'"
+        ],
+        "hypotheses": [
+          "Operational threshold exceeded based on real-time observer metrics."
+        ],
+        "evidence_sources": [
+          "system_watchdog",
+          "kernel_metrics",
+          "audit_log_stream"
+        ],
+        "confidence_score": 0.95,
+        "root_cause_candidate": "Automated RCA: NETWORK_FAILURE identified on rest-api-socket"
+      },
+      "playbook_applied": "Port Conflict Resolution & Sockets Reallocation",
+      "recovery_attempts": 1,
+      "mttr_seconds": 0.04,
+      "remediation_steps_count": 4,
+      "generated_at": "2026-09-18T18:04:53.528728+00:00",
+      "status": "RESOLVED_AUTOMATICALLY"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:04:53.528784+00:00"
+  },
+  {
+    "knowledge_id": "know-0facb409",
+    "category": "secops_threat_quarantine",
+    "mission_id": "secops",
+    "pattern": "Quarantined Secret Leak Detected: AWS Access Key ID",
+    "details": {
+      "quarantine_id": "quar-1fc5d2fb",
+      "finding_id": "sec-9a63c089",
+      "file": "/tmp/pytest-of-root/pytest-382/test_threat_quarantine_isolati0/threat_script.py",
+      "vault": "/root/control-center/data/secops/quarantine/quar-1fc5d2fb_threat_script.py"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:04:55.624164+00:00"
+  },
+  {
+    "knowledge_id": "know-ec446e82",
+    "category": "secops_threat_quarantine",
+    "mission_id": "secops",
+    "pattern": "Quarantined Secret Leak Detected: AWS Access Key ID",
+    "details": {
+      "quarantine_id": "quar-3da933ab",
+      "finding_id": "sec-d6e6b101",
+      "file": "/tmp/pytest-of-root/pytest-382/test_secops_rest_api_endpoints0/api_test.py",
+      "vault": "/root/control-center/data/secops/quarantine/quar-3da933ab_api_test.py"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:05:02.951542+00:00"
+  },
+  {
+    "knowledge_id": "know-c92de8b4",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-core v1.16.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-f6e45b4f",
+      "project_id": "control-center",
+      "service_name": "nexus-core",
+      "version": "v1.16.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 5.08
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:24:50.188663+00:00"
+  },
+  {
+    "knowledge_id": "know-d165709f",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-hud v1.16.1 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-099919fa",
+      "project_id": "control-center",
+      "service_name": "nexus-hud",
+      "version": "v1.16.1",
+      "environment": "LOCAL",
+      "target_type": "STATIC_BUNDLE",
+      "deployed_url": "http://localhost:8000/dist",
+      "duration_seconds": 4.4
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:24:54.809732+00:00"
+  },
+  {
+    "knowledge_id": "know-c113ba10",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: portfolio-app v2.1.0 -> PREVIEW",
+    "details": {
+      "deployment_id": "dep-a7f3c7de",
+      "project_id": "portfolio",
+      "service_name": "portfolio-app",
+      "version": "v2.1.0",
+      "environment": "PREVIEW",
+      "target_type": "VERCEL_EDGE",
+      "deployed_url": "https://portfolio-app-v2-1-0.vercel.app",
+      "duration_seconds": 4.58
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:24:59.579957+00:00"
+  },
+  {
+    "knowledge_id": "know-e5946118",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: mobile-receiver v1.0.5 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-f178e740",
+      "project_id": "termux-node",
+      "service_name": "mobile-receiver",
+      "version": "v1.0.5",
+      "environment": "LOCAL",
+      "target_type": "TERMUX_NODE",
+      "deployed_url": "http://127.0.0.1:8080/termux",
+      "duration_seconds": 5.01
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:25:04.823064+00:00"
+  },
+  {
+    "knowledge_id": "know-7b8e0d5f",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-api v1.17.0 -> STAGING",
+    "details": {
+      "deployment_id": "dep-5d8b90d9",
+      "project_id": "control-center",
+      "service_name": "nexus-api",
+      "version": "v1.17.0",
+      "environment": "STAGING",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 5.15
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:25:10.304376+00:00"
+  },
+  {
+    "knowledge_id": "know-ed700e34",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: sample-svc v1.0.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-295faead",
+      "project_id": "sample-app",
+      "service_name": "sample-svc",
+      "version": "v1.0.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.71
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:25:15.708962+00:00"
+  },
+  {
+    "knowledge_id": "know-9e01c7a2",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: sample-svc v1.1.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-fd3a72ab",
+      "project_id": "sample-app",
+      "service_name": "sample-svc",
+      "version": "v1.1.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.29
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:25:20.189915+00:00"
+  },
+  {
+    "knowledge_id": "know-e544ac27",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-core-prod v2.0.0-prod -> PRODUCTION",
+    "details": {
+      "deployment_id": "dep-d126d937",
+      "project_id": "control-center",
+      "service_name": "nexus-core-prod",
+      "version": "v2.0.0-prod",
+      "environment": "PRODUCTION",
+      "target_type": "GCP_CLOUD_RUN",
+      "deployed_url": "https://nexus-core-prod-582208055065.asia-south1.run.app",
+      "duration_seconds": 3.56
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:25:27.971608+00:00"
+  },
+  {
+    "knowledge_id": "know-1546f51f",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-core v1.16.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-c83fad27",
+      "project_id": "control-center",
+      "service_name": "nexus-core",
+      "version": "v1.16.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.69
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:26:21.450672+00:00"
+  },
+  {
+    "knowledge_id": "know-94c3a97e",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-hud v1.16.1 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-6d273c67",
+      "project_id": "control-center",
+      "service_name": "nexus-hud",
+      "version": "v1.16.1",
+      "environment": "LOCAL",
+      "target_type": "STATIC_BUNDLE",
+      "deployed_url": "http://localhost:8000/dist",
+      "duration_seconds": 3.18
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:26:24.695261+00:00"
+  },
+  {
+    "knowledge_id": "know-88d71f49",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: portfolio-app v2.1.0 -> PREVIEW",
+    "details": {
+      "deployment_id": "dep-3c853c0e",
+      "project_id": "portfolio",
+      "service_name": "portfolio-app",
+      "version": "v2.1.0",
+      "environment": "PREVIEW",
+      "target_type": "VERCEL_EDGE",
+      "deployed_url": "https://portfolio-app-v2-1-0.vercel.app",
+      "duration_seconds": 3.44
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:26:28.185026+00:00"
+  },
+  {
+    "knowledge_id": "know-38adddc6",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: mobile-receiver v1.0.5 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-2d6b262d",
+      "project_id": "termux-node",
+      "service_name": "mobile-receiver",
+      "version": "v1.0.5",
+      "environment": "LOCAL",
+      "target_type": "TERMUX_NODE",
+      "deployed_url": "http://127.0.0.1:8080/termux",
+      "duration_seconds": 3.6
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:26:31.835458+00:00"
+  },
+  {
+    "knowledge_id": "know-b07e8283",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-api v1.17.0 -> STAGING",
+    "details": {
+      "deployment_id": "dep-6dafff4d",
+      "project_id": "control-center",
+      "service_name": "nexus-api",
+      "version": "v1.17.0",
+      "environment": "STAGING",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.55
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:26:35.451311+00:00"
+  },
+  {
+    "knowledge_id": "know-37507ad8",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: sample-svc v1.0.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-f16cd23d",
+      "project_id": "sample-app",
+      "service_name": "sample-svc",
+      "version": "v1.0.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.6
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:26:39.173097+00:00"
+  },
+  {
+    "knowledge_id": "know-9d4e00a2",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: sample-svc v1.1.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-1144a4d6",
+      "project_id": "sample-app",
+      "service_name": "sample-svc",
+      "version": "v1.1.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.26
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:26:43.536685+00:00"
+  },
+  {
+    "knowledge_id": "know-83ebfc39",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-core-prod v2.0.0-prod -> PRODUCTION",
+    "details": {
+      "deployment_id": "dep-6132fa7c",
+      "project_id": "control-center",
+      "service_name": "nexus-core-prod",
+      "version": "v2.0.0-prod",
+      "environment": "PRODUCTION",
+      "target_type": "GCP_CLOUD_RUN",
+      "deployed_url": "https://nexus-core-prod-582208055065.asia-south1.run.app",
+      "duration_seconds": 3.19
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:26:51.100115+00:00"
+  },
+  {
+    "knowledge_id": "know-9d7cf628",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-tool-svc v1.9.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-77a01f68",
+      "project_id": "control-center",
+      "service_name": "nexus-tool-svc",
+      "version": "v1.9.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.96
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:26:55.161522+00:00"
+  },
+  {
+    "knowledge_id": "know-81c8d96b",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-core v1.16.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-0e37f9cc",
+      "project_id": "control-center",
+      "service_name": "nexus-core",
+      "version": "v1.16.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.73
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:27:15.221418+00:00"
+  },
+  {
+    "knowledge_id": "know-2eba84d2",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-hud v1.16.1 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-6bf1ccd7",
+      "project_id": "control-center",
+      "service_name": "nexus-hud",
+      "version": "v1.16.1",
+      "environment": "LOCAL",
+      "target_type": "STATIC_BUNDLE",
+      "deployed_url": "http://localhost:8000/dist",
+      "duration_seconds": 2.96
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:27:18.251995+00:00"
+  },
+  {
+    "knowledge_id": "know-bf1724cc",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: portfolio-app v2.1.0 -> PREVIEW",
+    "details": {
+      "deployment_id": "dep-98d07665",
+      "project_id": "portfolio",
+      "service_name": "portfolio-app",
+      "version": "v2.1.0",
+      "environment": "PREVIEW",
+      "target_type": "VERCEL_EDGE",
+      "deployed_url": "https://portfolio-app-v2-1-0.vercel.app",
+      "duration_seconds": 3.24
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:27:21.547503+00:00"
+  },
+  {
+    "knowledge_id": "know-765f0bad",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-core v1.16.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-227020c3",
+      "project_id": "control-center",
+      "service_name": "nexus-core",
+      "version": "v1.16.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.69
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:27:52.018670+00:00"
+  },
+  {
+    "knowledge_id": "know-4f078a81",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-hud v1.16.1 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-f4ccc047",
+      "project_id": "control-center",
+      "service_name": "nexus-hud",
+      "version": "v1.16.1",
+      "environment": "LOCAL",
+      "target_type": "STATIC_BUNDLE",
+      "deployed_url": "http://localhost:8000/dist",
+      "duration_seconds": 3.45
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:27:55.529303+00:00"
+  },
+  {
+    "knowledge_id": "know-1de0ca62",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: portfolio-app v2.1.0 -> PREVIEW",
+    "details": {
+      "deployment_id": "dep-30df71a8",
+      "project_id": "portfolio",
+      "service_name": "portfolio-app",
+      "version": "v2.1.0",
+      "environment": "PREVIEW",
+      "target_type": "VERCEL_EDGE",
+      "deployed_url": "https://portfolio-app-v2-1-0.vercel.app",
+      "duration_seconds": 3.17
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:27:58.752911+00:00"
+  },
+  {
+    "knowledge_id": "know-33f2f760",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: mobile-receiver v1.0.5 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-14e9d765",
+      "project_id": "termux-node",
+      "service_name": "mobile-receiver",
+      "version": "v1.0.5",
+      "environment": "LOCAL",
+      "target_type": "TERMUX_NODE",
+      "deployed_url": "http://127.0.0.1:8080/termux",
+      "duration_seconds": 3.28
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:28:02.093722+00:00"
+  },
+  {
+    "knowledge_id": "know-5ae205c8",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-api v1.17.0 -> STAGING",
+    "details": {
+      "deployment_id": "dep-2a6be492",
+      "project_id": "control-center",
+      "service_name": "nexus-api",
+      "version": "v1.17.0",
+      "environment": "STAGING",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.74
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:28:05.898773+00:00"
+  },
+  {
+    "knowledge_id": "know-b7586472",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: sample-svc v1.0.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-eef0a621",
+      "project_id": "sample-app",
+      "service_name": "sample-svc",
+      "version": "v1.0.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.61
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:28:09.651513+00:00"
+  },
+  {
+    "knowledge_id": "know-e1ee655b",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: sample-svc v1.1.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-97809696",
+      "project_id": "sample-app",
+      "service_name": "sample-svc",
+      "version": "v1.1.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.63
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:28:13.344642+00:00"
+  },
+  {
+    "knowledge_id": "know-faa79515",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-core-prod v2.0.0-prod -> PRODUCTION",
+    "details": {
+      "deployment_id": "dep-efe84d63",
+      "project_id": "control-center",
+      "service_name": "nexus-core-prod",
+      "version": "v2.0.0-prod",
+      "environment": "PRODUCTION",
+      "target_type": "GCP_CLOUD_RUN",
+      "deployed_url": "https://nexus-core-prod-582208055065.asia-south1.run.app",
+      "duration_seconds": 3.49
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:28:20.680296+00:00"
+  },
+  {
+    "knowledge_id": "know-3d73eeb1",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-tool-svc v1.21.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-17e2db58",
+      "project_id": "control-center",
+      "service_name": "nexus-tool-svc",
+      "version": "v1.21.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.93
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:28:24.678291+00:00"
+  },
+  {
+    "knowledge_id": "know-a5457c46",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-tool-canary v1.22.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-d369fa3c",
+      "project_id": "control-center",
+      "service_name": "nexus-tool-canary",
+      "version": "v1.22.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.64
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:28:28.386779+00:00"
+  },
+  {
+    "knowledge_id": "know-5b63a535",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-api-test v1.16.99 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-5f1b0c74",
+      "project_id": "control-center",
+      "service_name": "nexus-api-test",
+      "version": "v1.16.99",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.78
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:28:32.458651+00:00"
+  },
+  {
+    "knowledge_id": "know-6e72a0b0",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: rb-svc v1.0.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-2106695c",
+      "project_id": "api-rollback-test",
+      "service_name": "rb-svc",
+      "version": "v1.0.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.67
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:28:36.335393+00:00"
+  },
+  {
+    "knowledge_id": "know-88cdf400",
+    "category": "remediation",
+    "mission_id": "operations-self-healing",
+    "pattern": "Self-Healing: WORKTREE_FAILURE -> Deadlock Breaker & Resource Purge",
+    "details": {
+      "incident_id": "inc-db7791bd",
+      "title": "Stale Test Worktrees Cleanup",
+      "category": "WORKTREE_FAILURE",
+      "severity": "LOW",
+      "root_cause": "Automated RCA: WORKTREE_FAILURE identified on worktree_manager",
+      "diagnosis_evidence": {
+        "observed_facts": [
+          "Observed failure signal in category 'WORKTREE_FAILURE'",
+          "Target resource impacted: 'worktree_manager'",
+          "Severity classified as 'LOW'",
+          "Telemetry metric 'session_tag': test-prune-wt"
+        ],
+        "hypotheses": [
+          "Possible unreleased lock file or orphan branch worktree directory."
+        ],
+        "evidence_sources": [
+          "system_watchdog",
+          "kernel_metrics",
+          "audit_log_stream"
+        ],
+        "confidence_score": 0.95,
+        "root_cause_candidate": "Automated RCA: WORKTREE_FAILURE identified on worktree_manager"
+      },
+      "playbook_applied": "Deadlock Breaker & Resource Purge",
+      "recovery_attempts": 1,
+      "mttr_seconds": 0.33,
+      "remediation_steps_count": 4,
+      "generated_at": "2026-09-18T18:28:36.920123+00:00",
+      "status": "RESOLVED_AUTOMATICALLY"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:28:36.920275+00:00"
+  },
+  {
+    "knowledge_id": "know-9aa931f3",
+    "category": "remediation",
+    "mission_id": "operations-self-healing",
+    "pattern": "Self-Healing: HEALTH_CHECK_FAILURE -> Automated Production Deployment Rollback",
+    "details": {
+      "incident_id": "inc-f824da79",
+      "title": "Critical Production Latency Breach",
+      "category": "HEALTH_CHECK_FAILURE",
+      "severity": "CRITICAL",
+      "root_cause": "Automated RCA: HEALTH_CHECK_FAILURE identified on production-gateway-proxy",
+      "diagnosis_evidence": {
+        "observed_facts": [
+          "Observed failure signal in category 'HEALTH_CHECK_FAILURE'",
+          "Target resource impacted: 'production-gateway-proxy'",
+          "Severity classified as 'CRITICAL'",
+          "Telemetry metric 'latency_ms': 3200",
+          "Telemetry metric '5xx_rate': 18.2"
+        ],
+        "hypotheses": [
+          "Possible bad artifact build, port binding conflict, or broken dependency."
+        ],
+        "evidence_sources": [
+          "system_watchdog",
+          "kernel_metrics",
+          "audit_log_stream"
+        ],
+        "confidence_score": 0.95,
+        "root_cause_candidate": "Automated RCA: HEALTH_CHECK_FAILURE identified on production-gateway-proxy"
+      },
+      "playbook_applied": "Automated Production Deployment Rollback",
+      "recovery_attempts": 1,
+      "mttr_seconds": 0.04,
+      "remediation_steps_count": 4,
+      "generated_at": "2026-09-18T18:28:37.393944+00:00",
+      "status": "RESOLVED_AUTOMATICALLY"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:28:37.393982+00:00"
+  },
+  {
+    "knowledge_id": "know-226982cf",
+    "category": "remediation",
+    "mission_id": "operations-self-healing",
+    "pattern": "Self-Healing: NETWORK_FAILURE -> Port Conflict Resolution & Sockets Reallocation",
+    "details": {
+      "incident_id": "inc-13cd42a9",
+      "title": "REST API Test Incident",
+      "category": "NETWORK_FAILURE",
+      "severity": "LOW",
+      "root_cause": "Automated RCA: NETWORK_FAILURE identified on rest-api-socket",
+      "diagnosis_evidence": {
+        "observed_facts": [
+          "Observed failure signal in category 'NETWORK_FAILURE'",
+          "Target resource impacted: 'rest-api-socket'",
+          "Severity classified as 'LOW'"
+        ],
+        "hypotheses": [
+          "Operational threshold exceeded based on real-time observer metrics."
+        ],
+        "evidence_sources": [
+          "system_watchdog",
+          "kernel_metrics",
+          "audit_log_stream"
+        ],
+        "confidence_score": 0.95,
+        "root_cause_candidate": "Automated RCA: NETWORK_FAILURE identified on rest-api-socket"
+      },
+      "playbook_applied": "Port Conflict Resolution & Sockets Reallocation",
+      "recovery_attempts": 1,
+      "mttr_seconds": 0.06,
+      "remediation_steps_count": 4,
+      "generated_at": "2026-09-18T18:28:37.985603+00:00",
+      "status": "RESOLVED_AUTOMATICALLY"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:28:37.985637+00:00"
+  },
+  {
+    "knowledge_id": "know-0f561774",
+    "category": "remediation",
+    "mission_id": "operations-self-healing",
+    "pattern": "Self-Healing: PROCESS_FAILURE -> Process Supervisor Restart & Port Release",
+    "details": {
+      "incident_id": "inc-b88f104c",
+      "title": "Self-healing trigger: PROCESS_FAILURE",
+      "category": "PROCESS_FAILURE",
+      "severity": "MEDIUM",
+      "root_cause": "Automated RCA: PROCESS_FAILURE identified on nexus-core",
+      "diagnosis_evidence": {
+        "observed_facts": [
+          "Observed failure signal in category 'PROCESS_FAILURE'",
+          "Target resource impacted: 'nexus-core'",
+          "Severity classified as 'MEDIUM'"
+        ],
+        "hypotheses": [
+          "Possible thread stall, memory lock, or zombie worker process."
+        ],
+        "evidence_sources": [
+          "system_watchdog",
+          "kernel_metrics",
+          "audit_log_stream"
+        ],
+        "confidence_score": 0.95,
+        "root_cause_candidate": "Automated RCA: PROCESS_FAILURE identified on nexus-core"
+      },
+      "playbook_applied": "Process Supervisor Restart & Port Release",
+      "recovery_attempts": 1,
+      "mttr_seconds": 0.01,
+      "remediation_steps_count": 4,
+      "generated_at": "2026-09-18T18:36:15.636876+00:00",
+      "status": "RESOLVED_AUTOMATICALLY"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:36:15.636947+00:00"
+  },
+  {
+    "knowledge_id": "know-ff31bec0",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-service v1.25.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-30733b0a",
+      "project_id": "control-center",
+      "service_name": "nexus-service",
+      "version": "v1.25.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.02
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:36:19.926490+00:00"
+  },
+  {
+    "knowledge_id": "know-41b4c042",
+    "category": "strategy",
+    "mission_id": "mission-8712287f",
+    "pattern": "Goal: Build a math calculator module with unit tests",
+    "details": {
+      "subtasks_count": 6,
+      "duration_seconds": 12.84,
+      "target_files": [
+        "docs/MATH_CALCULATOR_SPEC.md",
+        "math_calculator.py",
+        "test_math_calculator.py",
+        "math_calculator.py",
+        "docs/MATH_CALCULATOR_SPEC.md",
+        "math_calculator.py",
+        "test_math_calculator.py",
+        "docs/MATH_CALCULATOR_SPEC.md"
+      ]
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:36:27.239720+00:00"
+  },
+  {
+    "knowledge_id": "know-d31416ba",
+    "category": "remediation",
+    "mission_id": "operations-self-healing",
+    "pattern": "Self-Healing: PROCESS_FAILURE -> Process Supervisor Restart & Port Release",
+    "details": {
+      "incident_id": "inc-1c857404",
+      "title": "Self-healing trigger: PROCESS_FAILURE",
+      "category": "PROCESS_FAILURE",
+      "severity": "MEDIUM",
+      "root_cause": "Automated RCA: PROCESS_FAILURE identified on nexus-core",
+      "diagnosis_evidence": {
+        "observed_facts": [
+          "Observed failure signal in category 'PROCESS_FAILURE'",
+          "Target resource impacted: 'nexus-core'",
+          "Severity classified as 'MEDIUM'"
+        ],
+        "hypotheses": [
+          "Possible thread stall, memory lock, or zombie worker process."
+        ],
+        "evidence_sources": [
+          "system_watchdog",
+          "kernel_metrics",
+          "audit_log_stream"
+        ],
+        "confidence_score": 0.95,
+        "root_cause_candidate": "Automated RCA: PROCESS_FAILURE identified on nexus-core"
+      },
+      "playbook_applied": "Process Supervisor Restart & Port Release",
+      "recovery_attempts": 1,
+      "mttr_seconds": 0.01,
+      "remediation_steps_count": 4,
+      "generated_at": "2026-09-18T18:36:29.221261+00:00",
+      "status": "RESOLVED_AUTOMATICALLY"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:36:29.221300+00:00"
+  },
+  {
+    "knowledge_id": "know-2b55f301",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-service v1.26.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-1b13961b",
+      "project_id": "control-center",
+      "service_name": "nexus-service",
+      "version": "v1.26.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.4
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:36:33.784688+00:00"
+  },
+  {
+    "knowledge_id": "know-789c2562",
+    "category": "strategy",
+    "mission_id": "mission-c1527e6e",
+    "pattern": "Goal: Build a math module",
+    "details": {
+      "subtasks_count": 6,
+      "duration_seconds": 10.26,
+      "target_files": [
+        "docs/MATH_MODULE_SPEC.md",
+        "math_module.py",
+        "test_math_module.py",
+        "math_module.py",
+        "docs/MATH_MODULE_SPEC.md",
+        "math_module.py",
+        "test_math_module.py",
+        "docs/MATH_MODULE_SPEC.md"
+      ]
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:36:38.585919+00:00"
+  },
+  {
+    "knowledge_id": "know-28f9a965",
+    "category": "remediation",
+    "mission_id": "operations-self-healing",
+    "pattern": "Self-Healing: PROCESS_FAILURE -> Process Supervisor Restart & Port Release",
+    "details": {
+      "incident_id": "inc-d6523254",
+      "title": "Self-healing trigger: PROCESS_FAILURE",
+      "category": "PROCESS_FAILURE",
+      "severity": "MEDIUM",
+      "root_cause": "Automated RCA: PROCESS_FAILURE identified on nexus-core",
+      "diagnosis_evidence": {
+        "observed_facts": [
+          "Observed failure signal in category 'PROCESS_FAILURE'",
+          "Target resource impacted: 'nexus-core'",
+          "Severity classified as 'MEDIUM'"
+        ],
+        "hypotheses": [
+          "Possible thread stall, memory lock, or zombie worker process."
+        ],
+        "evidence_sources": [
+          "system_watchdog",
+          "kernel_metrics",
+          "audit_log_stream"
+        ],
+        "confidence_score": 0.95,
+        "root_cause_candidate": "Automated RCA: PROCESS_FAILURE identified on nexus-core"
+      },
+      "playbook_applied": "Process Supervisor Restart & Port Release",
+      "recovery_attempts": 1,
+      "mttr_seconds": 0.01,
+      "remediation_steps_count": 4,
+      "generated_at": "2026-09-18T18:36:40.294671+00:00",
+      "status": "RESOLVED_AUTOMATICALLY"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:36:40.294708+00:00"
+  },
+  {
+    "knowledge_id": "know-697d98fb",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-service v1.27.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-181613d9",
+      "project_id": "control-center",
+      "service_name": "nexus-service",
+      "version": "v1.27.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.65
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:36:44.168735+00:00"
+  },
+  {
+    "knowledge_id": "know-07915fd3",
+    "category": "strategy",
+    "mission_id": "mission-b81f33c4",
+    "pattern": "Goal: Build a fibonacci sequence generator with tests",
+    "details": {
+      "subtasks_count": 6,
+      "duration_seconds": 9.48,
+      "target_files": [
+        "docs/FIBONACCI_SEQUENCE_SPEC.md",
+        "fibonacci_sequence.py",
+        "test_fibonacci_sequence.py",
+        "fibonacci_sequence.py",
+        "docs/FIBONACCI_SEQUENCE_SPEC.md",
+        "fibonacci_sequence.py",
+        "test_fibonacci_sequence.py",
+        "docs/FIBONACCI_SEQUENCE_SPEC.md"
+      ]
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:36:48.910167+00:00"
+  },
+  {
+    "knowledge_id": "know-4996a9d3",
+    "category": "remediation",
+    "mission_id": "operations-self-healing",
+    "pattern": "Self-Healing: PROCESS_FAILURE -> Process Supervisor Restart & Port Release",
+    "details": {
+      "incident_id": "inc-a5d1bd9a",
+      "title": "Self-healing trigger: PROCESS_FAILURE",
+      "category": "PROCESS_FAILURE",
+      "severity": "MEDIUM",
+      "root_cause": "Automated RCA: PROCESS_FAILURE identified on nexus-core",
+      "diagnosis_evidence": {
+        "observed_facts": [
+          "Observed failure signal in category 'PROCESS_FAILURE'",
+          "Target resource impacted: 'nexus-core'",
+          "Severity classified as 'MEDIUM'"
+        ],
+        "hypotheses": [
+          "Possible thread stall, memory lock, or zombie worker process."
+        ],
+        "evidence_sources": [
+          "system_watchdog",
+          "kernel_metrics",
+          "audit_log_stream"
+        ],
+        "confidence_score": 0.95,
+        "root_cause_candidate": "Automated RCA: PROCESS_FAILURE identified on nexus-core"
+      },
+      "playbook_applied": "Process Supervisor Restart & Port Release",
+      "recovery_attempts": 1,
+      "mttr_seconds": 0.01,
+      "remediation_steps_count": 4,
+      "generated_at": "2026-09-18T18:36:50.677526+00:00",
+      "status": "RESOLVED_AUTOMATICALLY"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:36:50.677560+00:00"
+  },
+  {
+    "knowledge_id": "know-a6ba5be5",
+    "category": "failure",
+    "mission_id": "mission-0238e8ac",
+    "pattern": "Persistent assertion error",
+    "details": {
+      "level": 2,
+      "nodes": [
+        "subtask-03-qa",
+        "subtask-04-sec",
+        "subtask-05-doc"
+      ],
+      "error": "Persistent assertion error"
+    },
+    "outcome": "FAILED",
+    "timestamp": "2026-09-18T18:36:50.750627+00:00"
+  },
+  {
+    "knowledge_id": "know-12134899",
+    "category": "remediation",
+    "mission_id": "operations-self-healing",
+    "pattern": "Self-Healing: PROCESS_FAILURE -> Process Supervisor Restart & Port Release",
+    "details": {
+      "incident_id": "inc-a63e0d2e",
+      "title": "Self-healing trigger: PROCESS_FAILURE",
+      "category": "PROCESS_FAILURE",
+      "severity": "MEDIUM",
+      "root_cause": "Automated RCA: PROCESS_FAILURE identified on nexus-core",
+      "diagnosis_evidence": {
+        "observed_facts": [
+          "Observed failure signal in category 'PROCESS_FAILURE'",
+          "Target resource impacted: 'nexus-core'",
+          "Severity classified as 'MEDIUM'"
+        ],
+        "hypotheses": [
+          "Possible thread stall, memory lock, or zombie worker process."
+        ],
+        "evidence_sources": [
+          "system_watchdog",
+          "kernel_metrics",
+          "audit_log_stream"
+        ],
+        "confidence_score": 0.95,
+        "root_cause_candidate": "Automated RCA: PROCESS_FAILURE identified on nexus-core"
+      },
+      "playbook_applied": "Process Supervisor Restart & Port Release",
+      "recovery_attempts": 1,
+      "mttr_seconds": 0.01,
+      "remediation_steps_count": 4,
+      "generated_at": "2026-09-18T18:36:54.665034+00:00",
+      "status": "RESOLVED_AUTOMATICALLY"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:36:54.665074+00:00"
+  },
+  {
+    "knowledge_id": "know-0f6a0749",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-service v1.28.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-95d0d7c0",
+      "project_id": "control-center",
+      "service_name": "nexus-service",
+      "version": "v1.28.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.59
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:36:58.384109+00:00"
+  },
+  {
+    "knowledge_id": "know-8e4f2161",
+    "category": "strategy",
+    "mission_id": "mission-cd159f00",
+    "pattern": "Goal: Build calculator module and deliver to GitHub",
+    "details": {
+      "subtasks_count": 6,
+      "duration_seconds": 8.78,
+      "target_files": [
+        "docs/CALCULATOR_MODULE_SPEC.md",
+        "calculator_module.py",
+        "test_calculator_module.py",
+        "calculator_module.py",
+        "docs/CALCULATOR_MODULE_SPEC.md",
+        "calculator_module.py",
+        "test_calculator_module.py",
+        "docs/CALCULATOR_MODULE_SPEC.md"
+      ]
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:37:03.508641+00:00"
+  },
+  {
+    "knowledge_id": "know-4c8fa1e8",
+    "category": "remediation",
+    "mission_id": "operations-self-healing",
+    "pattern": "Self-Healing: PROCESS_FAILURE -> Process Supervisor Restart & Port Release",
+    "details": {
+      "incident_id": "inc-b8dd027d",
+      "title": "Self-healing trigger: PROCESS_FAILURE",
+      "category": "PROCESS_FAILURE",
+      "severity": "MEDIUM",
+      "root_cause": "Automated RCA: PROCESS_FAILURE identified on nexus-core",
+      "diagnosis_evidence": {
+        "observed_facts": [
+          "Observed failure signal in category 'PROCESS_FAILURE'",
+          "Target resource impacted: 'nexus-core'",
+          "Severity classified as 'MEDIUM'"
+        ],
+        "hypotheses": [
+          "Possible thread stall, memory lock, or zombie worker process."
+        ],
+        "evidence_sources": [
+          "system_watchdog",
+          "kernel_metrics",
+          "audit_log_stream"
+        ],
+        "confidence_score": 0.95,
+        "root_cause_candidate": "Automated RCA: PROCESS_FAILURE identified on nexus-core"
+      },
+      "playbook_applied": "Process Supervisor Restart & Port Release",
+      "recovery_attempts": 1,
+      "mttr_seconds": 0.01,
+      "remediation_steps_count": 4,
+      "generated_at": "2026-09-18T18:37:12.504386+00:00",
+      "status": "RESOLVED_AUTOMATICALLY"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:37:12.504418+00:00"
+  },
+  {
+    "knowledge_id": "know-3597f93f",
+    "category": "remediation",
+    "mission_id": "operations-self-healing",
+    "pattern": "Self-Healing: PROCESS_FAILURE -> Process Supervisor Restart & Port Release",
+    "details": {
+      "incident_id": "inc-c550f420",
+      "title": "Self-healing trigger: PROCESS_FAILURE",
+      "category": "PROCESS_FAILURE",
+      "severity": "MEDIUM",
+      "root_cause": "Automated RCA: PROCESS_FAILURE identified on nexus-core",
+      "diagnosis_evidence": {
+        "observed_facts": [
+          "Observed failure signal in category 'PROCESS_FAILURE'",
+          "Target resource impacted: 'nexus-core'",
+          "Severity classified as 'MEDIUM'"
+        ],
+        "hypotheses": [
+          "Possible thread stall, memory lock, or zombie worker process."
+        ],
+        "evidence_sources": [
+          "system_watchdog",
+          "kernel_metrics",
+          "audit_log_stream"
+        ],
+        "confidence_score": 0.95,
+        "root_cause_candidate": "Automated RCA: PROCESS_FAILURE identified on nexus-core"
+      },
+      "playbook_applied": "Process Supervisor Restart & Port Release",
+      "recovery_attempts": 1,
+      "mttr_seconds": 0.02,
+      "remediation_steps_count": 4,
+      "generated_at": "2026-09-18T18:37:25.362571+00:00",
+      "status": "RESOLVED_AUTOMATICALLY"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:37:25.362624+00:00"
+  },
+  {
+    "knowledge_id": "know-561beb0b",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-service v1.29.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-1efe4607",
+      "project_id": "control-center",
+      "service_name": "nexus-service",
+      "version": "v1.29.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.96
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:37:29.488704+00:00"
+  },
+  {
+    "knowledge_id": "know-fef71db2",
+    "category": "strategy",
+    "mission_id": "mission-2eac204a",
+    "pattern": "Factory: Build an LRU cache with TTL eviction and stats tracking",
+    "details": {
+      "project_id": null,
+      "template": "cache_engine",
+      "generated_files": [
+        "lru_cache.py",
+        "test_lru_cache.py",
+        "docs/LRU_CACHE_SPEC.md"
+      ],
+      "review_rounds": 1,
+      "duration_seconds": 7.71
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:37:42.434891+00:00"
+  },
+  {
+    "knowledge_id": "know-3c7f60b7",
+    "category": "strategy",
+    "mission_id": "mission-c3454aaf",
+    "pattern": "Factory: Implement HMAC-SHA256 JWT auth token generator and password ",
+    "details": {
+      "project_id": null,
+      "template": "auth_service",
+      "generated_files": [
+        "hmac_sha256.py",
+        "test_hmac_sha256.py",
+        "docs/HMAC_SHA256_SPEC.md"
+      ],
+      "review_rounds": 1,
+      "duration_seconds": 8.55
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:37:51.437815+00:00"
+  },
+  {
+    "knowledge_id": "know-a2cc876d",
+    "category": "strategy",
+    "mission_id": "mission-31a3307e",
+    "pattern": "Factory: Create sliding window rate limiter middleware",
+    "details": {
+      "project_id": null,
+      "template": "rate_limiter",
+      "generated_files": [
+        "sliding_window.py",
+        "test_sliding_window.py",
+        "docs/SLIDING_WINDOW_SPEC.md"
+      ],
+      "review_rounds": 1,
+      "duration_seconds": 7.66
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:37:59.620897+00:00"
+  },
+  {
+    "knowledge_id": "know-c5722d97",
+    "category": "strategy",
+    "mission_id": "mission-5f1843b8",
+    "pattern": "Factory: Implement Pub-Sub Event Bus with Dead-Letter Queue",
+    "details": {
+      "project_id": null,
+      "template": "event_bus",
+      "generated_files": [
+        "pub_sub.py",
+        "test_pub_sub.py",
+        "docs/PUB_SUB_SPEC.md"
+      ],
+      "review_rounds": 1,
+      "duration_seconds": 8.17
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:38:08.316575+00:00"
+  },
+  {
+    "knowledge_id": "know-a6f58a63",
+    "category": "strategy",
+    "mission_id": "mission-67ddb23b",
+    "pattern": "Factory: Build ETL data stream transformation pipeline",
+    "details": {
+      "project_id": null,
+      "template": "data_pipeline",
+      "generated_files": [
+        "etl_data.py",
+        "test_etl_data.py",
+        "docs/ETL_DATA_SPEC.md"
+      ],
+      "review_rounds": 1,
+      "duration_seconds": 8.14
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:38:16.950894+00:00"
+  },
+  {
+    "knowledge_id": "know-b8e1f747",
+    "category": "strategy",
+    "mission_id": "mission-02710f93",
+    "pattern": "Factory: Create CLI tool with subcommand router and parser",
+    "details": {
+      "project_id": null,
+      "template": "cli_tool",
+      "generated_files": [
+        "cli_tool.py",
+        "test_cli_tool.py",
+        "docs/CLI_TOOL_SPEC.md"
+      ],
+      "review_rounds": 1,
+      "duration_seconds": 7.2
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:38:24.625546+00:00"
+  },
+  {
+    "knowledge_id": "know-535d3003",
+    "category": "strategy",
+    "mission_id": "mission-e0b446c8",
+    "pattern": "Factory: Create calculation engine service with add and multiply",
+    "details": {
+      "project_id": null,
+      "template": "fastapi_service",
+      "generated_files": [
+        "calculation_engine.py",
+        "test_calculation_engine.py",
+        "docs/CALCULATION_ENGINE_SPEC.md"
+      ],
+      "review_rounds": 1,
+      "duration_seconds": 10.97
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:38:36.029447+00:00"
+  },
+  {
+    "knowledge_id": "know-d4f6bcbc",
+    "category": "strategy",
+    "mission_id": "mission-cf15b14b",
+    "pattern": "Factory: Create sensitive payments gateway service",
+    "details": {
+      "project_id": null,
+      "template": "auth_service",
+      "generated_files": [
+        "sensitive_payments.py",
+        "test_sensitive_payments.py",
+        "docs/SENSITIVE_PAYMENTS_SPEC.md"
+      ],
+      "review_rounds": 1,
+      "duration_seconds": 8.96
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:38:45.554061+00:00"
+  },
+  {
+    "knowledge_id": "know-84e7b9da",
+    "category": "strategy",
+    "mission_id": "mission-cf693d4b",
+    "pattern": "Factory: Build high performance math utility module",
+    "details": {
+      "project_id": null,
+      "template": "cli_tool",
+      "generated_files": [
+        "high_performance.py",
+        "test_high_performance.py",
+        "docs/HIGH_PERFORMANCE_SPEC.md"
+      ],
+      "review_rounds": 1,
+      "duration_seconds": 23.03
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:39:09.238135+00:00"
+  },
+  {
+    "knowledge_id": "know-dd658049",
+    "category": "strategy",
+    "mission_id": "mission-faf43116",
+    "pattern": "Factory: Build memory persistence cache manager",
+    "details": {
+      "project_id": null,
+      "template": "cache_engine",
+      "generated_files": [
+        "memory_persistence.py",
+        "test_memory_persistence.py",
+        "docs/MEMORY_PERSISTENCE_SPEC.md"
+      ],
+      "review_rounds": 1,
+      "duration_seconds": 22.77
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:39:32.518500+00:00"
+  },
+  {
+    "knowledge_id": "know-d413f963",
+    "category": "strategy",
+    "mission_id": "mission-e37576fc",
+    "pattern": "Factory: Create a token bucket rate limiter module",
+    "details": {
+      "project_id": null,
+      "template": "rate_limiter",
+      "generated_files": [
+        "token_bucket.py",
+        "test_token_bucket.py",
+        "docs/TOKEN_BUCKET_SPEC.md"
+      ],
+      "review_rounds": 1,
+      "duration_seconds": 39.79
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:40:16.845029+00:00"
+  },
+  {
+    "knowledge_id": "know-93500d95",
+    "category": "strategy",
+    "mission_id": "mission-70f0d147",
+    "pattern": "Factory: Build an analytics event aggregator with tests",
+    "details": {
+      "project_id": null,
+      "template": "event_bus",
+      "generated_files": [
+        "analytics_event.py",
+        "test_analytics_event.py",
+        "docs/ANALYTICS_EVENT_SPEC.md"
+      ],
+      "review_rounds": 1,
+      "duration_seconds": 9.05
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:40:31.154164+00:00"
+  },
+  {
+    "knowledge_id": "know-993308b9",
+    "category": "remediation",
+    "mission_id": "operations-self-healing",
+    "pattern": "Self-Healing: PROCESS_FAILURE -> Process Supervisor Restart & Port Release",
+    "details": {
+      "incident_id": "inc-dc9440d5",
+      "title": "Self-healing trigger: PROCESS_FAILURE",
+      "category": "PROCESS_FAILURE",
+      "severity": "MEDIUM",
+      "root_cause": "Automated RCA: PROCESS_FAILURE identified on nexus-core",
+      "diagnosis_evidence": {
+        "observed_facts": [
+          "Observed failure signal in category 'PROCESS_FAILURE'",
+          "Target resource impacted: 'nexus-core'",
+          "Severity classified as 'MEDIUM'"
+        ],
+        "hypotheses": [
+          "Possible thread stall, memory lock, or zombie worker process."
+        ],
+        "evidence_sources": [
+          "system_watchdog",
+          "kernel_metrics",
+          "audit_log_stream"
+        ],
+        "confidence_score": 0.95,
+        "root_cause_candidate": "Automated RCA: PROCESS_FAILURE identified on nexus-core"
+      },
+      "playbook_applied": "Process Supervisor Restart & Port Release",
+      "recovery_attempts": 1,
+      "mttr_seconds": 0.02,
+      "remediation_steps_count": 4,
+      "generated_at": "2026-09-18T18:41:35.084574+00:00",
+      "status": "RESOLVED_AUTOMATICALLY"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:41:35.084754+00:00"
+  },
+  {
+    "knowledge_id": "know-595d6642",
+    "category": "failure",
+    "mission_id": "mission-42520710",
+    "pattern": "Security sentinel detected critical issues: ['Hardcoded API Key / Secret in auth.py', 'Hardcoded API",
+    "details": {
+      "level": 2,
+      "nodes": [
+        "subtask-03-qa",
+        "subtask-04-sec",
+        "subtask-05-doc"
+      ],
+      "error": "Security sentinel detected critical issues: ['Hardcoded API Key / Secret in auth.py', 'Hardcoded API Key / Secret in api_tokens.py', 'Hardcoded API Key / Secret in database.env', 'AWS Access Key in scan_history.json', 'GitHub Personal Access Token in scan_history.json', 'AWS Access Key in security_findings.json', 'GitHub Personal Access Token in security_findings.json', 'AWS Access Key in quar-0d19aed2_threat_script.py', 'AWS Access Key in quar-151fb4b0_threat_script.py', 'AWS Access Key in quar-1a73250e_threat_script.py', 'AWS Access Key in quar-1b5b2ada_threat_script.py', 'AWS Access Key in quar-1e3c918f_threat_script.py', 'Hardcoded API Key / Secret in quar-1ed85635_api_test.py', 'AWS Access Key in quar-1ed85635_api_test.py', 'Hardcoded API Key / Secret in quar-26769e80_api_test.py', 'AWS Access Key in quar-26769e80_api_test.py', 'Hardcoded API Key / Secret in quar-2681f60b_api_test.py', 'AWS Access Key in quar-2681f60b_api_test.py', 'AWS Access Key in quar-3cb0fa77_threat_script.py', 'AWS Access Key in quar-3e45dada_threat_script.py', 'Hardcoded API Key / Secret in quar-40916d8d_api_test.py', 'AWS Access Key in quar-40916d8d_api_test.py', 'Hardcoded API Key / Secret in quar-544729ca_api_test.py', 'AWS Access Key in quar-544729ca_api_test.py', 'AWS Access Key in quar-5833d2b5_threat_script.py', 'AWS Access Key in quar-5986a052_threat_script.py', 'Hardcoded API Key / Secret in quar-5a4a5292_api_test.py', 'AWS Access Key in quar-5a4a5292_api_test.py', 'Hardcoded API Key / Secret in quar-6f4003ba_api_test.py', 'AWS Access Key in quar-6f4003ba_api_test.py', 'AWS Access Key in quar-74348948_vulnerable_service.py', 'GitHub Personal Access Token in quar-74348948_vulnerable_service.py', 'AWS Access Key in quar-7561ad99_vulnerable_service.py', 'GitHub Personal Access Token in quar-7561ad99_vulnerable_service.py', 'Hardcoded API Key / Secret in quar-75e765a8_api_test.py', 'AWS Access Key in quar-75e765a8_api_test.py', 'Hardcoded API Key / Secret in quar-82b3b219_api_test.py', 'AWS Access Key in quar-82b3b219_api_test.py', 'AWS Access Key in quar-98463a90_threat_script.py', 'AWS Access Key in quar-b4d5722c_threat_script.py', 'AWS Access Key in quar-bf03bc31_vulnerable_service.py', 'GitHub Personal Access Token in quar-bf03bc31_vulnerable_service.py', 'AWS Access Key in quar-cf77949e_vulnerable_service.py', 'GitHub Personal Access Token in quar-cf77949e_vulnerable_service.py', 'Hardcoded API Key / Secret in quar-da74c501_api_test.py', 'AWS Access Key in quar-da74c501_api_test.py', 'AWS Access Key in quar-dcb962f5_threat_script.py', 'Hardcoded API Key / Secret in quar-e24414c6_api_test.py', 'AWS Access Key in quar-e24414c6_api_test.py', 'Hardcoded API Key / Secret in quar-e9431392_api_test.py', 'AWS Access Key in quar-e9431392_api_test.py', 'AWS Access Key in quar-f072f786_threat_script.py', 'Hardcoded API Key / Secret in quar-f52f079f_api_test.py', 'AWS Access Key in quar-f52f079f_api_test.py', 'AWS Access Key in quar-fcce4c6b_threat_script.py', 'Hardcoded API Key / Secret in PHASE11_GITHUB_DELIVERY_REPORT.md', 'Bearer Token Header in KnowledgeLearningMatrixView.tsx', 'AWS Access Key in e2e_phase18_security_compliance.py', 'GitHub Personal Access Token in e2e_phase18_security_compliance.py', 'Hardcoded API Key / Secret in test_control_plane_security.py', 'Bearer Token Header in test_control_plane_security.py', 'Bearer Token Header in test_phase10_real_providers.py', 'GitHub Personal Access Token in test_phase11_github_delivery.py', 'Bearer Token Header in test_phase11_github_delivery.py', 'GitHub Personal Access Token in test_phase12_cyber_hud.py', 'Hardcoded API Key / Secret in test_phase12_mission_control.py', 'AWS Access Key in test_phase12_mission_control.py', 'Hardcoded API Key / Secret in test_phase18_security_compliance_engine.py', 'AWS Access Key in test_phase18_security_compliance_engine.py', 'GitHub Personal Access Token in test_phase18_security_compliance_engine.py', 'Bearer Token Header in test_phase19_knowledge_learning_engine.py']"
+    },
+    "outcome": "FAILED",
+    "timestamp": "2026-09-18T18:42:03.807544+00:00"
+  },
+  {
+    "knowledge_id": "know-f6dd9285",
+    "category": "remediation",
+    "mission_id": "operations-self-healing",
+    "pattern": "Self-Healing: PROCESS_FAILURE -> Process Supervisor Restart & Port Release",
+    "details": {
+      "incident_id": "inc-c8c2e962",
+      "title": "Self-healing trigger: PROCESS_FAILURE",
+      "category": "PROCESS_FAILURE",
+      "severity": "MEDIUM",
+      "root_cause": "Automated RCA: PROCESS_FAILURE identified on nexus-core",
+      "diagnosis_evidence": {
+        "observed_facts": [
+          "Observed failure signal in category 'PROCESS_FAILURE'",
+          "Target resource impacted: 'nexus-core'",
+          "Severity classified as 'MEDIUM'"
+        ],
+        "hypotheses": [
+          "Possible thread stall, memory lock, or zombie worker process."
+        ],
+        "evidence_sources": [
+          "system_watchdog",
+          "kernel_metrics",
+          "audit_log_stream"
+        ],
+        "confidence_score": 0.95,
+        "root_cause_candidate": "Automated RCA: PROCESS_FAILURE identified on nexus-core"
+      },
+      "playbook_applied": "Process Supervisor Restart & Port Release",
+      "recovery_attempts": 1,
+      "mttr_seconds": 0.02,
+      "remediation_steps_count": 4,
+      "generated_at": "2026-09-18T18:43:54.899093+00:00",
+      "status": "RESOLVED_AUTOMATICALLY"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:43:54.899134+00:00"
+  },
+  {
+    "knowledge_id": "know-2aaa0b84",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-service v1.30.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-a1045402",
+      "project_id": "control-center",
+      "service_name": "nexus-service",
+      "version": "v1.30.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 5.0
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:44:00.024140+00:00"
+  },
+  {
+    "knowledge_id": "know-5dfb5adb",
+    "category": "remediation",
+    "mission_id": "operations-self-healing",
+    "pattern": "Self-Healing: PROCESS_FAILURE -> Process Supervisor Restart & Port Release",
+    "details": {
+      "incident_id": "inc-4b384439",
+      "title": "Disposable Local Worker Process Termination",
+      "category": "PROCESS_FAILURE",
+      "severity": "MEDIUM",
+      "root_cause": "Automated RCA: PROCESS_FAILURE identified on disposable-worker-9876",
+      "diagnosis_evidence": {
+        "observed_facts": [
+          "Observed failure signal in category 'PROCESS_FAILURE'",
+          "Target resource impacted: 'disposable-worker-9876'",
+          "Severity classified as 'MEDIUM'",
+          "Telemetry metric 'pid': 14457",
+          "Telemetry metric 'port': 9876",
+          "Telemetry metric 'exit_code': -15",
+          "Telemetry metric 'reason': Synthetic worker drop test"
+        ],
+        "hypotheses": [
+          "Possible thread stall, memory lock, or zombie worker process."
+        ],
+        "evidence_sources": [
+          "system_watchdog",
+          "kernel_metrics",
+          "audit_log_stream"
+        ],
+        "confidence_score": 0.95,
+        "root_cause_candidate": "Automated RCA: PROCESS_FAILURE identified on disposable-worker-9876"
+      },
+      "playbook_applied": "Process Supervisor Restart & Port Release",
+      "recovery_attempts": 1,
+      "mttr_seconds": 0.03,
+      "remediation_steps_count": 4,
+      "generated_at": "2026-09-18T18:44:53.539490+00:00",
+      "status": "RESOLVED_AUTOMATICALLY"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:44:53.539549+00:00"
+  },
+  {
+    "knowledge_id": "know-6350ffb7",
+    "category": "secops_threat_quarantine",
+    "mission_id": "secops",
+    "pattern": "Quarantined Secret Leak Detected: AWS Access Key ID",
+    "details": {
+      "quarantine_id": "quar-467360b1",
+      "finding_id": "sec-362ebb2d",
+      "file": "/tmp/nexus_secops_e2e_v327udhx/vulnerable_service.py",
+      "vault": "/root/control-center/data/secops/quarantine/quar-467360b1_vulnerable_service.py"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:44:56.041775+00:00"
+  },
+  {
+    "knowledge_id": "know-69fd56df",
+    "category": "remediation",
+    "mission_id": "operations-self-healing",
+    "pattern": "Self-Healing: PROCESS_FAILURE -> Process Supervisor Restart & Port Release",
+    "details": {
+      "incident_id": "inc-89979051",
+      "title": "Disposable Local Worker Process Termination",
+      "category": "PROCESS_FAILURE",
+      "severity": "MEDIUM",
+      "root_cause": "Automated RCA: PROCESS_FAILURE identified on disposable-worker-9876",
+      "diagnosis_evidence": {
+        "observed_facts": [
+          "Observed failure signal in category 'PROCESS_FAILURE'",
+          "Target resource impacted: 'disposable-worker-9876'",
+          "Severity classified as 'MEDIUM'",
+          "Telemetry metric 'pid': 14899",
+          "Telemetry metric 'port': 9876",
+          "Telemetry metric 'exit_code': -15",
+          "Telemetry metric 'reason': Synthetic worker drop test"
+        ],
+        "hypotheses": [
+          "Possible thread stall, memory lock, or zombie worker process."
+        ],
+        "evidence_sources": [
+          "system_watchdog",
+          "kernel_metrics",
+          "audit_log_stream"
+        ],
+        "confidence_score": 0.95,
+        "root_cause_candidate": "Automated RCA: PROCESS_FAILURE identified on disposable-worker-9876"
+      },
+      "playbook_applied": "Process Supervisor Restart & Port Release",
+      "recovery_attempts": 1,
+      "mttr_seconds": 0.06,
+      "remediation_steps_count": 4,
+      "generated_at": "2026-09-18T18:50:58.228068+00:00",
+      "status": "RESOLVED_AUTOMATICALLY"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:50:58.228118+00:00"
+  },
+  {
+    "knowledge_id": "know-93b4389e",
+    "category": "secops_threat_quarantine",
+    "mission_id": "secops",
+    "pattern": "Quarantined Secret Leak Detected: AWS Access Key ID",
+    "details": {
+      "quarantine_id": "quar-41ee829f",
+      "finding_id": "sec-1e284e35",
+      "file": "/tmp/nexus_secops_e2e_r1dhei95/vulnerable_service.py",
+      "vault": "/root/control-center/data/secops/quarantine/quar-41ee829f_vulnerable_service.py"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-18T18:51:00.697668+00:00"
   }
 ]

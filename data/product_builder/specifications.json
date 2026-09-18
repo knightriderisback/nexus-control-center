@@ -778,5 +778,135 @@
       "container": "Docker / Distroless OCI"
     },
     "created_at": "2026-09-18T15:30:01.851358+00:00"
+  },
+  "spec-a274d513": {
+    "spec_id": "spec-a274d513",
+    "product_name": "iot-telemetry-api",
+    "summary": "Autonomous product specification for 'iot-telemetry-api' based on objective: Build a secure REST API for managing IoT device telemetry",
+    "archetype": "MICROSERVICE_API",
+    "features": [
+      "Core autonomous processing engine for Build a secure REST API for managing IoT device te",
+      "Deterministic local state persistence and ACID transactions",
+      "Comprehensive observability, audit logging, and health telemetry",
+      "Zero-cost operational governance"
+    ],
+    "api_endpoints": [
+      {
+        "path": "/health",
+        "method": "GET",
+        "summary": "Subsystem health and FinOps invariant status"
+      },
+      {
+        "path": "/api/v1/items",
+        "method": "GET",
+        "summary": "Query active domain entities"
+      },
+      {
+        "path": "/api/v1/items",
+        "method": "POST",
+        "summary": "Create and validate domain entity"
+      },
+      {
+        "path": "/api/v1/items/{item_id}",
+        "method": "DELETE",
+        "summary": "Safe entity removal"
+      }
+    ],
+    "data_models": [
+      {
+        "name": "DomainEntity",
+        "fields": {
+          "id": "str",
+          "title": "str",
+          "status": "str",
+          "created_at": "str",
+          "metadata": "Dict[str, Any]"
+        }
+      }
+    ],
+    "security_requirements": [
+      "Zero-Trust Bearer Token Authorization",
+      "AST Code Security Inspection (Zero High/Critical Vulnerabilities)",
+      "Strict FinOps $0.00 Local Compute Invariant",
+      "Tamper-Evident SHA-256 Provenance Attestation"
+    ],
+    "test_requirements": [
+      "100% Core Business Logic Unit Test Pass",
+      "Integration Health & Readiness Gate Check",
+      "Dynamic Self-Correction on Compiler/Lint Exceptions"
+    ],
+    "target_stack": {
+      "frontend": "N/A",
+      "backend": "FastAPI / Python 3.14 / Pydantic v2",
+      "database": "SQLite / Local Deterministic File Store",
+      "testing": "Pytest / AST Security Checker",
+      "container": "Docker / Distroless OCI"
+    },
+    "created_at": "2026-09-18T18:05:48.284183+00:00"
+  },
+  "spec-52c5a9a4": {
+    "spec_id": "spec-52c5a9a4",
+    "product_name": "customer-billing-engine",
+    "summary": "Autonomous product specification for 'customer-billing-engine' based on objective: Build a REST customer billing engine",
+    "archetype": "MICROSERVICE_API",
+    "features": [
+      "Core autonomous processing engine for Build a REST customer billing engine",
+      "Deterministic local state persistence and ACID transactions",
+      "Comprehensive observability, audit logging, and health telemetry",
+      "Zero-cost operational governance"
+    ],
+    "api_endpoints": [
+      {
+        "path": "/health",
+        "method": "GET",
+        "summary": "Subsystem health and FinOps invariant status"
+      },
+      {
+        "path": "/api/v1/items",
+        "method": "GET",
+        "summary": "Query active domain entities"
+      },
+      {
+        "path": "/api/v1/items",
+        "method": "POST",
+        "summary": "Create and validate domain entity"
+      },
+      {
+        "path": "/api/v1/items/{item_id}",
+        "method": "DELETE",
+        "summary": "Safe entity removal"
+      }
+    ],
+    "data_models": [
+      {
+        "name": "DomainEntity",
+        "fields": {
+          "id": "str",
+          "title": "str",
+          "status": "str",
+          "created_at": "str",
+          "metadata": "Dict[str, Any]"
+        }
+      }
+    ],
+    "security_requirements": [
+      "Zero-Trust Bearer Token Authorization",
+      "AST Code Security Inspection (Zero High/Critical Vulnerabilities)",
+      "Strict FinOps $0.00 Local Compute Invariant",
+      "Tamper-Evident SHA-256 Provenance Attestation"
+    ],
+    "test_requirements": [
+      "100% Core Business Logic Unit Test Pass",
+      "Integration Health & Readiness Gate Check",
+      "Dynamic Self-Correction on Compiler/Lint Exceptions"
+    ],
+    "target_stack": {
+      "frontend": "N/A",
+      "backend": "FastAPI / Python 3.14 / Pydantic v2",
+      "database": "SQLite / Local Deterministic File Store",
+      "testing": "Pytest / AST Security Checker",
+      "container": "Docker / Distroless OCI"
+    },
+    "created_at": "2026-09-18T18:05:48.475911+00:00"
   }
 }

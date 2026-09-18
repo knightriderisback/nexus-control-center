@@ -406,5 +406,73 @@
     "created_at": "2026-09-18T15:30:01.982693+00:00",
     "updated_at": "2026-09-18T15:30:01.982780+00:00",
     "completed_at": "2026-09-18T15:30:14.950326+00:00"
+  },
+  "build-c3269a59": {
+    "build_id": "build-c3269a59",
+    "product_name": "customer-billing-engine",
+    "spec_id": "spec-52c5a9a4",
+    "workspace_path": "/root/control-center/data/product_builder/workspaces/build-c3269a59",
+    "current_stage": "DELIVERY_VERIFICATION",
+    "state": "COMPLETED",
+    "components": [
+      {
+        "component_id": "comp-bdd8b6",
+        "name": "Core Backend Service",
+        "archetype": "MICROSERVICE_API",
+        "path": "backend",
+        "language": "Python",
+        "framework": "FastAPI",
+        "dependencies": [
+          "fastapi",
+          "uvicorn",
+          "pydantic",
+          "pytest"
+        ],
+        "generated_files": [
+          "backend/main.py",
+          "requirements.txt",
+          "Dockerfile",
+          "README.md"
+        ],
+        "status": "CODE_GENERATED",
+        "ast_verified": true,
+        "metadata": {}
+      },
+      {
+        "component_id": "comp-26f7d4",
+        "name": "Verification & Test Suite",
+        "archetype": "MICROSERVICE_API",
+        "path": "tests",
+        "language": "Python",
+        "framework": "Pytest",
+        "dependencies": [
+          "pytest",
+          "httpx"
+        ],
+        "generated_files": [
+          "tests/test_product_api.py"
+        ],
+        "status": "TESTS_SYNTHESIZED",
+        "ast_verified": true,
+        "metadata": {}
+      }
+    ],
+    "iteration": 1,
+    "max_iterations": 5,
+    "test_results": {
+      "status": "PASSED",
+      "passed": 3,
+      "failed": 0,
+      "exit_code": 0,
+      "stdout_summary": "============================= test session starts ==============================\nplatform linux -- Python 3.14.4, pytest-9.1.1, pluggy-1.6.0 -- /usr/bin/python3\ncachedir: .pytest_cache\nrootdir: /root/control-center\nconfigfile: pytest.ini\nplugins: anyio-4.15.1, typeguard-4.4.4\ncollecting ... collected 3 items\n\ntests/test_product_api.py::test_health_check_endpoint PASSED             [ 33%]\ntests/test_product_api.py::test_create_and_get_item_lifecycle PASSED     [ 66%]\ntests/test_product_api.py::te"
+    },
+    "security_findings": [],
+    "corrections_applied": [],
+    "slsa_provenance_hash": "1c03fb5af530a47129552faf048aad849e7b847d2b508e25f66721e50e93041a",
+    "provenance_chain_hash": "6556f2ef8bb9595e",
+    "total_tokens_consumed": 850,
+    "created_at": "2026-09-18T18:05:48.503252+00:00",
+    "updated_at": "2026-09-18T18:05:48.503276+00:00",
+    "completed_at": "2026-09-18T18:05:53.160755+00:00"
   }
 }

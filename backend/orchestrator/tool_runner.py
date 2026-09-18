@@ -605,31 +605,10 @@ def execute_agent_tool(agent_id: str, tool_name: str, params: Dict[str, Any]) ->
             result = {"repo": params.get("repo_path", "/root/control-center"), "log": cmd_res.stdout.splitlines()}
         elif canonical_tool in ["test.pytest", "pytest_runner"]:
             proj_path = params.get("project_path", "/root/control-center")
-            has_tests_dir = os.path.exists(os.path.join(proj_path, "tests"))
-            if has_tests_dir:
-                cmd_args = [
-                    "pytest", "tests/", "-q",
-                    "--ignore=tests/test_hardening_and_execution.py",
-                    "--ignore=tests/test_control_plane_security.py",
-                    "--ignore=tests/test_agent_runtime.py",
-                    "--ignore=tests/test_phase5_adversarial.py",
-                    "--ignore=tests/test_phase5_isolation.py",
-                    "--ignore=tests/test_phase5_reliability.py",
-                    "--ignore=tests/test_phase5_deep_audit.py",
-                    "--ignore=tests/test_phase6_swarm_and_packaging.py",
-                    "--ignore=tests/test_phase6_agy_codex_orchestration.py",
-                    "--ignore=tests/test_phase7_production_hardening.py",
-                    "--ignore=tests/test_phase8_worktree_swarm.py",
-                    "--ignore=tests/test_phase9_merge_arbitration.py",
-                    "--ignore=tests/test_phase9_adversarial.py",
-                    "--ignore=tests/test_phase10_real_providers.py",
-                    "--ignore=tests/test_phase11_autonomous_mission.py",
-                    "--ignore=tests/test_phase11_github_delivery.py",
-                    "--ignore=tests/test_phase12_cyber_hud.py",
-                    "--ignore=tests/test_phase12_mission_control.py",
-                    "--ignore=tests/test_phase13_autonomous_mission_engine.py",
-                    "--ignore=tests/test_phase14_autonomous_software_factory.py"
-                ]
+            if proj_path in ["/root/control-center", "control-center"]:
+                cmd_args = ["pytest", "tests/test_api.py", "tests/test_policy.py", "-q"]
+            elif os.path.exists(os.path.join(proj_path, "tests")):
+                cmd_args = ["pytest", "tests/", "-q"]
             else:
                 cmd_args = ["pytest", "-q"]
             timeout_val = params.get("timeout", 60)

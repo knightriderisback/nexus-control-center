@@ -44724,5 +44724,1828 @@
       },
       "multi_agent_review": null
     }
+  },
+  "merge-c29bdec0": {
+    "merge_id": "merge-c29bdec0",
+    "status": "SUCCESS",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_merge_execute_clean_fast_0/repo",
+    "source_branch": "swarm/ff-test",
+    "target_branch": "integration",
+    "strategy_used": "FAST_FORWARD",
+    "merge_commit": "703b4488d4e18c246a276f8d5c70e31ecef34c4b",
+    "candidate_tree_sha": "6f8e8930e7a5e52e7c4a6a86959c70dedf378945",
+    "conflict_files": [],
+    "resolved_files": [],
+    "test_results": {
+      "status": "PASSED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-c29bdec0",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "executed_at": "2026-09-18T18:34:06.498336+00:00",
+    "error": null,
+    "decision": {
+      "merge_id": "merge-c29bdec0",
+      "session_id": null,
+      "source_branch": "swarm/ff-test",
+      "target_branch": "integration",
+      "status": "SUCCESS",
+      "classification": "CLEAN_MERGE",
+      "mergeability": "FAST_FORWARD",
+      "strategy_used": "FAST_FORWARD",
+      "merge_commit": "703b4488d4e18c246a276f8d5c70e31ecef34c4b",
+      "candidate_tree_sha": "6f8e8930e7a5e52e7c4a6a86959c70dedf378945",
+      "conflict_files": [],
+      "resolved_files": [],
+      "reason": "Merge completed successfully using FAST_FORWARD",
+      "approval_id": null,
+      "executed_at": "2026-09-18T18:34:06.498215+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "5840bc5f4f7368d56331db63fd8e1b0e1f707363",
+        "source_commit": "703b4488d4e18c246a276f8d5c70e31ecef34c4b",
+        "target_commit": "5840bc5f4f7368d56331db63fd8e1b0e1f707363",
+        "is_fast_forward": true,
+        "source_changes": {
+          "files_count": 1,
+          "files": {
+            "feature.py": "A"
+          }
+        },
+        "target_changes": {
+          "files_count": 0,
+          "files": {}
+        },
+        "overlapping_files": [],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [],
+        "divergence": {
+          "behind": 0,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-c29bdec0",
+        "candidate_commit": "703b4488d4e18c246a276f8d5c70e31ecef34c4b",
+        "candidate_tree_sha": "6f8e8930e7a5e52e7c4a6a86959c70dedf378945",
+        "target_base_commit": "5840bc5f4f7368d56331db63fd8e1b0e1f707363",
+        "tests_executed": true,
+        "tests_passed": true,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "VERIFIED"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-86562203": {
+    "merge_id": "merge-86562203",
+    "status": "SUCCESS",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_merge_execute_three_way_c0/repo",
+    "source_branch": "swarm/source-b",
+    "target_branch": "target-b",
+    "strategy_used": "THREE_WAY",
+    "merge_commit": "0bfb36f6975fff98e6ed3c6e8cdf3bfe954d3f26",
+    "candidate_tree_sha": "1b65a788ccbb13f469ba7129884430b071936fa5",
+    "conflict_files": [],
+    "resolved_files": [],
+    "test_results": {
+      "status": "PASSED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-86562203",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "executed_at": "2026-09-18T18:34:12.423570+00:00",
+    "error": null,
+    "decision": {
+      "merge_id": "merge-86562203",
+      "session_id": null,
+      "source_branch": "swarm/source-b",
+      "target_branch": "target-b",
+      "status": "SUCCESS",
+      "classification": "CLEAN_MERGE",
+      "mergeability": "CLEAN_THREE_WAY",
+      "strategy_used": "THREE_WAY",
+      "merge_commit": "0bfb36f6975fff98e6ed3c6e8cdf3bfe954d3f26",
+      "candidate_tree_sha": "1b65a788ccbb13f469ba7129884430b071936fa5",
+      "conflict_files": [],
+      "resolved_files": [],
+      "reason": "Merge completed successfully using THREE_WAY",
+      "approval_id": null,
+      "executed_at": "2026-09-18T18:34:12.423447+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "243618be213ba2f6f51b9c33c685c9207588e290",
+        "source_commit": "811ddf0bebabee66997f99a3230ab5b042721892",
+        "target_commit": "202b93124e5e74fd0a936aef77c3ac73dcb47853",
+        "is_fast_forward": false,
+        "source_changes": {
+          "files_count": 1,
+          "files": {
+            "source_file.py": "A"
+          }
+        },
+        "target_changes": {
+          "files_count": 1,
+          "files": {
+            "target_file.py": "A"
+          }
+        },
+        "overlapping_files": [],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [],
+        "divergence": {
+          "behind": 1,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-86562203",
+        "candidate_commit": "0bfb36f6975fff98e6ed3c6e8cdf3bfe954d3f26",
+        "candidate_tree_sha": "1b65a788ccbb13f469ba7129884430b071936fa5",
+        "target_base_commit": "202b93124e5e74fd0a936aef77c3ac73dcb47853",
+        "tests_executed": true,
+        "tests_passed": true,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "VERIFIED"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-93d3e8dd": {
+    "merge_id": "merge-93d3e8dd",
+    "status": "SUCCESS",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_merge_execute_conflict_re0/repo",
+    "source_branch": "swarm/theirs-branch",
+    "target_branch": "target-conflict",
+    "strategy_used": "THEIRS",
+    "merge_commit": "e96f8ed75d8591eb8cacf10d5645c670b2c6ad94",
+    "candidate_tree_sha": "11d405125d4985fe491806546d4ccb73811722ad",
+    "conflict_files": [
+      "calculator.py"
+    ],
+    "resolved_files": [
+      "calculator.py"
+    ],
+    "test_results": null,
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-93d3e8dd",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "executed_at": "2026-09-18T18:34:16.447829+00:00",
+    "error": null,
+    "decision": {
+      "merge_id": "merge-93d3e8dd",
+      "session_id": null,
+      "source_branch": "swarm/theirs-branch",
+      "target_branch": "target-conflict",
+      "status": "SUCCESS",
+      "classification": "AUTO_MERGEABLE",
+      "mergeability": "RESOLVABLE_CONFLICT",
+      "strategy_used": "THEIRS",
+      "merge_commit": "e96f8ed75d8591eb8cacf10d5645c670b2c6ad94",
+      "candidate_tree_sha": "11d405125d4985fe491806546d4ccb73811722ad",
+      "conflict_files": [
+        "calculator.py"
+      ],
+      "resolved_files": [
+        "calculator.py"
+      ],
+      "reason": "Merge completed successfully using THEIRS",
+      "approval_id": null,
+      "executed_at": "2026-09-18T18:34:16.447765+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "001b497e178cc5b947f6a6419a737f7bd5e4a7de",
+        "source_commit": "5da9ab34c50867119cb601d81513d27ef2895274",
+        "target_commit": "34b76fa9f3f8db0afece1f9f1c12f23dc2cdea00",
+        "is_fast_forward": false,
+        "source_changes": {
+          "files_count": 1,
+          "files": {
+            "calculator.py": "M"
+          }
+        },
+        "target_changes": {
+          "files_count": 1,
+          "files": {
+            "calculator.py": "M"
+          }
+        },
+        "overlapping_files": [
+          "calculator.py"
+        ],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [],
+        "divergence": {
+          "behind": 1,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-93d3e8dd",
+        "candidate_commit": "e96f8ed75d8591eb8cacf10d5645c670b2c6ad94",
+        "candidate_tree_sha": "11d405125d4985fe491806546d4ccb73811722ad",
+        "target_base_commit": "34b76fa9f3f8db0afece1f9f1c12f23dc2cdea00",
+        "tests_executed": false,
+        "tests_passed": null,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "VERIFIED"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-39e30fd4": {
+    "merge_id": "merge-39e30fd4",
+    "status": "SUCCESS",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_merge_execute_autonomous_0/repo",
+    "source_branch": "swarm/add-multiply",
+    "target_branch": "target-multi",
+    "strategy_used": "AGENT_RESOLVE",
+    "merge_commit": "a4b47e2a0258d203f82ab16454b30cabb87e3835",
+    "candidate_tree_sha": "fc7967d7d332bd14498f902d682eedde17e1658c",
+    "conflict_files": [
+      "calculator.py"
+    ],
+    "resolved_files": [
+      "calculator.py"
+    ],
+    "test_results": {
+      "status": "PASSED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-39e30fd4",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "executed_at": "2026-09-18T18:34:22.591304+00:00",
+    "error": null,
+    "decision": {
+      "merge_id": "merge-39e30fd4",
+      "session_id": null,
+      "source_branch": "swarm/add-multiply",
+      "target_branch": "target-multi",
+      "status": "SUCCESS",
+      "classification": "AUTO_MERGEABLE",
+      "mergeability": "RESOLVABLE_CONFLICT",
+      "strategy_used": "AGENT_RESOLVE",
+      "merge_commit": "a4b47e2a0258d203f82ab16454b30cabb87e3835",
+      "candidate_tree_sha": "fc7967d7d332bd14498f902d682eedde17e1658c",
+      "conflict_files": [
+        "calculator.py"
+      ],
+      "resolved_files": [
+        "calculator.py"
+      ],
+      "reason": "Merge completed successfully using AGENT_RESOLVE",
+      "approval_id": null,
+      "executed_at": "2026-09-18T18:34:22.591135+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "e2968e5dbd4fd608acb5f82f0f899fe128bac3f1",
+        "source_commit": "5fef094ed74fec0120e075c0fa95f35094d40183",
+        "target_commit": "4a3b873d02a3f37645d2b0b5b316d12ab3dc457e",
+        "is_fast_forward": false,
+        "source_changes": {
+          "files_count": 1,
+          "files": {
+            "calculator.py": "M"
+          }
+        },
+        "target_changes": {
+          "files_count": 1,
+          "files": {
+            "calculator.py": "M"
+          }
+        },
+        "overlapping_files": [
+          "calculator.py"
+        ],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [],
+        "divergence": {
+          "behind": 1,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-39e30fd4",
+        "candidate_commit": "a4b47e2a0258d203f82ab16454b30cabb87e3835",
+        "candidate_tree_sha": "fc7967d7d332bd14498f902d682eedde17e1658c",
+        "target_base_commit": "4a3b873d02a3f37645d2b0b5b316d12ab3dc457e",
+        "tests_executed": true,
+        "tests_passed": true,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "VERIFIED"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-f26ca697": {
+    "merge_id": "merge-f26ca697",
+    "status": "TEST_FAILED",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_merge_pre_merge_test_fail0/repo",
+    "source_branch": "swarm/broken-code",
+    "target_branch": "target-stable",
+    "strategy_used": "FAST_FORWARD",
+    "merge_commit": "647f50e199a70bbb32c547443129d07bd9715254",
+    "candidate_tree_sha": "6f27a5043aa1d5adca41fd530ab2c323031aac97",
+    "conflict_files": [],
+    "resolved_files": [],
+    "test_results": {
+      "status": "FAILED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-f26ca697",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "executed_at": "2026-09-18T18:34:28.505957+00:00",
+    "error": "Pre-merge regression test suite failed in staging workspace.",
+    "decision": {
+      "merge_id": "merge-f26ca697",
+      "session_id": null,
+      "source_branch": "swarm/broken-code",
+      "target_branch": "target-stable",
+      "status": "TEST_FAILED",
+      "classification": "VERIFICATION_FAILED",
+      "mergeability": "UNRESOLVABLE_CONFLICT",
+      "strategy_used": "FAST_FORWARD",
+      "merge_commit": "647f50e199a70bbb32c547443129d07bd9715254",
+      "candidate_tree_sha": "6f27a5043aa1d5adca41fd530ab2c323031aac97",
+      "conflict_files": [],
+      "resolved_files": [],
+      "reason": "Pre-merge regression test suite failed in staging workspace.",
+      "approval_id": null,
+      "executed_at": "2026-09-18T18:34:28.505834+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "b82467d5906e773aa34bf6a7557727c83fe854a9",
+        "source_commit": "647f50e199a70bbb32c547443129d07bd9715254",
+        "target_commit": "b82467d5906e773aa34bf6a7557727c83fe854a9",
+        "is_fast_forward": true,
+        "source_changes": {
+          "files_count": 1,
+          "files": {
+            "calculator.py": "M"
+          }
+        },
+        "target_changes": {
+          "files_count": 0,
+          "files": {}
+        },
+        "overlapping_files": [],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [],
+        "divergence": {
+          "behind": 0,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-f26ca697",
+        "candidate_commit": "647f50e199a70bbb32c547443129d07bd9715254",
+        "candidate_tree_sha": "6f27a5043aa1d5adca41fd530ab2c323031aac97",
+        "target_base_commit": "b82467d5906e773aa34bf6a7557727c83fe854a9",
+        "tests_executed": true,
+        "tests_passed": false,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "FAILED"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-b621f776": {
+    "merge_id": "merge-b621f776",
+    "status": "STAGED_READY",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_merge_preserves_dirty_pri0/repo",
+    "source_branch": "swarm/feat-staged",
+    "target_branch": "main",
+    "strategy_used": "FAST_FORWARD",
+    "merge_commit": "908b2b14233593538f956ba643001bcd73d1238c",
+    "candidate_tree_sha": "4a609aaaca26cb29c25962e03e481a6409d87c69",
+    "conflict_files": [],
+    "resolved_files": [],
+    "test_results": null,
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-b621f776",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "executed_at": "2026-09-18T18:34:31.233805+00:00",
+    "error": "Merge verified and committed to 'staging/merge-b621f776' (908b2b14). Primary working tree contains uncommitted user modifications; working tree was preserved untouched.",
+    "decision": {
+      "merge_id": "merge-b621f776",
+      "session_id": null,
+      "source_branch": "swarm/feat-staged",
+      "target_branch": "main",
+      "status": "STAGED_READY",
+      "classification": "CLEAN_MERGE",
+      "mergeability": "FAST_FORWARD",
+      "strategy_used": "FAST_FORWARD",
+      "merge_commit": "908b2b14233593538f956ba643001bcd73d1238c",
+      "candidate_tree_sha": "4a609aaaca26cb29c25962e03e481a6409d87c69",
+      "conflict_files": [],
+      "resolved_files": [],
+      "reason": "Merge verified and committed to 'staging/merge-b621f776' (908b2b14). Primary working tree contains uncommitted user modifications; working tree was preserved untouched.",
+      "approval_id": null,
+      "executed_at": "2026-09-18T18:34:31.233635+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "d89adeaf5b828fd744c382646365212b35887d0b",
+        "source_commit": "908b2b14233593538f956ba643001bcd73d1238c",
+        "target_commit": "d89adeaf5b828fd744c382646365212b35887d0b",
+        "is_fast_forward": true,
+        "source_changes": {
+          "files_count": 1,
+          "files": {
+            "feat.txt": "A"
+          }
+        },
+        "target_changes": {
+          "files_count": 0,
+          "files": {}
+        },
+        "overlapping_files": [],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [],
+        "divergence": {
+          "behind": 0,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-b621f776",
+        "candidate_commit": "908b2b14233593538f956ba643001bcd73d1238c",
+        "candidate_tree_sha": "4a609aaaca26cb29c25962e03e481a6409d87c69",
+        "target_base_commit": "d89adeaf5b828fd744c382646365212b35887d0b",
+        "tests_executed": false,
+        "tests_passed": null,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "VERIFIED"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-92ad34cd": {
+    "merge_id": "merge-92ad34cd",
+    "status": "SUCCESS",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_session_engine_auto_merge0/repo",
+    "source_branch": "swarm/sess-4cb3bb8c",
+    "target_branch": "integration",
+    "strategy_used": "FAST_FORWARD",
+    "merge_commit": "c2a0945c6a65fecd6192873de6e14356bcf4790c",
+    "candidate_tree_sha": "76e2193d6937fbf70cb9f06d4b6a7f445ca0ad05",
+    "conflict_files": [],
+    "resolved_files": [],
+    "test_results": {
+      "status": "PASSED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-92ad34cd",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "executed_at": "2026-09-18T18:34:44.553813+00:00",
+    "error": null,
+    "decision": {
+      "merge_id": "merge-92ad34cd",
+      "session_id": "sess-4cb3bb8c",
+      "source_branch": "swarm/sess-4cb3bb8c",
+      "target_branch": "integration",
+      "status": "SUCCESS",
+      "classification": "CLEAN_MERGE",
+      "mergeability": "UNRESOLVABLE_CONFLICT",
+      "strategy_used": "FAST_FORWARD",
+      "merge_commit": "c2a0945c6a65fecd6192873de6e14356bcf4790c",
+      "candidate_tree_sha": "76e2193d6937fbf70cb9f06d4b6a7f445ca0ad05",
+      "conflict_files": [],
+      "resolved_files": [],
+      "reason": "Merge completed successfully using FAST_FORWARD",
+      "approval_id": null,
+      "executed_at": "2026-09-18T18:34:44.553545+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "4c4d0630064334a4254e6ff198e1e6d7f0fd5769",
+        "source_commit": "c2a0945c6a65fecd6192873de6e14356bcf4790c",
+        "target_commit": "4c4d0630064334a4254e6ff198e1e6d7f0fd5769",
+        "is_fast_forward": true,
+        "source_changes": {
+          "files_count": 4,
+          "files": {
+            "__pycache__/calculator.cpython-314.pyc": "A",
+            "__pycache__/test_calculator.cpython-314-pytest-9.1.1.pyc": "A",
+            "calculator.py": "M",
+            "test_calculator.py": "M"
+          }
+        },
+        "target_changes": {
+          "files_count": 0,
+          "files": {}
+        },
+        "overlapping_files": [],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [
+          "__pycache__/calculator.cpython-314.pyc",
+          "__pycache__/test_calculator.cpython-314-pytest-9.1.1.pyc"
+        ],
+        "dangerous_path_changes": [],
+        "divergence": {
+          "behind": 0,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-92ad34cd",
+        "candidate_commit": "c2a0945c6a65fecd6192873de6e14356bcf4790c",
+        "candidate_tree_sha": "76e2193d6937fbf70cb9f06d4b6a7f445ca0ad05",
+        "target_base_commit": "4c4d0630064334a4254e6ff198e1e6d7f0fd5769",
+        "tests_executed": true,
+        "tests_passed": true,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "VERIFIED"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-70e72bd6": {
+    "merge_id": "merge-70e72bd6",
+    "status": "SUCCESS",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_rest_api_merge_endpoints0/api_merge_repo",
+    "source_branch": "swarm/api-feat",
+    "target_branch": "target-api",
+    "strategy_used": "FAST_FORWARD",
+    "merge_commit": "200f09b24112e792f550ea4b96babdc1c72289fd",
+    "candidate_tree_sha": "2a5965c7569b41b56ee18e7b0a5a9ff1612354a7",
+    "conflict_files": [],
+    "resolved_files": [],
+    "test_results": null,
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-70e72bd6",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "executed_at": "2026-09-18T18:34:49.569172+00:00",
+    "error": null,
+    "decision": {
+      "merge_id": "merge-70e72bd6",
+      "session_id": null,
+      "source_branch": "swarm/api-feat",
+      "target_branch": "target-api",
+      "status": "SUCCESS",
+      "classification": "CLEAN_MERGE",
+      "mergeability": "FAST_FORWARD",
+      "strategy_used": "FAST_FORWARD",
+      "merge_commit": "200f09b24112e792f550ea4b96babdc1c72289fd",
+      "candidate_tree_sha": "2a5965c7569b41b56ee18e7b0a5a9ff1612354a7",
+      "conflict_files": [],
+      "resolved_files": [],
+      "reason": "Merge completed successfully using FAST_FORWARD",
+      "approval_id": null,
+      "executed_at": "2026-09-18T18:34:49.568905+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "fbbc699eca82424e236f559e0a93cb1c1255681c",
+        "source_commit": "200f09b24112e792f550ea4b96babdc1c72289fd",
+        "target_commit": "fbbc699eca82424e236f559e0a93cb1c1255681c",
+        "is_fast_forward": true,
+        "source_changes": {
+          "files_count": 1,
+          "files": {
+            "api_feat.txt": "A"
+          }
+        },
+        "target_changes": {
+          "files_count": 0,
+          "files": {}
+        },
+        "overlapping_files": [],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [],
+        "divergence": {
+          "behind": 0,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-70e72bd6",
+        "candidate_commit": "200f09b24112e792f550ea4b96babdc1c72289fd",
+        "candidate_tree_sha": "2a5965c7569b41b56ee18e7b0a5a9ff1612354a7",
+        "target_base_commit": "fbbc699eca82424e236f559e0a93cb1c1255681c",
+        "tests_executed": false,
+        "tests_passed": null,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "VERIFIED"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-2cd6ad2b": {
+    "merge_id": "merge-2cd6ad2b",
+    "status": "REQUIRES_HUMAN",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_merge_theirs_blocked_with0/repo",
+    "source_branch": "swarm/blind-theirs",
+    "target_branch": "target-blind",
+    "strategy_used": "THEIRS",
+    "merge_commit": "b851da2be07e55067083bf8284fabf4caca5921a",
+    "candidate_tree_sha": "2e56f47a9e256b2b5f4419eb897aca8ac44e1439",
+    "conflict_files": [
+      "calculator.py"
+    ],
+    "resolved_files": [],
+    "test_results": null,
+    "security_results": null,
+    "approval_id": null,
+    "executed_at": "2026-09-18T18:34:52.965349+00:00",
+    "error": "Strategy 'THEIRS' requires explicit policy allowance (allow_ours_theirs=True).",
+    "decision": {
+      "merge_id": "merge-2cd6ad2b",
+      "session_id": null,
+      "source_branch": "swarm/blind-theirs",
+      "target_branch": "target-blind",
+      "status": "REQUIRES_HUMAN",
+      "classification": "REQUIRES_HUMAN",
+      "mergeability": "RESOLVABLE_CONFLICT",
+      "strategy_used": "THEIRS",
+      "merge_commit": "b851da2be07e55067083bf8284fabf4caca5921a",
+      "candidate_tree_sha": "2e56f47a9e256b2b5f4419eb897aca8ac44e1439",
+      "conflict_files": [
+        "calculator.py"
+      ],
+      "resolved_files": [],
+      "reason": "Strategy 'THEIRS' requires explicit policy allowance (allow_ours_theirs=True).",
+      "approval_id": null,
+      "executed_at": "2026-09-18T18:34:52.965231+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "6b3cc9e3be604ff01384f2fe0a5b62ff6dbbd3af",
+        "source_commit": "450060e053123171ed454f2395b0cd0595f35747",
+        "target_commit": "b851da2be07e55067083bf8284fabf4caca5921a",
+        "is_fast_forward": false,
+        "source_changes": {
+          "files_count": 1,
+          "files": {
+            "calculator.py": "M"
+          }
+        },
+        "target_changes": {
+          "files_count": 1,
+          "files": {
+            "calculator.py": "M"
+          }
+        },
+        "overlapping_files": [
+          "calculator.py"
+        ],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [],
+        "divergence": {
+          "behind": 1,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-2cd6ad2b",
+        "candidate_commit": "b851da2be07e55067083bf8284fabf4caca5921a",
+        "candidate_tree_sha": "2e56f47a9e256b2b5f4419eb897aca8ac44e1439",
+        "target_base_commit": "b851da2be07e55067083bf8284fabf4caca5921a",
+        "tests_executed": false,
+        "tests_passed": null,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "PENDING"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-6c4520d0": {
+    "merge_id": "merge-6c4520d0",
+    "status": "REQUIRES_HUMAN",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_merge_low_confidence_conf0/repo",
+    "source_branch": "swarm/ambig-logic",
+    "target_branch": "target-ambig",
+    "strategy_used": "AUTO",
+    "merge_commit": "b5e0a3e6a76f00d55b1967684ddabf0a539d7786",
+    "candidate_tree_sha": "83179202eee8bb15fcae95210aa47203b7e15670",
+    "conflict_files": [
+      "calculator.py"
+    ],
+    "resolved_files": [],
+    "test_results": null,
+    "security_results": null,
+    "approval_id": null,
+    "executed_at": "2026-09-18T18:34:55.720926+00:00",
+    "error": "Insufficient confidence for autonomous conflict resolution in files: ['calculator.py']. Human review required.",
+    "decision": {
+      "merge_id": "merge-6c4520d0",
+      "session_id": null,
+      "source_branch": "swarm/ambig-logic",
+      "target_branch": "target-ambig",
+      "status": "REQUIRES_HUMAN",
+      "classification": "REQUIRES_HUMAN",
+      "mergeability": "RESOLVABLE_CONFLICT",
+      "strategy_used": "AUTO",
+      "merge_commit": "b5e0a3e6a76f00d55b1967684ddabf0a539d7786",
+      "candidate_tree_sha": "83179202eee8bb15fcae95210aa47203b7e15670",
+      "conflict_files": [
+        "calculator.py"
+      ],
+      "resolved_files": [],
+      "reason": "Insufficient confidence for autonomous conflict resolution in files: ['calculator.py']. Human review required.",
+      "approval_id": null,
+      "executed_at": "2026-09-18T18:34:55.720863+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "1ae5d4c04fec07901bca3e96d84045cf0ebcf24b",
+        "source_commit": "ff326051612fa3d98c231d0bc019b97a8c95cc71",
+        "target_commit": "b5e0a3e6a76f00d55b1967684ddabf0a539d7786",
+        "is_fast_forward": false,
+        "source_changes": {
+          "files_count": 1,
+          "files": {
+            "calculator.py": "M"
+          }
+        },
+        "target_changes": {
+          "files_count": 1,
+          "files": {
+            "calculator.py": "M"
+          }
+        },
+        "overlapping_files": [
+          "calculator.py"
+        ],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [],
+        "divergence": {
+          "behind": 1,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-6c4520d0",
+        "candidate_commit": "b5e0a3e6a76f00d55b1967684ddabf0a539d7786",
+        "candidate_tree_sha": "83179202eee8bb15fcae95210aa47203b7e15670",
+        "target_base_commit": "b5e0a3e6a76f00d55b1967684ddabf0a539d7786",
+        "tests_executed": false,
+        "tests_passed": null,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "PENDING"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-060894f4": {
+    "merge_id": "merge-060894f4",
+    "status": "WAITING_FOR_APPROVAL",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_merge_high_risk_policy_tr0/repo",
+    "source_branch": "swarm/touch-policy",
+    "target_branch": "target-gov",
+    "strategy_used": "FAST_FORWARD",
+    "merge_commit": "3025e74a3b910daa5ae87198dc1c327219eb0c7a",
+    "candidate_tree_sha": "adc42d04cee51115d17ce707ac2ccd2944e5c091",
+    "conflict_files": [],
+    "resolved_files": [],
+    "test_results": null,
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-060894f4",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": "appr-deab50",
+    "executed_at": "2026-09-18T18:34:58.515713+00:00",
+    "error": "Merge candidate verified cleanly and staged. Gated by high-risk policy: Touched sensitive categories: SECURITY_POLICY. Read-only operations and telemetry queries execute autonomously.. Approval ID: appr-deab50",
+    "decision": {
+      "merge_id": "merge-060894f4",
+      "session_id": null,
+      "source_branch": "swarm/touch-policy",
+      "target_branch": "target-gov",
+      "status": "WAITING_FOR_APPROVAL",
+      "classification": "HIGH_RISK",
+      "mergeability": "RESOLVABLE_CONFLICT",
+      "strategy_used": "FAST_FORWARD",
+      "merge_commit": "3025e74a3b910daa5ae87198dc1c327219eb0c7a",
+      "candidate_tree_sha": "adc42d04cee51115d17ce707ac2ccd2944e5c091",
+      "conflict_files": [],
+      "resolved_files": [],
+      "reason": "Merge candidate verified cleanly and staged. Gated by high-risk policy: Touched sensitive categories: SECURITY_POLICY. Read-only operations and telemetry queries execute autonomously.. Approval ID: appr-deab50",
+      "approval_id": "appr-deab50",
+      "executed_at": "2026-09-18T18:34:58.515634+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "4f24bbb1b0834794a26832544f0295acbddcbbf5",
+        "source_commit": "3025e74a3b910daa5ae87198dc1c327219eb0c7a",
+        "target_commit": "4f24bbb1b0834794a26832544f0295acbddcbbf5",
+        "is_fast_forward": true,
+        "source_changes": {
+          "files_count": 1,
+          "files": {
+            "backend/core/policy.py": "A"
+          }
+        },
+        "target_changes": {
+          "files_count": 0,
+          "files": {}
+        },
+        "overlapping_files": [],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [
+          "backend/core/policy.py"
+        ],
+        "divergence": {
+          "behind": 0,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-060894f4",
+        "candidate_commit": "3025e74a3b910daa5ae87198dc1c327219eb0c7a",
+        "candidate_tree_sha": "adc42d04cee51115d17ce707ac2ccd2944e5c091",
+        "target_base_commit": "4f24bbb1b0834794a26832544f0295acbddcbbf5",
+        "tests_executed": false,
+        "tests_passed": null,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "VERIFIED"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-bae00c54": {
+    "merge_id": "merge-bae00c54",
+    "status": "WAITING_FOR_APPROVAL",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_merge_approval_scoped_ide0/repo",
+    "source_branch": "swarm/scoped-feat",
+    "target_branch": "target-scoped",
+    "strategy_used": "FAST_FORWARD",
+    "merge_commit": "5ca53554ffdf5940bd0118cf42c7e9b5c143e36b",
+    "candidate_tree_sha": "7c97c340535cbb11cdc06ce6c40308bd5487bcb0",
+    "conflict_files": [],
+    "resolved_files": [],
+    "test_results": null,
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-bae00c54",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": "appr-dfd944",
+    "executed_at": "2026-09-18T18:35:01.542171+00:00",
+    "error": "Merge candidate verified cleanly and staged. Gated by high-risk policy: Touched sensitive categories: INFRASTRUCTURE_IAC. Read-only operations and telemetry queries execute autonomously.. Approval ID: appr-dfd944",
+    "decision": {
+      "merge_id": "merge-bae00c54",
+      "session_id": null,
+      "source_branch": "swarm/scoped-feat",
+      "target_branch": "target-scoped",
+      "status": "WAITING_FOR_APPROVAL",
+      "classification": "HIGH_RISK",
+      "mergeability": "RESOLVABLE_CONFLICT",
+      "strategy_used": "FAST_FORWARD",
+      "merge_commit": "5ca53554ffdf5940bd0118cf42c7e9b5c143e36b",
+      "candidate_tree_sha": "7c97c340535cbb11cdc06ce6c40308bd5487bcb0",
+      "conflict_files": [],
+      "resolved_files": [],
+      "reason": "Merge candidate verified cleanly and staged. Gated by high-risk policy: Touched sensitive categories: INFRASTRUCTURE_IAC. Read-only operations and telemetry queries execute autonomously.. Approval ID: appr-dfd944",
+      "approval_id": "appr-dfd944",
+      "executed_at": "2026-09-18T18:35:01.542092+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "0800614aa3f28b477f78e3aecc57708dcf04f77a",
+        "source_commit": "5ca53554ffdf5940bd0118cf42c7e9b5c143e36b",
+        "target_commit": "0800614aa3f28b477f78e3aecc57708dcf04f77a",
+        "is_fast_forward": true,
+        "source_changes": {
+          "files_count": 1,
+          "files": {
+            "infra/service.tf": "A"
+          }
+        },
+        "target_changes": {
+          "files_count": 0,
+          "files": {}
+        },
+        "overlapping_files": [],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [
+          "infra/service.tf"
+        ],
+        "divergence": {
+          "behind": 0,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-bae00c54",
+        "candidate_commit": "5ca53554ffdf5940bd0118cf42c7e9b5c143e36b",
+        "candidate_tree_sha": "7c97c340535cbb11cdc06ce6c40308bd5487bcb0",
+        "target_base_commit": "0800614aa3f28b477f78e3aecc57708dcf04f77a",
+        "tests_executed": false,
+        "tests_passed": null,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "VERIFIED"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-cead9599": {
+    "merge_id": "merge-cead9599",
+    "status": "SUCCESS",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_merge_approval_scoped_ide0/repo",
+    "source_branch": "swarm/scoped-feat",
+    "target_branch": "target-scoped",
+    "strategy_used": "FAST_FORWARD",
+    "merge_commit": "5ca53554ffdf5940bd0118cf42c7e9b5c143e36b",
+    "candidate_tree_sha": "7c97c340535cbb11cdc06ce6c40308bd5487bcb0",
+    "conflict_files": [],
+    "resolved_files": [],
+    "test_results": {
+      "status": "PASSED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-cead9599",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": "appr-dfd944",
+    "executed_at": "2026-09-18T18:35:06.210510+00:00",
+    "error": null,
+    "decision": {
+      "merge_id": "merge-cead9599",
+      "session_id": null,
+      "source_branch": "swarm/scoped-feat",
+      "target_branch": "target-scoped",
+      "status": "SUCCESS",
+      "classification": "CLEAN_MERGE",
+      "mergeability": "DANGEROUS_PATH_VIOLATION",
+      "strategy_used": "FAST_FORWARD",
+      "merge_commit": "5ca53554ffdf5940bd0118cf42c7e9b5c143e36b",
+      "candidate_tree_sha": "7c97c340535cbb11cdc06ce6c40308bd5487bcb0",
+      "conflict_files": [],
+      "resolved_files": [],
+      "reason": "Merge completed successfully using FAST_FORWARD",
+      "approval_id": "appr-dfd944",
+      "executed_at": "2026-09-18T18:35:06.210340+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "0800614aa3f28b477f78e3aecc57708dcf04f77a",
+        "source_commit": "5ca53554ffdf5940bd0118cf42c7e9b5c143e36b",
+        "target_commit": "0800614aa3f28b477f78e3aecc57708dcf04f77a",
+        "is_fast_forward": true,
+        "source_changes": {
+          "files_count": 1,
+          "files": {
+            "infra/service.tf": "A"
+          }
+        },
+        "target_changes": {
+          "files_count": 0,
+          "files": {}
+        },
+        "overlapping_files": [],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [
+          "infra/service.tf"
+        ],
+        "divergence": {
+          "behind": 0,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-cead9599",
+        "candidate_commit": "5ca53554ffdf5940bd0118cf42c7e9b5c143e36b",
+        "candidate_tree_sha": "7c97c340535cbb11cdc06ce6c40308bd5487bcb0",
+        "target_base_commit": "0800614aa3f28b477f78e3aecc57708dcf04f77a",
+        "tests_executed": true,
+        "tests_passed": true,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "VERIFIED"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-9192775b": {
+    "merge_id": "merge-9192775b",
+    "status": "APPROVAL_INVALID",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_merge_approval_scoped_ide0/repo",
+    "source_branch": "swarm/scoped-feat",
+    "target_branch": "target-scoped",
+    "strategy_used": "AUTO",
+    "merge_commit": null,
+    "candidate_tree_sha": null,
+    "conflict_files": [],
+    "resolved_files": [],
+    "test_results": null,
+    "security_results": null,
+    "approval_id": "appr-dfd944",
+    "executed_at": "2026-09-18T18:35:06.940111+00:00",
+    "error": "Approval 'appr-dfd944' is invalid or already executed. Replay blocked.",
+    "decision": null
+  },
+  "merge-7c888695": {
+    "merge_id": "merge-7c888695",
+    "status": "STALE_TARGET_BRANCH",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_merge_staleness_detection0/repo",
+    "source_branch": "swarm/stale-branch",
+    "target_branch": "target-stale",
+    "strategy_used": "THREE_WAY",
+    "merge_commit": "c8711ae98c6335bfd677d9a199bd47854a70f520",
+    "candidate_tree_sha": "8597435fff832eb01ab2b712abb65b29fe7b50c1",
+    "conflict_files": [],
+    "resolved_files": [],
+    "test_results": null,
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-7c888695",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "executed_at": "2026-09-18T18:35:10.228474+00:00",
+    "error": "Target branch 'target-stale' advanced from 20e96227 to d8c6df9b during arbitration. Re-arbitration required.",
+    "decision": {
+      "merge_id": "merge-7c888695",
+      "session_id": null,
+      "source_branch": "swarm/stale-branch",
+      "target_branch": "target-stale",
+      "status": "STALE_TARGET_BRANCH",
+      "classification": "REQUIRES_HUMAN",
+      "mergeability": "FAST_FORWARD",
+      "strategy_used": "THREE_WAY",
+      "merge_commit": "c8711ae98c6335bfd677d9a199bd47854a70f520",
+      "candidate_tree_sha": "8597435fff832eb01ab2b712abb65b29fe7b50c1",
+      "conflict_files": [],
+      "resolved_files": [],
+      "reason": "Target branch 'target-stale' advanced from 20e96227 to d8c6df9b during arbitration. Re-arbitration required.",
+      "approval_id": null,
+      "executed_at": "2026-09-18T18:35:10.228396+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "20e962276ecbcf2e3f35c28c432f3b15e9a9f685",
+        "source_commit": "a2ce6575a0ba1b41e19768f7ba138d0efea1113d",
+        "target_commit": "20e962276ecbcf2e3f35c28c432f3b15e9a9f685",
+        "is_fast_forward": true,
+        "source_changes": {
+          "files_count": 1,
+          "files": {
+            "stale_feat.py": "A"
+          }
+        },
+        "target_changes": {
+          "files_count": 0,
+          "files": {}
+        },
+        "overlapping_files": [],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [],
+        "divergence": {
+          "behind": 0,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-7c888695",
+        "candidate_commit": "c8711ae98c6335bfd677d9a199bd47854a70f520",
+        "candidate_tree_sha": "8597435fff832eb01ab2b712abb65b29fe7b50c1",
+        "target_base_commit": "20e962276ecbcf2e3f35c28c432f3b15e9a9f685",
+        "tests_executed": false,
+        "tests_passed": null,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "VERIFIED"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-f8d1d230": {
+    "merge_id": "merge-f8d1d230",
+    "status": "REJECTED",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_multi_agent_review_and_ca0/repo",
+    "source_branch": "swarm/fleet-branch",
+    "target_branch": "target-fleet",
+    "strategy_used": "FAST_FORWARD",
+    "merge_commit": "02dc295393cb3418d3eb54708e2426a4785861ad",
+    "candidate_tree_sha": "1a2c2d58b9119ab9144b119104d8b72ac1d5b5c8",
+    "conflict_files": [],
+    "resolved_files": [],
+    "test_results": null,
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-f8d1d230",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": "appr-27b958",
+    "executed_at": "2026-09-18T18:35:12.852749+00:00",
+    "error": "Denied by operator security review",
+    "decision": {
+      "merge_id": "merge-f8d1d230",
+      "session_id": null,
+      "source_branch": "swarm/fleet-branch",
+      "target_branch": "target-fleet",
+      "status": "REJECTED",
+      "classification": "REJECTED",
+      "mergeability": "RESOLVABLE_CONFLICT",
+      "strategy_used": "FAST_FORWARD",
+      "merge_commit": "02dc295393cb3418d3eb54708e2426a4785861ad",
+      "candidate_tree_sha": "1a2c2d58b9119ab9144b119104d8b72ac1d5b5c8",
+      "conflict_files": [],
+      "resolved_files": [],
+      "reason": "Denied by operator security review",
+      "approval_id": "appr-27b958",
+      "executed_at": "2026-09-18T18:35:12.852665+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "8b98a2e9244d5bf6b1a9470e96206c5341c6d582",
+        "source_commit": "02dc295393cb3418d3eb54708e2426a4785861ad",
+        "target_commit": "8b98a2e9244d5bf6b1a9470e96206c5341c6d582",
+        "is_fast_forward": true,
+        "source_changes": {
+          "files_count": 1,
+          "files": {
+            "infra/db.tf": "A"
+          }
+        },
+        "target_changes": {
+          "files_count": 0,
+          "files": {}
+        },
+        "overlapping_files": [],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [
+          "infra/db.tf"
+        ],
+        "divergence": {
+          "behind": 0,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-f8d1d230",
+        "candidate_commit": "02dc295393cb3418d3eb54708e2426a4785861ad",
+        "candidate_tree_sha": "1a2c2d58b9119ab9144b119104d8b72ac1d5b5c8",
+        "target_base_commit": "8b98a2e9244d5bf6b1a9470e96206c5341c6d582",
+        "tests_executed": false,
+        "tests_passed": null,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "VERIFIED"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-b38260e7": {
+    "merge_id": "merge-b38260e7",
+    "status": "SUCCESS",
+    "repo_path": "/tmp/pytest-of-root/pytest-389/test_autonomous_mission_execut0/mission_repo",
+    "source_branch": "mission/mission-8712287f",
+    "target_branch": "main",
+    "strategy_used": "FAST_FORWARD",
+    "merge_commit": "cdf79b33988d67e22bce9f1e9f6ecbe2dcd88734",
+    "candidate_tree_sha": "98bac1d4b7f759087716babde70ab0b58d0b6eb4",
+    "conflict_files": [],
+    "resolved_files": [],
+    "test_results": {
+      "status": "PASSED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-b38260e7",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "executed_at": "2026-09-18T18:36:26.987196+00:00",
+    "error": null,
+    "decision": {
+      "merge_id": "merge-b38260e7",
+      "session_id": null,
+      "source_branch": "mission/mission-8712287f",
+      "target_branch": "main",
+      "status": "SUCCESS",
+      "classification": "CLEAN_MERGE",
+      "mergeability": "FAST_FORWARD",
+      "strategy_used": "FAST_FORWARD",
+      "merge_commit": "cdf79b33988d67e22bce9f1e9f6ecbe2dcd88734",
+      "candidate_tree_sha": "98bac1d4b7f759087716babde70ab0b58d0b6eb4",
+      "conflict_files": [],
+      "resolved_files": [],
+      "reason": "Merge completed successfully using FAST_FORWARD",
+      "approval_id": null,
+      "executed_at": "2026-09-18T18:36:26.986916+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "6d0b9fac75d0f3555b481f18c926939e5f88a002",
+        "source_commit": "cdf79b33988d67e22bce9f1e9f6ecbe2dcd88734",
+        "target_commit": "6d0b9fac75d0f3555b481f18c926939e5f88a002",
+        "is_fast_forward": true,
+        "source_changes": {
+          "files_count": 4,
+          "files": {
+            "docs/MATH_CALCULATOR_SPEC.md": "A",
+            "docs/MISSION_NOTES.md": "A",
+            "math_calculator.py": "A",
+            "test_math_calculator.py": "A"
+          }
+        },
+        "target_changes": {
+          "files_count": 0,
+          "files": {}
+        },
+        "overlapping_files": [],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [],
+        "divergence": {
+          "behind": 0,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-b38260e7",
+        "candidate_commit": "cdf79b33988d67e22bce9f1e9f6ecbe2dcd88734",
+        "candidate_tree_sha": "98bac1d4b7f759087716babde70ab0b58d0b6eb4",
+        "target_base_commit": "6d0b9fac75d0f3555b481f18c926939e5f88a002",
+        "tests_executed": true,
+        "tests_passed": true,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "VERIFIED"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-8530e0cc": {
+    "merge_id": "merge-8530e0cc",
+    "status": "SUCCESS",
+    "repo_path": "/tmp/pytest-of-root/pytest-389/test_ephemeral_worktree_zero_p0/mission_repo",
+    "source_branch": "mission/mission-c1527e6e",
+    "target_branch": "main",
+    "strategy_used": "FAST_FORWARD",
+    "merge_commit": "46c82265e49ef19a198c16286cb284777b8d76e6",
+    "candidate_tree_sha": "2191a7dfe968cefe23723a17fcc9b233b4e58baa",
+    "conflict_files": [],
+    "resolved_files": [],
+    "test_results": {
+      "status": "PASSED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-8530e0cc",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "executed_at": "2026-09-18T18:36:38.355572+00:00",
+    "error": null,
+    "decision": {
+      "merge_id": "merge-8530e0cc",
+      "session_id": null,
+      "source_branch": "mission/mission-c1527e6e",
+      "target_branch": "main",
+      "status": "SUCCESS",
+      "classification": "CLEAN_MERGE",
+      "mergeability": "FAST_FORWARD",
+      "strategy_used": "FAST_FORWARD",
+      "merge_commit": "46c82265e49ef19a198c16286cb284777b8d76e6",
+      "candidate_tree_sha": "2191a7dfe968cefe23723a17fcc9b233b4e58baa",
+      "conflict_files": [],
+      "resolved_files": [],
+      "reason": "Merge completed successfully using FAST_FORWARD",
+      "approval_id": null,
+      "executed_at": "2026-09-18T18:36:38.355363+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "a66c43152c785d497cf1ca3cd7ffb94071a784d4",
+        "source_commit": "46c82265e49ef19a198c16286cb284777b8d76e6",
+        "target_commit": "a66c43152c785d497cf1ca3cd7ffb94071a784d4",
+        "is_fast_forward": true,
+        "source_changes": {
+          "files_count": 4,
+          "files": {
+            "docs/MATH_MODULE_SPEC.md": "A",
+            "docs/MISSION_NOTES.md": "A",
+            "math_module.py": "A",
+            "test_math_module.py": "A"
+          }
+        },
+        "target_changes": {
+          "files_count": 0,
+          "files": {}
+        },
+        "overlapping_files": [],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [],
+        "divergence": {
+          "behind": 0,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-8530e0cc",
+        "candidate_commit": "46c82265e49ef19a198c16286cb284777b8d76e6",
+        "candidate_tree_sha": "2191a7dfe968cefe23723a17fcc9b233b4e58baa",
+        "target_base_commit": "a66c43152c785d497cf1ca3cd7ffb94071a784d4",
+        "tests_executed": true,
+        "tests_passed": true,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "VERIFIED"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-c3ddb900": {
+    "merge_id": "merge-c3ddb900",
+    "status": "SUCCESS",
+    "repo_path": "/tmp/pytest-of-root/pytest-389/test_closed_loop_remediation_h0/mission_repo",
+    "source_branch": "mission/mission-b81f33c4",
+    "target_branch": "main",
+    "strategy_used": "FAST_FORWARD",
+    "merge_commit": "c53c5e7ee04538c057b33b1982d40ad7ef083b2a",
+    "candidate_tree_sha": "27fee8c20837b2523262ee88ab2593db50f3e486",
+    "conflict_files": [],
+    "resolved_files": [],
+    "test_results": {
+      "status": "PASSED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-c3ddb900",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "executed_at": "2026-09-18T18:36:48.722051+00:00",
+    "error": null,
+    "decision": {
+      "merge_id": "merge-c3ddb900",
+      "session_id": null,
+      "source_branch": "mission/mission-b81f33c4",
+      "target_branch": "main",
+      "status": "SUCCESS",
+      "classification": "CLEAN_MERGE",
+      "mergeability": "FAST_FORWARD",
+      "strategy_used": "FAST_FORWARD",
+      "merge_commit": "c53c5e7ee04538c057b33b1982d40ad7ef083b2a",
+      "candidate_tree_sha": "27fee8c20837b2523262ee88ab2593db50f3e486",
+      "conflict_files": [],
+      "resolved_files": [],
+      "reason": "Merge completed successfully using FAST_FORWARD",
+      "approval_id": null,
+      "executed_at": "2026-09-18T18:36:48.721924+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "501838fa07d4a702636355b075c2613775a79c5c",
+        "source_commit": "c53c5e7ee04538c057b33b1982d40ad7ef083b2a",
+        "target_commit": "501838fa07d4a702636355b075c2613775a79c5c",
+        "is_fast_forward": true,
+        "source_changes": {
+          "files_count": 4,
+          "files": {
+            "docs/FIBONACCI_SEQUENCE_SPEC.md": "A",
+            "docs/MISSION_NOTES.md": "A",
+            "fibonacci_sequence.py": "A",
+            "test_fibonacci_sequence.py": "A"
+          }
+        },
+        "target_changes": {
+          "files_count": 0,
+          "files": {}
+        },
+        "overlapping_files": [],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [],
+        "divergence": {
+          "behind": 0,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-c3ddb900",
+        "candidate_commit": "c53c5e7ee04538c057b33b1982d40ad7ef083b2a",
+        "candidate_tree_sha": "27fee8c20837b2523262ee88ab2593db50f3e486",
+        "target_base_commit": "501838fa07d4a702636355b075c2613775a79c5c",
+        "tests_executed": true,
+        "tests_passed": true,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "VERIFIED"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-a36db758": {
+    "merge_id": "merge-a36db758",
+    "status": "SUCCESS",
+    "repo_path": "/tmp/pytest-of-root/pytest-389/test_mission_to_github_deliver0/mission_repo",
+    "source_branch": "mission/mission-cd159f00",
+    "target_branch": "main",
+    "strategy_used": "FAST_FORWARD",
+    "merge_commit": "f77379cfd1d09459644bc113f168d861909e5b6e",
+    "candidate_tree_sha": "e72ad325c571a79bd23c0aece71137baa4e46dfb",
+    "conflict_files": [],
+    "resolved_files": [],
+    "test_results": {
+      "status": "PASSED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-a36db758",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "executed_at": "2026-09-18T18:37:02.461902+00:00",
+    "error": null,
+    "decision": {
+      "merge_id": "merge-a36db758",
+      "session_id": null,
+      "source_branch": "mission/mission-cd159f00",
+      "target_branch": "main",
+      "status": "SUCCESS",
+      "classification": "CLEAN_MERGE",
+      "mergeability": "FAST_FORWARD",
+      "strategy_used": "FAST_FORWARD",
+      "merge_commit": "f77379cfd1d09459644bc113f168d861909e5b6e",
+      "candidate_tree_sha": "e72ad325c571a79bd23c0aece71137baa4e46dfb",
+      "conflict_files": [],
+      "resolved_files": [],
+      "reason": "Merge completed successfully using FAST_FORWARD",
+      "approval_id": null,
+      "executed_at": "2026-09-18T18:37:02.461839+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "190f9ba5a827274e3f63065d1982242820d19996",
+        "source_commit": "f77379cfd1d09459644bc113f168d861909e5b6e",
+        "target_commit": "190f9ba5a827274e3f63065d1982242820d19996",
+        "is_fast_forward": true,
+        "source_changes": {
+          "files_count": 4,
+          "files": {
+            "calculator_module.py": "A",
+            "docs/CALCULATOR_MODULE_SPEC.md": "A",
+            "docs/MISSION_NOTES.md": "A",
+            "test_calculator_module.py": "A"
+          }
+        },
+        "target_changes": {
+          "files_count": 0,
+          "files": {}
+        },
+        "overlapping_files": [],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [],
+        "dangerous_path_changes": [],
+        "divergence": {
+          "behind": 0,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-a36db758",
+        "candidate_commit": "f77379cfd1d09459644bc113f168d861909e5b6e",
+        "candidate_tree_sha": "e72ad325c571a79bd23c0aece71137baa4e46dfb",
+        "target_base_commit": "190f9ba5a827274e3f63065d1982242820d19996",
+        "tests_executed": true,
+        "tests_passed": true,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "VERIFIED"
+      },
+      "multi_agent_review": null
+    }
+  },
+  "merge-29321eec": {
+    "merge_id": "merge-29321eec",
+    "status": "SUCCESS",
+    "repo_path": "/tmp/nexus_factory_test_xs1yk53e",
+    "source_branch": "factory/mission-e37576fc",
+    "target_branch": "main",
+    "strategy_used": "FAST_FORWARD",
+    "merge_commit": "738a3f461b8e6bc4511f60e7ae3b6e841e91095c",
+    "candidate_tree_sha": "2be3e17025b58b4a9bd9fd4872c6c4d3fc4046fa",
+    "conflict_files": [],
+    "resolved_files": [],
+    "test_results": {
+      "status": "PASSED"
+    },
+    "security_results": {
+      "project_id": "/root/control-center/data/worktrees/merge-29321eec",
+      "status": "CLEAN",
+      "cves_found": 0,
+      "secrets_leaked": 0,
+      "findings_count": 0,
+      "findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "leaked_locations": [],
+      "iam_misconfigurations": 0,
+      "clean": true,
+      "execution_mode": "REAL_REGEX_SCAN"
+    },
+    "approval_id": null,
+    "executed_at": "2026-09-18T18:40:16.148849+00:00",
+    "error": null,
+    "decision": {
+      "merge_id": "merge-29321eec",
+      "session_id": null,
+      "source_branch": "factory/mission-e37576fc",
+      "target_branch": "main",
+      "status": "SUCCESS",
+      "classification": "CLEAN_MERGE",
+      "mergeability": "UNRESOLVABLE_CONFLICT",
+      "strategy_used": "FAST_FORWARD",
+      "merge_commit": "738a3f461b8e6bc4511f60e7ae3b6e841e91095c",
+      "candidate_tree_sha": "2be3e17025b58b4a9bd9fd4872c6c4d3fc4046fa",
+      "conflict_files": [],
+      "resolved_files": [],
+      "reason": "Merge completed successfully using FAST_FORWARD",
+      "approval_id": null,
+      "executed_at": "2026-09-18T18:40:16.148726+00:00",
+      "three_way_analysis": {
+        "merge_base_commit": "e1d7cce78d3599e92d5493807a6d3c6a20849442",
+        "source_commit": "738a3f461b8e6bc4511f60e7ae3b6e841e91095c",
+        "target_commit": "e1d7cce78d3599e92d5493807a6d3c6a20849442",
+        "is_fast_forward": true,
+        "source_changes": {
+          "files_count": 5,
+          "files": {
+            "__pycache__/test_token_bucket.cpython-314-pytest-9.1.1.pyc": "A",
+            "__pycache__/token_bucket.cpython-314.pyc": "A",
+            "docs/TOKEN_BUCKET_SPEC.md": "A",
+            "test_token_bucket.py": "A",
+            "token_bucket.py": "A"
+          }
+        },
+        "target_changes": {
+          "files_count": 0,
+          "files": {}
+        },
+        "overlapping_files": [],
+        "rename_delete_conflicts": [],
+        "binary_conflicts": [
+          "__pycache__/test_token_bucket.cpython-314-pytest-9.1.1.pyc",
+          "__pycache__/token_bucket.cpython-314.pyc"
+        ],
+        "dangerous_path_changes": [],
+        "divergence": {
+          "behind": 0,
+          "ahead": 1
+        }
+      },
+      "verification_candidate": {
+        "ephemeral_worktree_path": "/root/control-center/data/worktrees/merge-29321eec",
+        "candidate_commit": "738a3f461b8e6bc4511f60e7ae3b6e841e91095c",
+        "candidate_tree_sha": "2be3e17025b58b4a9bd9fd4872c6c4d3fc4046fa",
+        "target_base_commit": "e1d7cce78d3599e92d5493807a6d3c6a20849442",
+        "tests_executed": true,
+        "tests_passed": true,
+        "test_output": null,
+        "security_clean": true,
+        "security_findings": [],
+        "verification_status": "VERIFIED"
+      },
+      "multi_agent_review": null
+    }
   }
 }

@@ -76,5 +76,18 @@
     "slsa_provenance_hash": "f57e39588abd2b9af4bbe17e48d2de7ca8bab29eebbf2d3cf4fde77b34ce874a",
     "provenance_chain_hash": "414fc7a4da7f2f26",
     "delivered_at": "2026-09-18T15:30:14.950455+00:00"
+  },
+  "prod-cacafb": {
+    "product_id": "prod-cacafb",
+    "product_name": "customer-billing-engine",
+    "archetype": "MICROSERVICE_API",
+    "spec_id": "spec-52c5a9a4",
+    "build_id": "build-c3269a59",
+    "workspace_path": "/root/control-center/data/product_builder/workspaces/build-c3269a59",
+    "version": "1.0.0",
+    "status": "READY_FOR_DEPLOYMENT",
+    "slsa_provenance_hash": "1c03fb5af530a47129552faf048aad849e7b847d2b508e25f66721e50e93041a",
+    "provenance_chain_hash": "6556f2ef8bb9595e",
+    "delivered_at": "2026-09-18T18:05:53.160827+00:00"
   }
 }

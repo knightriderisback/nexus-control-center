@@ -607,6 +607,196 @@ def cmd_delivery(args):
     else:
         print("Usage: eco delivery [list | publish [candidate_id] | pr [delivery_id] | review <delivery_id> | merge <delivery_id> | status <delivery_id> | cancel <delivery_id>]")
 
+def cmd_c2(args):
+    print_banner()
+    sub = args[0] if len(args) > 0 else "status"
+    if sub == "status":
+        state = api_get("/c2/system-state")
+        print(f"\n{BOLD}C2 GLOBAL OPERATIONS STATE:{RESET}")
+        print(f"Global Health:   {GREEN}{state.get('system_health_score', 100)}%{RESET}")
+        print(f"Projects:        {state.get('active_projects_count', 0)}")
+        print(f"Active Missions: {state.get('active_missions_count', 0)}")
+        print(f"Kill Switch:     {RED if state.get('kill_switch_active') else GREEN}{'ACTIVE' if state.get('kill_switch_active') else 'ARMED (INACTIVE)'}{RESET}")
+        print(f"FinOps Incurred: {GREEN}${state.get('finops_spend_usd', 0.0):.2f}{RESET}")
+    elif sub in ["execute", "exec"] and len(args) > 1:
+        prompt = " ".join(args[1:])
+        print(f"\n{CYAN}[C2 ENGINE]{RESET} Executing directive: {BOLD}\"{prompt}\"{RESET}")
+        res = api_post("/c2/dispatch", {"raw_prompt": prompt, "operator_context": "eco-cli"})
+        scolor = GREEN if res.get("state") == "COMPLETED" else (YELLOW if res.get("state") == "AWAITING_APPROVAL" else RED)
+        print(f"\n{BOLD}Directive ID:{RESET}  {CYAN}{res.get('directive_id')}{RESET}")
+        print(f"{BOLD}State:{RESET}         {scolor}{res.get('state')}{RESET}")
+        print(f"{BOLD}Intent:{RESET}        {res.get('resolved_intent')}")
+        print(f"{BOLD}Duration:{RESET}      {res.get('duration_ms', 0)}ms")
+        if res.get("stdout"):
+            print(f"\n{BOLD}Output:{RESET}\n{res.get('stdout')}")
+        if res.get("requires_approval"):
+            print(f"\n{RED}{BOLD}🛑 [APPROVAL REQUIRED: {res.get('approval_id')}]{RESET}")
+            print(f"Run: {BOLD}eco approvals approve {res.get('approval_id')}{RESET}")
+    elif sub == "plan" and len(args) > 1:
+        prompt = " ".join(args[1:])
+        print(f"\n{CYAN}[C2 PLANNER]{RESET} Synthesizing plan for: {BOLD}\"{prompt}\"{RESET}")
+        plan = api_post("/command/preview", {"raw_prompt": prompt, "operator_context": "eco-cli"})
+        print(f"\n{BOLD}Plan ID:{RESET}       {CYAN}{plan.get('directive_id') or 'plan-sim'}{RESET}")
+        print(f"{BOLD}Intent:{RESET}        {plan.get('resolved_intent')}")
+        print(f"{BOLD}Risk Level:{RESET}    {plan.get('risk_level')}")
+        print(f"{BOLD}Subsystems:{RESET}    {plan.get('dispatched_subsystems')}")
+        if plan.get("stdout"):
+            print(f"{BOLD}Preview:{RESET}       {plan.get('stdout')}")
+    elif sub == "kill-switch":
+        res = api_post("/c2/emergency/kill", {"reason": "Triggered via CLI operator", "operator": "eco-cli"})
+        print(f"\n{RED}{BOLD}🛑 EMERGENCY FLEET KILL-SWITCH TRIGGERED{RESET}")
+        print(f"Detail: {res.get('detail')}")
+    elif sub == "reset":
+        res = api_post("/c2/emergency/reset", {})
+        print(f"\n{GREEN}✓ Emergency kill-switch reset. Fleet unlocked.{RESET}")
+    elif sub == "timeline":
+        tl = api_get("/operations/timeline")
+        print(f"\n{BOLD}{'TIME':<20} {'STAGE':<12} {'ACTION':<30} {'ACTOR':<15}{RESET}")
+        print("=" * 80)
+        for e in tl[:20]:
+            print(f"{e.get('timestamp', '')[:19]:<20} {CYAN}{e.get('stage', ''):<12}{RESET} {e.get('action', '')[:28]:<30} {e.get('actor', '')[:14]:<15}")
+    elif sub == "events":
+        evs = api_get("/operations/events")
+        print(f"\n{BOLD}{'TIME':<20} {'TYPE':<25} {'SOURCE':<15} {'HASH':<16}{RESET}")
+        print("=" * 80)
+        for ev in evs[:20]:
+            print(f"{ev.get('timestamp', '')[:19]:<20} {GREEN}{ev.get('event_type', ''):<25}{RESET} {ev.get('source_subsystem', ''):<15} {ev.get('cryptographic_hash', '')[:15]:<16}")
+    else:
+        print("Usage: eco c2 [status | execute <prompt> | plan <prompt> | kill-switch | reset | timeline | events]")
+
+def cmd_healing(args):
+    print_banner()
+    sub = args[0] if len(args) > 0 else "list"
+    if sub == "list":
+        incidents = api_get("/self-healing/incidents")
+        print(f"\n{BOLD}{'INCIDENT ID':<16} {'SEVERITY':<12} {'CATEGORY':<25} {'STATUS':<12}{RESET}")
+        print("=" * 70)
+        for inc in incidents:
+            scolor = RED if inc.get("severity") in ["CRITICAL", "HIGH"] else YELLOW
+            stcolor = GREEN if inc.get("status") in ["RESOLVED", "HEALED"] else YELLOW
+            print(f"{CYAN}{inc.get('incident_id'):<16}{RESET} {scolor}{inc.get('severity', ''):<12}{RESET} {inc.get('category', ''):<25} {stcolor}{inc.get('status', ''):<12}{RESET}")
+    elif sub in ["playbooks", "recipes"]:
+        playbooks = api_get("/self-healing/playbooks")
+        print(f"\n{BOLD}AVAILABLE SELF-HEALING PLAYBOOKS ({len(playbooks)}):{RESET}")
+        for p in playbooks:
+            print(f"  • {BOLD}{p.get('name')}{RESET} ({p.get('playbook_id')}): {p.get('strategy')}")
+    else:
+        print("Usage: eco healing [list | playbooks]")
+
+def cmd_knowledge(args):
+    print_banner()
+    sub = args[0] if len(args) > 0 else "nodes"
+    if sub == "nodes":
+        nodes = api_get("/knowledge/nodes")
+        print(f"\n{BOLD}{'NODE ID':<16} {'TIER':<12} {'CATEGORY':<20} {'TITLE'}{RESET}")
+        print("=" * 80)
+        for n in nodes:
+            print(f"{CYAN}{n.get('node_id'):<16}{RESET} {n.get('tier', ''):<12} {n.get('category', ''):<20} {n.get('title', '')[:30]}")
+    elif sub == "query" and len(args) > 1:
+        query_text = " ".join(args[1:])
+        print(f"\n{CYAN}[KNOWLEDGE ENGINE]{RESET} Querying graph for: {BOLD}\"{query_text}\"{RESET}")
+        res = api_post("/knowledge/query", {"query": query_text, "limit": 5})
+        print(f"\n{BOLD}Confidence Score:{RESET} {GREEN}{res.get('confidence_score', 0):.2f}{RESET}")
+        for m in res.get("matches", []):
+            print(f"  • [{m.get('tier')}] {BOLD}{m.get('title')}{RESET} (Score: {m.get('similarity_score', 0):.2f})")
+            print(f"    {m.get('content', '')[:120]}...")
+    elif sub == "insights":
+        insights = api_get("/learning/insights")
+        print(f"\n{BOLD}LEARNING INSIGHTS ({len(insights)}):{RESET}")
+        for ins in insights:
+            print(f"  • [{ins.get('category')}] {BOLD}{ins.get('insight_text')}{RESET} (Confidence: {ins.get('confidence')})")
+    else:
+        print("Usage: eco knowledge [nodes | query <text> | insights]")
+
+def cmd_tools(args):
+    print_banner()
+    sub = args[0] if len(args) > 0 else "list"
+    if sub == "list":
+        tools = api_get("/tools")
+        print(f"\n{BOLD}{'TOOL ID':<22} {'CATEGORY':<18} {'SAFETY TIER':<15} {'NAME'}{RESET}")
+        print("=" * 80)
+        for t in tools:
+            print(f"{CYAN}{t.get('tool_id'):<22}{RESET} {t.get('category', ''):<18} {t.get('safety_tier', ''):<15} {t.get('name', '')}")
+    elif sub == "apps":
+        apps = api_get("/tools/apps")
+        print(f"\n{BOLD}{'APP ID':<20} {'TYPE':<15} {'STATUS':<12} {'NAME'}{RESET}")
+        print("=" * 70)
+        for a in apps:
+            print(f"{CYAN}{a.get('app_id'):<20}{RESET} {a.get('app_type', ''):<15} {GREEN}{a.get('status', '')}{RESET:<12} {a.get('name', '')}")
+    else:
+        print("Usage: eco tools [list | apps]")
+
+def cmd_factory(args):
+    print_banner()
+    sub = args[0] if len(args) > 0 else "records"
+    if sub == "records":
+        records = api_get("/factory/records")
+        print(f"\n{BOLD}{'RECORD ID':<20} {'TEMPLATE':<18} {'STATUS':<12} {'GOAL'}{RESET}")
+        print("=" * 80)
+        for r in records:
+            scolor = GREEN if r.get("status") == "COMPLETED" else YELLOW
+            print(f"{CYAN}{r.get('record_id'):<20}{RESET} {r.get('template', ''):<18} {scolor}{r.get('status', ''):<12}{RESET} {r.get('goal', '')[:28]}")
+    elif sub == "templates":
+        templates = api_get("/factory/templates")
+        print(f"\n{BOLD}AVAILABLE SOFTWARE FACTORY TEMPLATES ({len(templates)}):{RESET}")
+        for t in templates:
+            if isinstance(t, dict):
+                print(f"  • {BOLD}{t.get('template_id')}{RESET} ({t.get('name')}): {t.get('description')}")
+            else:
+                print(f"  • {BOLD}{t}{RESET}")
+    else:
+        print("Usage: eco factory [records | templates]")
+
+def cmd_operations(args):
+    print_banner()
+    sub = args[0] if len(args) > 0 else "fleet"
+    if sub == "fleet":
+        fleet = api_get("/project-operations/fleet")
+        projects = api_get("/project-operations/projects")
+        print(f"\n{BOLD}FLEET OVERVIEW ({fleet.get('total_projects')} Projects):{RESET}")
+        print(f"Avg Health Score: {GREEN}{fleet.get('fleet_health_score')}%{RESET}")
+        print(f"SLA Compliance:   {GREEN}{fleet.get('overall_sla_compliance_pct')}%{RESET}")
+        print(f"\n{BOLD}{'PROJECT':<24} {'TYPE':<15} {'HEALTH':<10} {'STATE':<14} {'DIRTY'}{RESET}")
+        print("=" * 75)
+        for p in projects:
+            hcol = GREEN if p.get("health_score", 0) >= 90 else YELLOW
+            dirty_col = RED if p.get("git_status", {}).get("is_dirty") else GREEN
+            print(f"{CYAN}{p.get('project_id'):<24}{RESET} {p.get('project_type', ''):<15} {hcol}{p.get('health_score')}%{RESET:<10} {p.get('lifecycle_state', ''):<14} {dirty_col}{p.get('git_status', {}).get('is_dirty')}{RESET}")
+    elif sub == "drift":
+        pid = args[1] if len(args) > 1 else None
+        payload = {"project_id": pid, "auto_reconcile": True} if pid else {"auto_reconcile": True}
+        print(f"\n{CYAN}[DRIFT RADAR]{RESET} Scanning for drift across approved workspaces...")
+        drifts = api_post("/project-operations/drift/detect", payload)
+        print(f"\n{BOLD}Drift Findings ({len(drifts)}):{RESET}")
+        for d in drifts:
+            print(f"  • [{d.get('project_id')}] {d.get('drift_type')}: {d.get('detail')} (Reconciled: {d.get('auto_reconciled')})")
+    elif sub == "releases":
+        rels = api_get("/project-operations/releases")
+        print(f"\n{BOLD}{'RELEASE ID':<20} {'PROJECT':<20} {'VERSION':<10} {'STRATEGY'}{RESET}")
+        print("=" * 70)
+        for r in rels:
+            print(f"{CYAN}{r.get('release_id'):<20}{RESET} {r.get('project_id', ''):<20} {r.get('version', ''):<10} {r.get('strategy', '')}")
+    else:
+        print("Usage: eco operations [fleet | drift [project_id] | releases]")
+
+def cmd_adaptive(args):
+    print_banner()
+    sub = args[0] if len(args) > 0 else "missions"
+    if sub == "missions":
+        missions = api_get("/adaptive-execution/missions")
+        print(f"\n{BOLD}{'MISSION ID':<20} {'STATE':<14} {'ROUNDS':<8} {'GOAL'}{RESET}")
+        print("=" * 75)
+        for m in missions:
+            scolor = GREEN if m.get("state") == "COMPLETED" else YELLOW
+            print(f"{CYAN}{m.get('mission_id'):<20}{RESET} {scolor}{m.get('state', ''):<14}{RESET} {m.get('remediation_rounds', 0):<8} {m.get('goal', '')[:30]}")
+    elif sub == "decisions":
+        decs = api_get("/mission-decisions")
+        print(f"\n{BOLD}ADAPTIVE MISSION DECISIONS ({len(decs)}):{RESET}")
+        for d in decs[:15]:
+            print(f"  • [{d.get('decision_type')}] {BOLD}{d.get('selected_strategy')}{RESET} on {d.get('mission_id')}")
+    else:
+        print("Usage: eco adaptive [missions | decisions]")
+
 def cmd_logs():
     print_banner()
     audit_events = api_get("/audit")
@@ -688,8 +878,22 @@ def main():
         cmd_github(sys.argv[2:])
     elif subcmd in ["delivery", "deliveries"]:
         cmd_delivery(sys.argv[2:])
+    elif subcmd in ["c2", "command", "control"]:
+        cmd_c2(sys.argv[2:])
+    elif subcmd in ["healing", "heal"]:
+        cmd_healing(sys.argv[2:])
+    elif subcmd in ["knowledge", "know"]:
+        cmd_knowledge(sys.argv[2:])
+    elif subcmd in ["tools", "tool"]:
+        cmd_tools(sys.argv[2:])
+    elif subcmd in ["factory"]:
+        cmd_factory(sys.argv[2:])
+    elif subcmd in ["operations", "ops", "lifecycle"]:
+        cmd_operations(sys.argv[2:])
+    elif subcmd in ["adaptive", "intelligence"]:
+        cmd_adaptive(sys.argv[2:])
     elif subcmd in ["help", "--help", "-h"]:
-        print("Usage: eco <status|daemon|delivery|github|mission|provider|worktrees|merge|merges|projects|agents|audit|test|security|deploy|approvals|brief|cost|secrets|jobs|docs|logs|traces|\"prompt\">")
+        print("Usage: eco <status|daemon|c2|operations|factory|adaptive|healing|knowledge|tools|delivery|github|mission|provider|worktrees|merge|merges|projects|agents|audit|test|security|deploy|approvals|brief|cost|secrets|jobs|docs|logs|traces|\"prompt\">")
     else:
         prompt = " ".join(sys.argv[1:])
         cmd_natural_language(prompt)

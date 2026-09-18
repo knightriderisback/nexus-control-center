@@ -110,5 +110,19 @@
       "Replans Count: 0/3"
     ],
     "created_at": "2026-09-18T15:25:36.929809+00:00"
+  },
+  {
+    "feedback_id": "fb-e1194f8d",
+    "mission_id": "mis-adapt-99a69046",
+    "insight_id": "ins-f8b203f7",
+    "category": "OPERATIONAL",
+    "pattern": "Mission mis-adapt-99a69046 (Synthesize full plan through API) completed with 0 in-flight adaptations.",
+    "outcome": "COMPLETED",
+    "supporting_evidence": [
+      "Overall Outcome: COMPLETED",
+      "Total Tokens Consumed: 2520/4000",
+      "Replans Count: 0/3"
+    ],
+    "created_at": "2026-09-18T18:05:18.930544+00:00"
   }
 ]

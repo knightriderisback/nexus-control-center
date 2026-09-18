@@ -114,5 +114,141 @@
     ],
     "resulting_state": "PENDING",
     "timestamp": "2026-09-18T09:59:39.053474+00:00"
+  },
+  {
+    "event_id": "adp-5be7b705",
+    "mission_id": "mis-adapt-1221662b",
+    "task_id": "task-cce6a8",
+    "trigger_reason": "TransientSocketTimeout: Primary implementation pipeline timed out.",
+    "strategy": "DYNAMIC_FALLBACK_BRANCH",
+    "knowledge_node_id_used": "kn-86745202",
+    "why": "Primary task 'Core Implementation & Execution' encountered failure. Activating pre-computed resilient fallback.",
+    "evidence": [
+      "Failure reason: TransientSocketTimeout: Primary implementation pipeline timed out.",
+      "Pre-verified fallback branch available in DAG."
+    ],
+    "injected_task_ids": [],
+    "resulting_state": "ADAPTED",
+    "timestamp": "2026-09-18T18:45:28.352294+00:00"
+  },
+  {
+    "event_id": "adp-6de84a9c",
+    "mission_id": "mis-adapt-1221662b",
+    "task_id": "task-89d9db",
+    "trigger_reason": "Pre-verification syntax linting anomaly detected",
+    "strategy": "INJECT_REMEDIATION_SUBDAG",
+    "knowledge_node_id_used": "kn-037c9287",
+    "why": "Injected dynamic remediation node task-rem-f8b65e to repair precondition before re-attempting task-89d9db.",
+    "evidence": [
+      "Trigger: Pre-verification syntax linting anomaly detected",
+      "Referenced Knowledge Node: kn-037c9287"
+    ],
+    "injected_task_ids": [
+      "task-rem-f8b65e"
+    ],
+    "resulting_state": "PENDING",
+    "timestamp": "2026-09-18T18:45:28.736112+00:00"
+  },
+  {
+    "event_id": "adp-b0833ccb",
+    "mission_id": "mis-adapt-591c315e",
+    "task_id": "task-3b2c0f",
+    "trigger_reason": "TransientSocketTimeout: Primary implementation pipeline timed out.",
+    "strategy": "DYNAMIC_FALLBACK_BRANCH",
+    "knowledge_node_id_used": "kn-86745202",
+    "why": "Primary task 'Core Implementation & Execution' encountered failure. Activating pre-computed resilient fallback.",
+    "evidence": [
+      "Failure reason: TransientSocketTimeout: Primary implementation pipeline timed out.",
+      "Pre-verified fallback branch available in DAG."
+    ],
+    "injected_task_ids": [],
+    "resulting_state": "ADAPTED",
+    "timestamp": "2026-09-18T18:45:31.927395+00:00"
+  },
+  {
+    "event_id": "adp-6f923f50",
+    "mission_id": "mis-adapt-591c315e",
+    "task_id": "task-68cc4c",
+    "trigger_reason": "Pre-verification syntax linting anomaly detected",
+    "strategy": "INJECT_REMEDIATION_SUBDAG",
+    "knowledge_node_id_used": "kn-037c9287",
+    "why": "Injected dynamic remediation node task-rem-df02ed to repair precondition before re-attempting task-68cc4c.",
+    "evidence": [
+      "Trigger: Pre-verification syntax linting anomaly detected",
+      "Referenced Knowledge Node: kn-037c9287"
+    ],
+    "injected_task_ids": [
+      "task-rem-df02ed"
+    ],
+    "resulting_state": "PENDING",
+    "timestamp": "2026-09-18T18:45:32.242542+00:00"
+  },
+  {
+    "event_id": "adp-97cd21ec",
+    "mission_id": "mis-adapt-df6de8f0",
+    "task_id": "task-337ef7",
+    "trigger_reason": "TransientSocketTimeout: Primary implementation pipeline timed out.",
+    "strategy": "DYNAMIC_FALLBACK_BRANCH",
+    "knowledge_node_id_used": "kn-86745202",
+    "why": "Primary task 'Core Implementation & Execution' encountered failure. Activating pre-computed resilient fallback.",
+    "evidence": [
+      "Failure reason: TransientSocketTimeout: Primary implementation pipeline timed out.",
+      "Pre-verified fallback branch available in DAG."
+    ],
+    "injected_task_ids": [],
+    "resulting_state": "ADAPTED",
+    "timestamp": "2026-09-18T18:51:35.837128+00:00"
+  },
+  {
+    "event_id": "adp-6d2c8866",
+    "mission_id": "mis-adapt-df6de8f0",
+    "task_id": "task-86601e",
+    "trigger_reason": "Pre-verification syntax linting anomaly detected",
+    "strategy": "INJECT_REMEDIATION_SUBDAG",
+    "knowledge_node_id_used": "kn-037c9287",
+    "why": "Injected dynamic remediation node task-rem-9b2160 to repair precondition before re-attempting task-86601e.",
+    "evidence": [
+      "Trigger: Pre-verification syntax linting anomaly detected",
+      "Referenced Knowledge Node: kn-037c9287"
+    ],
+    "injected_task_ids": [
+      "task-rem-9b2160"
+    ],
+    "resulting_state": "PENDING",
+    "timestamp": "2026-09-18T18:51:36.118371+00:00"
+  },
+  {
+    "event_id": "adp-b8a4aef9",
+    "mission_id": "mis-adapt-5671b647",
+    "task_id": "task-7a473d",
+    "trigger_reason": "TransientSocketTimeout: Primary implementation pipeline timed out.",
+    "strategy": "DYNAMIC_FALLBACK_BRANCH",
+    "knowledge_node_id_used": "kn-86745202",
+    "why": "Primary task 'Core Implementation & Execution' encountered failure. Activating pre-computed resilient fallback.",
+    "evidence": [
+      "Failure reason: TransientSocketTimeout: Primary implementation pipeline timed out.",
+      "Pre-verified fallback branch available in DAG."
+    ],
+    "injected_task_ids": [],
+    "resulting_state": "ADAPTED",
+    "timestamp": "2026-09-18T18:51:39.375233+00:00"
+  },
+  {
+    "event_id": "adp-87780cdd",
+    "mission_id": "mis-adapt-5671b647",
+    "task_id": "task-b97599",
+    "trigger_reason": "Pre-verification syntax linting anomaly detected",
+    "strategy": "INJECT_REMEDIATION_SUBDAG",
+    "knowledge_node_id_used": "kn-037c9287",
+    "why": "Injected dynamic remediation node task-rem-27db5e to repair precondition before re-attempting task-b97599.",
+    "evidence": [
+      "Trigger: Pre-verification syntax linting anomaly detected",
+      "Referenced Knowledge Node: kn-037c9287"
+    ],
+    "injected_task_ids": [
+      "task-rem-27db5e"
+    ],
+    "resulting_state": "PENDING",
+    "timestamp": "2026-09-18T18:51:39.728450+00:00"
   }
 ]

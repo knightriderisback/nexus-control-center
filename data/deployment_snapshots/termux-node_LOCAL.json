@@ -1,5 +1,5 @@
 {
-  "deployment_id": "dep-ebb62355",
+  "deployment_id": "dep-14e9d765",
   "project_id": "termux-node",
   "service_name": "mobile-receiver",
   "version": "v1.0.5",
@@ -13,9 +13,9 @@
     {
       "stage_name": "PRE_FLIGHT",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:15.322334+00:00",
-      "completed_at": "2026-09-18T17:58:15.322471+00:00",
-      "duration_ms": 0.06,
+      "started_at": "2026-09-18T18:27:58.801900+00:00",
+      "completed_at": "2026-09-18T18:27:58.801967+00:00",
+      "duration_ms": 0.03,
       "logs": [
         "Verifying pre-flight conditions for project 'termux-node'...",
         "Target: TERMUX_NODE | Env: LOCAL | Strategy: DIRECT_REPLACE",
@@ -29,9 +29,9 @@
     {
       "stage_name": "BUILD_PACKAGING",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:15.383536+00:00",
-      "completed_at": "2026-09-18T17:58:15.383638+00:00",
-      "duration_ms": 0.04,
+      "started_at": "2026-09-18T18:27:58.807039+00:00",
+      "completed_at": "2026-09-18T18:27:58.807105+00:00",
+      "duration_ms": 0.02,
       "logs": [
         "Executing packaging strategy for target 'TERMUX_NODE'...",
         "Packaging OTA distribution archive for 'mobile-receiver'...",
@@ -44,12 +44,12 @@
     {
       "stage_name": "POLICY_FINOPS",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:15.447684+00:00",
-      "completed_at": "2026-09-18T17:58:18.704508+00:00",
-      "duration_ms": 3256.75,
+      "started_at": "2026-09-18T18:27:58.813004+00:00",
+      "completed_at": "2026-09-18T18:28:02.033922+00:00",
+      "duration_ms": 3220.84,
       "logs": [
         "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
-        "Security Gate dep-ev-c238b74e: 5 findings, decision=BLOCK",
+        "Security Gate dep-ev-054d987a: 5 findings, decision=BLOCK",
         "Current incurred cost: $0.00. Budget limit: $0.00.",
         "[PASS] Strict zero-spend policy & Security Gate verified."
       ],
@@ -59,8 +59,8 @@
     {
       "stage_name": "APPROVAL_GATE",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:18.847631+00:00",
-      "completed_at": "2026-09-18T17:58:18.847685+00:00",
+      "started_at": "2026-09-18T18:28:02.039644+00:00",
+      "completed_at": "2026-09-18T18:28:02.039698+00:00",
       "duration_ms": 0.01,
       "logs": [
         "Evaluating approval policy (Risk Level: LOW)...",
@@ -72,8 +72,8 @@
     {
       "stage_name": "DISPATCH_DEPLOY",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:18.909282+00:00",
-      "completed_at": "2026-09-18T17:58:18.909393+00:00",
+      "started_at": "2026-09-18T18:28:02.046604+00:00",
+      "completed_at": "2026-09-18T18:28:02.046745+00:00",
       "duration_ms": 0.04,
       "logs": [
         "Dispatching payload to target 'TERMUX_NODE'...",
@@ -86,9 +86,9 @@
     {
       "stage_name": "HEALTH_PROBE",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:18.970633+00:00",
-      "completed_at": "2026-09-18T17:58:18.970739+00:00",
-      "duration_ms": 0.04,
+      "started_at": "2026-09-18T18:28:02.053758+00:00",
+      "completed_at": "2026-09-18T18:28:02.053832+00:00",
+      "duration_ms": 0.02,
       "logs": [
         "Executing synthetic SLA health probe on http://127.0.0.1:8080/termux...",
         "Checking Termux node heartbeat acknowledgment...",
@@ -103,9 +103,9 @@
     {
       "stage_name": "PROMOTE_CANARY",
       "status": "SUCCESS",
-      "started_at": "2026-09-18T17:58:19.029914+00:00",
-      "completed_at": "2026-09-18T17:58:19.029969+00:00",
-      "duration_ms": 0.01,
+      "started_at": "2026-09-18T18:28:02.067391+00:00",
+      "completed_at": "2026-09-18T18:28:02.067522+00:00",
+      "duration_ms": 0.04,
       "logs": [
         "Applying deployment strategy: DIRECT_REPLACE...",
         "100% traffic switched to active release v1.0.5.",
@@ -124,12 +124,12 @@
   "requires_approval": false,
   "approval_id": null,
   "created_by": "test-suite",
-  "created_at": "2026-09-18T17:58:15.257282+00:00",
-  "completed_at": "2026-09-18T17:58:19.090072+00:00",
-  "duration_seconds": 3.77,
+  "created_at": "2026-09-18T18:27:58.795295+00:00",
+  "completed_at": "2026-09-18T18:28:02.082302+00:00",
+  "duration_seconds": 3.28,
   "rollback_target_id": null,
   "changelog": [],
-  "dora_lead_time_seconds": 3.77,
+  "dora_lead_time_seconds": 3.28,
   "metadata": {
     "notes": null,
     "health_check_path": "/api/health",

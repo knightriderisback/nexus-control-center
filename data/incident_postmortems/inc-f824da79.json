@@ -1,0 +1,32 @@
+{
+  "incident_id": "inc-f824da79",
+  "title": "Critical Production Latency Breach",
+  "category": "HEALTH_CHECK_FAILURE",
+  "severity": "CRITICAL",
+  "root_cause": "Automated RCA: HEALTH_CHECK_FAILURE identified on production-gateway-proxy",
+  "diagnosis_evidence": {
+    "observed_facts": [
+      "Observed failure signal in category 'HEALTH_CHECK_FAILURE'",
+      "Target resource impacted: 'production-gateway-proxy'",
+      "Severity classified as 'CRITICAL'",
+      "Telemetry metric 'latency_ms': 3200",
+      "Telemetry metric '5xx_rate': 18.2"
+    ],
+    "hypotheses": [
+      "Possible bad artifact build, port binding conflict, or broken dependency."
+    ],
+    "evidence_sources": [
+      "system_watchdog",
+      "kernel_metrics",
+      "audit_log_stream"
+    ],
+    "confidence_score": 0.95,
+    "root_cause_candidate": "Automated RCA: HEALTH_CHECK_FAILURE identified on production-gateway-proxy"
+  },
+  "playbook_applied": "Automated Production Deployment Rollback",
+  "recovery_attempts": 1,
+  "mttr_seconds": 0.04,
+  "remediation_steps_count": 4,
+  "generated_at": "2026-09-18T18:28:37.393944+00:00",
+  "status": "RESOLVED_AUTOMATICALLY"
+}

@@ -4768,5 +4768,254 @@
     "status": "TEARDOWN",
     "commit_hash": "bab993e10eb55a0d3a1f587b7e82c146ab269c92",
     "torn_down_at": "2026-09-17T17:49:25.140940+00:00"
+  },
+  "sess-61fc7b18": {
+    "session_id": "sess-61fc7b18",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_session_engine_with_workt0/repo",
+    "worktree_path": "/root/control-center/data/worktrees/sess-61fc7b18",
+    "branch_name": "swarm/sess-61fc7b18",
+    "created_at": "2026-09-18T18:33:17.147608+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "83512e32129c37bac798d5460f20b8344d4bd8dd",
+    "torn_down_at": "2026-09-18T18:33:25.620280+00:00"
+  },
+  "sess-32e3617e": {
+    "session_id": "sess-32e3617e",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_session_engine_worktree_a0/repo",
+    "worktree_path": "/root/control-center/data/worktrees/sess-32e3617e",
+    "branch_name": "swarm/sess-32e3617e",
+    "created_at": "2026-09-18T18:33:26.789487+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "407e9608d88b6efd460c7717984ee03babfeb8c1",
+    "torn_down_at": "2026-09-18T18:33:36.557729+00:00"
+  },
+  "sess-c55552af": {
+    "session_id": "sess-c55552af",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_session_engine_worktree_r0/repo",
+    "worktree_path": "/root/control-center/data/worktrees/sess-c55552af",
+    "branch_name": "swarm/sess-c55552af",
+    "created_at": "2026-09-18T18:33:37.728387+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "d720ea56261a8bad0e9e727a60a69c07c4b154b8",
+    "torn_down_at": "2026-09-18T18:33:38.417472+00:00"
+  },
+  "api-sess-9235f4": {
+    "session_id": "api-sess-9235f4",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_rest_api_worktrees0/api_repo",
+    "worktree_path": "/root/control-center/data/worktrees/api-sess-9235f4",
+    "branch_name": "swarm/api-sess-9235f4",
+    "created_at": "2026-09-18T18:33:39.634059+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "9055ccc8ad03e4340607b81685b6bc87640c8b7a",
+    "torn_down_at": "2026-09-18T18:33:40.106828+00:00"
+  },
+  "sess-3be2066b": {
+    "session_id": "sess-3be2066b",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_session_engine_restart_re0/repo",
+    "worktree_path": "/root/control-center/data/worktrees/sess-3be2066b",
+    "branch_name": "swarm/sess-3be2066b",
+    "created_at": "2026-09-18T18:33:42.757086+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "a158ea45976619ae55c332f9c75efd461fa3720c",
+    "torn_down_at": "2026-09-18T18:33:49.115947+00:00"
+  },
+  "sess-4cb3bb8c": {
+    "session_id": "sess-4cb3bb8c",
+    "repo_path": "/tmp/pytest-of-root/pytest-388/test_session_engine_auto_merge0/repo",
+    "worktree_path": "/root/control-center/data/worktrees/sess-4cb3bb8c",
+    "branch_name": "swarm/sess-4cb3bb8c",
+    "created_at": "2026-09-18T18:34:32.573345+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "4c4d0630064334a4254e6ff198e1e6d7f0fd5769",
+    "torn_down_at": "2026-09-18T18:34:44.925431+00:00"
+  },
+  "mission-8712287f": {
+    "session_id": "mission-8712287f",
+    "repo_path": "/tmp/pytest-of-root/pytest-389/test_autonomous_mission_execut0/mission_repo",
+    "worktree_path": "/root/control-center/data/worktrees/mission-8712287f",
+    "branch_name": "mission/mission-8712287f",
+    "created_at": "2026-09-18T18:36:15.427546+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "6d0b9fac75d0f3555b481f18c926939e5f88a002",
+    "torn_down_at": "2026-09-18T18:36:27.652912+00:00"
+  },
+  "mission-c1527e6e": {
+    "session_id": "mission-c1527e6e",
+    "repo_path": "/tmp/pytest-of-root/pytest-389/test_ephemeral_worktree_zero_p0/mission_repo",
+    "worktree_path": "/root/control-center/data/worktrees/mission-c1527e6e",
+    "branch_name": "mission/mission-c1527e6e",
+    "created_at": "2026-09-18T18:36:28.976691+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "a66c43152c785d497cf1ca3cd7ffb94071a784d4",
+    "torn_down_at": "2026-09-18T18:36:38.853099+00:00"
+  },
+  "mission-b81f33c4": {
+    "session_id": "mission-b81f33c4",
+    "repo_path": "/tmp/pytest-of-root/pytest-389/test_closed_loop_remediation_h0/mission_repo",
+    "worktree_path": "/root/control-center/data/worktrees/mission-b81f33c4",
+    "branch_name": "mission/mission-b81f33c4",
+    "created_at": "2026-09-18T18:36:40.082504+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "501838fa07d4a702636355b075c2613775a79c5c",
+    "torn_down_at": "2026-09-18T18:36:49.283002+00:00"
+  },
+  "mission-0238e8ac": {
+    "session_id": "mission-0238e8ac",
+    "repo_path": "/tmp/pytest-of-root/pytest-389/test_remediation_exhaustion_on0/mission_repo",
+    "worktree_path": "/root/control-center/data/worktrees/mission-0238e8ac",
+    "branch_name": "mission/mission-0238e8ac",
+    "created_at": "2026-09-18T18:36:50.441239+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "797653cd26e95efa5a2fe2048dc3050d740081d0",
+    "torn_down_at": "2026-09-18T18:36:50.986775+00:00"
+  },
+  "mission-cd159f00": {
+    "session_id": "mission-cd159f00",
+    "repo_path": "/tmp/pytest-of-root/pytest-389/test_mission_to_github_deliver0/mission_repo",
+    "worktree_path": "/root/control-center/data/worktrees/mission-cd159f00",
+    "branch_name": "mission/mission-cd159f00",
+    "created_at": "2026-09-18T18:36:54.377493+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "190f9ba5a827274e3f63065d1982242820d19996",
+    "torn_down_at": "2026-09-18T18:37:03.975026+00:00"
+  },
+  "mission-28773923": {
+    "session_id": "mission-28773923",
+    "repo_path": "/root/control-center",
+    "worktree_path": "/root/control-center/data/worktrees/mission-28773923",
+    "branch_name": "mission/mission-28773923",
+    "created_at": "2026-09-18T18:37:12.213404+00:00",
+    "status": "ACTIVE",
+    "commit_hash": "c59eff748b872f12f246da0840609ba83d0e34c4"
+  },
+  "mission-2eac204a": {
+    "session_id": "mission-2eac204a",
+    "repo_path": "/tmp/nexus_factory_test_sw87v7mx",
+    "worktree_path": "/root/control-center/data/worktrees/mission-2eac204a",
+    "branch_name": "factory/mission-2eac204a",
+    "created_at": "2026-09-18T18:37:36.661853+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "04152d556e261f8ceea2afc8e6f26b7c2fc84fbb",
+    "torn_down_at": "2026-09-18T18:37:42.085367+00:00"
+  },
+  "mission-c3454aaf": {
+    "session_id": "mission-c3454aaf",
+    "repo_path": "/tmp/nexus_factory_test_8vs1i9o0",
+    "worktree_path": "/root/control-center/data/worktrees/mission-c3454aaf",
+    "branch_name": "factory/mission-c3454aaf",
+    "created_at": "2026-09-18T18:37:45.032685+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "37ad9b13881a68d9b2a66f185e7f30d17a1c9234",
+    "torn_down_at": "2026-09-18T18:37:51.161104+00:00"
+  },
+  "mission-31a3307e": {
+    "session_id": "mission-31a3307e",
+    "repo_path": "/tmp/nexus_factory_test_o2p9k1ua",
+    "worktree_path": "/root/control-center/data/worktrees/mission-31a3307e",
+    "branch_name": "factory/mission-31a3307e",
+    "created_at": "2026-09-18T18:37:53.891770+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "f0aee2bfcac68af298de45805f3b76a77d266665",
+    "torn_down_at": "2026-09-18T18:37:59.280025+00:00"
+  },
+  "mission-5f1843b8": {
+    "session_id": "mission-5f1843b8",
+    "repo_path": "/tmp/nexus_factory_test_nn_0b8il",
+    "worktree_path": "/root/control-center/data/worktrees/mission-5f1843b8",
+    "branch_name": "factory/mission-5f1843b8",
+    "created_at": "2026-09-18T18:38:02.340529+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "bd0100fe46cad57e40f81dcacb341850fbdfd840",
+    "torn_down_at": "2026-09-18T18:38:08.034970+00:00"
+  },
+  "mission-67ddb23b": {
+    "session_id": "mission-67ddb23b",
+    "repo_path": "/tmp/nexus_factory_test_j31fegls",
+    "worktree_path": "/root/control-center/data/worktrees/mission-67ddb23b",
+    "branch_name": "factory/mission-67ddb23b",
+    "created_at": "2026-09-18T18:38:10.755106+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "29409fbdd59ae8ac1fff6a5dd1053a25a774bf4d",
+    "torn_down_at": "2026-09-18T18:38:16.586924+00:00"
+  },
+  "mission-02710f93": {
+    "session_id": "mission-02710f93",
+    "repo_path": "/tmp/nexus_factory_test_g0a79r48",
+    "worktree_path": "/root/control-center/data/worktrees/mission-02710f93",
+    "branch_name": "factory/mission-02710f93",
+    "created_at": "2026-09-18T18:38:19.305693+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "307132116d31298eed64de5921ffe286873ee55e",
+    "torn_down_at": "2026-09-18T18:38:24.287436+00:00"
+  },
+  "mission-e0b446c8": {
+    "session_id": "mission-e0b446c8",
+    "repo_path": "/tmp/nexus_factory_test_pqfs5_3w",
+    "worktree_path": "/root/control-center/data/worktrees/mission-e0b446c8",
+    "branch_name": "factory/mission-e0b446c8",
+    "created_at": "2026-09-18T18:38:27.011306+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "96952d6b0301f1c7066569b98b5fa834475d05b0",
+    "torn_down_at": "2026-09-18T18:38:35.723308+00:00"
+  },
+  "mission-cf15b14b": {
+    "session_id": "mission-cf15b14b",
+    "repo_path": "/tmp/nexus_factory_test_1gmutbxb",
+    "worktree_path": "/root/control-center/data/worktrees/mission-cf15b14b",
+    "branch_name": "factory/mission-cf15b14b",
+    "created_at": "2026-09-18T18:38:38.896095+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "7207f12466c3e92759c04becee4d3dec771e455c",
+    "torn_down_at": "2026-09-18T18:38:45.126553+00:00"
+  },
+  "mission-cf693d4b": {
+    "session_id": "mission-cf693d4b",
+    "repo_path": "/tmp/nexus_factory_test_gazn1_68",
+    "worktree_path": "/root/control-center/data/worktrees/mission-cf693d4b",
+    "branch_name": "factory/mission-cf693d4b",
+    "created_at": "2026-09-18T18:38:48.278919+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "d8e8076d95b9667181eacbf896d5f97bc09050de",
+    "torn_down_at": "2026-09-18T18:39:08.863592+00:00"
+  },
+  "mission-faf43116": {
+    "session_id": "mission-faf43116",
+    "repo_path": "/tmp/nexus_factory_test_09h18f8q",
+    "worktree_path": "/root/control-center/data/worktrees/mission-faf43116",
+    "branch_name": "factory/mission-faf43116",
+    "created_at": "2026-09-18T18:39:22.705282+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "1beeb0b97338603876954e8feec6cea0a6a2b611",
+    "torn_down_at": "2026-09-18T18:39:32.203344+00:00"
+  },
+  "mission-e37576fc": {
+    "session_id": "mission-e37576fc",
+    "repo_path": "/tmp/nexus_factory_test_xs1yk53e",
+    "worktree_path": "/root/control-center/data/worktrees/mission-e37576fc",
+    "branch_name": "factory/mission-e37576fc",
+    "created_at": "2026-09-18T18:39:47.003316+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "e1d7cce78d3599e92d5493807a6d3c6a20849442",
+    "torn_down_at": "2026-09-18T18:40:16.533453+00:00"
+  },
+  "mission-70f0d147": {
+    "session_id": "mission-70f0d147",
+    "repo_path": "/tmp/nexus_factory_test_o07fq3vv",
+    "worktree_path": "/root/control-center/data/worktrees/mission-70f0d147",
+    "branch_name": "factory/mission-70f0d147",
+    "created_at": "2026-09-18T18:40:24.331596+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "faf13fa2ff433a4e190c8342dead19e965ef4eb9",
+    "torn_down_at": "2026-09-18T18:40:30.765528+00:00"
+  },
+  "mission-42520710": {
+    "session_id": "mission-42520710",
+    "repo_path": "/root/control-center",
+    "worktree_path": "/root/control-center/data/worktrees/mission-42520710",
+    "branch_name": "mission/mission-42520710",
+    "created_at": "2026-09-18T18:41:34.854647+00:00",
+    "status": "TEARDOWN",
+    "commit_hash": "c59eff748b872f12f246da0840609ba83d0e34c4",
+    "torn_down_at": "2026-09-18T18:43:17.776064+00:00"
   }
 }

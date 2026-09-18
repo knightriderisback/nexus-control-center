@@ -17784,5 +17784,948 @@
     "approval_id": "appr-6812c7",
     "error": "Rolled back to baseline state after verification failure.",
     "last_feedback": "QA test verification failed: Test assertions failed"
+  },
+  "sess-15f0e6a5": {
+    "session_id": "sess-15f0e6a5",
+    "session_name": "dag-violation-test",
+    "directive": "Audit architecture",
+    "current_state": "CODE_SYNTHESIS",
+    "planner_agent": "agent-research",
+    "coder_agent": "agent-dev",
+    "verifier_agent": "agent-qa",
+    "project_id": "control-center",
+    "target_workspace": "/root/control-center/data/fixtures/developer_test_repo",
+    "revision_count": 0,
+    "max_revisions": 2,
+    "auto_rollback_on_failure": true,
+    "isolate_worktree": false,
+    "auto_cleanup_worktree": false,
+    "isolated_worktree": null,
+    "worktree_branch": null,
+    "auto_merge_on_completion": false,
+    "merge_target_branch": null,
+    "merge_result": null,
+    "spec_proposal": null,
+    "code_artifacts": null,
+    "verification_results": null,
+    "security_results": null,
+    "transitions": [
+      {
+        "transition_id": "trans-d8040d15",
+        "from_state": "INITIALIZING",
+        "to_state": "SPEC_PROPOSAL",
+        "trigger_agent": "agent-research",
+        "timestamp": "2026-09-18T18:30:54.559054+00:00",
+        "payload": {},
+        "reason": "Spec discovery"
+      },
+      {
+        "transition_id": "trans-785d674b",
+        "from_state": "SPEC_PROPOSAL",
+        "to_state": "CODE_SYNTHESIS",
+        "trigger_agent": "agent-dev",
+        "timestamp": "2026-09-18T18:30:54.625854+00:00",
+        "payload": {},
+        "reason": "Synthesizing"
+      }
+    ],
+    "created_at": "2026-09-18T18:30:54.444860+00:00",
+    "updated_at": "2026-09-18T18:30:54.626014+00:00",
+    "checkpoint_id": null,
+    "status": "INITIALIZED",
+    "approval_id": null,
+    "error": null,
+    "last_feedback": null
+  },
+  "sess-b5e25a4e": {
+    "session_id": "sess-b5e25a4e",
+    "session_name": "terminal-state-test",
+    "directive": "Quick probe",
+    "current_state": "COMPLETED",
+    "planner_agent": "agent-research",
+    "coder_agent": "agent-dev",
+    "verifier_agent": "agent-qa",
+    "project_id": "control-center",
+    "target_workspace": "/root/control-center/data/fixtures/developer_test_repo",
+    "revision_count": 0,
+    "max_revisions": 2,
+    "auto_rollback_on_failure": true,
+    "isolate_worktree": false,
+    "auto_cleanup_worktree": false,
+    "isolated_worktree": null,
+    "worktree_branch": null,
+    "auto_merge_on_completion": false,
+    "merge_target_branch": null,
+    "merge_result": null,
+    "spec_proposal": null,
+    "code_artifacts": null,
+    "verification_results": null,
+    "security_results": null,
+    "transitions": [],
+    "created_at": "2026-09-18T18:30:54.692549+00:00",
+    "updated_at": "2026-09-18T18:30:54.692574+00:00",
+    "checkpoint_id": null,
+    "status": "INITIALIZED",
+    "approval_id": null,
+    "error": null,
+    "last_feedback": null
+  },
+  "sess-d7a4aec2": {
+    "session_id": "sess-d7a4aec2",
+    "session_name": "in-flight-lock-test",
+    "directive": "Verify locks",
+    "current_state": "INITIALIZING",
+    "planner_agent": "agent-research",
+    "coder_agent": "agent-dev",
+    "verifier_agent": "agent-qa",
+    "project_id": "control-center",
+    "target_workspace": "/root/control-center/data/fixtures/fixture-qa-passing",
+    "revision_count": 0,
+    "max_revisions": 2,
+    "auto_rollback_on_failure": true,
+    "isolate_worktree": false,
+    "auto_cleanup_worktree": false,
+    "isolated_worktree": null,
+    "worktree_branch": null,
+    "auto_merge_on_completion": false,
+    "merge_target_branch": null,
+    "merge_result": null,
+    "spec_proposal": null,
+    "code_artifacts": null,
+    "verification_results": null,
+    "security_results": null,
+    "transitions": [],
+    "created_at": "2026-09-18T18:30:54.767641+00:00",
+    "updated_at": "2026-09-18T18:30:54.767695+00:00",
+    "checkpoint_id": null,
+    "status": "INITIALIZED",
+    "approval_id": null,
+    "error": null,
+    "last_feedback": null
+  },
+  "sess-d5632c2e": {
+    "session_id": "sess-d5632c2e",
+    "session_name": "idempotent-test",
+    "directive": "Check idempotency",
+    "current_state": "COMPLETED",
+    "planner_agent": "agent-research",
+    "coder_agent": "agent-dev",
+    "verifier_agent": "agent-qa",
+    "project_id": "control-center",
+    "target_workspace": "/root/control-center/data/fixtures/fixture-qa-passing",
+    "revision_count": 0,
+    "max_revisions": 2,
+    "auto_rollback_on_failure": true,
+    "isolate_worktree": false,
+    "auto_cleanup_worktree": false,
+    "isolated_worktree": null,
+    "worktree_branch": null,
+    "auto_merge_on_completion": false,
+    "merge_target_branch": null,
+    "merge_result": null,
+    "spec_proposal": null,
+    "code_artifacts": null,
+    "verification_results": null,
+    "security_results": null,
+    "transitions": [],
+    "created_at": "2026-09-18T18:30:54.867087+00:00",
+    "updated_at": "2026-09-18T18:30:54.867170+00:00",
+    "checkpoint_id": null,
+    "status": "COMPLETED",
+    "approval_id": null,
+    "error": null,
+    "last_feedback": null
+  },
+  "sess-2dfeb248": {
+    "session_id": "sess-2dfeb248",
+    "session_name": "resumable-approval-session",
+    "directive": "Request deployment to staging cluster",
+    "current_state": "ROLLED_BACK",
+    "planner_agent": "agent-research",
+    "coder_agent": "agent-dev",
+    "verifier_agent": "agent-qa",
+    "project_id": "control-center",
+    "target_workspace": "/root/control-center/data/fixtures/fixture-qa-passing",
+    "revision_count": 2,
+    "max_revisions": 2,
+    "auto_rollback_on_failure": true,
+    "isolate_worktree": false,
+    "auto_cleanup_worktree": false,
+    "isolated_worktree": null,
+    "worktree_branch": null,
+    "auto_merge_on_completion": false,
+    "merge_target_branch": null,
+    "merge_result": null,
+    "spec_proposal": {
+      "agent": "RESEARCH-01",
+      "query": "sess-2dfeb248",
+      "match_count": 0,
+      "matches": [],
+      "files_inspected": 0
+    },
+    "code_artifacts": {
+      "agent": "DEVELOPER-02",
+      "cycle": "INSPECT -> UNDERSTAND -> PLAN -> READ -> MODIFY -> TEST -> DIFF",
+      "fixture_repo": "/root/control-center/data/fixtures/fixture-qa-passing",
+      "tests_passed": true,
+      "has_diff": false,
+      "diff": "",
+      "rolled_back": false,
+      "plan": {
+        "plan_id": "plan-12a7e5",
+        "steps": [
+          "Read calculator.py",
+          "Apply multiply feature function",
+          "Execute pytest test suite",
+          "Extract git diff",
+          "Verify zero regressions"
+        ],
+        "rationale": "Extend calculator with multiplication function in safe fixture."
+      }
+    },
+    "verification_results": {
+      "approval_required": true,
+      "approval_id": "appr-9f117d",
+      "execution_id": "exec-7b9f80d0",
+      "reason": "Production infrastructure deployments must be verified and cleared by the operator.",
+      "risk_level": "HIGH"
+    },
+    "security_results": null,
+    "transitions": [
+      {
+        "transition_id": "trans-4989eaf4",
+        "from_state": "INITIALIZING",
+        "to_state": "AWAITING_APPROVAL",
+        "trigger_agent": "policy_engine",
+        "timestamp": "2026-09-18T18:30:55.191583+00:00",
+        "payload": {
+          "approval_id": "appr-9e88a4"
+        },
+        "reason": "Gated by policy: Production infrastructure deployments must be verified and cleared by the operator."
+      },
+      {
+        "transition_id": "trans-cd664f8e",
+        "from_state": "AWAITING_APPROVAL",
+        "to_state": "SPEC_PROPOSAL",
+        "trigger_agent": "agent-research",
+        "timestamp": "2026-09-18T18:30:55.519006+00:00",
+        "payload": {},
+        "reason": "Planner agent-research initiating architecture & spec discovery"
+      },
+      {
+        "transition_id": "trans-9090bc58",
+        "from_state": "SPEC_PROPOSAL",
+        "to_state": "CODE_SYNTHESIS",
+        "trigger_agent": "agent-dev",
+        "timestamp": "2026-09-18T18:30:55.605531+00:00",
+        "payload": {
+          "revision": 0,
+          "remediation": null
+        },
+        "reason": "Coder agent-dev synthesizing implementation (iteration 1)"
+      },
+      {
+        "transition_id": "trans-1709e2e7",
+        "from_state": "CODE_SYNTHESIS",
+        "to_state": "TEST_VERIFICATION",
+        "trigger_agent": "agent-qa",
+        "timestamp": "2026-09-18T18:30:58.204464+00:00",
+        "payload": {
+          "workspace": "/root/control-center/data/fixtures/fixture-qa-passing"
+        },
+        "reason": "Verifier agent-qa running automated test suite"
+      },
+      {
+        "transition_id": "trans-496ef8b4",
+        "from_state": "TEST_VERIFICATION",
+        "to_state": "FEEDBACK_REVISION",
+        "trigger_agent": "orchestrator",
+        "timestamp": "2026-09-18T18:30:58.428551+00:00",
+        "payload": {
+          "feedback": "QA test verification failed: Test assertions failed",
+          "revision": 1
+        },
+        "reason": "Transitioning to remediation feedback loop: QA test verification failed: Test assertions failed"
+      },
+      {
+        "transition_id": "trans-d576bd50",
+        "from_state": "FEEDBACK_REVISION",
+        "to_state": "CODE_SYNTHESIS",
+        "trigger_agent": "agent-dev",
+        "timestamp": "2026-09-18T18:30:58.523914+00:00",
+        "payload": {
+          "revision": 1,
+          "remediation": "QA test verification failed: Test assertions failed"
+        },
+        "reason": "Coder agent-dev synthesizing implementation (iteration 2)"
+      },
+      {
+        "transition_id": "trans-f4107bd1",
+        "from_state": "CODE_SYNTHESIS",
+        "to_state": "TEST_VERIFICATION",
+        "trigger_agent": "agent-qa",
+        "timestamp": "2026-09-18T18:31:01.088795+00:00",
+        "payload": {
+          "workspace": "/root/control-center/data/fixtures/fixture-qa-passing"
+        },
+        "reason": "Verifier agent-qa running automated test suite"
+      },
+      {
+        "transition_id": "trans-5224d4a4",
+        "from_state": "TEST_VERIFICATION",
+        "to_state": "FEEDBACK_REVISION",
+        "trigger_agent": "orchestrator",
+        "timestamp": "2026-09-18T18:31:01.303687+00:00",
+        "payload": {
+          "feedback": "QA test verification failed: Test assertions failed",
+          "revision": 2
+        },
+        "reason": "Transitioning to remediation feedback loop: QA test verification failed: Test assertions failed"
+      },
+      {
+        "transition_id": "trans-ef803994",
+        "from_state": "FEEDBACK_REVISION",
+        "to_state": "CODE_SYNTHESIS",
+        "trigger_agent": "agent-dev",
+        "timestamp": "2026-09-18T18:31:01.363486+00:00",
+        "payload": {
+          "revision": 2,
+          "remediation": "QA test verification failed: Test assertions failed"
+        },
+        "reason": "Coder agent-dev synthesizing implementation (iteration 3)"
+      },
+      {
+        "transition_id": "trans-38b4000d",
+        "from_state": "CODE_SYNTHESIS",
+        "to_state": "TEST_VERIFICATION",
+        "trigger_agent": "agent-qa",
+        "timestamp": "2026-09-18T18:31:03.963871+00:00",
+        "payload": {
+          "workspace": "/root/control-center/data/fixtures/fixture-qa-passing"
+        },
+        "reason": "Verifier agent-qa running automated test suite"
+      },
+      {
+        "transition_id": "trans-36fad47d",
+        "from_state": "TEST_VERIFICATION",
+        "to_state": "ROLLED_BACK",
+        "trigger_agent": "agent-recovery",
+        "timestamp": "2026-09-18T18:31:04.322360+00:00",
+        "payload": {
+          "exit_code": 0,
+          "checkpoint": "1b7c06618a9b06166d8cadf897df416f820ef6e8"
+        },
+        "reason": "Automated recovery executed on /root/control-center/data/fixtures/fixture-qa-passing. Workspace restored to clean baseline."
+      }
+    ],
+    "created_at": "2026-09-18T18:30:54.993124+00:00",
+    "updated_at": "2026-09-18T18:31:04.322440+00:00",
+    "checkpoint_id": "1b7c06618a9b06166d8cadf897df416f820ef6e8",
+    "status": "ROLLED_BACK",
+    "approval_id": "appr-9e88a4",
+    "error": "Rolled back to baseline state after verification failure.",
+    "last_feedback": "QA test verification failed: Test assertions failed"
+  },
+  "sess-33ab7c0a": {
+    "session_id": "sess-33ab7c0a",
+    "session_name": "test-storage-session",
+    "directive": "Refactor calculator operations",
+    "current_state": "INITIALIZING",
+    "planner_agent": "agent-research",
+    "coder_agent": "agent-dev",
+    "verifier_agent": "agent-qa",
+    "project_id": "control-center",
+    "target_workspace": "/root/control-center/data/fixtures/developer_test_repo",
+    "revision_count": 0,
+    "max_revisions": 2,
+    "auto_rollback_on_failure": true,
+    "isolate_worktree": false,
+    "auto_cleanup_worktree": false,
+    "isolated_worktree": null,
+    "worktree_branch": null,
+    "auto_merge_on_completion": false,
+    "merge_target_branch": null,
+    "merge_result": null,
+    "spec_proposal": null,
+    "code_artifacts": null,
+    "verification_results": null,
+    "security_results": null,
+    "transitions": [],
+    "created_at": "2026-09-18T18:32:18.094699+00:00",
+    "updated_at": "2026-09-18T18:32:18.094727+00:00",
+    "checkpoint_id": null,
+    "status": "INITIALIZED",
+    "approval_id": null,
+    "error": null,
+    "last_feedback": null
+  },
+  "sess-fff6006b": {
+    "session_id": "sess-fff6006b",
+    "session_name": "test-transition-session",
+    "directive": "Analyze system topology",
+    "current_state": "CODE_SYNTHESIS",
+    "planner_agent": "agent-research",
+    "coder_agent": "agent-dev",
+    "verifier_agent": "agent-qa",
+    "project_id": "control-center",
+    "target_workspace": "/root/control-center/data/fixtures/developer_test_repo",
+    "revision_count": 0,
+    "max_revisions": 2,
+    "auto_rollback_on_failure": true,
+    "isolate_worktree": false,
+    "auto_cleanup_worktree": false,
+    "isolated_worktree": null,
+    "worktree_branch": null,
+    "auto_merge_on_completion": false,
+    "merge_target_branch": null,
+    "merge_result": null,
+    "spec_proposal": null,
+    "code_artifacts": null,
+    "verification_results": null,
+    "security_results": null,
+    "transitions": [
+      {
+        "transition_id": "trans-2fddcd05",
+        "from_state": "INITIALIZING",
+        "to_state": "SPEC_PROPOSAL",
+        "trigger_agent": "agent-research",
+        "timestamp": "2026-09-18T18:32:18.328082+00:00",
+        "payload": {
+          "scope": "AST"
+        },
+        "reason": "Architecture discovery initiated"
+      },
+      {
+        "transition_id": "trans-50288bd6",
+        "from_state": "SPEC_PROPOSAL",
+        "to_state": "CODE_SYNTHESIS",
+        "trigger_agent": "agent-dev",
+        "timestamp": "2026-09-18T18:32:18.399315+00:00",
+        "payload": {
+          "files": [
+            "main.py"
+          ]
+        },
+        "reason": "Codex synthesizer generating code"
+      }
+    ],
+    "created_at": "2026-09-18T18:32:18.217036+00:00",
+    "updated_at": "2026-09-18T18:32:18.399373+00:00",
+    "checkpoint_id": null,
+    "status": "INITIALIZED",
+    "approval_id": null,
+    "error": null,
+    "last_feedback": null
+  },
+  "sess-7367b97f": {
+    "session_id": "sess-7367b97f",
+    "session_name": "test-full-lifecycle-session",
+    "directive": "Validate passing test fixture and audit secrets",
+    "current_state": "COMPLETED",
+    "planner_agent": "agent-research",
+    "coder_agent": "agent-dev",
+    "verifier_agent": "agent-qa",
+    "project_id": "control-center",
+    "target_workspace": "/root/control-center/data/fixtures/fixture-qa-passing",
+    "revision_count": 0,
+    "max_revisions": 2,
+    "auto_rollback_on_failure": true,
+    "isolate_worktree": false,
+    "auto_cleanup_worktree": false,
+    "isolated_worktree": null,
+    "worktree_branch": null,
+    "auto_merge_on_completion": false,
+    "merge_target_branch": null,
+    "merge_result": null,
+    "spec_proposal": {
+      "agent": "RESEARCH-01",
+      "query": "sess-7367b97f",
+      "match_count": 4,
+      "matches": [
+        {
+          "file": "/root/control-center/data/audit/audit_trail.jsonl",
+          "line": "64337",
+          "content": "{\"id\":\"audit-84bacbfb\",\"correlation_id\":\"corr-8ad1bf\",\"timestamp\":\"2026-09-18T18:32:18.547875+00:00\",\"actor\":\"orchestrator\",\"agent\":null,\"agent_id\":null,\"execution_id\":\"sess-7367b97f\",\"tool_id\":null,\"user\":\"operator\",\"action\":\"SWARM_SESSION_CREATED: test-full-lifecycle-session\",\"project\":\"control-center\",\"target\":\"sess-7367b97f\",\"reason\":\"Validate passing test fixture and audit secrets\",\"risk_level\":\"LOW\",\"approval_id\":null,\"result\":\"INITIALIZED\",\"status\":\"INITIALIZED\",\"result_summary\":null,\"error\":null}"
+        },
+        {
+          "file": "/root/control-center/data/audit/audit_trail.jsonl",
+          "line": "64339",
+          "content": "{\"id\":\"audit-1d5cc232\",\"correlation_id\":\"corr-126b3f\",\"timestamp\":\"2026-09-18T18:32:18.693765+00:00\",\"actor\":\"agent-research\",\"agent\":null,\"agent_id\":null,\"execution_id\":\"sess-7367b97f\",\"tool_id\":null,\"user\":\"operator\",\"action\":\"SWARM_SESSION_TRANSITION: INITIALIZING -> SPEC_PROPOSAL\",\"project\":\"control-center\",\"target\":\"sess-7367b97f\",\"reason\":\"Planner agent-research initiating architecture & spec discovery\",\"risk_level\":\"LOW\",\"approval_id\":null,\"result\":\"SPEC_PROPOSAL\",\"status\":\"SPEC_PROPOSAL\",\"result_summary\":null,\"error\":null}"
+        },
+        {
+          "file": "/root/control-center/data/swarm_sessions.json",
+          "line": "18220",
+          "content": "\"sess-7367b97f\": {"
+        },
+        {
+          "file": "/root/control-center/data/swarm_sessions.json",
+          "line": "18221",
+          "content": "\"session_id\": \"sess-7367b97f\","
+        }
+      ],
+      "files_inspected": 4
+    },
+    "code_artifacts": {
+      "agent": "DEVELOPER-02",
+      "cycle": "INSPECT -> UNDERSTAND -> PLAN -> READ -> MODIFY -> TEST -> DIFF",
+      "fixture_repo": "/root/control-center/data/fixtures/fixture-qa-passing",
+      "tests_passed": true,
+      "has_diff": false,
+      "diff": "",
+      "rolled_back": false,
+      "plan": {
+        "plan_id": "plan-83b36f",
+        "steps": [
+          "Read calculator.py",
+          "Apply multiply feature function",
+          "Execute pytest test suite",
+          "Extract git diff",
+          "Verify zero regressions"
+        ],
+        "rationale": "Extend calculator with multiplication function in safe fixture."
+      }
+    },
+    "verification_results": {
+      "agent": "QA-VERIFIER",
+      "framework": "pytest",
+      "status": "PASSED",
+      "passed": 4,
+      "failed": 0,
+      "duration_ms": 2344.97,
+      "stdout_snippet": "....                                                                     [100%]\n4 passed in 0.25s"
+    },
+    "security_results": {
+      "agent": "SENTINEL-SEC",
+      "status": "AUDIT_COMPLETE",
+      "target": "/root/control-center/data/fixtures/fixture-qa-passing",
+      "findings_count": 3,
+      "findings": [
+        {
+          "type": "STATIC_CREDENTIAL_SCAN",
+          "category": "INFORMATIONAL",
+          "severity": "CLEAN",
+          "detail": "0 files with exposed secrets detected (0 total matches)."
+        },
+        {
+          "type": "CORS_CONFIGURATION",
+          "category": "INFORMATIONAL",
+          "severity": "LOW",
+          "detail": "CORS restricted to explicit origins; wildcard disabled."
+        },
+        {
+          "type": "DEPENDENCY_CVE_AUDIT",
+          "category": "UNAVAILABLE_CHECK",
+          "severity": "INFO",
+          "detail": "Dependency CVE scanner 'pip-audit' not installed; check marked UNAVAILABLE_CHECK."
+        }
+      ],
+      "secret_findings": [],
+      "severity_breakdown": {
+        "CRITICAL": 0,
+        "HIGH": 0,
+        "MEDIUM": 0
+      },
+      "real_findings": 0,
+      "informational": 2,
+      "unavailable": 1
+    },
+    "transitions": [
+      {
+        "transition_id": "trans-8aee3284",
+        "from_state": "INITIALIZING",
+        "to_state": "SPEC_PROPOSAL",
+        "trigger_agent": "agent-research",
+        "timestamp": "2026-09-18T18:32:18.627875+00:00",
+        "payload": {},
+        "reason": "Planner agent-research initiating architecture & spec discovery"
+      },
+      {
+        "transition_id": "trans-bd81445b",
+        "from_state": "SPEC_PROPOSAL",
+        "to_state": "CODE_SYNTHESIS",
+        "trigger_agent": "agent-dev",
+        "timestamp": "2026-09-18T18:32:20.503390+00:00",
+        "payload": {
+          "revision": 0,
+          "remediation": null
+        },
+        "reason": "Coder agent-dev synthesizing implementation (iteration 1)"
+      },
+      {
+        "transition_id": "trans-f55c63c2",
+        "from_state": "CODE_SYNTHESIS",
+        "to_state": "TEST_VERIFICATION",
+        "trigger_agent": "agent-qa",
+        "timestamp": "2026-09-18T18:32:23.284770+00:00",
+        "payload": {
+          "workspace": "/root/control-center/data/fixtures/fixture-qa-passing"
+        },
+        "reason": "Verifier agent-qa running automated test suite"
+      },
+      {
+        "transition_id": "trans-27e50d38",
+        "from_state": "TEST_VERIFICATION",
+        "to_state": "SECURITY_AUDIT",
+        "trigger_agent": "agent-security",
+        "timestamp": "2026-09-18T18:32:25.702124+00:00",
+        "payload": {},
+        "reason": "Security Sentinel scanning synthesized artifacts for secrets & boundary violations"
+      },
+      {
+        "transition_id": "trans-e5930ba4",
+        "from_state": "SECURITY_AUDIT",
+        "to_state": "COMPLETED",
+        "trigger_agent": "orchestrator",
+        "timestamp": "2026-09-18T18:32:25.873932+00:00",
+        "payload": {},
+        "reason": "All synthesis, QA verification, and security audits verified cleanly."
+      }
+    ],
+    "created_at": "2026-09-18T18:32:18.475880+00:00",
+    "updated_at": "2026-09-18T18:32:25.874027+00:00",
+    "checkpoint_id": "1b7c06618a9b06166d8cadf897df416f820ef6e8",
+    "status": "COMPLETED",
+    "approval_id": null,
+    "error": null,
+    "last_feedback": null
+  },
+  "sess-f81580eb": {
+    "session_id": "sess-f81580eb",
+    "session_name": "test-feedback-loop-session",
+    "directive": "Fix failing test suite with remediation",
+    "current_state": "ROLLED_BACK",
+    "planner_agent": "agent-research",
+    "coder_agent": "agent-dev",
+    "verifier_agent": "agent-qa",
+    "project_id": "control-center",
+    "target_workspace": "/root/control-center/data/fixtures/fixture-qa-failing",
+    "revision_count": 2,
+    "max_revisions": 2,
+    "auto_rollback_on_failure": true,
+    "isolate_worktree": false,
+    "auto_cleanup_worktree": false,
+    "isolated_worktree": null,
+    "worktree_branch": null,
+    "auto_merge_on_completion": false,
+    "merge_target_branch": null,
+    "merge_result": null,
+    "spec_proposal": {
+      "agent": "RESEARCH-01",
+      "query": "sess-f81580eb",
+      "match_count": 4,
+      "matches": [
+        {
+          "file": "/root/control-center/data/audit/audit_trail.jsonl",
+          "line": "64361",
+          "content": "{\"id\":\"audit-0b961f15\",\"correlation_id\":\"corr-009fb3\",\"timestamp\":\"2026-09-18T18:32:26.024462+00:00\",\"actor\":\"orchestrator\",\"agent\":null,\"agent_id\":null,\"execution_id\":\"sess-f81580eb\",\"tool_id\":null,\"user\":\"operator\",\"action\":\"SWARM_SESSION_CREATED: test-feedback-loop-session\",\"project\":\"control-center\",\"target\":\"sess-f81580eb\",\"reason\":\"Fix failing test suite with remediation\",\"risk_level\":\"LOW\",\"approval_id\":null,\"result\":\"INITIALIZED\",\"status\":\"INITIALIZED\",\"result_summary\":null,\"error\":null}"
+        },
+        {
+          "file": "/root/control-center/data/audit/audit_trail.jsonl",
+          "line": "64363",
+          "content": "{\"id\":\"audit-590e11be\",\"correlation_id\":\"corr-11d7d2\",\"timestamp\":\"2026-09-18T18:32:26.202261+00:00\",\"actor\":\"agent-research\",\"agent\":null,\"agent_id\":null,\"execution_id\":\"sess-f81580eb\",\"tool_id\":null,\"user\":\"operator\",\"action\":\"SWARM_SESSION_TRANSITION: INITIALIZING -> SPEC_PROPOSAL\",\"project\":\"control-center\",\"target\":\"sess-f81580eb\",\"reason\":\"Planner agent-research initiating architecture & spec discovery\",\"risk_level\":\"LOW\",\"approval_id\":null,\"result\":\"SPEC_PROPOSAL\",\"status\":\"SPEC_PROPOSAL\",\"result_summary\":null,\"error\":null}"
+        },
+        {
+          "file": "/root/control-center/data/swarm_sessions.json",
+          "line": "18392",
+          "content": "\"sess-f81580eb\": {"
+        },
+        {
+          "file": "/root/control-center/data/swarm_sessions.json",
+          "line": "18393",
+          "content": "\"session_id\": \"sess-f81580eb\","
+        }
+      ],
+      "files_inspected": 4
+    },
+    "code_artifacts": {
+      "agent": "DEVELOPER-02",
+      "cycle": "INSPECT -> UNDERSTAND -> PLAN -> READ -> MODIFY -> TEST -> DIFF",
+      "fixture_repo": "/root/control-center/data/fixtures/fixture-qa-failing",
+      "tests_passed": false,
+      "has_diff": false,
+      "diff": "REVERTED",
+      "rolled_back": true,
+      "plan": {
+        "plan_id": "plan-8b99e2",
+        "steps": [
+          "Read calculator.py",
+          "Apply multiply feature function",
+          "Execute pytest test suite",
+          "Extract git diff",
+          "Verify zero regressions"
+        ],
+        "rationale": "Extend calculator with multiplication function in safe fixture."
+      }
+    },
+    "verification_results": {
+      "agent": "QA-VERIFIER",
+      "framework": "pytest",
+      "status": "FAILED",
+      "passed": 0,
+      "failed": 1,
+      "duration_ms": 3314.48,
+      "stdout_snippet": "F                                                                        [100%]\n=================================== FAILURES ===================================\n________________________________ test_fail_one _________________________________\n\n    def test_fail_one():\n>       assert 1 + 1 == 99\nE    "
+    },
+    "security_results": null,
+    "transitions": [
+      {
+        "transition_id": "trans-f1c404f8",
+        "from_state": "INITIALIZING",
+        "to_state": "SPEC_PROPOSAL",
+        "trigger_agent": "agent-research",
+        "timestamp": "2026-09-18T18:32:26.108862+00:00",
+        "payload": {},
+        "reason": "Planner agent-research initiating architecture & spec discovery"
+      },
+      {
+        "transition_id": "trans-faa66761",
+        "from_state": "SPEC_PROPOSAL",
+        "to_state": "CODE_SYNTHESIS",
+        "trigger_agent": "agent-dev",
+        "timestamp": "2026-09-18T18:32:27.902457+00:00",
+        "payload": {
+          "revision": 0,
+          "remediation": null
+        },
+        "reason": "Coder agent-dev synthesizing implementation (iteration 1)"
+      },
+      {
+        "transition_id": "trans-ab4c0710",
+        "from_state": "CODE_SYNTHESIS",
+        "to_state": "TEST_VERIFICATION",
+        "trigger_agent": "agent-qa",
+        "timestamp": "2026-09-18T18:32:31.890532+00:00",
+        "payload": {
+          "workspace": "/root/control-center/data/fixtures/fixture-qa-failing"
+        },
+        "reason": "Verifier agent-qa running automated test suite"
+      },
+      {
+        "transition_id": "trans-5cc6f863",
+        "from_state": "TEST_VERIFICATION",
+        "to_state": "FEEDBACK_REVISION",
+        "trigger_agent": "orchestrator",
+        "timestamp": "2026-09-18T18:32:35.295562+00:00",
+        "payload": {
+          "feedback": "QA test verification failed: Test assertions failed",
+          "revision": 1
+        },
+        "reason": "Transitioning to remediation feedback loop: QA test verification failed: Test assertions failed"
+      },
+      {
+        "transition_id": "trans-78f30216",
+        "from_state": "FEEDBACK_REVISION",
+        "to_state": "CODE_SYNTHESIS",
+        "trigger_agent": "agent-dev",
+        "timestamp": "2026-09-18T18:32:35.369437+00:00",
+        "payload": {
+          "revision": 1,
+          "remediation": "QA test verification failed: Test assertions failed"
+        },
+        "reason": "Coder agent-dev synthesizing implementation (iteration 2)"
+      },
+      {
+        "transition_id": "trans-c93a8daf",
+        "from_state": "CODE_SYNTHESIS",
+        "to_state": "TEST_VERIFICATION",
+        "trigger_agent": "agent-qa",
+        "timestamp": "2026-09-18T18:32:39.278391+00:00",
+        "payload": {
+          "workspace": "/root/control-center/data/fixtures/fixture-qa-failing"
+        },
+        "reason": "Verifier agent-qa running automated test suite"
+      },
+      {
+        "transition_id": "trans-0537df8a",
+        "from_state": "TEST_VERIFICATION",
+        "to_state": "FEEDBACK_REVISION",
+        "trigger_agent": "orchestrator",
+        "timestamp": "2026-09-18T18:32:42.523464+00:00",
+        "payload": {
+          "feedback": "QA test verification failed: Test assertions failed",
+          "revision": 2
+        },
+        "reason": "Transitioning to remediation feedback loop: QA test verification failed: Test assertions failed"
+      },
+      {
+        "transition_id": "trans-a9469bfd",
+        "from_state": "FEEDBACK_REVISION",
+        "to_state": "CODE_SYNTHESIS",
+        "trigger_agent": "agent-dev",
+        "timestamp": "2026-09-18T18:32:42.601186+00:00",
+        "payload": {
+          "revision": 2,
+          "remediation": "QA test verification failed: Test assertions failed"
+        },
+        "reason": "Coder agent-dev synthesizing implementation (iteration 3)"
+      },
+      {
+        "transition_id": "trans-fc4f6ad7",
+        "from_state": "CODE_SYNTHESIS",
+        "to_state": "TEST_VERIFICATION",
+        "trigger_agent": "agent-qa",
+        "timestamp": "2026-09-18T18:32:46.538380+00:00",
+        "payload": {
+          "workspace": "/root/control-center/data/fixtures/fixture-qa-failing"
+        },
+        "reason": "Verifier agent-qa running automated test suite"
+      },
+      {
+        "transition_id": "trans-3fec0785",
+        "from_state": "TEST_VERIFICATION",
+        "to_state": "ROLLED_BACK",
+        "trigger_agent": "agent-recovery",
+        "timestamp": "2026-09-18T18:32:50.091469+00:00",
+        "payload": {
+          "exit_code": 0,
+          "checkpoint": "8d684f63c18b86711f4485bcc21100a57f869d3b"
+        },
+        "reason": "Automated recovery executed on /root/control-center/data/fixtures/fixture-qa-failing. Workspace restored to clean baseline."
+      }
+    ],
+    "created_at": "2026-09-18T18:32:25.959662+00:00",
+    "updated_at": "2026-09-18T18:32:50.091603+00:00",
+    "checkpoint_id": "8d684f63c18b86711f4485bcc21100a57f869d3b",
+    "status": "ROLLED_BACK",
+    "approval_id": null,
+    "error": "Rolled back to baseline state after verification failure.",
+    "last_feedback": "QA test verification failed: Test assertions failed"
+  },
+  "sess-5dd3bd61": {
+    "session_id": "sess-5dd3bd61",
+    "session_name": "test-rollback-session",
+    "directive": "Attempt unauthorized modification and rollback",
+    "current_state": "ROLLED_BACK",
+    "planner_agent": "agent-research",
+    "coder_agent": "agent-dev",
+    "verifier_agent": "agent-qa",
+    "project_id": "control-center",
+    "target_workspace": "/root/control-center/data/fixtures/developer_test_repo",
+    "revision_count": 0,
+    "max_revisions": 2,
+    "auto_rollback_on_failure": true,
+    "isolate_worktree": false,
+    "auto_cleanup_worktree": false,
+    "isolated_worktree": null,
+    "worktree_branch": null,
+    "auto_merge_on_completion": false,
+    "merge_target_branch": null,
+    "merge_result": null,
+    "spec_proposal": null,
+    "code_artifacts": null,
+    "verification_results": null,
+    "security_results": null,
+    "transitions": [
+      {
+        "transition_id": "trans-5dcbeaac",
+        "from_state": "INITIALIZING",
+        "to_state": "ROLLED_BACK",
+        "trigger_agent": "agent-recovery",
+        "timestamp": "2026-09-18T18:32:50.393251+00:00",
+        "payload": {
+          "exit_code": 0,
+          "checkpoint": null
+        },
+        "reason": "Automated recovery executed on /root/control-center/data/fixtures/developer_test_repo. Workspace restored to clean baseline."
+      }
+    ],
+    "created_at": "2026-09-18T18:32:50.219525+00:00",
+    "updated_at": "2026-09-18T18:32:50.393322+00:00",
+    "checkpoint_id": null,
+    "status": "ROLLED_BACK",
+    "approval_id": null,
+    "error": "Rolled back to baseline state after verification failure.",
+    "last_feedback": null
+  },
+  "sess-bb52b251": {
+    "session_id": "sess-bb52b251",
+    "session_name": "test-gated-session",
+    "directive": "Production Deployment Hook and Cloud Run deploy",
+    "current_state": "AWAITING_APPROVAL",
+    "planner_agent": "agent-research",
+    "coder_agent": "agent-dev",
+    "verifier_agent": "agent-qa",
+    "project_id": "control-center",
+    "target_workspace": "/root/control-center/data/fixtures/developer_test_repo",
+    "revision_count": 0,
+    "max_revisions": 2,
+    "auto_rollback_on_failure": true,
+    "isolate_worktree": false,
+    "auto_cleanup_worktree": false,
+    "isolated_worktree": null,
+    "worktree_branch": null,
+    "auto_merge_on_completion": false,
+    "merge_target_branch": null,
+    "merge_result": null,
+    "spec_proposal": null,
+    "code_artifacts": null,
+    "verification_results": null,
+    "security_results": null,
+    "transitions": [
+      {
+        "transition_id": "trans-f61c5ef1",
+        "from_state": "INITIALIZING",
+        "to_state": "AWAITING_APPROVAL",
+        "trigger_agent": "policy_engine",
+        "timestamp": "2026-09-18T18:32:50.743314+00:00",
+        "payload": {
+          "approval_id": "appr-7e83d9"
+        },
+        "reason": "Gated by policy: Production infrastructure deployments must be verified and cleared by the operator."
+      }
+    ],
+    "created_at": "2026-09-18T18:32:50.476953+00:00",
+    "updated_at": "2026-09-18T18:32:50.743376+00:00",
+    "checkpoint_id": null,
+    "status": "AWAITING_APPROVAL",
+    "approval_id": "appr-7e83d9",
+    "error": null,
+    "last_feedback": null
+  },
+  "sess-a0759014": {
+    "session_id": "sess-a0759014",
+    "session_name": "api-session-test",
+    "directive": "Inspect AST tree for backend server",
+    "current_state": "ROLLED_BACK",
+    "planner_agent": "agent-research",
+    "coder_agent": "agent-dev",
+    "verifier_agent": "agent-qa",
+    "project_id": "control-center",
+    "target_workspace": "/root/control-center/data/fixtures/fixture-qa-passing",
+    "revision_count": 0,
+    "max_revisions": 2,
+    "auto_rollback_on_failure": true,
+    "isolate_worktree": false,
+    "auto_cleanup_worktree": false,
+    "isolated_worktree": null,
+    "worktree_branch": null,
+    "auto_merge_on_completion": false,
+    "merge_target_branch": null,
+    "merge_result": null,
+    "spec_proposal": null,
+    "code_artifacts": null,
+    "verification_results": null,
+    "security_results": null,
+    "transitions": [
+      {
+        "transition_id": "trans-17b4cd0c",
+        "from_state": "INITIALIZING",
+        "to_state": "ROLLED_BACK",
+        "trigger_agent": "agent-recovery",
+        "timestamp": "2026-09-18T18:32:51.346381+00:00",
+        "payload": {
+          "exit_code": 0,
+          "checkpoint": null
+        },
+        "reason": "Automated recovery executed on /root/control-center/data/fixtures/fixture-qa-passing. Workspace restored to clean baseline."
+      }
+    ],
+    "created_at": "2026-09-18T18:32:50.942886+00:00",
+    "updated_at": "2026-09-18T18:32:51.346439+00:00",
+    "checkpoint_id": null,
+    "status": "ROLLED_BACK",
+    "approval_id": null,
+    "error": "Rolled back to baseline state after verification failure.",
+    "last_feedback": null
   }
 }
