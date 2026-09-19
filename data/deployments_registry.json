@@ -4582,5 +4582,159 @@
       "health_check_path": "/api/health",
       "auto_rollback": true
     }
+  },
+  "dep-db3602fe": {
+    "deployment_id": "dep-db3602fe",
+    "project_id": "control-center",
+    "service_name": "nexus-control-center",
+    "version": "v2.4.0",
+    "commit_sha": "merge-sha-a68cd2dedf1a",
+    "environment": "PRODUCTION",
+    "target_type": "VERCEL_EDGE",
+    "strategy": "DIRECT_REPLACE",
+    "status": "LIVE",
+    "current_stage": "PROMOTE_CANARY",
+    "stages": [
+      {
+        "stage_name": "PRE_FLIGHT",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:45:16.318284+00:00",
+        "completed_at": "2026-09-19T00:45:16.318440+00:00",
+        "duration_ms": 0.05,
+        "logs": [
+          "Verifying pre-flight conditions for project 'control-center'...",
+          "Target: VERCEL_EDGE | Env: PRODUCTION | Strategy: DIRECT_REPLACE",
+          "Validating Vercel ecosystem configuration & Hobby Tier bounds...",
+          "Checking vercel.json routing and API headers...",
+          "[PASS] Edge configuration verified. Cost profile: $0.00 / month.",
+          "Verifying pre-flight conditions for project 'control-center'...",
+          "Target: VERCEL_EDGE | Env: PRODUCTION | Strategy: DIRECT_REPLACE",
+          "Validating Vercel ecosystem configuration & Hobby Tier bounds...",
+          "Checking vercel.json routing and API headers...",
+          "[PASS] Edge configuration verified. Cost profile: $0.00 / month."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "BUILD_PACKAGING",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:45:16.345775+00:00",
+        "completed_at": "2026-09-19T00:45:16.345904+00:00",
+        "duration_ms": 0.03,
+        "logs": [
+          "Executing packaging strategy for target 'VERCEL_EDGE'...",
+          "Synthesizing edge serverless artifacts for 'nexus-control-center' (v2.4.0)...",
+          "Packaged serverless routes: /api/* -> Edge Functions.",
+          "[PASS] Edge package bundle synthesized.",
+          "Executing packaging strategy for target 'VERCEL_EDGE'...",
+          "Synthesizing edge serverless artifacts for 'nexus-control-center' (v2.4.0)...",
+          "Packaged serverless routes: /api/* -> Edge Functions.",
+          "[PASS] Edge package bundle synthesized."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "POLICY_FINOPS",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:45:16.366580+00:00",
+        "completed_at": "2026-09-19T00:45:22.594117+00:00",
+        "duration_ms": 6227.47,
+        "logs": [
+          "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+          "Security Gate dep-ev-2a0e303c: 5 findings, decision=BLOCK",
+          "Current incurred cost: $0.00. Budget limit: $0.00.",
+          "[PASS] Strict zero-spend policy & Security Gate verified.",
+          "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+          "Security Gate dep-ev-3990c457: 5 findings, decision=BLOCK",
+          "Current incurred cost: $0.00. Budget limit: $0.00.",
+          "[PASS] Strict zero-spend policy & Security Gate verified."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "APPROVAL_GATE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:45:22.605993+00:00",
+        "completed_at": "2026-09-19T00:45:22.606110+00:00",
+        "duration_ms": 0.03,
+        "logs": [
+          "Evaluating approval policy (Risk Level: HIGH)...",
+          "[HOLD] Requesting Human Approval for CRITICAL PRODUCTION deployment...",
+          "Registered pending Approval Request: appr-d2d6c7",
+          "Evaluating approval policy (Risk Level: HIGH)...",
+          "[PASS] Auto-approved for PRODUCTION deployment tier."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "DISPATCH_DEPLOY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:45:22.622137+00:00",
+        "completed_at": "2026-09-19T00:45:22.622222+00:00",
+        "duration_ms": 0.04,
+        "logs": [
+          "Dispatching payload to target 'VERCEL_EDGE'...",
+          "Vercel deployment dispatched. Live Edge URL: https://nexus-control-center.vercel.app",
+          "[PASS] CDN edge propagation complete across regions: iad1, bom1."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "HEALTH_PROBE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:45:22.638080+00:00",
+        "completed_at": "2026-09-19T00:45:22.638198+00:00",
+        "duration_ms": 0.04,
+        "logs": [
+          "Executing synthetic SLA health probe on https://nexus-control-center.vercel.app...",
+          "Verifying Vercel edge endpoint status for https://nexus-control-center.vercel.app...",
+          "[PASS] Vercel Edge health verified (status: READY, SSL: ACTIVE)."
+        ],
+        "error": null,
+        "metrics": {
+          "probe_status": 200,
+          "latency_ms": 24.5
+        }
+      },
+      {
+        "stage_name": "PROMOTE_CANARY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:45:22.658515+00:00",
+        "completed_at": "2026-09-19T00:45:22.658583+00:00",
+        "duration_ms": 0.02,
+        "logs": [
+          "Applying deployment strategy: DIRECT_REPLACE...",
+          "100% traffic switched to active release v2.4.0.",
+          "[PASS] Traffic routing table updated."
+        ],
+        "error": null,
+        "metrics": {}
+      }
+    ],
+    "deployed_url": "https://nexus-control-center.vercel.app",
+    "canary_percentage": 100,
+    "active_instances": 1,
+    "health_status": "HEALTHY",
+    "error": null,
+    "risk_level": "HIGH",
+    "requires_approval": false,
+    "approval_id": "appr-d2d6c7",
+    "created_by": "developer",
+    "created_at": "2026-09-19T00:45:12.218428+00:00",
+    "completed_at": "2026-09-19T00:45:22.674955+00:00",
+    "duration_seconds": 6.36,
+    "rollback_target_id": null,
+    "changelog": [],
+    "dora_lead_time_seconds": 6.36,
+    "metadata": {
+      "notes": null,
+      "health_check_path": "/api/health",
+      "auto_rollback": true
+    }
   }
 }

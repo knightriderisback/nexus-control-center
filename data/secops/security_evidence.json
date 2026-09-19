@@ -3331,38 +3331,38 @@
       "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
     }
   },
-  "sec-ev-3a311142": {
-    "evidence_id": "sec-ev-3a311142",
-    "session_id": "sess-merge-001",
-    "branch": "feature/nexus-secops",
-    "commit_sha": null,
-    "tree_sha": null,
-    "scan_id": "sec-scan-c8f6caaf",
-    "timestamp": "2026-09-19T00:28:13.756064+00:00",
-    "policy_version": "v1.0-SEC-POL",
-    "findings_count": 0,
-    "passed": true,
-    "details": {
-      "changed_files_count": 1,
-      "critical_findings": 0,
-      "gate_status": "PASSED"
-    }
-  },
-  "dep-ev-210e7ae8": {
-    "evidence_id": "dep-ev-210e7ae8",
-    "session_id": "dep-sess-001",
+  "dep-ev-2a0e303c": {
+    "evidence_id": "dep-ev-2a0e303c",
+    "session_id": "dep-db3602fe",
     "branch": null,
     "commit_sha": null,
     "tree_sha": null,
-    "scan_id": "sec-scan-ca8ac51d",
-    "timestamp": "2026-09-19T00:28:14.790634+00:00",
+    "scan_id": "sec-scan-c0aae1dd",
+    "timestamp": "2026-09-19T00:45:15.491827+00:00",
     "policy_version": "v1.0-SEC-POL",
-    "findings_count": 0,
-    "passed": true,
+    "findings_count": 5,
+    "passed": false,
     "details": {
-      "target_env": "local",
-      "policy_decision": "ALLOW",
-      "reason": "Security policy criteria satisfied."
+      "target_env": "PRODUCTION",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
+    }
+  },
+  "dep-ev-3990c457": {
+    "evidence_id": "dep-ev-3990c457",
+    "session_id": "dep-db3602fe",
+    "branch": null,
+    "commit_sha": null,
+    "tree_sha": null,
+    "scan_id": "sec-scan-b939c473",
+    "timestamp": "2026-09-19T00:45:22.405646+00:00",
+    "policy_version": "v1.0-SEC-POL",
+    "findings_count": 5,
+    "passed": false,
+    "details": {
+      "target_env": "PRODUCTION",
+      "policy_decision": "BLOCK",
+      "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001."
     }
   }
 }

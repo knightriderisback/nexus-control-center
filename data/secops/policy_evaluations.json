@@ -86297,34 +86297,45 @@
     },
     "session_id": null
   },
-  "pol-eval-aaf70e51": {
-    "eval_id": "pol-eval-aaf70e51",
+  "pol-eval-7b1b353e": {
+    "eval_id": "pol-eval-7b1b353e",
     "rule_id": "SEC-POL-001",
     "decision": "BLOCK",
-    "target": "main",
+    "target": "/root/control-center",
     "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001.",
     "actor": "nexus-system",
-    "evaluated_at": "2026-09-19T00:28:10.473253+00:00",
+    "evaluated_at": "2026-09-19T00:45:15.302903+00:00",
     "finding_ids": [
-      "sec-9de26884"
+      "sec-94590f72",
+      "sec-1ea22a12",
+      "sec-6ab5100b",
+      "sec-f01231b9",
+      "sec-92f1012f"
     ],
     "evidence": {
       "blocked_by": "Zero-Leakage Secret Guard",
-      "action": "git.merge"
+      "action": "deploy.PRODUCTION"
     },
     "session_id": null
   },
-  "pol-eval-1c25ac6c": {
-    "eval_id": "pol-eval-1c25ac6c",
-    "rule_id": "SEC-POL-DEFAULT-ALLOW",
-    "decision": "ALLOW",
-    "target": "/tmp/pytest-of-root/pytest-392/test_pre_deployment_security_g0",
-    "reason": "Security policy criteria satisfied.",
+  "pol-eval-7b46936c": {
+    "eval_id": "pol-eval-7b46936c",
+    "rule_id": "SEC-POL-001",
+    "decision": "BLOCK",
+    "target": "/root/control-center",
+    "reason": "Critical secret leak detected. Operation blocked by Zero-Leakage Policy SEC-POL-001.",
     "actor": "nexus-system",
-    "evaluated_at": "2026-09-19T00:28:14.534245+00:00",
-    "finding_ids": [],
+    "evaluated_at": "2026-09-19T00:45:22.179242+00:00",
+    "finding_ids": [
+      "sec-a9bac57f",
+      "sec-58aae240",
+      "sec-95f5b3f4",
+      "sec-eef30fdc",
+      "sec-0728a146"
+    ],
     "evidence": {
-      "status": "PASSED"
+      "blocked_by": "Zero-Leakage Secret Guard",
+      "action": "deploy.PRODUCTION"
     },
     "session_id": null
   }

@@ -11077,5 +11077,23 @@
     },
     "outcome": "SUCCESS",
     "timestamp": "2026-09-19T00:28:16.300523+00:00"
+  },
+  {
+    "knowledge_id": "know-14986164",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-control-center v2.4.0 -> PRODUCTION",
+    "details": {
+      "deployment_id": "dep-db3602fe",
+      "project_id": "control-center",
+      "service_name": "nexus-control-center",
+      "version": "v2.4.0",
+      "environment": "PRODUCTION",
+      "target_type": "VERCEL_EDGE",
+      "deployed_url": "https://nexus-control-center.vercel.app",
+      "duration_seconds": 6.36
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-19T00:45:22.713325+00:00"
   }
 ]

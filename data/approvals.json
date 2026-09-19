@@ -1,5 +1,26 @@
 [
   {
+    "id": "appr-d2d6c7",
+    "task_id": null,
+    "action": "DEPLOY_PRODUCTION",
+    "target_project": "nexus-control-center:v2.4.0",
+    "risk_level": "HIGH",
+    "command": "{\"deployment_id\": \"dep-db3602fe\", \"version\": \"v2.4.0\", \"environment\": \"PRODUCTION\", \"target_type\": \"VERCEL_EDGE\"}",
+    "actor": "developer",
+    "reason": "Request for DEPLOY_PRODUCTION on nexus-control-center:v2.4.0 (Policy: Production infrastructure deployments must be verified and cleared by the operator.)",
+    "timestamp": "2026-09-19T00:45:15.771940+00:00",
+    "status": "EXECUTED",
+    "approved_by": "operator",
+    "decided_at": "2026-09-19T00:45:16.083440+00:00",
+    "token_hash": "5fdef577a46a7745903ed58c20e976ae7c7af42d9061f248a89ca80ecec58380",
+    "token": null,
+    "created_at": "2026-09-19T00:45:15.771972+00:00",
+    "expires_at": "2026-09-19T01:45:15.771868+00:00",
+    "ttl_seconds": 3600,
+    "executed_at": "2026-09-19T00:45:16.083440+00:00",
+    "failed_attempts": 0
+  },
+  {
     "id": "appr-494e5b",
     "task_id": null,
     "action": "Command: Direct deploy production version to c2-alpha-service",

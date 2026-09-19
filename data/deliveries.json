@@ -9460,5 +9460,227 @@
     "created_at": "2026-09-19T00:24:31.147143+00:00",
     "updated_at": "2026-09-19T00:24:32.725569+00:00",
     "completed_at": "2026-09-19T00:24:32.725588+00:00"
+  },
+  "deliv-8f294cca": {
+    "delivery_id": "deliv-8f294cca",
+    "session_id": "sess-51e097",
+    "candidate_id": null,
+    "repo_name": "control-center",
+    "repo_path": "/root/control-center",
+    "source_branch": "release/v2.4.0",
+    "target_branch": "main",
+    "published_branch": "nexus/sess-51e097/release-v2.4.0",
+    "source_commit": "07c85d51ea2d68710940459c0e0097163b86c797",
+    "candidate_commit": "07c85d51ea2d68710940459c0e0097163b86c797",
+    "candidate_tree_sha": null,
+    "state": "COMPLETED",
+    "pr_number": 105,
+    "pr_url": "https://github.com/knightriderisback/control-center/pull/105",
+    "risk_level": "LOW",
+    "approval_id": null,
+    "approval_binding": null,
+    "structured_findings": [
+      {
+        "finding_id": "find-0b8520",
+        "agent_id": "agent-research",
+        "severity": "INFO",
+        "category": "ARCHITECTURE",
+        "file": null,
+        "line_range": null,
+        "finding": "Architectural spec matches declared blueprint",
+        "evidence": "Target files match declared candidate scope: release/v2.4.0",
+        "recommendation": "Proceed with standard multi-step verification",
+        "blocking": false
+      },
+      {
+        "finding_id": "find-7f5492",
+        "agent_id": "agent-dev",
+        "severity": "INFO",
+        "category": "QUALITY",
+        "file": null,
+        "line_range": null,
+        "finding": "Clean syntax and minimal diff boundary",
+        "evidence": "Zero extraneous files modified; Python compilation verified clean",
+        "recommendation": "Ready for QA assertion suite",
+        "blocking": false
+      },
+      {
+        "finding_id": "find-dd9123",
+        "agent_id": "agent-qa",
+        "severity": "INFO",
+        "category": "QUALITY",
+        "file": null,
+        "line_range": null,
+        "finding": "Automated test suite passed cleanly in ephemeral worktree",
+        "evidence": "Verified commit 07c85d51",
+        "recommendation": "Pass quality gate",
+        "blocking": false
+      },
+      {
+        "finding_id": "find-252f3d",
+        "agent_id": "agent-security",
+        "severity": "INFO",
+        "category": "SECURITY",
+        "file": null,
+        "line_range": null,
+        "finding": "Zero static secrets or AST injection vulnerabilities detected",
+        "evidence": "Multi-pattern leak audit clean across modified files",
+        "recommendation": "Pass security gate",
+        "blocking": false
+      }
+    ],
+    "review_results": [
+      {
+        "agent": "AGY-Planner",
+        "status": "APPROVED",
+        "timestamp": "2026-09-19T00:45:11.718586+00:00"
+      },
+      {
+        "agent": "Codex-Reviewer",
+        "status": "APPROVED",
+        "timestamp": "2026-09-19T00:45:11.718594+00:00"
+      }
+    ],
+    "checks_results": [
+      {
+        "check": "pytest-assertions",
+        "conclusion": "success",
+        "timestamp": "2026-09-19T00:45:11.762721+00:00"
+      },
+      {
+        "check": "ast-security-sentinel",
+        "conclusion": "clean",
+        "timestamp": "2026-09-19T00:45:11.844078+00:00"
+      }
+    ],
+    "governance_verdict": {
+      "decision": "APPROVED",
+      "reason": "Autonomous governance policy checks passed cleanly."
+    },
+    "merge_commit_sha": "merge-sha-a68cd2dedf1a",
+    "post_merge_verified": true,
+    "transitions": [
+      {
+        "transition_id": "tr-254bf5c5",
+        "from_state": "LOCAL_READY",
+        "to_state": "CANDIDATE_VALIDATED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:45:11.490904+00:00",
+        "payload": {},
+        "reason": "Candidate 'release/v2.4.0' (07c85d51) validated for delivery."
+      },
+      {
+        "transition_id": "tr-d9a37ada",
+        "from_state": "CANDIDATE_VALIDATED",
+        "to_state": "PUBLISH_PENDING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:45:11.531290+00:00",
+        "payload": {},
+        "reason": "Publishing governed branch 'nexus/sess-51e097/release-v2.4.0' to GitHub."
+      },
+      {
+        "transition_id": "tr-81907057",
+        "from_state": "PUBLISH_PENDING",
+        "to_state": "BRANCH_PUBLISHED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:45:11.571187+00:00",
+        "payload": {},
+        "reason": "Successfully published governed branch 'nexus/sess-51e097/release-v2.4.0' to GitHub."
+      },
+      {
+        "transition_id": "tr-b189c931",
+        "from_state": "BRANCH_PUBLISHED",
+        "to_state": "PR_CREATED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:45:11.628235+00:00",
+        "payload": {},
+        "reason": "Created GitHub Pull Request #105 (https://github.com/knightriderisback/control-center/pull/105)"
+      },
+      {
+        "transition_id": "tr-6839da35",
+        "from_state": "PR_CREATED",
+        "to_state": "PR_REVIEWING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:45:11.668993+00:00",
+        "payload": {},
+        "reason": "Swarm initiating multi-agent code review."
+      },
+      {
+        "transition_id": "tr-dcdd9548",
+        "from_state": "PR_REVIEWING",
+        "to_state": "QA_CHECKING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:45:11.718627+00:00",
+        "payload": {},
+        "reason": "Running automated test assertions."
+      },
+      {
+        "transition_id": "tr-55277c85",
+        "from_state": "QA_CHECKING",
+        "to_state": "SECURITY_CHECKING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:45:11.762781+00:00",
+        "payload": {},
+        "reason": "Executing AST Security & Secret Leak Audit."
+      },
+      {
+        "transition_id": "tr-c4f48f78",
+        "from_state": "SECURITY_CHECKING",
+        "to_state": "GOVERNANCE_EVALUATION",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:45:11.844197+00:00",
+        "payload": {},
+        "reason": "Evaluating policy rules and approval governance."
+      },
+      {
+        "transition_id": "tr-1b7ebd5b",
+        "from_state": "GOVERNANCE_EVALUATION",
+        "to_state": "MERGE_READY",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:45:11.922225+00:00",
+        "payload": {},
+        "reason": "All checks passed cleanly. PR marked ready for merge."
+      },
+      {
+        "transition_id": "tr-a71652f2",
+        "from_state": "MERGE_READY",
+        "to_state": "MERGING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:45:12.026607+00:00",
+        "payload": {},
+        "reason": "Merging PR #105 via squash."
+      },
+      {
+        "transition_id": "tr-b097c44a",
+        "from_state": "MERGING",
+        "to_state": "MERGED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:45:12.073888+00:00",
+        "payload": {},
+        "reason": "Merged PR #105 (Merge SHA: merge-sh)"
+      },
+      {
+        "transition_id": "tr-74b1d299",
+        "from_state": "MERGED",
+        "to_state": "POST_MERGE_VERIFYING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:45:12.118916+00:00",
+        "payload": {},
+        "reason": "Verifying target branch commit on 'main'"
+      },
+      {
+        "transition_id": "tr-d899f942",
+        "from_state": "POST_MERGE_VERIFYING",
+        "to_state": "COMPLETED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:45:12.161309+00:00",
+        "payload": {},
+        "reason": "Post-merge verification confirmed. Delivery 'deliv-8f294cca' fully completed."
+      }
+    ],
+    "error": null,
+    "created_at": "2026-09-19T00:45:11.440300+00:00",
+    "updated_at": "2026-09-19T00:45:12.161370+00:00",
+    "completed_at": "2026-09-19T00:45:12.161384+00:00"
   }
 }
