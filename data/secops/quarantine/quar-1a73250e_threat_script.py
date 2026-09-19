@@ -1,2 +1,0 @@
-AWS_ACCESS_KEY_ID = "AKIAEXAMPLE1234567890"
-print("compromised secret")

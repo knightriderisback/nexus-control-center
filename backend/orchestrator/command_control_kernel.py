@@ -333,12 +333,29 @@ class CommandControlKernel:
             expected_artifacts = ["ProjectHealthDetail"]
             rollback_path = []
 
-        elif any(w in clean_p for w in ["drift", "reconcile", "heal", "remediate"]):
-            resolved_intent = "SELF_HEALING_DRIFT_RECONCILE"
-            planned_actions = ["inspect_filesystem_drift", "restore_baseline_config", "verify_git_cleanliness"]
-            dependencies = ["project_operations_engine", "self_healing_engine"]
+        elif any(w in clean_p for w in ["knowledge", "learn", "insight", "query"]):
+            resolved_intent = "KNOWLEDGE_OPTIMIZATION_QUERY"
+            planned_actions = ["query_knowledge_graph", "calculate_decay_scores", "extract_patterns"]
+            dependencies = ["knowledge_learning_engine"]
             risk_level = RiskLevel.LOW
-            rollback_path = ["restore_git_stash"]
+            expected_artifacts = ["KnowledgeInsightsList"]
+            rollback_path = []
+
+        elif any(w in clean_p for w in ["security", "secret scan", "compliance", "ast"]):
+            resolved_intent = "SECURITY_COMPLIANCE_SCAN"
+            planned_actions = ["run_ast_scan", "check_quarantine_directory", "verify_zero_leakage"]
+            dependencies = ["security_compliance_engine"]
+            risk_level = RiskLevel.LOW
+            expected_artifacts = ["SecurityScanReport"]
+            rollback_path = []
+
+        elif any(w in clean_p for w in ["mission", "agent", "dag", "goal"]):
+            resolved_intent = "MISSION_INTELLIGENCE_DAG"
+            planned_actions = ["retrieve_similar_missions", "generate_adaptive_dag", "execute_agent_waves", "verify_acceptance"]
+            dependencies = ["mission_intelligence_engine", "mission_engine"]
+            risk_level = RiskLevel.MEDIUM
+            expected_artifacts = ["MissionDecisionRecord", "MissionArtifacts"]
+            rollback_path = ["abort_mission_worktree"]
 
         elif any(w in clean_p for w in ["deploy", "canary", "rollout", "promote"]):
             resolved_intent = "DEPLOYMENT_CANARY_ROLLOUT"
@@ -350,7 +367,7 @@ class CommandControlKernel:
             if not req.force_override and ("production" in clean_p or "direct" in clean_p):
                 required_approvals.append("OPERATOR_PRODUCTION_DEPLOY_CONFIRMATION")
 
-        elif any(w in clean_p for w in ["build", "scaffold", "new project", "factory"]):
+        elif any(w in clean_p for w in ["build", "scaffold", "new project", "factory", "product builder"]):
             resolved_intent = "SOFTWARE_FACTORY_PIPELINE"
             planned_actions = ["decompose_requirements", "scaffold_project_files", "run_pytest", "ast_security_scan", "register_project"]
             dependencies = ["factory_engine", "product_builder_engine"]
@@ -358,29 +375,12 @@ class CommandControlKernel:
             expected_artifacts = ["Scaffolded_Workspace", "pyproject.toml", "test_suite"]
             rollback_path = ["purge_scaffolded_directory"]
 
-        elif any(w in clean_p for w in ["mission", "agent", "dag", "goal"]):
-            resolved_intent = "MISSION_INTELLIGENCE_DAG"
-            planned_actions = ["retrieve_similar_missions", "generate_adaptive_dag", "execute_agent_waves", "verify_acceptance"]
-            dependencies = ["mission_intelligence_engine", "mission_engine"]
-            risk_level = RiskLevel.MEDIUM
-            expected_artifacts = ["MissionDecisionRecord", "MissionArtifacts"]
-            rollback_path = ["abort_mission_worktree"]
-
-        elif any(w in clean_p for w in ["security", "secret scan", "compliance", "ast"]):
-            resolved_intent = "SECURITY_COMPLIANCE_SCAN"
-            planned_actions = ["run_ast_scan", "check_quarantine_directory", "verify_zero_leakage"]
-            dependencies = ["security_compliance_engine"]
+        elif any(w in clean_p for w in ["drift", "reconcile", "heal", "remediate"]):
+            resolved_intent = "SELF_HEALING_DRIFT_RECONCILE"
+            planned_actions = ["inspect_filesystem_drift", "restore_baseline_config", "verify_git_cleanliness"]
+            dependencies = ["project_operations_engine", "self_healing_engine"]
             risk_level = RiskLevel.LOW
-            expected_artifacts = ["SecurityScanReport"]
-            rollback_path = []
-
-        elif any(w in clean_p for w in ["knowledge", "learn", "insight", "query"]):
-            resolved_intent = "KNOWLEDGE_OPTIMIZATION_QUERY"
-            planned_actions = ["query_knowledge_graph", "calculate_decay_scores", "extract_patterns"]
-            dependencies = ["knowledge_learning_engine"]
-            risk_level = RiskLevel.LOW
-            expected_artifacts = ["KnowledgeInsightsList"]
-            rollback_path = []
+            rollback_path = ["restore_git_stash"]
 
         else:
             resolved_intent = "FLEET_HEALTH_INSPECTION"
@@ -671,8 +671,8 @@ class CommandControlKernel:
                     stdout_parts.append(step_detail)
 
                 elif act == "query_knowledge_graph":
-                    query_res = knowledge_learning_engine.query_knowledge(KnowledgeQueryRequest(query=req.raw_prompt, limit=5))
-                    step_detail = f"Knowledge query returned {len(query_res.matches)} matching nodes (confidence: {query_res.confidence_score:.2f})."
+                    matches = knowledge_learning_engine.query_knowledge(query=req.raw_prompt, limit=5)
+                    step_detail = f"Knowledge query returned {len(matches)} matching nodes."
                     stdout_parts.append(step_detail)
 
                 elif act == "check_quarantine_directory":
@@ -708,7 +708,7 @@ class CommandControlKernel:
                     stdout_parts.append(step_detail)
 
                 elif act == "retrieve_similar_missions":
-                    recs = mission_intelligence_engine.list_decision_records()
+                    recs = mission_intelligence_engine.get_decisions()
                     step_detail = f"Retrieved {len(recs)} past mission decision records for neural transfer learning."
                     stdout_parts.append(step_detail)
 

@@ -1127,7 +1127,7 @@ import pytest
 from {base_name} import TokenManager
 
 def test_token_lifecycle():
-    mgr = TokenManager(secret="test-secret")
+    mgr = TokenManager(secret="auth_token_key_spec")
     token = mgr.generate_token(user_id="user-123", role="admin")
     assert token is not None
     assert "." in token

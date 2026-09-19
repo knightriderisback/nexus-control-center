@@ -8488,5 +8488,977 @@
     "created_at": "2026-09-18T18:37:02.954407+00:00",
     "updated_at": "2026-09-18T18:37:03.353575+00:00",
     "completed_at": null
+  },
+  "deliv-f72d60ab": {
+    "delivery_id": "deliv-f72d60ab",
+    "session_id": "sess-4bfbf9",
+    "candidate_id": null,
+    "repo_name": "portfolio",
+    "repo_path": "/root/portfolio",
+    "source_branch": "feat/platform-rebuild",
+    "target_branch": "main",
+    "published_branch": "nexus/sess-4bfbf9/feat-platform-rebuild",
+    "source_commit": "05d8ccbb5c2f360c9f5fb56d2b6db81650fa583f",
+    "candidate_commit": "2d584d8a64376916b06b6724ae44261e8e211ae6",
+    "candidate_tree_sha": null,
+    "state": "COMPLETED",
+    "pr_number": 101,
+    "pr_url": "https://github.com/knightriderisback/portfolio/pull/101",
+    "risk_level": "CRITICAL",
+    "approval_id": "appr-c528c6",
+    "approval_binding": {
+      "session_id": "sess-4bfbf9",
+      "execution_id": "deliv-f72d60ab",
+      "candidate_id": null,
+      "candidate_commit_sha": "2d584d8a64376916b06b6724ae44261e8e211ae6",
+      "candidate_tree_sha": null,
+      "target_branch": "main",
+      "risk_level": "CRITICAL",
+      "approval_id": "appr-c528c6",
+      "consumed": true,
+      "bound_at": "2026-09-19T00:21:48.110251+00:00"
+    },
+    "structured_findings": [
+      {
+        "finding_id": "find-54bb6d",
+        "agent_id": "agent-research",
+        "severity": "INFO",
+        "category": "ARCHITECTURE",
+        "file": null,
+        "line_range": null,
+        "finding": "Architectural spec matches declared blueprint",
+        "evidence": "Target files match declared candidate scope: feat/platform-rebuild",
+        "recommendation": "Proceed with standard multi-step verification",
+        "blocking": false
+      },
+      {
+        "finding_id": "find-8c61d4",
+        "agent_id": "agent-dev",
+        "severity": "INFO",
+        "category": "QUALITY",
+        "file": null,
+        "line_range": null,
+        "finding": "Clean syntax and minimal diff boundary",
+        "evidence": "Zero extraneous files modified; Python compilation verified clean",
+        "recommendation": "Ready for QA assertion suite",
+        "blocking": false
+      },
+      {
+        "finding_id": "find-6b2efa",
+        "agent_id": "agent-qa",
+        "severity": "INFO",
+        "category": "QUALITY",
+        "file": null,
+        "line_range": null,
+        "finding": "Automated test suite passed cleanly in ephemeral worktree",
+        "evidence": "Verified commit 2d584d8a",
+        "recommendation": "Pass quality gate",
+        "blocking": false
+      },
+      {
+        "finding_id": "find-a9723b",
+        "agent_id": "agent-security",
+        "severity": "INFO",
+        "category": "SECURITY",
+        "file": null,
+        "line_range": null,
+        "finding": "Zero static secrets or AST injection vulnerabilities detected",
+        "evidence": "Multi-pattern leak audit clean across modified files",
+        "recommendation": "Pass security gate",
+        "blocking": false
+      }
+    ],
+    "review_results": [
+      {
+        "agent": "AGY-Planner",
+        "status": "APPROVED",
+        "timestamp": "2026-09-19T00:21:47.378307+00:00"
+      },
+      {
+        "agent": "Codex-Reviewer",
+        "status": "APPROVED",
+        "timestamp": "2026-09-19T00:21:47.378326+00:00"
+      }
+    ],
+    "checks_results": [
+      {
+        "check": "pytest-assertions",
+        "conclusion": "success",
+        "timestamp": "2026-09-19T00:21:47.470383+00:00"
+      },
+      {
+        "check": "ast-security-sentinel",
+        "conclusion": "clean",
+        "timestamp": "2026-09-19T00:21:47.909580+00:00"
+      }
+    ],
+    "governance_verdict": {
+      "decision": "REQUIRES_APPROVAL",
+      "approval_id": "appr-c528c6",
+      "reason": "High-risk software delivery boundary requires human signoff"
+    },
+    "merge_commit_sha": "merge-sha-d52b55d38059",
+    "post_merge_verified": true,
+    "transitions": [
+      {
+        "transition_id": "tr-d8798eb5",
+        "from_state": "LOCAL_READY",
+        "to_state": "CANDIDATE_VALIDATED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:21:47.129240+00:00",
+        "payload": {},
+        "reason": "Candidate 'feat/platform-rebuild' (2d584d8a) validated for delivery."
+      },
+      {
+        "transition_id": "tr-2f0d3257",
+        "from_state": "CANDIDATE_VALIDATED",
+        "to_state": "PUBLISH_PENDING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:21:47.166067+00:00",
+        "payload": {},
+        "reason": "Publishing governed branch 'nexus/sess-4bfbf9/feat-platform-rebuild' to GitHub."
+      },
+      {
+        "transition_id": "tr-383d37c6",
+        "from_state": "PUBLISH_PENDING",
+        "to_state": "BRANCH_PUBLISHED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:21:47.202566+00:00",
+        "payload": {},
+        "reason": "Successfully published governed branch 'nexus/sess-4bfbf9/feat-platform-rebuild' to GitHub."
+      },
+      {
+        "transition_id": "tr-b9990b2f",
+        "from_state": "BRANCH_PUBLISHED",
+        "to_state": "PR_CREATED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:21:47.264000+00:00",
+        "payload": {},
+        "reason": "Created GitHub Pull Request #101 (https://github.com/knightriderisback/portfolio/pull/101)"
+      },
+      {
+        "transition_id": "tr-78b8591d",
+        "from_state": "PR_CREATED",
+        "to_state": "PR_REVIEWING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:21:47.306523+00:00",
+        "payload": {},
+        "reason": "Swarm initiating multi-agent code review."
+      },
+      {
+        "transition_id": "tr-11f1498e",
+        "from_state": "PR_REVIEWING",
+        "to_state": "QA_CHECKING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:21:47.378625+00:00",
+        "payload": {},
+        "reason": "Running automated test assertions."
+      },
+      {
+        "transition_id": "tr-d2d617a7",
+        "from_state": "QA_CHECKING",
+        "to_state": "SECURITY_CHECKING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:21:47.470496+00:00",
+        "payload": {},
+        "reason": "Executing AST Security & Secret Leak Audit."
+      },
+      {
+        "transition_id": "tr-f2c813ad",
+        "from_state": "SECURITY_CHECKING",
+        "to_state": "GOVERNANCE_EVALUATION",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:21:47.909833+00:00",
+        "payload": {},
+        "reason": "Evaluating policy rules and approval governance."
+      },
+      {
+        "transition_id": "tr-39612894",
+        "from_state": "GOVERNANCE_EVALUATION",
+        "to_state": "APPROVAL_PENDING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:21:48.110707+00:00",
+        "payload": {},
+        "reason": "Governance gate: human signoff required (Approval ID: appr-c528c6)"
+      },
+      {
+        "transition_id": "tr-9bb60336",
+        "from_state": "APPROVAL_PENDING",
+        "to_state": "MERGE_READY",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:29.224944+00:00",
+        "payload": {},
+        "reason": "Operator approved delivery merge."
+      },
+      {
+        "transition_id": "tr-6c80ae9b",
+        "from_state": "MERGE_READY",
+        "to_state": "MERGING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:29.301859+00:00",
+        "payload": {},
+        "reason": "Merging PR #101 via squash."
+      },
+      {
+        "transition_id": "tr-53550182",
+        "from_state": "MERGING",
+        "to_state": "MERGED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:29.384390+00:00",
+        "payload": {},
+        "reason": "Merged PR #101 (Merge SHA: merge-sh)"
+      },
+      {
+        "transition_id": "tr-7dc03576",
+        "from_state": "MERGED",
+        "to_state": "POST_MERGE_VERIFYING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:29.455570+00:00",
+        "payload": {},
+        "reason": "Verifying target branch commit on 'main'"
+      },
+      {
+        "transition_id": "tr-c0b7bcf9",
+        "from_state": "POST_MERGE_VERIFYING",
+        "to_state": "COMPLETED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:29.520288+00:00",
+        "payload": {},
+        "reason": "Post-merge verification confirmed. Delivery 'deliv-f72d60ab' fully completed."
+      }
+    ],
+    "error": null,
+    "created_at": "2026-09-19T00:21:47.083358+00:00",
+    "updated_at": "2026-09-19T00:23:29.520437+00:00",
+    "completed_at": "2026-09-19T00:23:29.520476+00:00"
+  },
+  "deliv-72461a72": {
+    "delivery_id": "deliv-72461a72",
+    "session_id": "sess-55d435",
+    "candidate_id": null,
+    "repo_name": "portfolio",
+    "repo_path": "/root/portfolio",
+    "source_branch": "feat/platform-rebuild",
+    "target_branch": "main",
+    "published_branch": "nexus/sess-55d435/feat-platform-rebuild",
+    "source_commit": "05d8ccbb5c2f360c9f5fb56d2b6db81650fa583f",
+    "candidate_commit": "2d584d8a64376916b06b6724ae44261e8e211ae6",
+    "candidate_tree_sha": null,
+    "state": "COMPLETED",
+    "pr_number": 102,
+    "pr_url": "https://github.com/knightriderisback/portfolio/pull/102",
+    "risk_level": "CRITICAL",
+    "approval_id": "appr-2d7493",
+    "approval_binding": {
+      "session_id": "sess-55d435",
+      "execution_id": "deliv-72461a72",
+      "candidate_id": null,
+      "candidate_commit_sha": "2d584d8a64376916b06b6724ae44261e8e211ae6",
+      "candidate_tree_sha": null,
+      "target_branch": "main",
+      "risk_level": "CRITICAL",
+      "approval_id": "appr-2d7493",
+      "consumed": true,
+      "bound_at": "2026-09-19T00:23:43.965495+00:00"
+    },
+    "structured_findings": [
+      {
+        "finding_id": "find-78da91",
+        "agent_id": "agent-research",
+        "severity": "INFO",
+        "category": "ARCHITECTURE",
+        "file": null,
+        "line_range": null,
+        "finding": "Architectural spec matches declared blueprint",
+        "evidence": "Target files match declared candidate scope: feat/platform-rebuild",
+        "recommendation": "Proceed with standard multi-step verification",
+        "blocking": false
+      },
+      {
+        "finding_id": "find-8f714b",
+        "agent_id": "agent-dev",
+        "severity": "INFO",
+        "category": "QUALITY",
+        "file": null,
+        "line_range": null,
+        "finding": "Clean syntax and minimal diff boundary",
+        "evidence": "Zero extraneous files modified; Python compilation verified clean",
+        "recommendation": "Ready for QA assertion suite",
+        "blocking": false
+      },
+      {
+        "finding_id": "find-d474a8",
+        "agent_id": "agent-qa",
+        "severity": "INFO",
+        "category": "QUALITY",
+        "file": null,
+        "line_range": null,
+        "finding": "Automated test suite passed cleanly in ephemeral worktree",
+        "evidence": "Verified commit 2d584d8a",
+        "recommendation": "Pass quality gate",
+        "blocking": false
+      },
+      {
+        "finding_id": "find-25f1f2",
+        "agent_id": "agent-security",
+        "severity": "INFO",
+        "category": "SECURITY",
+        "file": null,
+        "line_range": null,
+        "finding": "Zero static secrets or AST injection vulnerabilities detected",
+        "evidence": "Multi-pattern leak audit clean across modified files",
+        "recommendation": "Pass security gate",
+        "blocking": false
+      }
+    ],
+    "review_results": [
+      {
+        "agent": "AGY-Planner",
+        "status": "APPROVED",
+        "timestamp": "2026-09-19T00:23:43.034071+00:00"
+      },
+      {
+        "agent": "Codex-Reviewer",
+        "status": "APPROVED",
+        "timestamp": "2026-09-19T00:23:43.034106+00:00"
+      }
+    ],
+    "checks_results": [
+      {
+        "check": "pytest-assertions",
+        "conclusion": "success",
+        "timestamp": "2026-09-19T00:23:43.144322+00:00"
+      },
+      {
+        "check": "ast-security-sentinel",
+        "conclusion": "clean",
+        "timestamp": "2026-09-19T00:23:43.764571+00:00"
+      }
+    ],
+    "governance_verdict": {
+      "decision": "REQUIRES_APPROVAL",
+      "approval_id": "appr-2d7493",
+      "reason": "High-risk software delivery boundary requires human signoff"
+    },
+    "merge_commit_sha": "merge-sha-40e763766420",
+    "post_merge_verified": true,
+    "transitions": [
+      {
+        "transition_id": "tr-280c55dc",
+        "from_state": "LOCAL_READY",
+        "to_state": "CANDIDATE_VALIDATED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:42.495190+00:00",
+        "payload": {},
+        "reason": "Candidate 'feat/platform-rebuild' (2d584d8a) validated for delivery."
+      },
+      {
+        "transition_id": "tr-fb43f991",
+        "from_state": "CANDIDATE_VALIDATED",
+        "to_state": "PUBLISH_PENDING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:42.549741+00:00",
+        "payload": {},
+        "reason": "Publishing governed branch 'nexus/sess-55d435/feat-platform-rebuild' to GitHub."
+      },
+      {
+        "transition_id": "tr-f6c438b4",
+        "from_state": "PUBLISH_PENDING",
+        "to_state": "BRANCH_PUBLISHED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:42.611822+00:00",
+        "payload": {},
+        "reason": "Successfully published governed branch 'nexus/sess-55d435/feat-platform-rebuild' to GitHub."
+      },
+      {
+        "transition_id": "tr-19711746",
+        "from_state": "BRANCH_PUBLISHED",
+        "to_state": "PR_CREATED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:42.716621+00:00",
+        "payload": {},
+        "reason": "Created GitHub Pull Request #102 (https://github.com/knightriderisback/portfolio/pull/102)"
+      },
+      {
+        "transition_id": "tr-12c9a8c8",
+        "from_state": "PR_CREATED",
+        "to_state": "PR_REVIEWING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:42.876466+00:00",
+        "payload": {},
+        "reason": "Swarm initiating multi-agent code review."
+      },
+      {
+        "transition_id": "tr-6e2628e6",
+        "from_state": "PR_REVIEWING",
+        "to_state": "QA_CHECKING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:43.034236+00:00",
+        "payload": {},
+        "reason": "Running automated test assertions."
+      },
+      {
+        "transition_id": "tr-d9a8bb11",
+        "from_state": "QA_CHECKING",
+        "to_state": "SECURITY_CHECKING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:43.144473+00:00",
+        "payload": {},
+        "reason": "Executing AST Security & Secret Leak Audit."
+      },
+      {
+        "transition_id": "tr-34b06889",
+        "from_state": "SECURITY_CHECKING",
+        "to_state": "GOVERNANCE_EVALUATION",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:43.764634+00:00",
+        "payload": {},
+        "reason": "Evaluating policy rules and approval governance."
+      },
+      {
+        "transition_id": "tr-a0f5fa71",
+        "from_state": "GOVERNANCE_EVALUATION",
+        "to_state": "APPROVAL_PENDING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:43.965670+00:00",
+        "payload": {},
+        "reason": "Governance gate: human signoff required (Approval ID: appr-2d7493)"
+      },
+      {
+        "transition_id": "tr-72372384",
+        "from_state": "APPROVAL_PENDING",
+        "to_state": "MERGE_READY",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:44.232908+00:00",
+        "payload": {},
+        "reason": "Operator approved delivery merge."
+      },
+      {
+        "transition_id": "tr-61dc74be",
+        "from_state": "MERGE_READY",
+        "to_state": "MERGING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:44.328025+00:00",
+        "payload": {},
+        "reason": "Merging PR #102 via squash."
+      },
+      {
+        "transition_id": "tr-cb7ba759",
+        "from_state": "MERGING",
+        "to_state": "MERGED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:44.395577+00:00",
+        "payload": {},
+        "reason": "Merged PR #102 (Merge SHA: merge-sh)"
+      },
+      {
+        "transition_id": "tr-02580b30",
+        "from_state": "MERGED",
+        "to_state": "POST_MERGE_VERIFYING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:44.444655+00:00",
+        "payload": {},
+        "reason": "Verifying target branch commit on 'main'"
+      },
+      {
+        "transition_id": "tr-5331928c",
+        "from_state": "POST_MERGE_VERIFYING",
+        "to_state": "COMPLETED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:23:44.494011+00:00",
+        "payload": {},
+        "reason": "Post-merge verification confirmed. Delivery 'deliv-72461a72' fully completed."
+      }
+    ],
+    "error": null,
+    "created_at": "2026-09-19T00:23:42.436721+00:00",
+    "updated_at": "2026-09-19T00:23:44.494079+00:00",
+    "completed_at": "2026-09-19T00:23:44.494098+00:00"
+  },
+  "deliv-9413ae8a": {
+    "delivery_id": "deliv-9413ae8a",
+    "session_id": "sess-e4ca06",
+    "candidate_id": null,
+    "repo_name": "portfolio",
+    "repo_path": "/root/portfolio",
+    "source_branch": "feat/platform-rebuild",
+    "target_branch": "main",
+    "published_branch": "nexus/sess-e4ca06/feat-platform-rebuild",
+    "source_commit": "05d8ccbb5c2f360c9f5fb56d2b6db81650fa583f",
+    "candidate_commit": "2d584d8a64376916b06b6724ae44261e8e211ae6",
+    "candidate_tree_sha": null,
+    "state": "COMPLETED",
+    "pr_number": 103,
+    "pr_url": "https://github.com/knightriderisback/portfolio/pull/103",
+    "risk_level": "CRITICAL",
+    "approval_id": "appr-54d183",
+    "approval_binding": {
+      "session_id": "sess-e4ca06",
+      "execution_id": "deliv-9413ae8a",
+      "candidate_id": null,
+      "candidate_commit_sha": "2d584d8a64376916b06b6724ae44261e8e211ae6",
+      "candidate_tree_sha": null,
+      "target_branch": "main",
+      "risk_level": "CRITICAL",
+      "approval_id": "appr-54d183",
+      "consumed": true,
+      "bound_at": "2026-09-19T00:24:08.370818+00:00"
+    },
+    "structured_findings": [
+      {
+        "finding_id": "find-dd3f8f",
+        "agent_id": "agent-research",
+        "severity": "INFO",
+        "category": "ARCHITECTURE",
+        "file": null,
+        "line_range": null,
+        "finding": "Architectural spec matches declared blueprint",
+        "evidence": "Target files match declared candidate scope: feat/platform-rebuild",
+        "recommendation": "Proceed with standard multi-step verification",
+        "blocking": false
+      },
+      {
+        "finding_id": "find-df4fdf",
+        "agent_id": "agent-dev",
+        "severity": "INFO",
+        "category": "QUALITY",
+        "file": null,
+        "line_range": null,
+        "finding": "Clean syntax and minimal diff boundary",
+        "evidence": "Zero extraneous files modified; Python compilation verified clean",
+        "recommendation": "Ready for QA assertion suite",
+        "blocking": false
+      },
+      {
+        "finding_id": "find-63dd05",
+        "agent_id": "agent-qa",
+        "severity": "INFO",
+        "category": "QUALITY",
+        "file": null,
+        "line_range": null,
+        "finding": "Automated test suite passed cleanly in ephemeral worktree",
+        "evidence": "Verified commit 2d584d8a",
+        "recommendation": "Pass quality gate",
+        "blocking": false
+      },
+      {
+        "finding_id": "find-9fa464",
+        "agent_id": "agent-security",
+        "severity": "INFO",
+        "category": "SECURITY",
+        "file": null,
+        "line_range": null,
+        "finding": "Zero static secrets or AST injection vulnerabilities detected",
+        "evidence": "Multi-pattern leak audit clean across modified files",
+        "recommendation": "Pass security gate",
+        "blocking": false
+      }
+    ],
+    "review_results": [
+      {
+        "agent": "AGY-Planner",
+        "status": "APPROVED",
+        "timestamp": "2026-09-19T00:24:07.704134+00:00"
+      },
+      {
+        "agent": "Codex-Reviewer",
+        "status": "APPROVED",
+        "timestamp": "2026-09-19T00:24:07.704145+00:00"
+      }
+    ],
+    "checks_results": [
+      {
+        "check": "pytest-assertions",
+        "conclusion": "success",
+        "timestamp": "2026-09-19T00:24:07.780702+00:00"
+      },
+      {
+        "check": "ast-security-sentinel",
+        "conclusion": "clean",
+        "timestamp": "2026-09-19T00:24:08.160940+00:00"
+      }
+    ],
+    "governance_verdict": {
+      "decision": "REQUIRES_APPROVAL",
+      "approval_id": "appr-54d183",
+      "reason": "High-risk software delivery boundary requires human signoff"
+    },
+    "merge_commit_sha": "merge-sha-9f10332da615",
+    "post_merge_verified": true,
+    "transitions": [
+      {
+        "transition_id": "tr-c60b95e0",
+        "from_state": "LOCAL_READY",
+        "to_state": "CANDIDATE_VALIDATED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:07.435660+00:00",
+        "payload": {},
+        "reason": "Candidate 'feat/platform-rebuild' (2d584d8a) validated for delivery."
+      },
+      {
+        "transition_id": "tr-e8c5fcda",
+        "from_state": "CANDIDATE_VALIDATED",
+        "to_state": "PUBLISH_PENDING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:07.491750+00:00",
+        "payload": {},
+        "reason": "Publishing governed branch 'nexus/sess-e4ca06/feat-platform-rebuild' to GitHub."
+      },
+      {
+        "transition_id": "tr-1dd49b77",
+        "from_state": "PUBLISH_PENDING",
+        "to_state": "BRANCH_PUBLISHED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:07.528632+00:00",
+        "payload": {},
+        "reason": "Successfully published governed branch 'nexus/sess-e4ca06/feat-platform-rebuild' to GitHub."
+      },
+      {
+        "transition_id": "tr-7de18819",
+        "from_state": "BRANCH_PUBLISHED",
+        "to_state": "PR_CREATED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:07.588026+00:00",
+        "payload": {},
+        "reason": "Created GitHub Pull Request #103 (https://github.com/knightriderisback/portfolio/pull/103)"
+      },
+      {
+        "transition_id": "tr-90c61fbd",
+        "from_state": "PR_CREATED",
+        "to_state": "PR_REVIEWING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:07.657327+00:00",
+        "payload": {},
+        "reason": "Swarm initiating multi-agent code review."
+      },
+      {
+        "transition_id": "tr-da5be9ee",
+        "from_state": "PR_REVIEWING",
+        "to_state": "QA_CHECKING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:07.704195+00:00",
+        "payload": {},
+        "reason": "Running automated test assertions."
+      },
+      {
+        "transition_id": "tr-27296769",
+        "from_state": "QA_CHECKING",
+        "to_state": "SECURITY_CHECKING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:07.780852+00:00",
+        "payload": {},
+        "reason": "Executing AST Security & Secret Leak Audit."
+      },
+      {
+        "transition_id": "tr-3aa16224",
+        "from_state": "SECURITY_CHECKING",
+        "to_state": "GOVERNANCE_EVALUATION",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:08.161009+00:00",
+        "payload": {},
+        "reason": "Evaluating policy rules and approval governance."
+      },
+      {
+        "transition_id": "tr-24833d70",
+        "from_state": "GOVERNANCE_EVALUATION",
+        "to_state": "APPROVAL_PENDING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:08.371116+00:00",
+        "payload": {},
+        "reason": "Governance gate: human signoff required (Approval ID: appr-54d183)"
+      },
+      {
+        "transition_id": "tr-fcebf7cf",
+        "from_state": "APPROVAL_PENDING",
+        "to_state": "MERGE_READY",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:08.764769+00:00",
+        "payload": {},
+        "reason": "Operator approved delivery merge."
+      },
+      {
+        "transition_id": "tr-1c53b0d0",
+        "from_state": "MERGE_READY",
+        "to_state": "MERGING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:08.813315+00:00",
+        "payload": {},
+        "reason": "Merging PR #103 via squash."
+      },
+      {
+        "transition_id": "tr-bffe2a0d",
+        "from_state": "MERGING",
+        "to_state": "MERGED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:08.856383+00:00",
+        "payload": {},
+        "reason": "Merged PR #103 (Merge SHA: merge-sh)"
+      },
+      {
+        "transition_id": "tr-48670cd3",
+        "from_state": "MERGED",
+        "to_state": "POST_MERGE_VERIFYING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:08.895845+00:00",
+        "payload": {},
+        "reason": "Verifying target branch commit on 'main'"
+      },
+      {
+        "transition_id": "tr-e1ccc041",
+        "from_state": "POST_MERGE_VERIFYING",
+        "to_state": "COMPLETED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:08.938771+00:00",
+        "payload": {},
+        "reason": "Post-merge verification confirmed. Delivery 'deliv-9413ae8a' fully completed."
+      }
+    ],
+    "error": null,
+    "created_at": "2026-09-19T00:24:07.388097+00:00",
+    "updated_at": "2026-09-19T00:24:08.938866+00:00",
+    "completed_at": "2026-09-19T00:24:08.938886+00:00"
+  },
+  "deliv-099dbf93": {
+    "delivery_id": "deliv-099dbf93",
+    "session_id": "sess-8fc561",
+    "candidate_id": null,
+    "repo_name": "portfolio",
+    "repo_path": "/root/portfolio",
+    "source_branch": "feat/platform-rebuild",
+    "target_branch": "main",
+    "published_branch": "nexus/sess-8fc561/feat-platform-rebuild",
+    "source_commit": "05d8ccbb5c2f360c9f5fb56d2b6db81650fa583f",
+    "candidate_commit": "2d584d8a64376916b06b6724ae44261e8e211ae6",
+    "candidate_tree_sha": null,
+    "state": "COMPLETED",
+    "pr_number": 104,
+    "pr_url": "https://github.com/knightriderisback/portfolio/pull/104",
+    "risk_level": "CRITICAL",
+    "approval_id": "appr-7d826c",
+    "approval_binding": {
+      "session_id": "sess-8fc561",
+      "execution_id": "deliv-099dbf93",
+      "candidate_id": null,
+      "candidate_commit_sha": "2d584d8a64376916b06b6724ae44261e8e211ae6",
+      "candidate_tree_sha": null,
+      "target_branch": "main",
+      "risk_level": "CRITICAL",
+      "approval_id": "appr-7d826c",
+      "consumed": true,
+      "bound_at": "2026-09-19T00:24:32.185657+00:00"
+    },
+    "structured_findings": [
+      {
+        "finding_id": "find-d8b966",
+        "agent_id": "agent-research",
+        "severity": "INFO",
+        "category": "ARCHITECTURE",
+        "file": null,
+        "line_range": null,
+        "finding": "Architectural spec matches declared blueprint",
+        "evidence": "Target files match declared candidate scope: feat/platform-rebuild",
+        "recommendation": "Proceed with standard multi-step verification",
+        "blocking": false
+      },
+      {
+        "finding_id": "find-96565e",
+        "agent_id": "agent-dev",
+        "severity": "INFO",
+        "category": "QUALITY",
+        "file": null,
+        "line_range": null,
+        "finding": "Clean syntax and minimal diff boundary",
+        "evidence": "Zero extraneous files modified; Python compilation verified clean",
+        "recommendation": "Ready for QA assertion suite",
+        "blocking": false
+      },
+      {
+        "finding_id": "find-3e60e1",
+        "agent_id": "agent-qa",
+        "severity": "INFO",
+        "category": "QUALITY",
+        "file": null,
+        "line_range": null,
+        "finding": "Automated test suite passed cleanly in ephemeral worktree",
+        "evidence": "Verified commit 2d584d8a",
+        "recommendation": "Pass quality gate",
+        "blocking": false
+      },
+      {
+        "finding_id": "find-ee0290",
+        "agent_id": "agent-security",
+        "severity": "INFO",
+        "category": "SECURITY",
+        "file": null,
+        "line_range": null,
+        "finding": "Zero static secrets or AST injection vulnerabilities detected",
+        "evidence": "Multi-pattern leak audit clean across modified files",
+        "recommendation": "Pass security gate",
+        "blocking": false
+      }
+    ],
+    "review_results": [
+      {
+        "agent": "AGY-Planner",
+        "status": "APPROVED",
+        "timestamp": "2026-09-19T00:24:31.455586+00:00"
+      },
+      {
+        "agent": "Codex-Reviewer",
+        "status": "APPROVED",
+        "timestamp": "2026-09-19T00:24:31.455606+00:00"
+      }
+    ],
+    "checks_results": [
+      {
+        "check": "pytest-assertions",
+        "conclusion": "success",
+        "timestamp": "2026-09-19T00:24:31.502069+00:00"
+      },
+      {
+        "check": "ast-security-sentinel",
+        "conclusion": "clean",
+        "timestamp": "2026-09-19T00:24:31.974816+00:00"
+      }
+    ],
+    "governance_verdict": {
+      "decision": "REQUIRES_APPROVAL",
+      "approval_id": "appr-7d826c",
+      "reason": "High-risk software delivery boundary requires human signoff"
+    },
+    "merge_commit_sha": "merge-sha-9c79a66a5023",
+    "post_merge_verified": true,
+    "transitions": [
+      {
+        "transition_id": "tr-4ab5818b",
+        "from_state": "LOCAL_READY",
+        "to_state": "CANDIDATE_VALIDATED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:31.201725+00:00",
+        "payload": {},
+        "reason": "Candidate 'feat/platform-rebuild' (2d584d8a) validated for delivery."
+      },
+      {
+        "transition_id": "tr-58d8e736",
+        "from_state": "CANDIDATE_VALIDATED",
+        "to_state": "PUBLISH_PENDING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:31.240761+00:00",
+        "payload": {},
+        "reason": "Publishing governed branch 'nexus/sess-8fc561/feat-platform-rebuild' to GitHub."
+      },
+      {
+        "transition_id": "tr-2182910f",
+        "from_state": "PUBLISH_PENDING",
+        "to_state": "BRANCH_PUBLISHED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:31.283314+00:00",
+        "payload": {},
+        "reason": "Successfully published governed branch 'nexus/sess-8fc561/feat-platform-rebuild' to GitHub."
+      },
+      {
+        "transition_id": "tr-2c85b002",
+        "from_state": "BRANCH_PUBLISHED",
+        "to_state": "PR_CREATED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:31.343505+00:00",
+        "payload": {},
+        "reason": "Created GitHub Pull Request #104 (https://github.com/knightriderisback/portfolio/pull/104)"
+      },
+      {
+        "transition_id": "tr-0a5ca29f",
+        "from_state": "PR_CREATED",
+        "to_state": "PR_REVIEWING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:31.405812+00:00",
+        "payload": {},
+        "reason": "Swarm initiating multi-agent code review."
+      },
+      {
+        "transition_id": "tr-0b32ac0a",
+        "from_state": "PR_REVIEWING",
+        "to_state": "QA_CHECKING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:31.455685+00:00",
+        "payload": {},
+        "reason": "Running automated test assertions."
+      },
+      {
+        "transition_id": "tr-32bae0c7",
+        "from_state": "QA_CHECKING",
+        "to_state": "SECURITY_CHECKING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:31.502124+00:00",
+        "payload": {},
+        "reason": "Executing AST Security & Secret Leak Audit."
+      },
+      {
+        "transition_id": "tr-9be12b9b",
+        "from_state": "SECURITY_CHECKING",
+        "to_state": "GOVERNANCE_EVALUATION",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:31.974887+00:00",
+        "payload": {},
+        "reason": "Evaluating policy rules and approval governance."
+      },
+      {
+        "transition_id": "tr-dbdbc3f7",
+        "from_state": "GOVERNANCE_EVALUATION",
+        "to_state": "APPROVAL_PENDING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:32.185834+00:00",
+        "payload": {},
+        "reason": "Governance gate: human signoff required (Approval ID: appr-7d826c)"
+      },
+      {
+        "transition_id": "tr-9944a43b",
+        "from_state": "APPROVAL_PENDING",
+        "to_state": "MERGE_READY",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:32.520772+00:00",
+        "payload": {},
+        "reason": "Operator approved delivery merge."
+      },
+      {
+        "transition_id": "tr-40736e5d",
+        "from_state": "MERGE_READY",
+        "to_state": "MERGING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:32.591229+00:00",
+        "payload": {},
+        "reason": "Merging PR #104 via squash."
+      },
+      {
+        "transition_id": "tr-425cdff0",
+        "from_state": "MERGING",
+        "to_state": "MERGED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:32.635003+00:00",
+        "payload": {},
+        "reason": "Merged PR #104 (Merge SHA: merge-sh)"
+      },
+      {
+        "transition_id": "tr-b3997fb8",
+        "from_state": "MERGED",
+        "to_state": "POST_MERGE_VERIFYING",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:32.678657+00:00",
+        "payload": {},
+        "reason": "Verifying target branch commit on 'main'"
+      },
+      {
+        "transition_id": "tr-41b3c18d",
+        "from_state": "POST_MERGE_VERIFYING",
+        "to_state": "COMPLETED",
+        "trigger_agent": "delivery_engine",
+        "timestamp": "2026-09-19T00:24:32.725491+00:00",
+        "payload": {},
+        "reason": "Post-merge verification confirmed. Delivery 'deliv-099dbf93' fully completed."
+      }
+    ],
+    "error": null,
+    "created_at": "2026-09-19T00:24:31.147143+00:00",
+    "updated_at": "2026-09-19T00:24:32.725569+00:00",
+    "completed_at": "2026-09-19T00:24:32.725588+00:00"
   }
 }

@@ -281,8 +281,8 @@
         "expected_state": "Clean working tree",
         "observed_state": "Dirty working tree with uncommitted modifications",
         "diff": "M data/audit/audit_trail.jsonl\n M data/command_control/operations_timeline.json\n M data/project_operations/operations_records.json",
-        "remediated": false,
-        "remediated_at": null,
+        "remediated": true,
+        "remediated_at": "2026-09-18T19:14:35.494207+00:00",
         "timestamp": "2026-09-18T19:14:33.837384+00:00"
       }
     ],
@@ -295,7 +295,7 @@
     },
     "tombstone": null,
     "created_at": "2026-09-18T14:54:47.201849+00:00",
-    "updated_at": "2026-09-18T19:14:33.837469+00:00"
+    "updated_at": "2026-09-18T19:14:35.494234+00:00"
   },
   "control-center": {
     "project_id": "control-center",
@@ -1872,7 +1872,7 @@
   "project-alpha": {
     "project_id": "project-alpha",
     "project_name": "Project Alpha",
-    "project_path": "/tmp/nexus-phase23-e2e-i2rpj8o2/project-alpha",
+    "project_path": "/tmp/nexus-phase23-e2e-4uhxwzv_/project-alpha",
     "lifecycle_state": "ACTIVE",
     "health_score": 100.0,
     "current_version": "0.1.0",
@@ -1888,20 +1888,44 @@
       "error_budget_remaining_pct": 100.0,
       "burn_rate": 0.0,
       "sla_status": "COMPLIANT",
-      "last_evaluated": "2026-09-18T18:57:29.646810+00:00"
+      "last_evaluated": "2026-09-18T19:25:16.426466+00:00"
     },
     "active_drifts": [
       {
-        "drift_id": "drift-2c11e290",
+        "drift_id": "drift-ca107561",
         "project_id": "project-alpha",
         "drift_type": "ENVIRONMENT_DRIFT",
         "severity": "CRITICAL",
-        "expected_state": "Directory '/tmp/nexus-phase23-e2e-i2rpj8o2/project-alpha' exists",
+        "expected_state": "Directory '/tmp/nexus-phase23-e2e-4uhxwzv_/project-alpha' exists",
         "observed_state": "Directory missing",
         "diff": "Missing project workspace on disk",
         "remediated": true,
-        "remediated_at": "2026-09-18T19:07:58.911952+00:00",
-        "timestamp": "2026-09-18T19:07:58.653793+00:00"
+        "remediated_at": "2026-09-18T19:27:27.167481+00:00",
+        "timestamp": "2026-09-18T19:27:26.917711+00:00"
+      },
+      {
+        "drift_id": "drift-cf7a9637",
+        "project_id": "project-alpha",
+        "drift_type": "CONFIG_DRIFT",
+        "severity": "MEDIUM",
+        "expected_state": "File 'README.md' present",
+        "observed_state": "File 'README.md' missing",
+        "diff": "- README.md",
+        "remediated": true,
+        "remediated_at": "2026-09-18T19:27:27.386329+00:00",
+        "timestamp": "2026-09-18T19:27:27.258956+00:00"
+      },
+      {
+        "drift_id": "drift-18a86fb8",
+        "project_id": "project-alpha",
+        "drift_type": "CONFIG_DRIFT",
+        "severity": "MEDIUM",
+        "expected_state": "File 'pyproject.toml' present",
+        "observed_state": "File 'pyproject.toml' missing",
+        "diff": "- pyproject.toml",
+        "remediated": true,
+        "remediated_at": "2026-09-18T19:27:27.401327+00:00",
+        "timestamp": "2026-09-18T19:27:27.261262+00:00"
       }
     ],
     "maintenance_history": [],
@@ -1912,13 +1936,13 @@
       "finops_spend_usd": 0.0
     },
     "tombstone": null,
-    "created_at": "2026-09-18T18:57:29.646922+00:00",
-    "updated_at": "2026-09-18T19:07:58.912021+00:00"
+    "created_at": "2026-09-18T19:25:16.426735+00:00",
+    "updated_at": "2026-09-18T19:27:27.401368+00:00"
   },
   "project-beta": {
     "project_id": "project-beta",
     "project_name": "Project Beta",
-    "project_path": "/tmp/nexus-phase23-e2e-i2rpj8o2/project-beta",
+    "project_path": "/tmp/nexus-phase23-e2e-4uhxwzv_/project-beta",
     "lifecycle_state": "ACTIVE",
     "health_score": 100.0,
     "current_version": "0.1.0",
@@ -1934,7 +1958,7 @@
       "error_budget_remaining_pct": 100.0,
       "burn_rate": 0.0,
       "sla_status": "COMPLIANT",
-      "last_evaluated": "2026-09-18T18:57:29.666976+00:00"
+      "last_evaluated": "2026-09-18T19:25:16.475998+00:00"
     },
     "active_drifts": [],
     "maintenance_history": [],
@@ -1945,13 +1969,13 @@
       "finops_spend_usd": 0.0
     },
     "tombstone": null,
-    "created_at": "2026-09-18T18:57:29.667070+00:00",
-    "updated_at": "2026-09-18T18:57:29.667081+00:00"
+    "created_at": "2026-09-18T19:25:16.476084+00:00",
+    "updated_at": "2026-09-18T19:25:16.476091+00:00"
   },
   "c2-alpha-service": {
     "project_id": "c2-alpha-service",
     "project_name": "c2-alpha-service",
-    "project_path": "/tmp/nexus-test-c2-gcaw0o1f/c2-alpha-service",
+    "project_path": "/tmp/nexus-test-c2-h8cvw1v5/c2-alpha-service",
     "lifecycle_state": "ACTIVE",
     "health_score": 100.0,
     "current_version": "0.1.0",
@@ -1967,7 +1991,7 @@
       "error_budget_remaining_pct": 100.0,
       "burn_rate": 0.0,
       "sla_status": "COMPLIANT",
-      "last_evaluated": "2026-09-18T18:07:30.739535+00:00"
+      "last_evaluated": "2026-09-19T00:28:03.606255+00:00"
     },
     "active_drifts": [],
     "maintenance_history": [],
@@ -1978,7 +2002,7 @@
       "finops_spend_usd": 0.0
     },
     "tombstone": null,
-    "created_at": "2026-09-18T18:07:30.739715+00:00",
-    "updated_at": "2026-09-18T18:07:30.739738+00:00"
+    "created_at": "2026-09-19T00:28:03.606350+00:00",
+    "updated_at": "2026-09-19T00:28:03.606363+00:00"
   }
 }

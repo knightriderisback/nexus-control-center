@@ -1858,119 +1858,267 @@
     "timestamp": "2026-09-18T19:08:04.989844+00:00"
   },
   {
-    "entry_id": "tl-75ad0e1d",
-    "command_id": "cmd-2caae83c",
+    "entry_id": "tl-ff943084",
+    "command_id": "cmd-4be3876d",
     "stage": "COMMAND",
     "action": "intake_command",
-    "actor": "test-operator",
+    "actor": "eco-cli",
     "target_projects": [],
     "risk_level": "LOW",
     "data": {
-      "raw_prompt": "Synthesize adaptive DAG mission for LRU cache",
-      "dry_run": false
+      "raw_prompt": "Inspect drift and test project-alpha",
+      "dry_run": true
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:08:45.085526+00:00"
+    "timestamp": "2026-09-18T19:14:45.025695+00:00"
   },
   {
-    "entry_id": "tl-ee9f5ee8",
-    "command_id": "cmd-2caae83c",
+    "entry_id": "tl-5a692d4e",
+    "command_id": "cmd-4be3876d",
     "stage": "DECISION",
-    "action": "block_execution",
-    "actor": "c2_safety_governor",
-    "target_projects": [],
-    "risk_level": "MEDIUM",
+    "action": "dry_run_plan_approved",
+    "actor": "eco-cli",
+    "target_projects": [
+      "project-alpha"
+    ],
+    "risk_level": "LOW",
     "data": {
-      "block_reason": "Could not unambiguously resolve target project. Please specify target_project_ids."
-    },
-    "evidence": "Could not unambiguously resolve target project. Please specify target_project_ids.",
-    "replayed": false,
-    "timestamp": "2026-09-18T19:08:45.103588+00:00"
-  },
-  {
-    "entry_id": "tl-e900b873",
-    "command_id": "cmd-2caae83c",
-    "stage": "RESULT",
-    "action": "execution_halted",
-    "actor": "c2_safety_governor",
-    "target_projects": [],
-    "risk_level": "MEDIUM",
-    "data": {
-      "status": "BLOCKED"
+      "plan_id": "plan-157a5c07",
+      "command_id": "cmd-ae48caa1",
+      "raw_prompt": "Inspect drift and test project-alpha",
+      "resolved_intent": "SELF_HEALING_DRIFT_RECONCILE",
+      "target_projects": [
+        "project-alpha"
+      ],
+      "planned_actions": [
+        "inspect_filesystem_drift",
+        "restore_baseline_config",
+        "verify_git_cleanliness"
+      ],
+      "dependencies": [
+        "project_operations_engine",
+        "self_healing_engine"
+      ],
+      "risk_level": "LOW",
+      "required_approvals": [],
+      "affected_projects": [
+        "project-alpha"
+      ],
+      "expected_artifacts": [],
+      "rollback_recovery_path": [
+        "restore_git_stash"
+      ],
+      "is_safe_to_execute": true,
+      "block_reason": null,
+      "created_at": "2026-09-18T19:14:45.046241+00:00"
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:08:45.111097+00:00"
+    "timestamp": "2026-09-18T19:14:45.053804+00:00"
   },
   {
-    "entry_id": "tl-b568b5ab",
-    "command_id": "cmd-1286ea97",
+    "entry_id": "tl-2c7c0e37",
+    "command_id": "cmd-aa462ec1",
     "stage": "COMMAND",
     "action": "intake_command",
-    "actor": "test-operator",
+    "actor": "eco-cli",
     "target_projects": [],
     "risk_level": "LOW",
     "data": {
-      "raw_prompt": "Synthesize adaptive DAG mission for LRU cache",
-      "dry_run": false
+      "raw_prompt": "Inspect drift and test project-alpha",
+      "dry_run": true
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:11:37.087996+00:00"
+    "timestamp": "2026-09-18T19:16:51.931931+00:00"
   },
   {
-    "entry_id": "tl-6c38d9f7",
-    "command_id": "cmd-1286ea97",
+    "entry_id": "tl-a5c684cf",
+    "command_id": "cmd-aa462ec1",
     "stage": "DECISION",
-    "action": "block_execution",
-    "actor": "c2_safety_governor",
-    "target_projects": [],
-    "risk_level": "MEDIUM",
+    "action": "dry_run_plan_approved",
+    "actor": "eco-cli",
+    "target_projects": [
+      "project-alpha"
+    ],
+    "risk_level": "LOW",
     "data": {
-      "block_reason": "Could not unambiguously resolve target project. Please specify target_project_ids."
-    },
-    "evidence": "Could not unambiguously resolve target project. Please specify target_project_ids.",
-    "replayed": false,
-    "timestamp": "2026-09-18T19:11:37.105210+00:00"
-  },
-  {
-    "entry_id": "tl-a52615f1",
-    "command_id": "cmd-1286ea97",
-    "stage": "RESULT",
-    "action": "execution_halted",
-    "actor": "c2_safety_governor",
-    "target_projects": [],
-    "risk_level": "MEDIUM",
-    "data": {
-      "status": "BLOCKED"
+      "plan_id": "plan-31a3f564",
+      "command_id": "cmd-fb7c874a",
+      "raw_prompt": "Inspect drift and test project-alpha",
+      "resolved_intent": "SELF_HEALING_DRIFT_RECONCILE",
+      "target_projects": [
+        "project-alpha"
+      ],
+      "planned_actions": [
+        "inspect_filesystem_drift",
+        "restore_baseline_config",
+        "verify_git_cleanliness"
+      ],
+      "dependencies": [
+        "project_operations_engine",
+        "self_healing_engine"
+      ],
+      "risk_level": "LOW",
+      "required_approvals": [],
+      "affected_projects": [
+        "project-alpha"
+      ],
+      "expected_artifacts": [],
+      "rollback_recovery_path": [
+        "restore_git_stash"
+      ],
+      "is_safe_to_execute": true,
+      "block_reason": null,
+      "created_at": "2026-09-18T19:16:51.967484+00:00"
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:11:37.114318+00:00"
+    "timestamp": "2026-09-18T19:16:51.977907+00:00"
   },
   {
-    "entry_id": "tl-7f51c908",
-    "command_id": "cmd-9350f7f7",
+    "entry_id": "tl-fb945050",
+    "command_id": "cmd-c0d48f0e",
     "stage": "COMMAND",
     "action": "intake_command",
-    "actor": "test-operator",
+    "actor": "eco-cli",
     "target_projects": [],
     "risk_level": "LOW",
     "data": {
-      "raw_prompt": "Inspect fleet health and drift status across all projects",
-      "dry_run": false
+      "raw_prompt": "Inspect drift and test project-alpha",
+      "dry_run": true
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:12:50.993933+00:00"
+    "timestamp": "2026-09-18T19:20:43.951092+00:00"
   },
   {
-    "entry_id": "tl-6482edd9",
-    "command_id": "cmd-9350f7f7",
+    "entry_id": "tl-e72dd7e9",
+    "command_id": "cmd-c0d48f0e",
     "stage": "DECISION",
-    "action": "authorize_execution",
-    "actor": "test-operator",
+    "action": "dry_run_plan_approved",
+    "actor": "eco-cli",
+    "target_projects": [
+      "project-alpha"
+    ],
+    "risk_level": "LOW",
+    "data": {
+      "plan_id": "plan-3ce3fec5",
+      "command_id": "cmd-3b37ac3c",
+      "raw_prompt": "Inspect drift and test project-alpha",
+      "resolved_intent": "SELF_HEALING_DRIFT_RECONCILE",
+      "target_projects": [
+        "project-alpha"
+      ],
+      "planned_actions": [
+        "inspect_filesystem_drift",
+        "restore_baseline_config",
+        "verify_git_cleanliness"
+      ],
+      "dependencies": [
+        "project_operations_engine",
+        "self_healing_engine"
+      ],
+      "risk_level": "LOW",
+      "required_approvals": [],
+      "affected_projects": [
+        "project-alpha"
+      ],
+      "expected_artifacts": [],
+      "rollback_recovery_path": [
+        "restore_git_stash"
+      ],
+      "is_safe_to_execute": true,
+      "block_reason": null,
+      "created_at": "2026-09-18T19:20:43.977055+00:00"
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-18T19:20:43.987272+00:00"
+  },
+  {
+    "entry_id": "tl-2475c8e2",
+    "command_id": "cmd-e7c03135",
+    "stage": "COMMAND",
+    "action": "intake_command",
+    "actor": "eco-cli",
+    "target_projects": [],
+    "risk_level": "LOW",
+    "data": {
+      "raw_prompt": "Inspect drift and test project-alpha",
+      "dry_run": true
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-18T19:27:33.483293+00:00"
+  },
+  {
+    "entry_id": "tl-1efb0d3f",
+    "command_id": "cmd-e7c03135",
+    "stage": "DECISION",
+    "action": "dry_run_plan_approved",
+    "actor": "eco-cli",
+    "target_projects": [
+      "project-alpha"
+    ],
+    "risk_level": "LOW",
+    "data": {
+      "plan_id": "plan-4508759b",
+      "command_id": "cmd-6a055952",
+      "raw_prompt": "Inspect drift and test project-alpha",
+      "resolved_intent": "SELF_HEALING_DRIFT_RECONCILE",
+      "target_projects": [
+        "project-alpha"
+      ],
+      "planned_actions": [
+        "inspect_filesystem_drift",
+        "restore_baseline_config",
+        "verify_git_cleanliness"
+      ],
+      "dependencies": [
+        "project_operations_engine",
+        "self_healing_engine"
+      ],
+      "risk_level": "LOW",
+      "required_approvals": [],
+      "affected_projects": [
+        "project-alpha"
+      ],
+      "expected_artifacts": [],
+      "rollback_recovery_path": [
+        "restore_git_stash"
+      ],
+      "is_safe_to_execute": true,
+      "block_reason": null,
+      "created_at": "2026-09-18T19:27:33.527639+00:00"
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-18T19:27:33.548193+00:00"
+  },
+  {
+    "entry_id": "tl-cb329f66",
+    "command_id": "cmd-367b059a",
+    "stage": "COMMAND",
+    "action": "intake_command",
+    "actor": "nexus-operator",
+    "target_projects": [],
+    "risk_level": "LOW",
+    "data": {
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "dry_run": true
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-19T00:28:04.404445+00:00"
+  },
+  {
+    "entry_id": "tl-8cf877a0",
+    "command_id": "cmd-367b059a",
+    "stage": "DECISION",
+    "action": "dry_run_plan_approved",
+    "actor": "nexus-operator",
     "target_projects": [
       "personal-engineering-os-2026",
       "control-center",
@@ -1990,8 +2138,120 @@
       "cache-store-engine",
       "beta-frontend",
       "project-alpha",
-      "project-beta",
-      "c2-alpha-service"
+      "project-beta"
+    ],
+    "risk_level": "LOW",
+    "data": {
+      "plan_id": "plan-11d7c7c1",
+      "command_id": "cmd-e3ede273",
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "resolved_intent": "FLEET_HEALTH_INSPECTION",
+      "target_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta"
+      ],
+      "planned_actions": [
+        "evaluate_git_status",
+        "run_local_pytest",
+        "inspect_sla_meters"
+      ],
+      "dependencies": [
+        "project_operations_engine"
+      ],
+      "risk_level": "LOW",
+      "required_approvals": [],
+      "affected_projects": [
+        "personal-engineering-os-2026",
+        "control-center",
+        "portfolio",
+        "project-analytics-ingestion-engine",
+        "project-api-micro-service-test",
+        "project-quick-telemetry-ping",
+        "project-quick-ping-health",
+        "rate-limiter-service",
+        "mem-storage-unit",
+        "auth-sec-service",
+        "math-calc-service",
+        "inventory-catalog-api",
+        "eval-dynamic-svc",
+        "broken-unit-test",
+        "payment-tx-processor",
+        "cache-store-engine",
+        "beta-frontend",
+        "project-alpha",
+        "project-beta"
+      ],
+      "expected_artifacts": [
+        "ProjectHealthDetail"
+      ],
+      "rollback_recovery_path": [],
+      "is_safe_to_execute": true,
+      "block_reason": null,
+      "created_at": "2026-09-19T00:28:04.449855+00:00"
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-19T00:28:04.468264+00:00"
+  },
+  {
+    "entry_id": "tl-159f3ac6",
+    "command_id": "cmd-6ce7a2e1",
+    "stage": "COMMAND",
+    "action": "intake_command",
+    "actor": "nexus-operator",
+    "target_projects": [],
+    "risk_level": "LOW",
+    "data": {
+      "raw_prompt": "Inspect fleet health and drift radar",
+      "dry_run": false
+    },
+    "evidence": null,
+    "replayed": false,
+    "timestamp": "2026-09-19T00:28:04.616014+00:00"
+  },
+  {
+    "entry_id": "tl-35ee76af",
+    "command_id": "cmd-6ce7a2e1",
+    "stage": "DECISION",
+    "action": "authorize_execution",
+    "actor": "nexus-operator",
+    "target_projects": [
+      "personal-engineering-os-2026",
+      "control-center",
+      "portfolio",
+      "project-analytics-ingestion-engine",
+      "project-api-micro-service-test",
+      "project-quick-telemetry-ping",
+      "project-quick-ping-health",
+      "rate-limiter-service",
+      "mem-storage-unit",
+      "auth-sec-service",
+      "math-calc-service",
+      "inventory-catalog-api",
+      "eval-dynamic-svc",
+      "broken-unit-test",
+      "payment-tx-processor",
+      "cache-store-engine",
+      "beta-frontend",
+      "project-alpha",
+      "project-beta"
     ],
     "risk_level": "LOW",
     "data": {
@@ -2003,11 +2263,11 @@
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:12:51.040521+00:00"
+    "timestamp": "2026-09-19T00:28:04.684662+00:00"
   },
   {
-    "entry_id": "tl-c1f6c923",
-    "command_id": "cmd-9350f7f7",
+    "entry_id": "tl-0c598269",
+    "command_id": "cmd-6ce7a2e1",
     "stage": "ACTION",
     "action": "evaluate_git_status",
     "actor": "c2_orchestrator",
@@ -2030,22 +2290,21 @@
       "cache-store-engine",
       "beta-frontend",
       "project-alpha",
-      "project-beta",
-      "c2-alpha-service"
+      "project-beta"
     ],
     "risk_level": "LOW",
     "data": {
       "status": "SUCCESS",
       "detail": "Project 'personal-engineering-os-2026' health score: 70.0% (State: ACTIVE).",
-      "duration_ms": 0.045299530029296875
+      "duration_ms": 0.03910064697265625
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:12:51.090502+00:00"
+    "timestamp": "2026-09-19T00:28:04.718304+00:00"
   },
   {
-    "entry_id": "tl-31e5b4b9",
-    "command_id": "cmd-9350f7f7",
+    "entry_id": "tl-bb864ec3",
+    "command_id": "cmd-6ce7a2e1",
     "stage": "ACTION",
     "action": "run_local_pytest",
     "actor": "c2_orchestrator",
@@ -2068,22 +2327,21 @@
       "cache-store-engine",
       "beta-frontend",
       "project-alpha",
-      "project-beta",
-      "c2-alpha-service"
+      "project-beta"
     ],
     "risk_level": "LOW",
     "data": {
       "status": "SUCCESS",
       "detail": "Local unit tests passed for personal-engineering-os-2026 (Exit code 0, 100% assertions green).",
-      "duration_ms": 0.042438507080078125
+      "duration_ms": 0.010967254638671875
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:12:51.102192+00:00"
+    "timestamp": "2026-09-19T00:28:04.730679+00:00"
   },
   {
-    "entry_id": "tl-5cf60abe",
-    "command_id": "cmd-9350f7f7",
+    "entry_id": "tl-ba22f7e8",
+    "command_id": "cmd-6ce7a2e1",
     "stage": "ACTION",
     "action": "inspect_sla_meters",
     "actor": "c2_orchestrator",
@@ -2106,22 +2364,21 @@
       "cache-store-engine",
       "beta-frontend",
       "project-alpha",
-      "project-beta",
-      "c2-alpha-service"
+      "project-beta"
     ],
     "risk_level": "LOW",
     "data": {
       "status": "SUCCESS",
       "detail": "SLA probe operational: 99.9% uptime, <150ms latency across personal-engineering-os-2026.",
-      "duration_ms": 0.05459785461425781
+      "duration_ms": 0.014781951904296875
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:12:51.124674+00:00"
+    "timestamp": "2026-09-19T00:28:04.742123+00:00"
   },
   {
-    "entry_id": "tl-17309a0b",
-    "command_id": "cmd-9350f7f7",
+    "entry_id": "tl-9eaa79fd",
+    "command_id": "cmd-6ce7a2e1",
     "stage": "RESULT",
     "action": "command_execution_concluded",
     "actor": "c2_orchestrator",
@@ -2144,8 +2401,7 @@
       "cache-store-engine",
       "beta-frontend",
       "project-alpha",
-      "project-beta",
-      "c2-alpha-service"
+      "project-beta"
     ],
     "risk_level": "LOW",
     "data": {
@@ -2154,11 +2410,11 @@
     },
     "evidence": null,
     "replayed": false,
-    "timestamp": "2026-09-18T19:12:51.138541+00:00"
+    "timestamp": "2026-09-19T00:28:04.759313+00:00"
   },
   {
-    "entry_id": "tl-de0decf9",
-    "command_id": "cmd-9350f7f7",
+    "entry_id": "tl-ca1aab02",
+    "command_id": "cmd-6ce7a2e1",
     "stage": "EVIDENCE",
     "action": "record_provenance_evidence",
     "actor": "c2_orchestrator",
@@ -2181,8 +2437,7 @@
       "cache-store-engine",
       "beta-frontend",
       "project-alpha",
-      "project-beta",
-      "c2-alpha-service"
+      "project-beta"
     ],
     "risk_level": "LOW",
     "data": {
@@ -2190,100 +2445,6 @@
     },
     "evidence": "Actions: ['evaluate_git_status', 'run_local_pytest', 'inspect_sla_meters'] -> Status: COMPLETED. Outputs: 3 logs.",
     "replayed": false,
-    "timestamp": "2026-09-18T19:12:51.151626+00:00"
-  },
-  {
-    "entry_id": "tl-33f10423",
-    "command_id": "cmd-a6789240",
-    "stage": "COMMAND",
-    "action": "intake_command",
-    "actor": "test-operator",
-    "target_projects": [],
-    "risk_level": "LOW",
-    "data": {
-      "raw_prompt": "Query knowledge graph for procedural self-healing patterns",
-      "dry_run": false
-    },
-    "evidence": null,
-    "replayed": false,
-    "timestamp": "2026-09-18T19:12:51.245339+00:00"
-  },
-  {
-    "entry_id": "tl-455fb16b",
-    "command_id": "cmd-a6789240",
-    "stage": "DECISION",
-    "action": "authorize_execution",
-    "actor": "test-operator",
-    "target_projects": [
-      "personal-engineering-os-2026",
-      "control-center",
-      "portfolio",
-      "project-analytics-ingestion-engine",
-      "project-api-micro-service-test",
-      "project-quick-telemetry-ping",
-      "project-quick-ping-health",
-      "rate-limiter-service",
-      "mem-storage-unit",
-      "auth-sec-service",
-      "math-calc-service",
-      "inventory-catalog-api",
-      "eval-dynamic-svc",
-      "broken-unit-test",
-      "payment-tx-processor",
-      "cache-store-engine",
-      "beta-frontend",
-      "project-alpha",
-      "project-beta",
-      "c2-alpha-service"
-    ],
-    "risk_level": "LOW",
-    "data": {
-      "planned_actions": [
-        "inspect_filesystem_drift",
-        "restore_baseline_config",
-        "verify_git_cleanliness"
-      ]
-    },
-    "evidence": null,
-    "replayed": false,
-    "timestamp": "2026-09-18T19:12:51.277066+00:00"
-  },
-  {
-    "entry_id": "tl-bc03c8ee",
-    "command_id": "cmd-a6789240",
-    "stage": "ACTION",
-    "action": "inspect_filesystem_drift",
-    "actor": "c2_orchestrator",
-    "target_projects": [
-      "personal-engineering-os-2026",
-      "control-center",
-      "portfolio",
-      "project-analytics-ingestion-engine",
-      "project-api-micro-service-test",
-      "project-quick-telemetry-ping",
-      "project-quick-ping-health",
-      "rate-limiter-service",
-      "mem-storage-unit",
-      "auth-sec-service",
-      "math-calc-service",
-      "inventory-catalog-api",
-      "eval-dynamic-svc",
-      "broken-unit-test",
-      "payment-tx-processor",
-      "cache-store-engine",
-      "beta-frontend",
-      "project-alpha",
-      "project-beta",
-      "c2-alpha-service"
-    ],
-    "risk_level": "LOW",
-    "data": {
-      "status": "SUCCESS",
-      "detail": "Drift radar detected and auto-reconciled 1 items.",
-      "duration_ms": 101973.66952896118
-    },
-    "evidence": null,
-    "replayed": false,
-    "timestamp": "2026-09-18T19:14:33.272848+00:00"
+    "timestamp": "2026-09-19T00:28:04.776590+00:00"
   }
 ]

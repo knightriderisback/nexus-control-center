@@ -10815,5 +10815,267 @@
     },
     "outcome": "SUCCESS",
     "timestamp": "2026-09-18T18:51:00.697668+00:00"
+  },
+  {
+    "knowledge_id": "know-12f130c3",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-core v1.16.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-d0a45c7c",
+      "project_id": "control-center",
+      "service_name": "nexus-core",
+      "version": "v1.16.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.4
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-19T00:17:18.704168+00:00"
+  },
+  {
+    "knowledge_id": "know-4dcf74e9",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-hud v1.16.1 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-7849aaca",
+      "project_id": "control-center",
+      "service_name": "nexus-hud",
+      "version": "v1.16.1",
+      "environment": "LOCAL",
+      "target_type": "STATIC_BUNDLE",
+      "deployed_url": "http://localhost:8000/dist",
+      "duration_seconds": 3.61
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-19T00:17:22.406869+00:00"
+  },
+  {
+    "knowledge_id": "know-01130cb4",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: portfolio-app v2.1.0 -> PREVIEW",
+    "details": {
+      "deployment_id": "dep-0bc1834e",
+      "project_id": "portfolio",
+      "service_name": "portfolio-app",
+      "version": "v2.1.0",
+      "environment": "PREVIEW",
+      "target_type": "VERCEL_EDGE",
+      "deployed_url": "https://portfolio-app-v2-1-0.vercel.app",
+      "duration_seconds": 3.56
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-19T00:17:26.070855+00:00"
+  },
+  {
+    "knowledge_id": "know-ca740124",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: mobile-receiver v1.0.5 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-3ab0d65e",
+      "project_id": "termux-node",
+      "service_name": "mobile-receiver",
+      "version": "v1.0.5",
+      "environment": "LOCAL",
+      "target_type": "TERMUX_NODE",
+      "deployed_url": "http://127.0.0.1:8080/termux",
+      "duration_seconds": 3.69
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-19T00:17:29.841161+00:00"
+  },
+  {
+    "knowledge_id": "know-d090c7dc",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-api v1.17.0 -> STAGING",
+    "details": {
+      "deployment_id": "dep-9e47213b",
+      "project_id": "control-center",
+      "service_name": "nexus-api",
+      "version": "v1.17.0",
+      "environment": "STAGING",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 5.16
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-19T00:17:35.086164+00:00"
+  },
+  {
+    "knowledge_id": "know-5f8f5e66",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: sample-svc v1.0.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-bf5bda03",
+      "project_id": "sample-app",
+      "service_name": "sample-svc",
+      "version": "v1.0.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 5.89
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-19T00:17:41.171646+00:00"
+  },
+  {
+    "knowledge_id": "know-088f514d",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: sample-svc v1.1.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-99afca20",
+      "project_id": "sample-app",
+      "service_name": "sample-svc",
+      "version": "v1.1.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.02
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-19T00:17:45.298307+00:00"
+  },
+  {
+    "knowledge_id": "know-c4d1b58f",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-core-prod v2.0.0-prod -> PRODUCTION",
+    "details": {
+      "deployment_id": "dep-dfb85cb2",
+      "project_id": "control-center",
+      "service_name": "nexus-core-prod",
+      "version": "v2.0.0-prod",
+      "environment": "PRODUCTION",
+      "target_type": "GCP_CLOUD_RUN",
+      "deployed_url": "https://nexus-core-prod-582208055065.asia-south1.run.app",
+      "duration_seconds": 3.7
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-19T00:17:54.641036+00:00"
+  },
+  {
+    "knowledge_id": "know-98dd85ef",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-tool-svc v1.39.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-9e29f86e",
+      "project_id": "control-center",
+      "service_name": "nexus-tool-svc",
+      "version": "v1.39.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 3.94
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-19T00:17:58.696572+00:00"
+  },
+  {
+    "knowledge_id": "know-454bb2dd",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-tool-canary v1.40.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-d97849ec",
+      "project_id": "control-center",
+      "service_name": "nexus-tool-canary",
+      "version": "v1.40.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 5.64
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-19T00:18:04.481650+00:00"
+  },
+  {
+    "knowledge_id": "know-1b74e380",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: nexus-api-test v1.16.99 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-683bfedd",
+      "project_id": "control-center",
+      "service_name": "nexus-api-test",
+      "version": "v1.16.99",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 6.32
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-19T00:18:11.496553+00:00"
+  },
+  {
+    "knowledge_id": "know-ce753e3e",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: rb-svc v1.0.0 -> LOCAL",
+    "details": {
+      "deployment_id": "dep-a322d685",
+      "project_id": "api-rollback-test",
+      "service_name": "rb-svc",
+      "version": "v1.0.0",
+      "environment": "LOCAL",
+      "target_type": "LOCAL_PROCESS",
+      "deployed_url": "http://localhost:8000",
+      "duration_seconds": 4.37
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-19T00:18:16.082264+00:00"
+  },
+  {
+    "knowledge_id": "know-56aca614",
+    "category": "strategy",
+    "mission_id": "global",
+    "pattern": "Deployment: antigravity-portfolio v2.4.0 -> PRODUCTION",
+    "details": {
+      "deployment_id": "dep-d10349bc",
+      "project_id": "portfolio",
+      "service_name": "antigravity-portfolio",
+      "version": "v2.4.0",
+      "environment": "PRODUCTION",
+      "target_type": "VERCEL_EDGE",
+      "deployed_url": "https://antigravity-portfolio.vercel.app",
+      "duration_seconds": 3.74
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-19T00:24:40.668435+00:00"
+  },
+  {
+    "knowledge_id": "know-66276a29",
+    "category": "secops_threat_quarantine",
+    "mission_id": "secops",
+    "pattern": "Quarantined Secret Leak Detected: AWS Access Key ID",
+    "details": {
+      "quarantine_id": "quar-163d5b5a",
+      "finding_id": "sec-16097bd6",
+      "file": "/tmp/pytest-of-root/pytest-392/test_threat_quarantine_isolati0/threat_script.py",
+      "vault": "/root/control-center/data/secops/quarantine/quar-163d5b5a_threat_script.py"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-19T00:28:08.318263+00:00"
+  },
+  {
+    "knowledge_id": "know-a02f3c94",
+    "category": "secops_threat_quarantine",
+    "mission_id": "secops",
+    "pattern": "Quarantined Secret Leak Detected: AWS Access Key ID",
+    "details": {
+      "quarantine_id": "quar-2b1c5844",
+      "finding_id": "sec-155d80ff",
+      "file": "/tmp/pytest-of-root/pytest-392/test_secops_rest_api_endpoints0/api_test.py",
+      "vault": "/root/control-center/data/secops/quarantine/quar-2b1c5844_api_test.py"
+    },
+    "outcome": "SUCCESS",
+    "timestamp": "2026-09-19T00:28:16.300523+00:00"
   }
 ]

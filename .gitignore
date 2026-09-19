@@ -48,3 +48,5 @@ data/fixtures/developer_test_repo/.git/
 data/logs/
 data/nexus.pid
 data/worktrees/
+data/secops/quarantine/
+data/deployment_snapshots/

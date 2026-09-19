@@ -4180,5 +4180,407 @@
       "health_check_path": "/api/health",
       "auto_rollback": true
     }
+  },
+  "dep-362e1077": {
+    "deployment_id": "dep-362e1077",
+    "project_id": "portfolio",
+    "service_name": "antigravity-portfolio",
+    "version": "v2.4.0",
+    "commit_sha": "merge-sha-40e763766420",
+    "environment": "PRODUCTION",
+    "target_type": "VERCEL_EDGE",
+    "strategy": "DIRECT_REPLACE",
+    "status": "APPROVAL_PENDING",
+    "current_stage": "APPROVAL_GATE",
+    "stages": [
+      {
+        "stage_name": "PRE_FLIGHT",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:23:44.586201+00:00",
+        "completed_at": "2026-09-19T00:23:44.586635+00:00",
+        "duration_ms": 0.3,
+        "logs": [
+          "Verifying pre-flight conditions for project 'portfolio'...",
+          "Target: VERCEL_EDGE | Env: PRODUCTION | Strategy: DIRECT_REPLACE",
+          "Validating Vercel ecosystem configuration & Hobby Tier bounds...",
+          "Checking vercel.json routing and API headers...",
+          "[PASS] Edge configuration verified. Cost profile: $0.00 / month."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "BUILD_PACKAGING",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:23:44.598589+00:00",
+        "completed_at": "2026-09-19T00:23:44.598791+00:00",
+        "duration_ms": 0.13,
+        "logs": [
+          "Executing packaging strategy for target 'VERCEL_EDGE'...",
+          "Synthesizing edge serverless artifacts for 'antigravity-portfolio' (v2.4.0)...",
+          "Packaged serverless routes: /api/* -> Edge Functions.",
+          "[PASS] Edge package bundle synthesized."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "POLICY_FINOPS",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:23:44.610055+00:00",
+        "completed_at": "2026-09-19T00:23:48.512411+00:00",
+        "duration_ms": 3902.28,
+        "logs": [
+          "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+          "Security Gate dep-ev-132f915b: 5 findings, decision=BLOCK",
+          "Current incurred cost: $0.00. Budget limit: $0.00.",
+          "[PASS] Strict zero-spend policy & Security Gate verified."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "APPROVAL_GATE",
+        "status": "FAILED",
+        "started_at": "2026-09-19T00:23:48.530563+00:00",
+        "completed_at": "2026-09-19T00:23:48.759746+00:00",
+        "duration_ms": 229.11,
+        "logs": [
+          "Evaluating approval policy (Risk Level: HIGH)...",
+          "[HOLD] Requesting Human Approval for CRITICAL PRODUCTION deployment...",
+          "Registered pending Approval Request: appr-020410"
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "DISPATCH_DEPLOY",
+        "status": "PENDING",
+        "started_at": null,
+        "completed_at": null,
+        "duration_ms": 0.0,
+        "logs": [],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "HEALTH_PROBE",
+        "status": "PENDING",
+        "started_at": null,
+        "completed_at": null,
+        "duration_ms": 0.0,
+        "logs": [],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "PROMOTE_CANARY",
+        "status": "PENDING",
+        "started_at": null,
+        "completed_at": null,
+        "duration_ms": 0.0,
+        "logs": [],
+        "error": null,
+        "metrics": {}
+      }
+    ],
+    "deployed_url": null,
+    "canary_percentage": 100,
+    "active_instances": 1,
+    "health_status": "UNKNOWN",
+    "error": null,
+    "risk_level": "HIGH",
+    "requires_approval": true,
+    "approval_id": "appr-020410",
+    "created_by": "developer",
+    "created_at": "2026-09-19T00:23:44.568818+00:00",
+    "completed_at": null,
+    "duration_seconds": 0.0,
+    "rollback_target_id": null,
+    "changelog": [],
+    "dora_lead_time_seconds": 0.0,
+    "metadata": {
+      "notes": null,
+      "health_check_path": "/api/health",
+      "auto_rollback": true
+    }
+  },
+  "dep-54bd945c": {
+    "deployment_id": "dep-54bd945c",
+    "project_id": "portfolio",
+    "service_name": "antigravity-portfolio",
+    "version": "v2.4.0",
+    "commit_sha": "merge-sha-9f10332da615",
+    "environment": "PRODUCTION",
+    "target_type": "VERCEL_EDGE",
+    "strategy": "DIRECT_REPLACE",
+    "status": "APPROVAL_PENDING",
+    "current_stage": "APPROVAL_GATE",
+    "stages": [
+      {
+        "stage_name": "PRE_FLIGHT",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:24:09.043832+00:00",
+        "completed_at": "2026-09-19T00:24:09.044014+00:00",
+        "duration_ms": 0.06,
+        "logs": [
+          "Verifying pre-flight conditions for project 'portfolio'...",
+          "Target: VERCEL_EDGE | Env: PRODUCTION | Strategy: DIRECT_REPLACE",
+          "Validating Vercel ecosystem configuration & Hobby Tier bounds...",
+          "Checking vercel.json routing and API headers...",
+          "[PASS] Edge configuration verified. Cost profile: $0.00 / month."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "BUILD_PACKAGING",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:24:09.065806+00:00",
+        "completed_at": "2026-09-19T00:24:09.065951+00:00",
+        "duration_ms": 0.05,
+        "logs": [
+          "Executing packaging strategy for target 'VERCEL_EDGE'...",
+          "Synthesizing edge serverless artifacts for 'antigravity-portfolio' (v2.4.0)...",
+          "Packaged serverless routes: /api/* -> Edge Functions.",
+          "[PASS] Edge package bundle synthesized."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "POLICY_FINOPS",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:24:09.082516+00:00",
+        "completed_at": "2026-09-19T00:24:12.741701+00:00",
+        "duration_ms": 3659.11,
+        "logs": [
+          "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+          "Security Gate dep-ev-b0e999b6: 5 findings, decision=BLOCK",
+          "Current incurred cost: $0.00. Budget limit: $0.00.",
+          "[PASS] Strict zero-spend policy & Security Gate verified."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "APPROVAL_GATE",
+        "status": "FAILED",
+        "started_at": "2026-09-19T00:24:12.756575+00:00",
+        "completed_at": "2026-09-19T00:24:12.919563+00:00",
+        "duration_ms": 162.93,
+        "logs": [
+          "Evaluating approval policy (Risk Level: HIGH)...",
+          "[HOLD] Requesting Human Approval for CRITICAL PRODUCTION deployment...",
+          "Registered pending Approval Request: appr-f25a61"
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "DISPATCH_DEPLOY",
+        "status": "PENDING",
+        "started_at": null,
+        "completed_at": null,
+        "duration_ms": 0.0,
+        "logs": [],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "HEALTH_PROBE",
+        "status": "PENDING",
+        "started_at": null,
+        "completed_at": null,
+        "duration_ms": 0.0,
+        "logs": [],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "PROMOTE_CANARY",
+        "status": "PENDING",
+        "started_at": null,
+        "completed_at": null,
+        "duration_ms": 0.0,
+        "logs": [],
+        "error": null,
+        "metrics": {}
+      }
+    ],
+    "deployed_url": null,
+    "canary_percentage": 100,
+    "active_instances": 1,
+    "health_status": "UNKNOWN",
+    "error": null,
+    "risk_level": "HIGH",
+    "requires_approval": true,
+    "approval_id": "appr-f25a61",
+    "created_by": "developer",
+    "created_at": "2026-09-19T00:24:09.015695+00:00",
+    "completed_at": null,
+    "duration_seconds": 0.0,
+    "rollback_target_id": null,
+    "changelog": [],
+    "dora_lead_time_seconds": 0.0,
+    "metadata": {
+      "notes": null,
+      "health_check_path": "/api/health",
+      "auto_rollback": true
+    }
+  },
+  "dep-d10349bc": {
+    "deployment_id": "dep-d10349bc",
+    "project_id": "portfolio",
+    "service_name": "antigravity-portfolio",
+    "version": "v2.4.0",
+    "commit_sha": "merge-sha-9c79a66a5023",
+    "environment": "PRODUCTION",
+    "target_type": "VERCEL_EDGE",
+    "strategy": "DIRECT_REPLACE",
+    "status": "LIVE",
+    "current_stage": "PROMOTE_CANARY",
+    "stages": [
+      {
+        "stage_name": "PRE_FLIGHT",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:24:36.913104+00:00",
+        "completed_at": "2026-09-19T00:24:36.913239+00:00",
+        "duration_ms": 0.05,
+        "logs": [
+          "Verifying pre-flight conditions for project 'portfolio'...",
+          "Target: VERCEL_EDGE | Env: PRODUCTION | Strategy: DIRECT_REPLACE",
+          "Validating Vercel ecosystem configuration & Hobby Tier bounds...",
+          "Checking vercel.json routing and API headers...",
+          "[PASS] Edge configuration verified. Cost profile: $0.00 / month.",
+          "Verifying pre-flight conditions for project 'portfolio'...",
+          "Target: VERCEL_EDGE | Env: PRODUCTION | Strategy: DIRECT_REPLACE",
+          "Validating Vercel ecosystem configuration & Hobby Tier bounds...",
+          "Checking vercel.json routing and API headers...",
+          "[PASS] Edge configuration verified. Cost profile: $0.00 / month."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "BUILD_PACKAGING",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:24:36.937029+00:00",
+        "completed_at": "2026-09-19T00:24:36.937102+00:00",
+        "duration_ms": 0.02,
+        "logs": [
+          "Executing packaging strategy for target 'VERCEL_EDGE'...",
+          "Synthesizing edge serverless artifacts for 'antigravity-portfolio' (v2.4.0)...",
+          "Packaged serverless routes: /api/* -> Edge Functions.",
+          "[PASS] Edge package bundle synthesized.",
+          "Executing packaging strategy for target 'VERCEL_EDGE'...",
+          "Synthesizing edge serverless artifacts for 'antigravity-portfolio' (v2.4.0)...",
+          "Packaged serverless routes: /api/* -> Edge Functions.",
+          "[PASS] Edge package bundle synthesized."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "POLICY_FINOPS",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:24:36.971801+00:00",
+        "completed_at": "2026-09-19T00:24:40.578019+00:00",
+        "duration_ms": 3606.14,
+        "logs": [
+          "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+          "Security Gate dep-ev-6c36fc07: 5 findings, decision=BLOCK",
+          "Current incurred cost: $0.00. Budget limit: $0.00.",
+          "[PASS] Strict zero-spend policy & Security Gate verified.",
+          "Running FinOps Zero-Cost Enforcement & Security Policy checks...",
+          "Security Gate dep-ev-6c642a7b: 5 findings, decision=BLOCK",
+          "Current incurred cost: $0.00. Budget limit: $0.00.",
+          "[PASS] Strict zero-spend policy & Security Gate verified."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "APPROVAL_GATE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:24:40.591553+00:00",
+        "completed_at": "2026-09-19T00:24:40.591673+00:00",
+        "duration_ms": 0.03,
+        "logs": [
+          "Evaluating approval policy (Risk Level: HIGH)...",
+          "[HOLD] Requesting Human Approval for CRITICAL PRODUCTION deployment...",
+          "Registered pending Approval Request: appr-c3a768",
+          "Evaluating approval policy (Risk Level: HIGH)...",
+          "[PASS] Auto-approved for PRODUCTION deployment tier."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "DISPATCH_DEPLOY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:24:40.603357+00:00",
+        "completed_at": "2026-09-19T00:24:40.603490+00:00",
+        "duration_ms": 0.08,
+        "logs": [
+          "Dispatching payload to target 'VERCEL_EDGE'...",
+          "Vercel deployment dispatched. Live Edge URL: https://antigravity-portfolio.vercel.app",
+          "[PASS] CDN edge propagation complete across regions: iad1, bom1."
+        ],
+        "error": null,
+        "metrics": {}
+      },
+      {
+        "stage_name": "HEALTH_PROBE",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:24:40.616314+00:00",
+        "completed_at": "2026-09-19T00:24:40.616392+00:00",
+        "duration_ms": 0.03,
+        "logs": [
+          "Executing synthetic SLA health probe on https://antigravity-portfolio.vercel.app...",
+          "Verifying Vercel edge endpoint status for https://antigravity-portfolio.vercel.app...",
+          "[PASS] Vercel Edge health verified (status: READY, SSL: ACTIVE)."
+        ],
+        "error": null,
+        "metrics": {
+          "probe_status": 200,
+          "latency_ms": 24.5
+        }
+      },
+      {
+        "stage_name": "PROMOTE_CANARY",
+        "status": "SUCCESS",
+        "started_at": "2026-09-19T00:24:40.628781+00:00",
+        "completed_at": "2026-09-19T00:24:40.628918+00:00",
+        "duration_ms": 0.04,
+        "logs": [
+          "Applying deployment strategy: DIRECT_REPLACE...",
+          "100% traffic switched to active release v2.4.0.",
+          "[PASS] Traffic routing table updated."
+        ],
+        "error": null,
+        "metrics": {}
+      }
+    ],
+    "deployed_url": "https://antigravity-portfolio.vercel.app",
+    "canary_percentage": 100,
+    "active_instances": 1,
+    "health_status": "HEALTHY",
+    "error": null,
+    "risk_level": "HIGH",
+    "requires_approval": false,
+    "approval_id": "appr-c3a768",
+    "created_by": "developer",
+    "created_at": "2026-09-19T00:24:32.810799+00:00",
+    "completed_at": "2026-09-19T00:24:40.650048+00:00",
+    "duration_seconds": 3.74,
+    "rollback_target_id": null,
+    "changelog": [],
+    "dora_lead_time_seconds": 3.74,
+    "metadata": {
+      "notes": null,
+      "health_check_path": "/api/health",
+      "auto_rollback": true
+    }
   }
 }

@@ -1,2785 +1,5 @@
 [
   {
-    "scan_id": "sec-scan-70c9de2b",
-    "target_path": "/root/control-center",
-    "started_at": "2026-09-18T15:19:27.865304+00:00",
-    "completed_at": "2026-09-18T15:19:27.865367+00:00",
-    "duration_seconds": 19.88,
-    "total_files_scanned": 271,
-    "findings": [
-      {
-        "finding_id": "sec-550c7c3a",
-        "fingerprint": "b99293ab80ccb9d8",
-        "title": "Secret Leak Detected: Database Connection URI with Credentials",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
-        "line_number": 95,
-        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:19:08.384279+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-12fa6241",
-        "fingerprint": "fc42454259956d4b",
-        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
-        "category": "SECRET_LEAK",
-        "severity": "HIGH",
-        "status": "OPEN",
-        "confidence": "HEURISTIC_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "USER",
-          "data_sensitivity": "SECRET",
-          "production_impact": "HIGH",
-          "reversibility": "LOW",
-          "confidence": "HEURISTIC_FINDING"
-        },
-        "file_path": "backend/orchestrator/factory_engine.py",
-        "line_number": 1130,
-        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 7.5,
-        "detected_at": "2026-09-18T15:19:16.155214+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-3fa2e7f8",
-        "fingerprint": "2874904176229663",
-        "title": "Secret Leak Detected: AWS Access Key ID",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 66,
-        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:19:24.992839+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)AKIA[0-9A-Z]{16}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-bf79fb69",
-        "fingerprint": "8226aef322eb8142",
-        "title": "Secret Leak Detected: GitHub Personal Access Token",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 67,
-        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:19:24.993022+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "ghp_[0-9a-zA-Z]{36}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-28070aa6",
-        "fingerprint": "ba6684bd147d359d",
-        "title": "Secret Leak Detected: Cryptographic Private Key Block",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
-        "line_number": 354,
-        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:19:26.844588+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      }
-    ],
-    "risk_score": 100.0,
-    "pass_status": false,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
-    "scan_id": "sec-scan-e5f86806",
-    "target_path": "/root/control-center",
-    "started_at": "2026-09-18T15:19:47.541522+00:00",
-    "completed_at": "2026-09-18T15:19:47.541565+00:00",
-    "duration_seconds": 15.58,
-    "total_files_scanned": 271,
-    "findings": [
-      {
-        "finding_id": "sec-1eb9472d",
-        "fingerprint": "b99293ab80ccb9d8",
-        "title": "Secret Leak Detected: Database Connection URI with Credentials",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
-        "line_number": 95,
-        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:19:31.307435+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-ff4cf744",
-        "fingerprint": "fc42454259956d4b",
-        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
-        "category": "SECRET_LEAK",
-        "severity": "HIGH",
-        "status": "OPEN",
-        "confidence": "HEURISTIC_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "USER",
-          "data_sensitivity": "SECRET",
-          "production_impact": "HIGH",
-          "reversibility": "LOW",
-          "confidence": "HEURISTIC_FINDING"
-        },
-        "file_path": "backend/orchestrator/factory_engine.py",
-        "line_number": 1130,
-        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 7.5,
-        "detected_at": "2026-09-18T15:19:36.057162+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-ae8fdb11",
-        "fingerprint": "2874904176229663",
-        "title": "Secret Leak Detected: AWS Access Key ID",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 66,
-        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:19:42.364021+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)AKIA[0-9A-Z]{16}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-ec5984f9",
-        "fingerprint": "8226aef322eb8142",
-        "title": "Secret Leak Detected: GitHub Personal Access Token",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 67,
-        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:19:42.364292+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "ghp_[0-9a-zA-Z]{36}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-86f602eb",
-        "fingerprint": "ba6684bd147d359d",
-        "title": "Secret Leak Detected: Cryptographic Private Key Block",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
-        "line_number": 354,
-        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:19:44.730492+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      }
-    ],
-    "risk_score": 100.0,
-    "pass_status": false,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
-    "scan_id": "sec-scan-3b6cff6d",
-    "target_path": "/root/control-center",
-    "started_at": "2026-09-18T15:20:07.477382+00:00",
-    "completed_at": "2026-09-18T15:20:07.477435+00:00",
-    "duration_seconds": 10.28,
-    "total_files_scanned": 271,
-    "findings": [
-      {
-        "finding_id": "sec-420d16c1",
-        "fingerprint": "b99293ab80ccb9d8",
-        "title": "Secret Leak Detected: Database Connection URI with Credentials",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
-        "line_number": 95,
-        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:19:57.505231+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-1efdedcb",
-        "fingerprint": "fc42454259956d4b",
-        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
-        "category": "SECRET_LEAK",
-        "severity": "HIGH",
-        "status": "OPEN",
-        "confidence": "HEURISTIC_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "USER",
-          "data_sensitivity": "SECRET",
-          "production_impact": "HIGH",
-          "reversibility": "LOW",
-          "confidence": "HEURISTIC_FINDING"
-        },
-        "file_path": "backend/orchestrator/factory_engine.py",
-        "line_number": 1130,
-        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 7.5,
-        "detected_at": "2026-09-18T15:20:02.476310+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-7255a397",
-        "fingerprint": "2874904176229663",
-        "title": "Secret Leak Detected: AWS Access Key ID",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 66,
-        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:06.693960+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)AKIA[0-9A-Z]{16}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-06f8bd7c",
-        "fingerprint": "8226aef322eb8142",
-        "title": "Secret Leak Detected: GitHub Personal Access Token",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 67,
-        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:06.694443+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "ghp_[0-9a-zA-Z]{36}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-ad4970e6",
-        "fingerprint": "ba6684bd147d359d",
-        "title": "Secret Leak Detected: Cryptographic Private Key Block",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
-        "line_number": 354,
-        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:07.161940+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      }
-    ],
-    "risk_score": 100.0,
-    "pass_status": false,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
-    "scan_id": "sec-scan-3741ebba",
-    "target_path": "/root/control-center",
-    "started_at": "2026-09-18T15:20:18.072435+00:00",
-    "completed_at": "2026-09-18T15:20:18.072494+00:00",
-    "duration_seconds": 6.73,
-    "total_files_scanned": 271,
-    "findings": [
-      {
-        "finding_id": "sec-074c18cd",
-        "fingerprint": "b99293ab80ccb9d8",
-        "title": "Secret Leak Detected: Database Connection URI with Credentials",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
-        "line_number": 95,
-        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:11.847278+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-a0c9dcde",
-        "fingerprint": "fc42454259956d4b",
-        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
-        "category": "SECRET_LEAK",
-        "severity": "HIGH",
-        "status": "OPEN",
-        "confidence": "HEURISTIC_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "USER",
-          "data_sensitivity": "SECRET",
-          "production_impact": "HIGH",
-          "reversibility": "LOW",
-          "confidence": "HEURISTIC_FINDING"
-        },
-        "file_path": "backend/orchestrator/factory_engine.py",
-        "line_number": 1130,
-        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 7.5,
-        "detected_at": "2026-09-18T15:20:14.186818+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-76255f80",
-        "fingerprint": "2874904176229663",
-        "title": "Secret Leak Detected: AWS Access Key ID",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 66,
-        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:17.092129+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)AKIA[0-9A-Z]{16}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-67142bf2",
-        "fingerprint": "8226aef322eb8142",
-        "title": "Secret Leak Detected: GitHub Personal Access Token",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 67,
-        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:17.092324+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "ghp_[0-9a-zA-Z]{36}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-d60c4c03",
-        "fingerprint": "ba6684bd147d359d",
-        "title": "Secret Leak Detected: Cryptographic Private Key Block",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
-        "line_number": 354,
-        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:17.646369+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      }
-    ],
-    "risk_score": 100.0,
-    "pass_status": false,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
-    "scan_id": "sec-scan-8ac2ba1a",
-    "target_path": "/root/control-center",
-    "started_at": "2026-09-18T15:20:34.542944+00:00",
-    "completed_at": "2026-09-18T15:20:34.542991+00:00",
-    "duration_seconds": 11.83,
-    "total_files_scanned": 271,
-    "findings": [
-      {
-        "finding_id": "sec-8cd108ec",
-        "fingerprint": "b99293ab80ccb9d8",
-        "title": "Secret Leak Detected: Database Connection URI with Credentials",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
-        "line_number": 95,
-        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:23.184521+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-b336754a",
-        "fingerprint": "fc42454259956d4b",
-        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
-        "category": "SECRET_LEAK",
-        "severity": "HIGH",
-        "status": "OPEN",
-        "confidence": "HEURISTIC_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "USER",
-          "data_sensitivity": "SECRET",
-          "production_impact": "HIGH",
-          "reversibility": "LOW",
-          "confidence": "HEURISTIC_FINDING"
-        },
-        "file_path": "backend/orchestrator/factory_engine.py",
-        "line_number": 1130,
-        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 7.5,
-        "detected_at": "2026-09-18T15:20:26.177213+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-084df3a2",
-        "fingerprint": "2874904176229663",
-        "title": "Secret Leak Detected: AWS Access Key ID",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 66,
-        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:32.050395+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)AKIA[0-9A-Z]{16}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-d2583504",
-        "fingerprint": "8226aef322eb8142",
-        "title": "Secret Leak Detected: GitHub Personal Access Token",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 67,
-        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:32.050702+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "ghp_[0-9a-zA-Z]{36}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-56ba1b8b",
-        "fingerprint": "ba6684bd147d359d",
-        "title": "Secret Leak Detected: Cryptographic Private Key Block",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
-        "line_number": 354,
-        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:33.174286+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      }
-    ],
-    "risk_score": 100.0,
-    "pass_status": false,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
-    "scan_id": "sec-scan-05852702",
-    "target_path": "/root/control-center",
-    "started_at": "2026-09-18T15:20:48.163345+00:00",
-    "completed_at": "2026-09-18T15:20:48.163386+00:00",
-    "duration_seconds": 5.94,
-    "total_files_scanned": 271,
-    "findings": [
-      {
-        "finding_id": "sec-11150dfd",
-        "fingerprint": "b99293ab80ccb9d8",
-        "title": "Secret Leak Detected: Database Connection URI with Credentials",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
-        "line_number": 95,
-        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:42.069212+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-56e24187",
-        "fingerprint": "fc42454259956d4b",
-        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
-        "category": "SECRET_LEAK",
-        "severity": "HIGH",
-        "status": "OPEN",
-        "confidence": "HEURISTIC_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "USER",
-          "data_sensitivity": "SECRET",
-          "production_impact": "HIGH",
-          "reversibility": "LOW",
-          "confidence": "HEURISTIC_FINDING"
-        },
-        "file_path": "backend/orchestrator/factory_engine.py",
-        "line_number": 1130,
-        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 7.5,
-        "detected_at": "2026-09-18T15:20:44.425018+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-3e2e61ab",
-        "fingerprint": "2874904176229663",
-        "title": "Secret Leak Detected: AWS Access Key ID",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 66,
-        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:46.616405+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)AKIA[0-9A-Z]{16}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-04ac2e0d",
-        "fingerprint": "8226aef322eb8142",
-        "title": "Secret Leak Detected: GitHub Personal Access Token",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 67,
-        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:46.616743+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "ghp_[0-9a-zA-Z]{36}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-ae7bfd5b",
-        "fingerprint": "ba6684bd147d359d",
-        "title": "Secret Leak Detected: Cryptographic Private Key Block",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
-        "line_number": 354,
-        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:46.872016+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      }
-    ],
-    "risk_score": 100.0,
-    "pass_status": false,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
-    "scan_id": "sec-scan-204a6eb8",
-    "target_path": "/root/control-center",
-    "started_at": "2026-09-18T15:21:00.547291+00:00",
-    "completed_at": "2026-09-18T15:21:00.547340+00:00",
-    "duration_seconds": 6.75,
-    "total_files_scanned": 271,
-    "findings": [
-      {
-        "finding_id": "sec-302ec9af",
-        "fingerprint": "b99293ab80ccb9d8",
-        "title": "Secret Leak Detected: Database Connection URI with Credentials",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
-        "line_number": 95,
-        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:53.605066+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-815cb50f",
-        "fingerprint": "fc42454259956d4b",
-        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
-        "category": "SECRET_LEAK",
-        "severity": "HIGH",
-        "status": "OPEN",
-        "confidence": "HEURISTIC_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "USER",
-          "data_sensitivity": "SECRET",
-          "production_impact": "HIGH",
-          "reversibility": "LOW",
-          "confidence": "HEURISTIC_FINDING"
-        },
-        "file_path": "backend/orchestrator/factory_engine.py",
-        "line_number": 1130,
-        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 7.5,
-        "detected_at": "2026-09-18T15:20:55.766392+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-b6ed864e",
-        "fingerprint": "2874904176229663",
-        "title": "Secret Leak Detected: AWS Access Key ID",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 66,
-        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:59.268027+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)AKIA[0-9A-Z]{16}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-bd3ae0b7",
-        "fingerprint": "8226aef322eb8142",
-        "title": "Secret Leak Detected: GitHub Personal Access Token",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 67,
-        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:59.268216+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "ghp_[0-9a-zA-Z]{36}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-c8c37b9f",
-        "fingerprint": "ba6684bd147d359d",
-        "title": "Secret Leak Detected: Cryptographic Private Key Block",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
-        "line_number": 354,
-        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:20:59.450464+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      }
-    ],
-    "risk_score": 100.0,
-    "pass_status": false,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
-    "scan_id": "sec-scan-43afbc86",
-    "target_path": "/root/control-center",
-    "started_at": "2026-09-18T15:21:16.330320+00:00",
-    "completed_at": "2026-09-18T15:21:16.330468+00:00",
-    "duration_seconds": 12.04,
-    "total_files_scanned": 271,
-    "findings": [
-      {
-        "finding_id": "sec-49d30a92",
-        "fingerprint": "b99293ab80ccb9d8",
-        "title": "Secret Leak Detected: Database Connection URI with Credentials",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
-        "line_number": 95,
-        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:21:03.740571+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-b766d611",
-        "fingerprint": "fc42454259956d4b",
-        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
-        "category": "SECRET_LEAK",
-        "severity": "HIGH",
-        "status": "OPEN",
-        "confidence": "HEURISTIC_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "USER",
-          "data_sensitivity": "SECRET",
-          "production_impact": "HIGH",
-          "reversibility": "LOW",
-          "confidence": "HEURISTIC_FINDING"
-        },
-        "file_path": "backend/orchestrator/factory_engine.py",
-        "line_number": 1130,
-        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 7.5,
-        "detected_at": "2026-09-18T15:21:07.815364+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-6b1f9751",
-        "fingerprint": "2874904176229663",
-        "title": "Secret Leak Detected: AWS Access Key ID",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 66,
-        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:21:14.024645+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)AKIA[0-9A-Z]{16}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-59394ccd",
-        "fingerprint": "8226aef322eb8142",
-        "title": "Secret Leak Detected: GitHub Personal Access Token",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 67,
-        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:21:14.024968+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "ghp_[0-9a-zA-Z]{36}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-09adbfb2",
-        "fingerprint": "ba6684bd147d359d",
-        "title": "Secret Leak Detected: Cryptographic Private Key Block",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
-        "line_number": 354,
-        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:21:14.833083+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      }
-    ],
-    "risk_score": 100.0,
-    "pass_status": false,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
-    "scan_id": "sec-scan-09c662f6",
-    "target_path": "/root/control-center",
-    "started_at": "2026-09-18T15:21:30.938644+00:00",
-    "completed_at": "2026-09-18T15:21:30.938680+00:00",
-    "duration_seconds": 9.44,
-    "total_files_scanned": 271,
-    "findings": [
-      {
-        "finding_id": "sec-7bcd5bb1",
-        "fingerprint": "b99293ab80ccb9d8",
-        "title": "Secret Leak Detected: Database Connection URI with Credentials",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
-        "line_number": 95,
-        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:21:20.858816+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-ce153b0b",
-        "fingerprint": "fc42454259956d4b",
-        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
-        "category": "SECRET_LEAK",
-        "severity": "HIGH",
-        "status": "OPEN",
-        "confidence": "HEURISTIC_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "USER",
-          "data_sensitivity": "SECRET",
-          "production_impact": "HIGH",
-          "reversibility": "LOW",
-          "confidence": "HEURISTIC_FINDING"
-        },
-        "file_path": "backend/orchestrator/factory_engine.py",
-        "line_number": 1130,
-        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 7.5,
-        "detected_at": "2026-09-18T15:21:23.391530+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-8c471e6d",
-        "fingerprint": "2874904176229663",
-        "title": "Secret Leak Detected: AWS Access Key ID",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 66,
-        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:21:28.423165+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)AKIA[0-9A-Z]{16}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-a6df35c8",
-        "fingerprint": "8226aef322eb8142",
-        "title": "Secret Leak Detected: GitHub Personal Access Token",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 67,
-        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:21:28.423582+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "ghp_[0-9a-zA-Z]{36}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-045bff84",
-        "fingerprint": "ba6684bd147d359d",
-        "title": "Secret Leak Detected: Cryptographic Private Key Block",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
-        "line_number": 354,
-        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:21:29.656540+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      }
-    ],
-    "risk_score": 100.0,
-    "pass_status": false,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
-    "scan_id": "sec-scan-4d5e6a01",
-    "target_path": "/root/control-center",
-    "started_at": "2026-09-18T15:21:48.186132+00:00",
-    "completed_at": "2026-09-18T15:21:48.186179+00:00",
-    "duration_seconds": 10.09,
-    "total_files_scanned": 271,
-    "findings": [
-      {
-        "finding_id": "sec-5c72ebf6",
-        "fingerprint": "b99293ab80ccb9d8",
-        "title": "Secret Leak Detected: Database Connection URI with Credentials",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
-        "line_number": 95,
-        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:21:37.742741+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-80715baf",
-        "fingerprint": "fc42454259956d4b",
-        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
-        "category": "SECRET_LEAK",
-        "severity": "HIGH",
-        "status": "OPEN",
-        "confidence": "HEURISTIC_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "USER",
-          "data_sensitivity": "SECRET",
-          "production_impact": "HIGH",
-          "reversibility": "LOW",
-          "confidence": "HEURISTIC_FINDING"
-        },
-        "file_path": "backend/orchestrator/factory_engine.py",
-        "line_number": 1130,
-        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 7.5,
-        "detected_at": "2026-09-18T15:21:41.127636+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-8f6922d2",
-        "fingerprint": "2874904176229663",
-        "title": "Secret Leak Detected: AWS Access Key ID",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 66,
-        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:21:45.867865+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)AKIA[0-9A-Z]{16}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-35314181",
-        "fingerprint": "8226aef322eb8142",
-        "title": "Secret Leak Detected: GitHub Personal Access Token",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 67,
-        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:21:45.868245+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "ghp_[0-9a-zA-Z]{36}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-10069427",
-        "fingerprint": "ba6684bd147d359d",
-        "title": "Secret Leak Detected: Cryptographic Private Key Block",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
-        "line_number": 354,
-        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:21:46.574861+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      }
-    ],
-    "risk_score": 100.0,
-    "pass_status": false,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
-    "scan_id": "sec-scan-ace59b69",
-    "target_path": "/root/control-center",
-    "started_at": "2026-09-18T15:22:07.145121+00:00",
-    "completed_at": "2026-09-18T15:22:07.145167+00:00",
-    "duration_seconds": 11.08,
-    "total_files_scanned": 271,
-    "findings": [
-      {
-        "finding_id": "sec-23ce2aa9",
-        "fingerprint": "b99293ab80ccb9d8",
-        "title": "Secret Leak Detected: Database Connection URI with Credentials",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
-        "line_number": 95,
-        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:21:55.494840+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-0a7f97ab",
-        "fingerprint": "fc42454259956d4b",
-        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
-        "category": "SECRET_LEAK",
-        "severity": "HIGH",
-        "status": "OPEN",
-        "confidence": "HEURISTIC_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "USER",
-          "data_sensitivity": "SECRET",
-          "production_impact": "HIGH",
-          "reversibility": "LOW",
-          "confidence": "HEURISTIC_FINDING"
-        },
-        "file_path": "backend/orchestrator/factory_engine.py",
-        "line_number": 1130,
-        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 7.5,
-        "detected_at": "2026-09-18T15:21:58.833022+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-550ee8f3",
-        "fingerprint": "2874904176229663",
-        "title": "Secret Leak Detected: AWS Access Key ID",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 66,
-        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:22:04.594215+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)AKIA[0-9A-Z]{16}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-f81a0479",
-        "fingerprint": "8226aef322eb8142",
-        "title": "Secret Leak Detected: GitHub Personal Access Token",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 67,
-        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:22:04.624444+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "ghp_[0-9a-zA-Z]{36}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-49260a92",
-        "fingerprint": "ba6684bd147d359d",
-        "title": "Secret Leak Detected: Cryptographic Private Key Block",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
-        "line_number": 354,
-        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:22:05.355731+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      }
-    ],
-    "risk_score": 100.0,
-    "pass_status": false,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
-    "scan_id": "sec-scan-8e895d03",
-    "target_path": "/root/control-center",
-    "started_at": "2026-09-18T15:22:24.036372+00:00",
-    "completed_at": "2026-09-18T15:22:24.036427+00:00",
-    "duration_seconds": 9.11,
-    "total_files_scanned": 271,
-    "findings": [
-      {
-        "finding_id": "sec-1bb51289",
-        "fingerprint": "b99293ab80ccb9d8",
-        "title": "Secret Leak Detected: Database Connection URI with Credentials",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
-        "line_number": 95,
-        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:22:14.370466+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-7b7a9d56",
-        "fingerprint": "fc42454259956d4b",
-        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
-        "category": "SECRET_LEAK",
-        "severity": "HIGH",
-        "status": "OPEN",
-        "confidence": "HEURISTIC_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "USER",
-          "data_sensitivity": "SECRET",
-          "production_impact": "HIGH",
-          "reversibility": "LOW",
-          "confidence": "HEURISTIC_FINDING"
-        },
-        "file_path": "backend/orchestrator/factory_engine.py",
-        "line_number": 1130,
-        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 7.5,
-        "detected_at": "2026-09-18T15:22:17.084520+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-e9d3ccee",
-        "fingerprint": "2874904176229663",
-        "title": "Secret Leak Detected: AWS Access Key ID",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 66,
-        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:22:21.309544+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)AKIA[0-9A-Z]{16}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-3cc9185b",
-        "fingerprint": "8226aef322eb8142",
-        "title": "Secret Leak Detected: GitHub Personal Access Token",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "scripts/e2e_phase18_security_compliance.py",
-        "line_number": 67,
-        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:22:21.309835+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "ghp_[0-9a-zA-Z]{36}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-fe3d65c6",
-        "fingerprint": "ba6684bd147d359d",
-        "title": "Secret Leak Detected: Cryptographic Private Key Block",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
-        "line_number": 354,
-        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:22:22.409152+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      }
-    ],
-    "risk_score": 100.0,
-    "pass_status": false,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
-    "scan_id": "sec-scan-32f796ea",
-    "target_path": "/tmp/pytest-of-root/pytest-379/test_secret_scanner_detection_0",
-    "started_at": "2026-09-18T15:22:35.446279+00:00",
-    "completed_at": "2026-09-18T15:22:35.446327+00:00",
-    "duration_seconds": 0.22,
-    "total_files_scanned": 1,
-    "findings": [
-      {
-        "finding_id": "sec-855139f6",
-        "fingerprint": "f401f96784a0f494",
-        "title": "Secret Leak Detected: AWS Access Key ID",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "/tmp/pytest-of-root/pytest-379/test_secret_scanner_detection_0/leaky_config.py",
-        "line_number": 1,
-        "snippet": "AWS_KEY = \"AKIAIOSFODNN7EXAMPLE\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:22:34.575339+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)AKIA[0-9A-Z]{16}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-3e0893f5",
-        "fingerprint": "c0a4efb5dbbaba1b",
-        "title": "Secret Leak Detected: GitHub Personal Access Token",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "/tmp/pytest-of-root/pytest-379/test_secret_scanner_detection_0/leaky_config.py",
-        "line_number": 2,
-        "snippet": "GITHUB_TOKEN = \"ghp_1234567890abcdefghijklmnopqrstuvwxyzAB\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:22:34.576949+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "ghp_[0-9a-zA-Z]{36}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-aa4d5fe7",
-        "fingerprint": "b1f786f538453bae",
-        "title": "Secret Leak Detected: Database Connection URI with Credentials",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "/tmp/pytest-of-root/pytest-379/test_secret_scanner_detection_0/leaky_config.py",
-        "line_number": 3,
-        "snippet": "DB_URL = \"postgres://admin:supersecretpassword@localhost:5432/nexus\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:22:34.577785+00:00",
-        "resolved_at": null,
-        "details": {
-          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      }
-    ],
-    "risk_score": 75.0,
-    "pass_status": false,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
-    "scan_id": "sec-scan-00d959ae",
-    "target_path": "/tmp/pytest-of-root/pytest-379/test_python_ast_vulnerability_0",
-    "started_at": "2026-09-18T15:22:36.115288+00:00",
-    "completed_at": "2026-09-18T15:22:36.115326+00:00",
-    "duration_seconds": 0.03,
-    "total_files_scanned": 1,
-    "findings": [
-      {
-        "finding_id": "sec-6b097d6f",
-        "fingerprint": "fc02c1fb148ce612",
-        "title": "Dangerous Shell Command Execution via os.system()",
-        "category": "SAST_INJECTION",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 8.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "USER",
-          "data_sensitivity": "CONFIDENTIAL",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "/tmp/pytest-of-root/pytest-379/test_python_ast_vulnerability_0/insecure_app.py",
-        "line_number": 3,
-        "snippet": "os.system(user_input)",
-        "remediation_advice": "Replace os.system() with subprocess.run() using shell=False and argument arrays.",
-        "cve_id": null,
-        "cvss_score": 9.4,
-        "detected_at": "2026-09-18T15:22:35.626485+00:00",
-        "resolved_at": null,
-        "details": {},
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-bb15a812",
-        "fingerprint": "cb1bdf93c9297965",
-        "title": "Dynamic Code Execution via eval()",
-        "category": "SAST_INJECTION",
-        "severity": "CRITICAL",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.5,
-          "exposure": 9.0,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ROOT",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "IRREVERSIBLE",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "/tmp/pytest-of-root/pytest-379/test_python_ast_vulnerability_0/insecure_app.py",
-        "line_number": 5,
-        "snippet": "eval(code)",
-        "remediation_advice": "Eliminate eval(); replace with safe expression evaluator or dispatcher.",
-        "cve_id": null,
-        "cvss_score": 9.8,
-        "detected_at": "2026-09-18T15:22:35.626752+00:00",
-        "resolved_at": null,
-        "details": {},
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-c76dcc7b",
-        "fingerprint": "4f33482affac6395",
-        "title": "Insecure Object Deserialization via pickle",
-        "category": "SAST_INJECTION",
-        "severity": "HIGH",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 8.5,
-          "exposure": 7.0,
-          "affected_scope": "MODULE",
-          "privilege_level": "USER",
-          "data_sensitivity": "CONFIDENTIAL",
-          "production_impact": "HIGH",
-          "reversibility": "MEDIUM",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "/tmp/pytest-of-root/pytest-379/test_python_ast_vulnerability_0/insecure_app.py",
-        "line_number": 7,
-        "snippet": "return pickle.loads(data)",
-        "remediation_advice": "Use safe structured serialization formats like JSON or Protocol Buffers.",
-        "cve_id": null,
-        "cvss_score": 8.8,
-        "detected_at": "2026-09-18T15:22:35.626979+00:00",
-        "resolved_at": null,
-        "details": {},
-        "policy_eval_id": null,
-        "correlation_id": null
-      }
-    ],
-    "risk_score": 60.0,
-    "pass_status": false,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
-    "scan_id": "sec-scan-d6ea8027",
-    "target_path": "/tmp/pytest-of-root/pytest-379/test_javascript_typescript_sec0",
-    "started_at": "2026-09-18T15:22:37.379581+00:00",
-    "completed_at": "2026-09-18T15:22:37.379637+00:00",
-    "duration_seconds": 0.02,
-    "total_files_scanned": 1,
-    "findings": [
-      {
-        "finding_id": "sec-9f5fb0c7",
-        "fingerprint": "f5f229c22c28b1b0",
-        "title": "Client-Side Dynamic Execution / XSS Risk",
-        "category": "SAST_INJECTION",
-        "severity": "MEDIUM",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 6.0,
-          "exposure": 6.0,
-          "affected_scope": "LOCAL",
-          "privilege_level": "USER",
-          "data_sensitivity": "INTERNAL",
-          "production_impact": "DEGRADED",
-          "reversibility": "HIGH",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "/tmp/pytest-of-root/pytest-379/test_javascript_typescript_sec0/unsafe_component.tsx",
-        "line_number": 3,
-        "snippet": "eval(data);",
-        "remediation_advice": "Avoid dynamic evaluation or unsanitized innerHTML assignments.",
-        "cve_id": null,
-        "cvss_score": 6.1,
-        "detected_at": "2026-09-18T15:22:36.795312+00:00",
-        "resolved_at": null,
-        "details": {},
-        "policy_eval_id": null,
-        "correlation_id": null
-      },
-      {
-        "finding_id": "sec-ccc898ec",
-        "fingerprint": "9db29e492689d838",
-        "title": "Client-Side Dynamic Execution / XSS Risk",
-        "category": "SAST_INJECTION",
-        "severity": "MEDIUM",
-        "status": "OPEN",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 6.0,
-          "exposure": 6.0,
-          "affected_scope": "LOCAL",
-          "privilege_level": "USER",
-          "data_sensitivity": "INTERNAL",
-          "production_impact": "DEGRADED",
-          "reversibility": "HIGH",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "/tmp/pytest-of-root/pytest-379/test_javascript_typescript_sec0/unsafe_component.tsx",
-        "line_number": 4,
-        "snippet": "return <div dangerouslySetInnerHTML={{ __html: data }} />;",
-        "remediation_advice": "Avoid dynamic evaluation or unsanitized innerHTML assignments.",
-        "cve_id": null,
-        "cvss_score": 6.1,
-        "detected_at": "2026-09-18T15:22:36.796271+00:00",
-        "resolved_at": null,
-        "details": {},
-        "policy_eval_id": null,
-        "correlation_id": null
-      }
-    ],
-    "risk_score": 4.0,
-    "pass_status": true,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
-    "scan_id": "sec-scan-80d89a9e",
-    "target_path": "/tmp/pytest-of-root/pytest-379/test_threat_quarantine_isolati0",
-    "started_at": "2026-09-18T15:22:38.527623+00:00",
-    "completed_at": "2026-09-18T15:22:38.527658+00:00",
-    "duration_seconds": 0.08,
-    "total_files_scanned": 1,
-    "findings": [
-      {
-        "finding_id": "sec-479e3c7d",
-        "fingerprint": "904bae1aaffa8a5e",
-        "title": "Secret Leak Detected: AWS Access Key ID",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "QUARANTINED",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "/tmp/pytest-of-root/pytest-379/test_threat_quarantine_isolati0/threat_script.py",
-        "line_number": 1,
-        "snippet": "AWS_ACCESS_KEY_ID = \"AKIAEXAMPLE1234567890\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:22:37.899416+00:00",
-        "resolved_at": "2026-09-18T15:22:38.927425+00:00",
-        "details": {
-          "pattern": "(?i)AKIA[0-9A-Z]{16}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      }
-    ],
-    "risk_score": 25.0,
-    "pass_status": false,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
-    "scan_id": "sec-scan-bac43d4a",
-    "target_path": "/tmp/pytest-of-root/pytest-379/test_finding_lifecycle_state_m0",
-    "started_at": "2026-09-18T15:22:42.485721+00:00",
-    "completed_at": "2026-09-18T15:22:42.485760+00:00",
-    "duration_seconds": 0.44,
-    "total_files_scanned": 1,
-    "findings": [
-      {
-        "finding_id": "sec-e2970acd",
-        "fingerprint": "9c4a8548bd1c9c5e",
-        "title": "Secret Leak Detected: AWS Access Key ID",
-        "category": "SECRET_LEAK",
-        "severity": "CRITICAL",
-        "status": "RESOLVED",
-        "confidence": "CONFIRMED_FINDING",
-        "risk_dimensions": {
-          "exploitability": 9.0,
-          "exposure": 9.5,
-          "affected_scope": "SYSTEM",
-          "privilege_level": "ADMIN",
-          "data_sensitivity": "SECRET",
-          "production_impact": "CRITICAL",
-          "reversibility": "LOW",
-          "confidence": "CONFIRMED_FINDING"
-        },
-        "file_path": "/tmp/pytest-of-root/pytest-379/test_finding_lifecycle_state_m0/state_test.py",
-        "line_number": 1,
-        "snippet": "SECRET_KEY = \"AKIA1234567890123456\"",
-        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
-        "cve_id": null,
-        "cvss_score": 9.1,
-        "detected_at": "2026-09-18T15:22:40.163290+00:00",
-        "resolved_at": "2026-09-18T15:22:44.632125+00:00",
-        "details": {
-          "pattern": "(?i)AKIA[0-9A-Z]{16}",
-          "rule": "zero_leakage_secret_guard"
-        },
-        "policy_eval_id": null,
-        "correlation_id": null
-      }
-    ],
-    "risk_score": 25.0,
-    "pass_status": false,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
-    "scan_id": "sec-scan-99c364cf",
-    "target_path": "/tmp/pytest-of-root/pytest-379/test_security_policy_engine_ev0",
-    "started_at": "2026-09-18T15:22:47.466753+00:00",
-    "completed_at": "2026-09-18T15:22:47.466807+00:00",
-    "duration_seconds": 0.31,
-    "total_files_scanned": 0,
-    "findings": [],
-    "risk_score": 0.0,
-    "pass_status": true,
-    "compliance_summary": {
-      "SOC2": 100.0,
-      "ISO27001": 100.0,
-      "CIS_BENCHMARK": 100.0,
-      "NIST_800_53": 100.0,
-      "GDPR_PRIVACY": 100.0,
-      "FINOPS_ZERO_COST": 100.0
-    },
-    "scanner_availability": {
-      "AST_SECRET_SCANNER": "AVAILABLE",
-      "SAST_INJECTION_ANALYZER": "AVAILABLE",
-      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
-      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
-    },
-    "session_id": null
-  },
-  {
     "scan_id": "sec-scan-1c9556d9",
     "target_path": "/tmp/pytest-of-root/pytest-379/test_security_policy_engine_ev0",
     "started_at": "2026-09-18T15:22:51.898149+00:00",
@@ -17132,6 +14352,2356 @@
       }
     ],
     "risk_score": 100.0,
+    "pass_status": false,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-9e254dd1",
+    "target_path": "/root/control-center",
+    "started_at": "2026-09-19T00:23:47.897361+00:00",
+    "completed_at": "2026-09-19T00:23:47.897460+00:00",
+    "duration_seconds": 3.08,
+    "total_files_scanned": 282,
+    "findings": [
+      {
+        "finding_id": "sec-69b00c3c",
+        "fingerprint": "b99293ab80ccb9d8",
+        "title": "Secret Leak Detected: Database Connection URI with Credentials",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
+        "line_number": 95,
+        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:23:44.759508+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-28421324",
+        "fingerprint": "fc42454259956d4b",
+        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
+        "category": "SECRET_LEAK",
+        "severity": "HIGH",
+        "status": "OPEN",
+        "confidence": "HEURISTIC_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "USER",
+          "data_sensitivity": "SECRET",
+          "production_impact": "HIGH",
+          "reversibility": "LOW",
+          "confidence": "HEURISTIC_FINDING"
+        },
+        "file_path": "backend/orchestrator/factory_engine.py",
+        "line_number": 1130,
+        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 7.5,
+        "detected_at": "2026-09-19T00:23:45.649679+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-3b255adf",
+        "fingerprint": "2874904176229663",
+        "title": "Secret Leak Detected: AWS Access Key ID",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 66,
+        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:23:47.189689+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)AKIA[0-9A-Z]{16}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-f9cb7f4d",
+        "fingerprint": "8226aef322eb8142",
+        "title": "Secret Leak Detected: GitHub Personal Access Token",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 67,
+        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:23:47.189898+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "ghp_[0-9a-zA-Z]{36}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-a1bf7246",
+        "fingerprint": "ba6684bd147d359d",
+        "title": "Secret Leak Detected: Cryptographic Private Key Block",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
+        "line_number": 354,
+        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:23:47.438153+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      }
+    ],
+    "risk_score": 100.0,
+    "pass_status": false,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-8dce7ced",
+    "target_path": "/root/control-center",
+    "started_at": "2026-09-19T00:24:12.076058+00:00",
+    "completed_at": "2026-09-19T00:24:12.076096+00:00",
+    "duration_seconds": 2.8,
+    "total_files_scanned": 282,
+    "findings": [
+      {
+        "finding_id": "sec-15aa74be",
+        "fingerprint": "b99293ab80ccb9d8",
+        "title": "Secret Leak Detected: Database Connection URI with Credentials",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
+        "line_number": 95,
+        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:24:09.210593+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-6ebacb78",
+        "fingerprint": "fc42454259956d4b",
+        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
+        "category": "SECRET_LEAK",
+        "severity": "HIGH",
+        "status": "OPEN",
+        "confidence": "HEURISTIC_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "USER",
+          "data_sensitivity": "SECRET",
+          "production_impact": "HIGH",
+          "reversibility": "LOW",
+          "confidence": "HEURISTIC_FINDING"
+        },
+        "file_path": "backend/orchestrator/factory_engine.py",
+        "line_number": 1130,
+        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 7.5,
+        "detected_at": "2026-09-19T00:24:10.059500+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-c2d9a88d",
+        "fingerprint": "2874904176229663",
+        "title": "Secret Leak Detected: AWS Access Key ID",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 66,
+        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:24:11.526317+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)AKIA[0-9A-Z]{16}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-8fb55f42",
+        "fingerprint": "8226aef322eb8142",
+        "title": "Secret Leak Detected: GitHub Personal Access Token",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 67,
+        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:24:11.526527+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "ghp_[0-9a-zA-Z]{36}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-d61879ba",
+        "fingerprint": "ba6684bd147d359d",
+        "title": "Secret Leak Detected: Cryptographic Private Key Block",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
+        "line_number": 354,
+        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:24:11.707808+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      }
+    ],
+    "risk_score": 100.0,
+    "pass_status": false,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-5b8cbaed",
+    "target_path": "/root/control-center",
+    "started_at": "2026-09-19T00:24:35.830966+00:00",
+    "completed_at": "2026-09-19T00:24:35.830999+00:00",
+    "duration_seconds": 2.78,
+    "total_files_scanned": 282,
+    "findings": [
+      {
+        "finding_id": "sec-a4abfe74",
+        "fingerprint": "b99293ab80ccb9d8",
+        "title": "Secret Leak Detected: Database Connection URI with Credentials",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
+        "line_number": 95,
+        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:24:32.943157+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-57206ca6",
+        "fingerprint": "fc42454259956d4b",
+        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
+        "category": "SECRET_LEAK",
+        "severity": "HIGH",
+        "status": "OPEN",
+        "confidence": "HEURISTIC_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "USER",
+          "data_sensitivity": "SECRET",
+          "production_impact": "HIGH",
+          "reversibility": "LOW",
+          "confidence": "HEURISTIC_FINDING"
+        },
+        "file_path": "backend/orchestrator/factory_engine.py",
+        "line_number": 1130,
+        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 7.5,
+        "detected_at": "2026-09-19T00:24:33.792672+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-6fb6c159",
+        "fingerprint": "2874904176229663",
+        "title": "Secret Leak Detected: AWS Access Key ID",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 66,
+        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:24:35.277947+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)AKIA[0-9A-Z]{16}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-babb872b",
+        "fingerprint": "8226aef322eb8142",
+        "title": "Secret Leak Detected: GitHub Personal Access Token",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 67,
+        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:24:35.278150+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "ghp_[0-9a-zA-Z]{36}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-649e411d",
+        "fingerprint": "ba6684bd147d359d",
+        "title": "Secret Leak Detected: Cryptographic Private Key Block",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
+        "line_number": 354,
+        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:24:35.468854+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      }
+    ],
+    "risk_score": 100.0,
+    "pass_status": false,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-dc8b4984",
+    "target_path": "/root/control-center",
+    "started_at": "2026-09-19T00:24:39.910528+00:00",
+    "completed_at": "2026-09-19T00:24:39.910559+00:00",
+    "duration_seconds": 2.66,
+    "total_files_scanned": 282,
+    "findings": [
+      {
+        "finding_id": "sec-e95a2e71",
+        "fingerprint": "b99293ab80ccb9d8",
+        "title": "Secret Leak Detected: Database Connection URI with Credentials",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
+        "line_number": 95,
+        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:24:37.064924+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-8dc8c9dc",
+        "fingerprint": "fc42454259956d4b",
+        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
+        "category": "SECRET_LEAK",
+        "severity": "HIGH",
+        "status": "OPEN",
+        "confidence": "HEURISTIC_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "USER",
+          "data_sensitivity": "SECRET",
+          "production_impact": "HIGH",
+          "reversibility": "LOW",
+          "confidence": "HEURISTIC_FINDING"
+        },
+        "file_path": "backend/orchestrator/factory_engine.py",
+        "line_number": 1130,
+        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 7.5,
+        "detected_at": "2026-09-19T00:24:37.888645+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-cce73660",
+        "fingerprint": "2874904176229663",
+        "title": "Secret Leak Detected: AWS Access Key ID",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 66,
+        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:24:39.292840+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)AKIA[0-9A-Z]{16}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-668f0163",
+        "fingerprint": "8226aef322eb8142",
+        "title": "Secret Leak Detected: GitHub Personal Access Token",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 67,
+        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:24:39.293041+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "ghp_[0-9a-zA-Z]{36}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-69bcadf7",
+        "fingerprint": "ba6684bd147d359d",
+        "title": "Secret Leak Detected: Cryptographic Private Key Block",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
+        "line_number": 354,
+        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:24:39.477811+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      }
+    ],
+    "risk_score": 100.0,
+    "pass_status": false,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-e867f2e7",
+    "target_path": "/root/control-center",
+    "started_at": "2026-09-19T00:26:45.859687+00:00",
+    "completed_at": "2026-09-19T00:26:45.859734+00:00",
+    "duration_seconds": 2.61,
+    "total_files_scanned": 282,
+    "findings": [
+      {
+        "finding_id": "sec-3ff5b84a",
+        "fingerprint": "b99293ab80ccb9d8",
+        "title": "Secret Leak Detected: Database Connection URI with Credentials",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
+        "line_number": 95,
+        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:26:43.117207+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-5b56ad73",
+        "fingerprint": "fc42454259956d4b",
+        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
+        "category": "SECRET_LEAK",
+        "severity": "HIGH",
+        "status": "OPEN",
+        "confidence": "HEURISTIC_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "USER",
+          "data_sensitivity": "SECRET",
+          "production_impact": "HIGH",
+          "reversibility": "LOW",
+          "confidence": "HEURISTIC_FINDING"
+        },
+        "file_path": "backend/orchestrator/factory_engine.py",
+        "line_number": 1130,
+        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 7.5,
+        "detected_at": "2026-09-19T00:26:43.964085+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-c3a824d3",
+        "fingerprint": "2874904176229663",
+        "title": "Secret Leak Detected: AWS Access Key ID",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 66,
+        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:26:45.318245+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)AKIA[0-9A-Z]{16}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-51dac4e4",
+        "fingerprint": "8226aef322eb8142",
+        "title": "Secret Leak Detected: GitHub Personal Access Token",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 67,
+        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:26:45.318413+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "ghp_[0-9a-zA-Z]{36}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-c331dfc6",
+        "fingerprint": "ba6684bd147d359d",
+        "title": "Secret Leak Detected: Cryptographic Private Key Block",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
+        "line_number": 354,
+        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:26:45.514280+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      }
+    ],
+    "risk_score": 100.0,
+    "pass_status": false,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-871b83b2",
+    "target_path": "/root/control-center",
+    "started_at": "2026-09-19T00:27:01.034004+00:00",
+    "completed_at": "2026-09-19T00:27:01.034063+00:00",
+    "duration_seconds": 3.14,
+    "total_files_scanned": 282,
+    "findings": [
+      {
+        "finding_id": "sec-d15f03a0",
+        "fingerprint": "b99293ab80ccb9d8",
+        "title": "Secret Leak Detected: Database Connection URI with Credentials",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
+        "line_number": 95,
+        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:26:57.736586+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-0113dbef",
+        "fingerprint": "fc42454259956d4b",
+        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
+        "category": "SECRET_LEAK",
+        "severity": "HIGH",
+        "status": "OPEN",
+        "confidence": "HEURISTIC_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "USER",
+          "data_sensitivity": "SECRET",
+          "production_impact": "HIGH",
+          "reversibility": "LOW",
+          "confidence": "HEURISTIC_FINDING"
+        },
+        "file_path": "backend/orchestrator/factory_engine.py",
+        "line_number": 1130,
+        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 7.5,
+        "detected_at": "2026-09-19T00:26:58.615785+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-25c9e5ea",
+        "fingerprint": "2874904176229663",
+        "title": "Secret Leak Detected: AWS Access Key ID",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 66,
+        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:27:00.238953+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)AKIA[0-9A-Z]{16}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-d95164e0",
+        "fingerprint": "8226aef322eb8142",
+        "title": "Secret Leak Detected: GitHub Personal Access Token",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 67,
+        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:27:00.239100+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "ghp_[0-9a-zA-Z]{36}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-b63a7dcb",
+        "fingerprint": "ba6684bd147d359d",
+        "title": "Secret Leak Detected: Cryptographic Private Key Block",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
+        "line_number": 354,
+        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:27:00.567621+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      }
+    ],
+    "risk_score": 100.0,
+    "pass_status": false,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-0f127069",
+    "target_path": "/root/control-center",
+    "started_at": "2026-09-19T00:27:13.975528+00:00",
+    "completed_at": "2026-09-19T00:27:13.975563+00:00",
+    "duration_seconds": 2.57,
+    "total_files_scanned": 282,
+    "findings": [
+      {
+        "finding_id": "sec-c07c3e01",
+        "fingerprint": "b99293ab80ccb9d8",
+        "title": "Secret Leak Detected: Database Connection URI with Credentials",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
+        "line_number": 95,
+        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:27:11.250389+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-84426037",
+        "fingerprint": "fc42454259956d4b",
+        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
+        "category": "SECRET_LEAK",
+        "severity": "HIGH",
+        "status": "OPEN",
+        "confidence": "HEURISTIC_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "USER",
+          "data_sensitivity": "SECRET",
+          "production_impact": "HIGH",
+          "reversibility": "LOW",
+          "confidence": "HEURISTIC_FINDING"
+        },
+        "file_path": "backend/orchestrator/factory_engine.py",
+        "line_number": 1130,
+        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 7.5,
+        "detected_at": "2026-09-19T00:27:12.139103+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-46491976",
+        "fingerprint": "2874904176229663",
+        "title": "Secret Leak Detected: AWS Access Key ID",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 66,
+        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:27:13.429589+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)AKIA[0-9A-Z]{16}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-e84db958",
+        "fingerprint": "8226aef322eb8142",
+        "title": "Secret Leak Detected: GitHub Personal Access Token",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 67,
+        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:27:13.429765+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "ghp_[0-9a-zA-Z]{36}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-399da688",
+        "fingerprint": "ba6684bd147d359d",
+        "title": "Secret Leak Detected: Cryptographic Private Key Block",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
+        "line_number": 354,
+        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:27:13.606567+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      }
+    ],
+    "risk_score": 100.0,
+    "pass_status": false,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-1188b40f",
+    "target_path": "/root/control-center",
+    "started_at": "2026-09-19T00:27:26.210778+00:00",
+    "completed_at": "2026-09-19T00:27:26.210809+00:00",
+    "duration_seconds": 2.69,
+    "total_files_scanned": 282,
+    "findings": [
+      {
+        "finding_id": "sec-8597e007",
+        "fingerprint": "b99293ab80ccb9d8",
+        "title": "Secret Leak Detected: Database Connection URI with Credentials",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
+        "line_number": 95,
+        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:27:23.407250+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-d3b61822",
+        "fingerprint": "fc42454259956d4b",
+        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
+        "category": "SECRET_LEAK",
+        "severity": "HIGH",
+        "status": "OPEN",
+        "confidence": "HEURISTIC_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "USER",
+          "data_sensitivity": "SECRET",
+          "production_impact": "HIGH",
+          "reversibility": "LOW",
+          "confidence": "HEURISTIC_FINDING"
+        },
+        "file_path": "backend/orchestrator/factory_engine.py",
+        "line_number": 1130,
+        "snippet": "mgr = TokenManager(secret=\"test-secret\")",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 7.5,
+        "detected_at": "2026-09-19T00:27:24.261930+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-839e284e",
+        "fingerprint": "2874904176229663",
+        "title": "Secret Leak Detected: AWS Access Key ID",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 66,
+        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:27:25.620966+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)AKIA[0-9A-Z]{16}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-2cd39e4e",
+        "fingerprint": "8226aef322eb8142",
+        "title": "Secret Leak Detected: GitHub Personal Access Token",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 67,
+        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:27:25.621214+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "ghp_[0-9a-zA-Z]{36}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-1b63439f",
+        "fingerprint": "ba6684bd147d359d",
+        "title": "Secret Leak Detected: Cryptographic Private Key Block",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
+        "line_number": 354,
+        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:27:25.835170+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      }
+    ],
+    "risk_score": 100.0,
+    "pass_status": false,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-0b2f2cd0",
+    "target_path": "/tmp/pytest-of-root/pytest-392/test_secret_scanner_detection_0",
+    "started_at": "2026-09-19T00:28:06.039344+00:00",
+    "completed_at": "2026-09-19T00:28:06.039372+00:00",
+    "duration_seconds": 0.02,
+    "total_files_scanned": 1,
+    "findings": [
+      {
+        "finding_id": "sec-d8b42ec8",
+        "fingerprint": "f401f96784a0f494",
+        "title": "Secret Leak Detected: AWS Access Key ID",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "/tmp/pytest-of-root/pytest-392/test_secret_scanner_detection_0/leaky_config.py",
+        "line_number": 1,
+        "snippet": "AWS_KEY = \"AKIAIOSFODNN7EXAMPLE\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:28:05.779805+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)AKIA[0-9A-Z]{16}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-9ba3bd6e",
+        "fingerprint": "c0a4efb5dbbaba1b",
+        "title": "Secret Leak Detected: GitHub Personal Access Token",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "/tmp/pytest-of-root/pytest-392/test_secret_scanner_detection_0/leaky_config.py",
+        "line_number": 2,
+        "snippet": "GITHUB_TOKEN = \"ghp_1234567890abcdefghijklmnopqrstuvwxyzAB\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:28:05.782505+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "ghp_[0-9a-zA-Z]{36}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-ef3bee8a",
+        "fingerprint": "b1f786f538453bae",
+        "title": "Secret Leak Detected: Database Connection URI with Credentials",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "/tmp/pytest-of-root/pytest-392/test_secret_scanner_detection_0/leaky_config.py",
+        "line_number": 3,
+        "snippet": "DB_URL = \"postgres://admin:supersecretpassword@localhost:5432/nexus\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:28:05.782742+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      }
+    ],
+    "risk_score": 75.0,
+    "pass_status": false,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-abee522b",
+    "target_path": "/tmp/pytest-of-root/pytest-392/test_python_ast_vulnerability_0",
+    "started_at": "2026-09-19T00:28:06.576905+00:00",
+    "completed_at": "2026-09-19T00:28:06.576941+00:00",
+    "duration_seconds": 0.02,
+    "total_files_scanned": 1,
+    "findings": [
+      {
+        "finding_id": "sec-6462e6f7",
+        "fingerprint": "871c4fffb0d525ce",
+        "title": "Dangerous Shell Command Execution via os.system()",
+        "category": "SAST_INJECTION",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 8.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "USER",
+          "data_sensitivity": "CONFIDENTIAL",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "/tmp/pytest-of-root/pytest-392/test_python_ast_vulnerability_0/insecure_app.py",
+        "line_number": 3,
+        "snippet": "os.system(user_input)",
+        "remediation_advice": "Replace os.system() with subprocess.run() using shell=False and argument arrays.",
+        "cve_id": null,
+        "cvss_score": 9.4,
+        "detected_at": "2026-09-19T00:28:06.239098+00:00",
+        "resolved_at": null,
+        "details": {},
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-4a7353b5",
+        "fingerprint": "5143a9fd3626aff6",
+        "title": "Dynamic Code Execution via eval()",
+        "category": "SAST_INJECTION",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.5,
+          "exposure": 9.0,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ROOT",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "IRREVERSIBLE",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "/tmp/pytest-of-root/pytest-392/test_python_ast_vulnerability_0/insecure_app.py",
+        "line_number": 5,
+        "snippet": "eval(code)",
+        "remediation_advice": "Eliminate eval(); replace with safe expression evaluator or dispatcher.",
+        "cve_id": null,
+        "cvss_score": 9.8,
+        "detected_at": "2026-09-19T00:28:06.239459+00:00",
+        "resolved_at": null,
+        "details": {},
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-b5dc75f9",
+        "fingerprint": "f6b1797f9c4db2d2",
+        "title": "Insecure Object Deserialization via pickle",
+        "category": "SAST_INJECTION",
+        "severity": "HIGH",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 8.5,
+          "exposure": 7.0,
+          "affected_scope": "MODULE",
+          "privilege_level": "USER",
+          "data_sensitivity": "CONFIDENTIAL",
+          "production_impact": "HIGH",
+          "reversibility": "MEDIUM",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "/tmp/pytest-of-root/pytest-392/test_python_ast_vulnerability_0/insecure_app.py",
+        "line_number": 7,
+        "snippet": "return pickle.loads(data)",
+        "remediation_advice": "Use safe structured serialization formats like JSON or Protocol Buffers.",
+        "cve_id": null,
+        "cvss_score": 8.8,
+        "detected_at": "2026-09-19T00:28:06.239660+00:00",
+        "resolved_at": null,
+        "details": {},
+        "policy_eval_id": null,
+        "correlation_id": null
+      }
+    ],
+    "risk_score": 60.0,
+    "pass_status": false,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-30b7e439",
+    "target_path": "/tmp/pytest-of-root/pytest-392/test_javascript_typescript_sec0",
+    "started_at": "2026-09-19T00:28:07.166180+00:00",
+    "completed_at": "2026-09-19T00:28:07.166218+00:00",
+    "duration_seconds": 0.02,
+    "total_files_scanned": 1,
+    "findings": [
+      {
+        "finding_id": "sec-cfc04e8a",
+        "fingerprint": "f5f229c22c28b1b0",
+        "title": "Client-Side Dynamic Execution / XSS Risk",
+        "category": "SAST_INJECTION",
+        "severity": "MEDIUM",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 6.0,
+          "exposure": 6.0,
+          "affected_scope": "LOCAL",
+          "privilege_level": "USER",
+          "data_sensitivity": "INTERNAL",
+          "production_impact": "DEGRADED",
+          "reversibility": "HIGH",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "/tmp/pytest-of-root/pytest-392/test_javascript_typescript_sec0/unsafe_component.tsx",
+        "line_number": 3,
+        "snippet": "eval(data);",
+        "remediation_advice": "Avoid dynamic evaluation or unsanitized innerHTML assignments.",
+        "cve_id": null,
+        "cvss_score": 6.1,
+        "detected_at": "2026-09-19T00:28:06.832445+00:00",
+        "resolved_at": null,
+        "details": {},
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-e318bd5c",
+        "fingerprint": "9db29e492689d838",
+        "title": "Client-Side Dynamic Execution / XSS Risk",
+        "category": "SAST_INJECTION",
+        "severity": "MEDIUM",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 6.0,
+          "exposure": 6.0,
+          "affected_scope": "LOCAL",
+          "privilege_level": "USER",
+          "data_sensitivity": "INTERNAL",
+          "production_impact": "DEGRADED",
+          "reversibility": "HIGH",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "/tmp/pytest-of-root/pytest-392/test_javascript_typescript_sec0/unsafe_component.tsx",
+        "line_number": 4,
+        "snippet": "return <div dangerouslySetInnerHTML={{ __html: data }} />;",
+        "remediation_advice": "Avoid dynamic evaluation or unsanitized innerHTML assignments.",
+        "cve_id": null,
+        "cvss_score": 6.1,
+        "detected_at": "2026-09-19T00:28:06.832944+00:00",
+        "resolved_at": null,
+        "details": {},
+        "policy_eval_id": null,
+        "correlation_id": null
+      }
+    ],
+    "risk_score": 4.0,
+    "pass_status": true,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-0342a611",
+    "target_path": "/tmp/pytest-of-root/pytest-392/test_threat_quarantine_isolati0",
+    "started_at": "2026-09-19T00:28:07.842710+00:00",
+    "completed_at": "2026-09-19T00:28:07.842779+00:00",
+    "duration_seconds": 0.02,
+    "total_files_scanned": 1,
+    "findings": [
+      {
+        "finding_id": "sec-16097bd6",
+        "fingerprint": "904bae1aaffa8a5e",
+        "title": "Secret Leak Detected: AWS Access Key ID",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "QUARANTINED",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "/tmp/pytest-of-root/pytest-392/test_threat_quarantine_isolati0/threat_script.py",
+        "line_number": 1,
+        "snippet": "AWS_ACCESS_KEY_ID = \"AKIAEXAMPLE1234567890\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:28:07.507950+00:00",
+        "resolved_at": "2026-09-19T00:28:08.070439+00:00",
+        "details": {
+          "pattern": "(?i)AKIA[0-9A-Z]{16}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      }
+    ],
+    "risk_score": 25.0,
+    "pass_status": false,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-01f599dc",
+    "target_path": "/tmp/pytest-of-root/pytest-392/test_finding_lifecycle_state_m0",
+    "started_at": "2026-09-19T00:28:08.821581+00:00",
+    "completed_at": "2026-09-19T00:28:08.821620+00:00",
+    "duration_seconds": 0.02,
+    "total_files_scanned": 1,
+    "findings": [
+      {
+        "finding_id": "sec-5de6a115",
+        "fingerprint": "9c4a8548bd1c9c5e",
+        "title": "Secret Leak Detected: AWS Access Key ID",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "RESOLVED",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "/tmp/pytest-of-root/pytest-392/test_finding_lifecycle_state_m0/state_test.py",
+        "line_number": 1,
+        "snippet": "SECRET_KEY = \"AKIA1234567890123456\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:28:08.568880+00:00",
+        "resolved_at": "2026-09-19T00:28:09.426234+00:00",
+        "details": {
+          "pattern": "(?i)AKIA[0-9A-Z]{16}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      }
+    ],
+    "risk_score": 25.0,
+    "pass_status": false,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-a148469e",
+    "target_path": "/tmp/pytest-of-root/pytest-392/test_security_policy_engine_ev0",
+    "started_at": "2026-09-19T00:28:09.890782+00:00",
+    "completed_at": "2026-09-19T00:28:09.890818+00:00",
+    "duration_seconds": 0.01,
+    "total_files_scanned": 0,
+    "findings": [],
+    "risk_score": 0.0,
+    "pass_status": true,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-a038d193",
+    "target_path": "/tmp/pytest-of-root/pytest-392/test_security_policy_engine_ev0",
+    "started_at": "2026-09-19T00:28:10.281789+00:00",
+    "completed_at": "2026-09-19T00:28:10.281827+00:00",
+    "duration_seconds": 0.01,
+    "total_files_scanned": 1,
+    "findings": [
+      {
+        "finding_id": "sec-9de26884",
+        "fingerprint": "dc31b6ec67925743",
+        "title": "Secret Leak Detected: AWS Access Key ID",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "/tmp/pytest-of-root/pytest-392/test_security_policy_engine_ev0/secret.py",
+        "line_number": 1,
+        "snippet": "AWS_KEY = \"AKIA9999888877776666\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:28:10.086521+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)AKIA[0-9A-Z]{16}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      }
+    ],
+    "risk_score": 25.0,
+    "pass_status": false,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-c8f6caaf",
+    "target_path": "/root/control-center",
+    "started_at": "2026-09-19T00:28:13.509524+00:00",
+    "completed_at": "2026-09-19T00:28:13.509574+00:00",
+    "duration_seconds": 2.65,
+    "total_files_scanned": 282,
+    "findings": [
+      {
+        "finding_id": "sec-46df1961",
+        "fingerprint": "b99293ab80ccb9d8",
+        "title": "Secret Leak Detected: Database Connection URI with Credentials",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "PHASE18_SECURITY_COMPLIANCE_REPORT.md",
+        "line_number": 95,
+        "snippet": "- Database connection URIs containing credentials (`postgres://user:pass@host/db`)",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:28:10.764771+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(postgres|mysql|mongodb|redis):\\/\\/[a-zA-Z0-9_\\-\\.]+:[^@\\s]+@[a-zA-Z0-9_\\-\\.]+",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-24fb19c2",
+        "fingerprint": "fc42454259956d4b",
+        "title": "Secret Leak Detected: Hardcoded Plaintext Credential",
+        "category": "SECRET_LEAK",
+        "severity": "HIGH",
+        "status": "OPEN",
+        "confidence": "HEURISTIC_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "USER",
+          "data_sensitivity": "SECRET",
+          "production_impact": "HIGH",
+          "reversibility": "LOW",
+          "confidence": "HEURISTIC_FINDING"
+        },
+        "file_path": "backend/orchestrator/factory_engine.py",
+        "line_number": 1130,
+        "snippet": "mgr = TokenManager(secret=\"auth_token_key_spec\")",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 7.5,
+        "detected_at": "2026-09-19T00:28:11.683875+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)(password|passwd|pwd|secret)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-e9ce8968",
+        "fingerprint": "2874904176229663",
+        "title": "Secret Leak Detected: AWS Access Key ID",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 66,
+        "snippet": "\"AWS_SECRET_KEY = \\\"AKIAIOSFODNN7EXAMPLE12345\\\"\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:28:12.969806+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "(?i)AKIA[0-9A-Z]{16}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-a7cf5a10",
+        "fingerprint": "8226aef322eb8142",
+        "title": "Secret Leak Detected: GitHub Personal Access Token",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "scripts/e2e_phase18_security_compliance.py",
+        "line_number": 67,
+        "snippet": "\"GITHUB_PAT = \\\"ghp_abcdefghijklmnopqrstuvwxyz1234567890\\\"\\n\\n\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:28:12.970075+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "ghp_[0-9a-zA-Z]{36}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      },
+      {
+        "finding_id": "sec-5d26a618",
+        "fingerprint": "ba6684bd147d359d",
+        "title": "Secret Leak Detected: Cryptographic Private Key Block",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "docs/agents/AGENT_CAPABILITY_AUDIT.md",
+        "line_number": 354,
+        "snippet": "1. Introduced a safe test file `scratch/test_vuln.txt` containing a `-----BEGIN PRIVATE KEY-----` du",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:28:13.155654+00:00",
+        "resolved_at": null,
+        "details": {
+          "pattern": "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      }
+    ],
+    "risk_score": 100.0,
+    "pass_status": false,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-ca8ac51d",
+    "target_path": "/tmp/pytest-of-root/pytest-392/test_pre_deployment_security_g0",
+    "started_at": "2026-09-19T00:28:14.248112+00:00",
+    "completed_at": "2026-09-19T00:28:14.248182+00:00",
+    "duration_seconds": 0.02,
+    "total_files_scanned": 0,
+    "findings": [],
+    "risk_score": 0.0,
+    "pass_status": true,
+    "compliance_summary": {
+      "SOC2": 100.0,
+      "ISO27001": 100.0,
+      "CIS_BENCHMARK": 100.0,
+      "NIST_800_53": 100.0,
+      "GDPR_PRIVACY": 100.0,
+      "FINOPS_ZERO_COST": 100.0
+    },
+    "scanner_availability": {
+      "AST_SECRET_SCANNER": "AVAILABLE",
+      "SAST_INJECTION_ANALYZER": "AVAILABLE",
+      "DEPENDENCY_MANIFEST_AUDITOR": "AVAILABLE",
+      "EXTERNAL_CVE_NETWORK_DATABASE": "EXTERNAL_INTELLIGENCE_UNAVAILABLE"
+    },
+    "session_id": null
+  },
+  {
+    "scan_id": "sec-scan-fc038f3e",
+    "target_path": "/tmp/pytest-of-root/pytest-392/test_secops_rest_api_endpoints0",
+    "started_at": "2026-09-19T00:28:15.472559+00:00",
+    "completed_at": "2026-09-19T00:28:15.472595+00:00",
+    "duration_seconds": 0.03,
+    "total_files_scanned": 1,
+    "findings": [
+      {
+        "finding_id": "sec-155d80ff",
+        "fingerprint": "1c0923f7cff5ff0d",
+        "title": "Secret Leak Detected: AWS Access Key ID",
+        "category": "SECRET_LEAK",
+        "severity": "CRITICAL",
+        "status": "QUARANTINED",
+        "confidence": "CONFIRMED_FINDING",
+        "risk_dimensions": {
+          "exploitability": 9.0,
+          "exposure": 9.5,
+          "affected_scope": "SYSTEM",
+          "privilege_level": "ADMIN",
+          "data_sensitivity": "SECRET",
+          "production_impact": "CRITICAL",
+          "reversibility": "LOW",
+          "confidence": "CONFIRMED_FINDING"
+        },
+        "file_path": "/tmp/pytest-of-root/pytest-392/test_secops_rest_api_endpoints0/api_test.py",
+        "line_number": 1,
+        "snippet": "ADMIN_API_KEY = \"AKIA1111222233334444\"",
+        "remediation_advice": "Remove plaintext secret, migrate to SecretManager, and rotate immediately.",
+        "cve_id": null,
+        "cvss_score": 9.1,
+        "detected_at": "2026-09-19T00:28:15.190416+00:00",
+        "resolved_at": "2026-09-19T00:28:16.065620+00:00",
+        "details": {
+          "pattern": "(?i)AKIA[0-9A-Z]{16}",
+          "rule": "zero_leakage_secret_guard"
+        },
+        "policy_eval_id": null,
+        "correlation_id": null
+      }
+    ],
+    "risk_score": 25.0,
     "pass_status": false,
     "compliance_summary": {
       "SOC2": 100.0,

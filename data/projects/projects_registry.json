@@ -308,7 +308,7 @@
   {
     "id": "project-alpha",
     "name": "Project Alpha",
-    "path": "/tmp/nexus-phase23-e2e-i2rpj8o2/project-alpha",
+    "path": "/tmp/nexus-phase23-e2e-4uhxwzv_/project-alpha",
     "github_repo": null,
     "environment": "production",
     "deployment_provider": "Cloud Run / Local",
@@ -326,7 +326,7 @@
   {
     "id": "project-beta",
     "name": "Project Beta",
-    "path": "/tmp/nexus-phase23-e2e-i2rpj8o2/project-beta",
+    "path": "/tmp/nexus-phase23-e2e-4uhxwzv_/project-beta",
     "github_repo": null,
     "environment": "production",
     "deployment_provider": "Cloud Run / Local",
@@ -344,7 +344,7 @@
   {
     "id": "c2-alpha-service",
     "name": "c2-alpha-service",
-    "path": "/tmp/nexus-test-c2-gcaw0o1f/c2-alpha-service",
+    "path": "/tmp/nexus-test-c2-h8cvw1v5/c2-alpha-service",
     "github_repo": null,
     "environment": "production",
     "deployment_provider": "Cloud Run / Local",

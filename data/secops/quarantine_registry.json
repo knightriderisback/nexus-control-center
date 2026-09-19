@@ -583,5 +583,41 @@
       "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-41ee829f_vulnerable_service.py"
     },
     "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
+  },
+  "quar-163d5b5a": {
+    "quarantine_id": "quar-163d5b5a",
+    "finding_id": "sec-16097bd6",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-392/test_threat_quarantine_isolati0/threat_script.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-163d5b5a_threat_script.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-19T00:28:08.069913+00:00",
+    "released_at": "2026-09-19T00:28:08.369893+00:00",
+    "operator": "TEST_SUITE",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-392/test_threat_quarantine_isolati0/threat_script.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-163d5b5a_threat_script.py"
+    },
+    "notes": "Released by TEST_SUITE: Unit test release"
+  },
+  "quar-2b1c5844": {
+    "quarantine_id": "quar-2b1c5844",
+    "finding_id": "sec-155d80ff",
+    "source_mission_id": null,
+    "source_session_id": null,
+    "original_path": "/tmp/pytest-of-root/pytest-392/test_secops_rest_api_endpoints0/api_test.py",
+    "quarantined_path": "/root/control-center/data/secops/quarantine/quar-2b1c5844_api_test.py",
+    "permissions_applied": "0600 (S_IRUSR | S_IWUSR)",
+    "quarantined_at": "2026-09-19T00:28:16.064794+00:00",
+    "released_at": null,
+    "operator": "API_TEST",
+    "reason": "Quarantined due to Secret Leak Detected: AWS Access Key ID",
+    "evidence": {
+      "original_path": "/tmp/pytest-of-root/pytest-392/test_secops_rest_api_endpoints0/api_test.py",
+      "quarantine_dest": "/root/control-center/data/secops/quarantine/quar-2b1c5844_api_test.py"
+    },
+    "notes": "Quarantined due to Secret Leak Detected: AWS Access Key ID"
   }
 }
