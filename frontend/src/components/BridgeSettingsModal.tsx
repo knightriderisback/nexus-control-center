@@ -263,7 +263,24 @@ export const BridgeSettingsModal: React.FC<BridgeSettingsModalProps> = ({
               </p>
             )}
           </div>
+
+          {/* Universal Auto-Sync Notice */}
+          <div className="p-3.5 rounded-lg bg-cyan-950/20 border border-cyan-500/20 space-y-1.5 text-[11px]">
+            <div className="flex items-center justify-between">
+              <span className="text-cyan-300 font-bold flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                UNIVERSAL DISCOVERY & AUTO-SYNC
+              </span>
+              <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/30 text-[9px] font-bold">
+                DAEMON ENABLED
+              </span>
+            </div>
+            <p className="text-slate-400 leading-relaxed text-[11px]">
+              Continuous background discovery scans workspace roots (<code className="text-cyan-200">/root</code>, <code className="text-cyan-200">/data/data/com.termux/files/home</code>, <code className="text-cyan-200">/tmp</code>) every 30s and auto-reconciles Git branches and real-time deltas.
+            </p>
+          </div>
         </div>
+
 
         {/* Modal Footer */}
         <div className="px-6 py-4 border-t border-cyan-500/20 bg-[#060a14] flex items-center justify-between">

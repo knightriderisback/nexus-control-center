@@ -114,6 +114,10 @@ export interface ProjectItem {
   name: string;
   path: string;
   github_repo?: string;
+  repository?: string;
+  branch?: string;
+  type?: string;
+  tags?: string[];
   environment: string;
   deployment_provider: string;
   domain?: string;
@@ -1367,6 +1371,51 @@ export interface FleetOverviewItem {
   finops_zero_cost_verified: boolean;
   timestamp: string;
 }
+
+export interface AutoSyncConfig {
+  enabled: boolean;
+  interval_seconds: number;
+  auto_register_discovered: boolean;
+  reconcile_git_state: boolean;
+  custom_roots: string[];
+}
+
+export interface AutoSyncStatus {
+  enabled: boolean;
+  interval_seconds: number;
+  auto_register_discovered: boolean;
+  reconcile_git_state: boolean;
+  active_roots: string[];
+  status: 'RUNNING' | 'IDLE' | 'DISABLED' | 'ERROR';
+  last_sync_timestamp?: string;
+  next_sync_timestamp?: string;
+  cycles_completed: number;
+  total_discovered_count: number;
+  total_registered_count: number;
+  last_synced_count: number;
+  last_reconciled_count: number;
+  last_errors: string[];
+  timestamp: string;
+}
+
+export interface ReconcileFleetResponse {
+  reconciled_count: number;
+  drift_count: number;
+  synced_projects: ProjectItem[];
+  drift_details: Array<{
+    project_id: string;
+    path: string;
+    drift_type: string;
+    message?: string;
+    previous_branch?: string;
+    current_branch?: string;
+    previous_remote?: string;
+    current_remote?: string;
+  }>;
+  errors: string[];
+  timestamp: string;
+}
+
 
 
 

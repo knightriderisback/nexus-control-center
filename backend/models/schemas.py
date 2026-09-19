@@ -3117,6 +3117,42 @@ class ConnectorSyncResponse(BaseModel):
     timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
 
+class AutoSyncConfig(BaseModel):
+    enabled: bool = True
+    interval_seconds: int = 30
+    auto_register_discovered: bool = True
+    reconcile_git_state: bool = True
+    custom_roots: List[str] = []
+
+
+class AutoSyncStatusResponse(BaseModel):
+    enabled: bool = True
+    interval_seconds: int = 30
+    auto_register_discovered: bool = True
+    reconcile_git_state: bool = True
+    active_roots: List[str] = []
+    status: str = "IDLE"  # RUNNING, IDLE, DISABLED, ERROR
+    last_sync_timestamp: Optional[str] = None
+    next_sync_timestamp: Optional[str] = None
+    cycles_completed: int = 0
+    total_discovered_count: int = 0
+    total_registered_count: int = 0
+    last_synced_count: int = 0
+    last_reconciled_count: int = 0
+    last_errors: List[str] = []
+    timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+
+
+class ReconcileFleetResponse(BaseModel):
+    reconciled_count: int = 0
+    drift_count: int = 0
+    synced_projects: List[ProjectRegistryItem] = []
+    drift_details: List[Dict[str, Any]] = []
+    errors: List[str] = []
+    timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+
+
+
 
 
 

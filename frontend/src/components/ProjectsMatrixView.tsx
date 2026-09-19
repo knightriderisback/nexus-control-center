@@ -9,9 +9,12 @@ import {
   RefreshCw, 
   Search, 
   FolderPlus, 
-  ArrowRight
+  ArrowRight,
+  Radio,
+  Sparkles,
+  Layers
 } from 'lucide-react';
-import type { ProjectItem } from '../types';
+import type { ProjectItem, AutoSyncStatus, ReconcileFleetResponse } from '../types';
 import { sound } from '../utils/audio';
 import { nexusFetch } from '../utils/api';
 
@@ -28,9 +31,15 @@ export function ProjectsMatrixView({
 }: ProjectsMatrixViewProps) {
   const [projects, setProjects] = useState<ProjectItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [actionFeedback, setActionFeedback] = useState<{ projectId: string; text: string; isError?: boolean } | null>(null);
+  const [actionFeedback, setActionFeedback] = useState<{ projectId?: string; text: string; isError?: boolean } | null>(null);
   const [activeAction, setActiveAction] = useState<string | null>(null);
   const [approvalModal, setApprovalModal] = useState<{ id: string; project: string; message: string } | null>(null);
+  
+  // Universal Auto-Sync & Filtering State
+  const [autoSyncStatus, setAutoSyncStatus] = useState<AutoSyncStatus | null>(null);
+  const [syncingFleet, setSyncingFleet] = useState<boolean>(false);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [selectedType, setSelectedType] = useState<string>('ALL');
 
   const fetchProjects = async () => {
     try {
@@ -44,9 +53,61 @@ export function ProjectsMatrixView({
     }
   };
 
+  const fetchAutoSyncStatus = async () => {
+    try {
+      const statusData = await nexusFetch<AutoSyncStatus>('/api/v1/connector/auto-sync/status');
+      setAutoSyncStatus(statusData);
+    } catch {
+      // Non-blocking
+    }
+  };
+
   useEffect(() => {
     fetchProjects();
+    fetchAutoSyncStatus();
+    const interval = setInterval(() => {
+      fetchAutoSyncStatus();
+    }, 15000);
+    return () => clearInterval(interval);
   }, []);
+
+  const handleTriggerAutoSync = async () => {
+    sound.click();
+    setSyncingFleet(true);
+    setActionFeedback(null);
+    try {
+      const res = await nexusFetch<any>('/api/v1/connector/auto-sync/trigger', { method: 'POST' });
+      sound.beep(880, 0.12, 'sine');
+      setActionFeedback({
+        text: `✓ Auto-Sync complete: ${res.total_discovered || 0} discovered, ${res.newly_synced_count || 0} registered, ${res.reconciled_count || 0} reconciled.`
+      });
+      await fetchProjects();
+      await fetchAutoSyncStatus();
+    } catch (e: any) {
+      setActionFeedback({ text: e.message || 'Auto-Sync trigger failed.', isError: true });
+    } finally {
+      setSyncingFleet(false);
+    }
+  };
+
+  const handleReconcileFleet = async () => {
+    sound.click();
+    setSyncingFleet(true);
+    setActionFeedback(null);
+    try {
+      const res = await nexusFetch<ReconcileFleetResponse>('/api/v1/connector/reconcile-all', { method: 'POST' });
+      sound.beep(920, 0.12, 'sine');
+      const driftText = res.drift_count > 0 ? ` (${res.drift_count} drift adjustments applied)` : ' (Zero drift)';
+      setActionFeedback({
+        text: `✓ Fleet Reconciled: ${res.reconciled_count} projects verified against filesystem${driftText}.`
+      });
+      await fetchProjects();
+    } catch (e: any) {
+      setActionFeedback({ text: e.message || 'Fleet reconciliation failed.', isError: true });
+    } finally {
+      setSyncingFleet(false);
+    }
+  };
 
   const handleAudit = async (id: string, e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
@@ -98,9 +159,9 @@ export function ProjectsMatrixView({
       await nexusFetch<any>(`/api/v1/projects/${id}/security`, { method: 'POST' });
       setActionFeedback({
         projectId: id,
-        text: `✓ Security scan complete: Zero CVEs, Zero secret leaks, 100% keyless compliance.`
+        text: `✓ Security scan complete: Zero plaintext secrets detected. AST guard verified.`
       });
-      sound.beep(1020, 0.1, 'sine');
+      sound.beep(880, 0.1, 'sine');
     } catch (e: any) {
       setActionFeedback({ projectId: id, text: e.message || 'Security scan failed.', isError: true });
     } finally {
@@ -115,7 +176,13 @@ export function ProjectsMatrixView({
     setActionFeedback(null);
     try {
       const data = await nexusFetch<any>(`/api/v1/projects/${id}/deploy`, { method: 'POST' });
-      if (data.approval_required) {
+      if (data.status === 'PENDING_APPROVAL') {
+        setApprovalModal({
+          id: data.approval_id,
+          project: id,
+          message: data.message
+        });
+      } else if (data.approval_required) {
         sound.panic();
         setApprovalModal({
           id: data.approval_id,
@@ -149,12 +216,27 @@ export function ProjectsMatrixView({
     }
   };
 
+  // Filtered projects list
+  const filteredProjects = projects.filter((p) => {
+    const matchesSearch = 
+      p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      p.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (p.path && p.path.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (p.repository && p.repository.toLowerCase().includes(searchTerm.toLowerCase()));
+    
+    const matchesType = selectedType === 'ALL' || (p.type && p.type.toLowerCase().includes(selectedType.toLowerCase()));
+    return matchesSearch && matchesType;
+  });
+
+  // Archetypes set
+  const archetypes = ['ALL', 'fastapi', 'react_vite', 'node', 'python', 'rust_cargo', 'go_service'];
+
   if (loading && projects.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-24 space-y-4 font-mono">
         <RefreshCw className="w-8 h-8 text-cyan-400 animate-spin" />
         <span className="text-cyan-300 text-xs tracking-widest uppercase">
-          Loading Machine-Readable Project Registry...
+          Loading Universal Project Registry...
         </span>
       </div>
     );
@@ -173,13 +255,43 @@ export function ProjectsMatrixView({
             <span className="px-2 py-0.5 text-[10px] rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
               {projects.length} REGISTERED
             </span>
+            {autoSyncStatus && (
+              <span className={`px-2 py-0.5 text-[10px] rounded border flex items-center gap-1 font-bold ${
+                autoSyncStatus.enabled 
+                  ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' 
+                  : 'bg-slate-800 text-slate-400 border-slate-700'
+              }`}>
+                <Radio className={`w-3 h-3 ${autoSyncStatus.enabled ? 'animate-pulse text-emerald-400' : ''}`} />
+                <span>AUTO-SYNC: {autoSyncStatus.enabled ? `ACTIVE (${autoSyncStatus.interval_seconds}s)` : 'PAUSED'}</span>
+              </span>
+            )}
           </div>
           <p className="text-xs text-slate-400 mt-1">
-            Centralized registry tracking repository health, audits, live Git deltas, test suites, and guarded deployment pipelines.
+            Universal discovery tracking repository health, real-time Git deltas, continuous auto-sync, and guarded pipelines.
           </p>
         </div>
 
         <div className="flex items-center gap-2.5">
+          <button
+            onClick={handleTriggerAutoSync}
+            disabled={syncingFleet}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-950/60 hover:bg-cyan-900/70 text-cyan-300 border border-cyan-500/40 text-xs font-bold transition-all disabled:opacity-50"
+            title="Trigger immediate discovery and fleet auto-sync"
+          >
+            <Sparkles className={`w-3.5 h-3.5 ${syncingFleet ? 'animate-spin' : ''}`} />
+            <span>{syncingFleet ? 'SYNCING...' : 'SYNC FLEET'}</span>
+          </button>
+
+          <button
+            onClick={handleReconcileFleet}
+            disabled={syncingFleet}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-850 hover:bg-slate-800 text-slate-300 border border-slate-700 text-xs transition-all"
+            title="Reconcile registered metadata against local disk"
+          >
+            <Layers className="w-3.5 h-3.5 text-cyan-400" />
+            <span>RECONCILE</span>
+          </button>
+
           {onOpenAddProject && (
             <button
               onClick={() => {
@@ -203,13 +315,75 @@ export function ProjectsMatrixView({
         </div>
       </div>
 
+      {/* Search & Archetype Filter Bar */}
+      <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-lg bg-[#080e1a]/70 border border-slate-800">
+        <div className="flex items-center gap-2 flex-1 min-w-[240px]">
+          <Search className="w-4 h-4 text-slate-500" />
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Search projects by name, ID, path, or Git remote..."
+            className="w-full bg-transparent border-none text-xs text-slate-200 placeholder-slate-600 focus:outline-none"
+          />
+          {searchTerm && (
+            <button
+              onClick={() => setSearchTerm('')}
+              className="text-[10px] text-slate-500 hover:text-slate-300 px-1.5"
+            >
+              CLEAR
+            </button>
+          )}
+        </div>
+
+        <div className="flex items-center gap-1.5 overflow-x-auto">
+          {archetypes.map((type) => (
+            <button
+              key={type}
+              onClick={() => {
+                sound.click();
+                setSelectedType(type);
+              }}
+              className={`px-2.5 py-1 rounded text-[10px] font-bold uppercase transition-all ${
+                selectedType === type
+                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
+                  : 'bg-slate-900 text-slate-500 hover:text-slate-300 border border-slate-800'
+              }`}
+            >
+              {type}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Global Feedback Banner */}
+      {actionFeedback && (
+        <div className={`p-3 rounded-lg border text-xs flex items-center justify-between ${
+          actionFeedback.isError 
+            ? 'bg-rose-950/40 border-rose-500/40 text-rose-300' 
+            : 'bg-cyan-950/40 border-cyan-500/40 text-cyan-300'
+        }`}>
+          <span>{actionFeedback.text}</span>
+          <button 
+            onClick={() => setActionFeedback(null)}
+            className="text-slate-400 hover:text-slate-200 ml-3 text-[10px]"
+          >
+            DISMISS
+          </button>
+        </div>
+      )}
+
       {/* Projects Grid */}
-      {projects.length === 0 ? (
+      {filteredProjects.length === 0 ? (
         <div className="p-12 text-center rounded-xl bg-[#080d18]/60 border border-slate-800 space-y-3">
           <FolderGit2 className="w-12 h-12 text-slate-600 mx-auto" />
-          <h3 className="text-sm font-bold text-slate-300">No Projects Registered Yet</h3>
+          <h3 className="text-sm font-bold text-slate-300">
+            {searchTerm || selectedType !== 'ALL' ? 'No Matching Projects Found' : 'No Projects Registered Yet'}
+          </h3>
           <p className="text-xs text-slate-500">
-            Use the "ONBOARD / DISCOVER" button to automatically scan your workspace roots or register a path.
+            {searchTerm || selectedType !== 'ALL' 
+              ? 'Try resetting the search filter or archetypes.' 
+              : 'Use the "ONBOARD / DISCOVER" button to scan workspace roots or trigger Universal Auto-Sync.'}
           </p>
           {onOpenAddProject && (
             <button
@@ -223,7 +397,7 @@ export function ProjectsMatrixView({
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {projects.map((p) => (
+          {filteredProjects.map((p) => (
             <div 
               key={p.id}
               onClick={() => {

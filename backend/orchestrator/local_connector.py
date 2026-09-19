@@ -22,6 +22,7 @@ import logging
 from datetime import datetime, timezone
 from typing import Dict, Any, List, Optional, Tuple, Set
 
+import threading
 from core.config import config
 from core.audit import record_audit
 from core.policy import evaluate_action
@@ -39,7 +40,10 @@ from models.schemas import (
     ProjectDiscoveryResponse,
     ProjectRegistryItem,
     ProjectStatus,
-    RiskLevel
+    RiskLevel,
+    AutoSyncConfig,
+    AutoSyncStatusResponse,
+    ReconcileFleetResponse
 )
 from orchestrator.safe_runner import SafeCommandExecutor
 from orchestrator.project_operations_engine import project_operations_engine
@@ -59,12 +63,28 @@ def _now_iso() -> str:
 
 class LocalConnectorEngine:
     """
-    Manages local Termux/Ubuntu environment bridge, project discovery, and interactive operations.
+    Manages local Termux/Ubuntu environment bridge, Universal project discovery, 
+    and continuous fleet auto-synchronization.
     """
 
     def __init__(self):
         self.start_time = time.time()
         self.connector_id = f"conn-{uuid.uuid4().hex[:8]}"
+        self.auto_sync_config = AutoSyncConfig(
+            enabled=True,
+            interval_seconds=30,
+            auto_register_discovered=True,
+            reconcile_git_state=True,
+            custom_roots=[]
+        )
+        self._sync_lock = threading.Lock()
+        self._last_sync_timestamp: Optional[str] = None
+        self._next_sync_timestamp: Optional[str] = None
+        self._cycles_completed: int = 0
+        self._last_synced_count: int = 0
+        self._last_reconciled_count: int = 0
+        self._last_errors: List[str] = []
+        self._is_running_sync: bool = False
 
     def is_termux_environment(self) -> bool:
         """Detects if running inside Termux on Android."""
@@ -112,6 +132,11 @@ class LocalConnectorEngine:
     def get_scan_roots(self) -> List[str]:
         """Returns configured and detected valid scan roots."""
         roots = list(config.allowed_project_roots)
+        if self.auto_sync_config.custom_roots:
+            for cr in self.auto_sync_config.custom_roots:
+                if cr not in roots and os.path.exists(cr):
+                    roots.append(cr)
+
         if self.is_termux_environment():
             termux_home = "/data/data/com.termux/files/home"
             if termux_home not in roots and os.path.exists(termux_home):
@@ -123,8 +148,8 @@ class LocalConnectorEngine:
 
     def discover_projects(self, custom_roots: Optional[List[str]] = None) -> ProjectDiscoveryResponse:
         """
-        Deep automatic discovery: scans allowed roots up to depth 3 for Git repositories.
-        Extracts remote, branch, commit, modified files, and stack configuration.
+        Universal Deep Project Discovery: scans allowed roots up to depth 4 for Git repositories
+        and standard software manifests (FastAPI, React Vite, NextJS, Node, Rust, Go, Python, Docker).
         """
         scan_roots = custom_roots or self.get_scan_roots()
         valid_roots = []
@@ -140,21 +165,23 @@ class LocalConnectorEngine:
 
         ignore_dirs = {
             "node_modules", ".cache", ".npm", ".git", "__pycache__", 
-            "site-packages", "dist", "build", ".pytest_cache", ".cargo", ".local"
+            "site-packages", "dist", "build", ".pytest_cache", ".cargo", ".local",
+            ".next", "target", ".venv", "venv", "env", "coverage", ".turbo", "bower_components"
         }
 
         for root_dir in valid_roots:
             # 1. Check root_dir itself
             self._probe_and_collect(root_dir, registered_paths, discovered, seen_paths)
 
-            # 2. Walk up to depth 3
+            # 2. Deep recursive walk up to depth 3
             try:
                 for root, dirs, files in os.walk(root_dir):
-                    # Prune ignored directories in-place
+                    # Prune ignored directories in-place immediately
                     dirs[:] = [d for d in dirs if d not in ignore_dirs and not d.startswith(".")]
                     
                     depth = os.path.abspath(root).count(os.sep) - root_dir.count(os.sep)
-                    if depth > 2:
+                    if depth >= 3:
+                        dirs[:] = []
                         continue
 
                     for d in list(dirs):
@@ -191,18 +218,308 @@ class LocalConnectorEngine:
         has_git = os.path.exists(os.path.join(norm_p, ".git"))
         has_pyproject = os.path.exists(os.path.join(norm_p, "pyproject.toml"))
         has_package_json = os.path.exists(os.path.join(norm_p, "package.json"))
-        has_dockerfile = os.path.exists(os.path.join(norm_p, "Dockerfile"))
-        has_tests = os.path.exists(os.path.join(norm_p, "tests"))
+        has_cargo = os.path.exists(os.path.join(norm_p, "Cargo.toml"))
+        has_go_mod = os.path.exists(os.path.join(norm_p, "go.mod"))
+        has_dockerfile = os.path.exists(os.path.join(norm_p, "Dockerfile")) or os.path.exists(os.path.join(norm_p, "docker-compose.yml"))
+        has_tests = os.path.exists(os.path.join(norm_p, "tests")) or os.path.exists(os.path.join(norm_p, "test"))
+        has_python_entry = os.path.exists(os.path.join(norm_p, "main.py")) or os.path.exists(os.path.join(norm_p, "app.py")) or os.path.exists(os.path.join(norm_p, "requirements.txt"))
 
-        if not (has_git or has_pyproject or has_package_json or has_dockerfile or has_tests):
+        if not (has_git or has_pyproject or has_package_json or has_cargo or has_go_mod or has_dockerfile or has_tests or has_python_entry):
             return False
 
         seen_paths.add(norm_p)
-        item = project_operations_engine._inspect_directory_for_project(norm_p, registered_paths)
+        item = self._inspect_universal_project(norm_p, registered_paths)
         if item:
             discovered.append(item)
             return True
         return False
+
+    def _inspect_universal_project(self, dir_path: str, registered_paths: Dict[str, str]) -> Optional[DiscoveredProjectItem]:
+        norm_path = os.path.abspath(dir_path)
+        has_git = os.path.exists(os.path.join(norm_path, ".git"))
+        has_pyproject = os.path.exists(os.path.join(norm_path, "pyproject.toml"))
+        has_package_json = os.path.exists(os.path.join(norm_path, "package.json"))
+        has_cargo = os.path.exists(os.path.join(norm_path, "Cargo.toml"))
+        has_go_mod = os.path.exists(os.path.join(norm_path, "go.mod"))
+        has_dockerfile = os.path.exists(os.path.join(norm_path, "Dockerfile")) or os.path.exists(os.path.join(norm_path, "docker-compose.yml"))
+        has_tests = os.path.exists(os.path.join(norm_path, "tests")) or os.path.exists(os.path.join(norm_path, "test"))
+
+        # Detect archetype
+        detected_type = "generic_git" if has_git else "generic_workspace"
+        test_framework = None
+
+        if os.path.exists(os.path.join(norm_path, "main.py")) or os.path.exists(os.path.join(norm_path, "backend", "main.py")) or os.path.exists(os.path.join(norm_path, "backend", "server.py")):
+            detected_type = "fastapi"
+        elif os.path.exists(os.path.join(norm_path, "manage.py")):
+            detected_type = "django"
+        elif os.path.exists(os.path.join(norm_path, "app.py")) or os.path.exists(os.path.join(norm_path, "wsgi.py")):
+            detected_type = "flask"
+        elif os.path.exists(os.path.join(norm_path, "vite.config.ts")) or os.path.exists(os.path.join(norm_path, "frontend", "vite.config.ts")) or os.path.exists(os.path.join(norm_path, "vite.config.js")):
+            detected_type = "react_vite"
+        elif os.path.exists(os.path.join(norm_path, "next.config.js")) or os.path.exists(os.path.join(norm_path, "next.config.mjs")) or os.path.exists(os.path.join(norm_path, "next.config.ts")):
+            detected_type = "nextjs"
+        elif has_cargo:
+            detected_type = "rust_cargo"
+        elif has_go_mod:
+            detected_type = "go_service"
+        elif has_package_json:
+            detected_type = "node"
+        elif has_pyproject:
+            detected_type = "python_package"
+
+        # Detect Test Framework
+        if os.path.exists(os.path.join(norm_path, "pytest.ini")) or os.path.exists(os.path.join(norm_path, "conftest.py")) or has_tests:
+            test_framework = "pytest"
+        elif os.path.exists(os.path.join(norm_path, "vitest.config.ts")) or os.path.exists(os.path.join(norm_path, "jest.config.js")):
+            test_framework = "vitest"
+        elif has_cargo:
+            test_framework = "cargo_test"
+        elif has_go_mod:
+            test_framework = "go_test"
+
+        # Git branch, commit, and remote (fast IO parsing with fallback)
+        branch = None
+        commit_hash = None
+        git_remote_url = None
+
+        if has_git:
+            git_dir = os.path.join(norm_path, ".git")
+            try:
+                head_file = os.path.join(git_dir, "HEAD")
+                if os.path.exists(head_file):
+                    with open(head_file, "r", encoding="utf-8", errors="ignore") as f:
+                        head_content = f.read().strip()
+                    if head_content.startswith("ref: refs/heads/"):
+                        branch = head_content.split("refs/heads/")[1].strip()
+                        ref_file = os.path.join(git_dir, "refs", "heads", branch)
+                        if os.path.exists(ref_file):
+                            with open(ref_file, "r", encoding="utf-8", errors="ignore") as f:
+                                commit_hash = f.read().strip()[:8]
+                    else:
+                        commit_hash = head_content[:8]
+            except Exception:
+                pass
+
+            if not branch:
+                branch = "main"
+
+            try:
+                cfg_file = os.path.join(git_dir, "config")
+                if os.path.exists(cfg_file):
+                    with open(cfg_file, "r", encoding="utf-8", errors="ignore") as f:
+                        cfg_content = f.read()
+                    m = re.search(r'\[remote\s+"origin"\][^\[]*?url\s*=\s*([^\s\n]+)', cfg_content)
+                    if m:
+                        git_remote_url = m.group(1).strip()
+            except Exception:
+                pass
+
+        slug = (os.path.basename(norm_path) or "workspace").lower().replace("_", "-")
+
+        is_registered = norm_path in registered_paths
+        project_id = registered_paths.get(norm_path, slug)
+
+        return DiscoveredProjectItem(
+            project_id=project_id,
+            name=os.path.basename(norm_path).replace("-", " ").replace("_", " ").title(),
+            path=norm_path,
+            root_path=norm_path,
+            detected_type=detected_type,
+            archetype=detected_type,
+            has_git=has_git,
+            is_git=has_git,
+            branch=branch,
+            git_branch=branch,
+            git_remote_url=git_remote_url,
+            commit_hash=commit_hash,
+            has_dockerfile=has_dockerfile,
+            has_tests=has_tests,
+            is_registered=is_registered,
+            already_registered=is_registered,
+            build_config={
+                "has_dockerfile": has_dockerfile,
+                "has_tests": has_tests,
+                "has_pyproject": has_pyproject,
+                "has_cargo": has_cargo,
+                "has_go_mod": has_go_mod,
+                "test_framework": test_framework
+            }
+        )
+
+    # -------------------------------------------------------------------------
+    # Auto-Sync & Fleet Reconciliation Engine
+    # -------------------------------------------------------------------------
+
+    def get_auto_sync_status(self) -> AutoSyncStatusResponse:
+        """Returns the real-time configuration, cycle count, and status of Universal Auto-Sync."""
+        active_roots = self.get_scan_roots()
+        registered = load_projects()
+        
+        status_str = "RUNNING" if self._is_running_sync else ("IDLE" if self.auto_sync_config.enabled else "DISABLED")
+        
+        return AutoSyncStatusResponse(
+            enabled=self.auto_sync_config.enabled,
+            interval_seconds=self.auto_sync_config.interval_seconds,
+            auto_register_discovered=self.auto_sync_config.auto_register_discovered,
+            reconcile_git_state=self.auto_sync_config.reconcile_git_state,
+            active_roots=active_roots,
+            status=status_str,
+            last_sync_timestamp=self._last_sync_timestamp,
+            next_sync_timestamp=self._next_sync_timestamp,
+            cycles_completed=self._cycles_completed,
+            total_discovered_count=len(self.discover_projects().discovered_projects),
+            total_registered_count=len(registered),
+            last_synced_count=self._last_synced_count,
+            last_reconciled_count=self._last_reconciled_count,
+            last_errors=self._last_errors[-10:],
+            timestamp=_now_iso()
+        )
+
+    def update_auto_sync_config(self, cfg: AutoSyncConfig) -> AutoSyncStatusResponse:
+        """Updates the Universal Auto-Sync configuration parameters."""
+        with self._sync_lock:
+            self.auto_sync_config = cfg
+        return self.get_auto_sync_status()
+
+    def run_auto_sync_cycle(self, force: bool = False) -> Dict[str, Any]:
+        """
+        Executes a single end-to-end Universal Auto-Sync cycle:
+        1. Universal workspace discovery across active scan roots.
+        2. Idempotent registration of newly discovered projects (if enabled).
+        3. Real-time reconciliation of existing projects' Git status, branches, and health.
+        """
+        if not self.auto_sync_config.enabled and not force:
+            return {"status": "SKIPPED", "reason": "Auto-sync is disabled"}
+
+        with self._sync_lock:
+            self._is_running_sync = True
+            errors = []
+            synced_count = 0
+            reconciled_count = 0
+            t0 = time.time()
+
+            try:
+                # 1. Universal Discovery
+                discovery = self.discover_projects()
+                
+                # 2. Auto-register new projects if enabled
+                if self.auto_sync_config.auto_register_discovered:
+                    for disc in discovery.discovered_projects:
+                        if not disc.is_registered:
+                            try:
+                                reg_item = ProjectRegistryItem(
+                                    id=disc.project_id,
+                                    name=disc.name,
+                                    path=disc.path,
+                                    repository=disc.git_remote_url,
+                                    type=disc.detected_type,
+                                    branch=disc.branch or "main",
+                                    status=ProjectStatus.ACTIVE,
+                                    health_score=100.0,
+                                    owner="lead_developer",
+                                    tags=[disc.detected_type, "auto-discovered", "auto-synced"]
+                                )
+                                project_operations_engine.register_project(reg_item)
+                                synced_count += 1
+                            except Exception as e:
+                                errors.append(f"Auto-register error for {disc.name}: {str(e)}")
+
+                # 3. Reconcile existing projects
+                if self.auto_sync_config.reconcile_git_state:
+                    rec_resp = self.reconcile_fleet()
+                    reconciled_count = rec_resp.reconciled_count
+                    errors.extend(rec_resp.errors)
+
+                self._cycles_completed += 1
+                self._last_sync_timestamp = _now_iso()
+                self._last_synced_count = synced_count
+                self._last_reconciled_count = reconciled_count
+                self._last_errors = errors
+                
+                # Compute next sync timestamp
+                next_ts = datetime.fromtimestamp(time.time() + self.auto_sync_config.interval_seconds, tz=timezone.utc).isoformat()
+                self._next_sync_timestamp = next_ts
+
+                return {
+                    "status": "COMPLETED",
+                    "duration_seconds": round(time.time() - t0, 2),
+                    "total_discovered": discovery.total_discovered,
+                    "newly_synced_count": synced_count,
+                    "reconciled_count": reconciled_count,
+                    "errors": errors,
+                    "timestamp": self._last_sync_timestamp
+                }
+            except Exception as e:
+                err_msg = f"Auto-sync cycle failed: {str(e)}"
+                logger.error(err_msg)
+                self._last_errors.append(err_msg)
+                return {"status": "FAILED", "error": str(e)}
+            finally:
+                self._is_running_sync = False
+
+    def reconcile_fleet(self) -> ReconcileFleetResponse:
+        """
+        Reconciles all registered projects against the real filesystem and Git state.
+        Detects drift, unmounted directories, changed branches, and commit hashes.
+        """
+        projects = load_projects()
+        updated_projects = []
+        drift_details = []
+        errors = []
+        drift_count = 0
+
+        for p in projects:
+            path = os.path.abspath(p.path)
+            if not os.path.exists(path):
+                # Directory removed / disconnected
+                drift_count += 1
+                drift_details.append({
+                    "project_id": p.id,
+                    "path": path,
+                    "drift_type": "DIRECTORY_MISSING",
+                    "message": f"Path '{path}' no longer exists on host filesystem."
+                })
+                p.status = ProjectStatus.UNKNOWN
+                updated_projects.append(p)
+                continue
+
+            has_git = os.path.exists(os.path.join(path, ".git"))
+            if has_git:
+                b_res = SafeCommandExecutor.execute(["git", "branch", "--show-current"], cwd=path)
+                current_branch = b_res.stdout.strip() if b_res.exit_code == 0 and b_res.stdout.strip() else "main"
+                
+                r_res = SafeCommandExecutor.execute(["git", "remote", "get-url", "origin"], cwd=path)
+                current_remote = r_res.stdout.strip() if r_res.exit_code == 0 and r_res.stdout.strip() else None
+
+                # Check drift
+                if p.branch != current_branch or (current_remote and p.repository != current_remote):
+                    drift_count += 1
+                    drift_details.append({
+                        "project_id": p.id,
+                        "path": path,
+                        "drift_type": "GIT_METADATA_DRIFT",
+                        "previous_branch": p.branch,
+                        "current_branch": current_branch,
+                        "previous_remote": p.repository,
+                        "current_remote": current_remote
+                    })
+                    p.branch = current_branch
+                    if current_remote:
+                        p.repository = current_remote
+
+            p.status = ProjectStatus.HEALTHY if p.status != ProjectStatus.ALERT else p.status
+            updated_projects.append(p)
+
+        save_projects(updated_projects)
+
+        return ReconcileFleetResponse(
+            reconciled_count=len(updated_projects),
+            drift_count=drift_count,
+            synced_projects=updated_projects,
+            drift_details=drift_details,
+            errors=errors,
+            timestamp=_now_iso()
+        )
 
     def sync_discovered_projects(self, req: ConnectorSyncRequest) -> ConnectorSyncResponse:
         """

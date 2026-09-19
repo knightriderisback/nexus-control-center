@@ -15,7 +15,10 @@ from models.schemas import (
     ConnectorSyncRequest,
     ConnectorSyncResponse,
     ProjectDiscoveryResponse,
-    ProjectRegistryItem
+    ProjectRegistryItem,
+    AutoSyncConfig,
+    AutoSyncStatusResponse,
+    ReconcileFleetResponse
 )
 from orchestrator.local_connector import local_connector_engine
 
@@ -40,6 +43,42 @@ def discover_local_projects(roots: Optional[List[str]] = None):
     """Scans configured workspace roots for Git repositories and project manifests."""
     try:
         return local_connector_engine.discover_projects(roots)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/auto-sync/status", response_model=AutoSyncStatusResponse)
+def get_auto_sync_status():
+    """Returns the live status, cycle metrics, and configuration of Universal Auto-Sync."""
+    try:
+        return local_connector_engine.get_auto_sync_status()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/auto-sync/config", response_model=AutoSyncStatusResponse)
+def update_auto_sync_config(cfg: AutoSyncConfig):
+    """Updates Universal Auto-Sync configuration settings."""
+    try:
+        return local_connector_engine.update_auto_sync_config(cfg)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/auto-sync/trigger", response_model=Dict[str, Any])
+def trigger_auto_sync():
+    """Manually triggers an immediate Universal Discovery & Auto-Sync cycle."""
+    try:
+        return local_connector_engine.run_auto_sync_cycle(force=True)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/reconcile-all", response_model=ReconcileFleetResponse)
+def reconcile_all_projects():
+    """Reconciles all registered projects against current disk and Git state."""
+    try:
+        return local_connector_engine.reconcile_fleet()
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -87,3 +126,4 @@ def execute_project_action(project_id: str, req: ProjectActionRequest):
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+

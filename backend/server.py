@@ -71,8 +71,10 @@ from routers.v1.connector_router import router as connector_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Production lifespan: background automations worker
+    # Production lifespan: background automations worker & Universal Auto-Sync
     bg_task = None
+    auto_sync_task = None
+
     async def scheduler_loop():
         from core.automations import automations_engine
         while True:
@@ -84,16 +86,39 @@ async def lifespan(app: FastAPI):
                 break
             except Exception:
                 pass
+
+    async def auto_sync_loop():
+        from orchestrator.local_connector import local_connector_engine
+        # Initial boot run
+        try:
+            await asyncio.to_thread(local_connector_engine.run_auto_sync_cycle, force=True)
+        except Exception:
+            pass
+
+        while True:
+            try:
+                interval = local_connector_engine.auto_sync_config.interval_seconds or 30
+                await asyncio.sleep(interval)
+                if local_connector_engine.auto_sync_config.enabled:
+                    await asyncio.to_thread(local_connector_engine.run_auto_sync_cycle)
+            except asyncio.CancelledError:
+                break
+            except Exception:
+                pass
+
     bg_task = asyncio.create_task(scheduler_loop())
+    auto_sync_task = asyncio.create_task(auto_sync_loop())
     try:
         yield
     finally:
-        if bg_task and not bg_task.done():
-            bg_task.cancel()
-            try:
-                await bg_task
-            except asyncio.CancelledError:
-                pass
+        for t in (bg_task, auto_sync_task):
+            if t and not t.done():
+                t.cancel()
+                try:
+                    await t
+                except asyncio.CancelledError:
+                    pass
+
 
 app = FastAPI(
     title="NEXUS // Personal Engineering OS Control API",
