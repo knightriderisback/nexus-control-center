@@ -28,6 +28,7 @@ import type {
   MissionDecisionItem,
   MissionIntelligenceContextItem
 } from '../types';
+import { nexusFetch } from '../utils/api';
 
 interface AdaptiveMissionMatrixViewProps {
   onNotify?: (msg: string, type: 'info' | 'success' | 'warning' | 'error') => void;
@@ -59,19 +60,14 @@ export const AdaptiveMissionMatrixView: React.FC<AdaptiveMissionMatrixViewProps>
   const fetchAllData = async () => {
     setLoading(true);
     try {
-      const headers = { 'X-NEXUS-KEY': 'nexus-dev-operator-key-2026' };
-      const [telemetryRes, missionsRes, decisionsRes] = await Promise.all([
-        fetch('/api/v1/mission-intelligence/telemetry', { headers }),
-        fetch('/api/v1/mission-intelligence/missions', { headers }),
-        fetch('/api/v1/mission-decisions', { headers })
+      const [tData, mData, dData] = await Promise.all([
+        nexusFetch<any>('/api/v1/mission-intelligence/telemetry'),
+        nexusFetch<any>('/api/v1/mission-intelligence/missions'),
+        nexusFetch<any>('/api/v1/mission-decisions')
       ]);
 
-      if (telemetryRes.ok) {
-        const tData = await telemetryRes.json();
-        setTelemetry(tData);
-      }
-      if (missionsRes.ok) {
-        const mData = await missionsRes.json();
+      if (tData) setTelemetry(tData);
+      if (mData) {
         setMissions(mData);
         if (mData.length > 0 && !selectedMission) {
           setSelectedMission(mData[0]);
@@ -80,10 +76,7 @@ export const AdaptiveMissionMatrixView: React.FC<AdaptiveMissionMatrixViewProps>
           if (updated) setSelectedMission(updated);
         }
       }
-      if (decisionsRes.ok) {
-        const dData = await decisionsRes.json();
-        setDecisions(dData);
-      }
+      if (dData) setDecisions(dData);
     } catch (err: any) {
       console.error('Failed to load adaptive mission intelligence data:', err);
     } finally {
@@ -100,23 +93,17 @@ export const AdaptiveMissionMatrixView: React.FC<AdaptiveMissionMatrixViewProps>
   const handleSynthesizeIntent = async () => {
     setIsSynthesizing(true);
     try {
-      const headers = {
-        'Content-Type': 'application/json',
-        'X-NEXUS-KEY': 'nexus-dev-operator-key-2026'
-      };
-      const [intentRes, ctxRes] = await Promise.all([
-        fetch('/api/v1/mission-intelligence/synthesize', {
+      const [intentData, ctxData] = await Promise.all([
+        nexusFetch<any>('/api/v1/mission-intelligence/synthesize', {
           method: 'POST',
-          headers,
           body: JSON.stringify({
             goal: goalInput,
             project_id: 'control-center',
             max_token_budget: tokenBudgetInput
           })
         }),
-        fetch('/api/v1/mission-intelligence/context', {
+        nexusFetch<any>('/api/v1/mission-intelligence/context', {
           method: 'POST',
-          headers,
           body: JSON.stringify({
             goal: goalInput,
             project_id: 'control-center',
@@ -125,13 +112,9 @@ export const AdaptiveMissionMatrixView: React.FC<AdaptiveMissionMatrixViewProps>
         })
       ]);
 
-      if (intentRes.ok) {
-        const data = await intentRes.json();
-        setSynthesizedIntent(data);
-      }
-      if (ctxRes.ok) {
-        const cData = await ctxRes.json();
-        setActiveContext(cData);
+      if (intentData) setSynthesizedIntent(intentData);
+      if (ctxData) {
+        setActiveContext(ctxData);
         onNotify?.('Mission context, similar missions, and risk signals synthesized.', 'success');
       }
     } catch (err: any) {
@@ -144,13 +127,8 @@ export const AdaptiveMissionMatrixView: React.FC<AdaptiveMissionMatrixViewProps>
   const handleCreateAdaptivePlan = async () => {
     setIsSynthesizing(true);
     try {
-      const headers = {
-        'Content-Type': 'application/json',
-        'X-NEXUS-KEY': 'nexus-dev-operator-key-2026'
-      };
-      const res = await fetch('/api/v1/mission-intelligence/plan', {
+      const plan = await nexusFetch<any>('/api/v1/mission-intelligence/plan', {
         method: 'POST',
-        headers,
         body: JSON.stringify({
           goal: goalInput,
           project_id: 'control-center',
@@ -158,16 +136,10 @@ export const AdaptiveMissionMatrixView: React.FC<AdaptiveMissionMatrixViewProps>
         })
       });
 
-      if (res.ok) {
-        const plan = await res.json();
-        setSelectedMission(plan);
-        setActiveTab('missions');
-        onNotify?.(`Adaptive Mission Plan ${plan.mission_id} synthesized with knowledge guidance.`, 'success');
-        fetchAllData();
-      } else {
-        const err = await res.json();
-        onNotify?.(`Planning failed: ${err.detail || 'Unknown error'}`, 'error');
-      }
+      setSelectedMission(plan);
+      setActiveTab('missions');
+      onNotify?.(`Adaptive Mission Plan ${plan.mission_id} synthesized with knowledge guidance.`, 'success');
+      fetchAllData();
     } catch (err: any) {
       onNotify?.(`Planning error: ${err.message}`, 'error');
     } finally {
@@ -178,13 +150,8 @@ export const AdaptiveMissionMatrixView: React.FC<AdaptiveMissionMatrixViewProps>
   const handleExecuteMission = async (missionId: string) => {
     setIsExecuting(true);
     try {
-      const headers = {
-        'Content-Type': 'application/json',
-        'X-NEXUS-KEY': 'nexus-dev-operator-key-2026'
-      };
-      const res = await fetch(`/api/v1/adaptive-execution/execute/${missionId}`, {
+      const result = await nexusFetch<any>(`/api/v1/adaptive-execution/execute/${missionId}`, {
         method: 'POST',
-        headers,
         body: JSON.stringify({
           mission_id: missionId,
           auto_remediate: true,
@@ -192,14 +159,8 @@ export const AdaptiveMissionMatrixView: React.FC<AdaptiveMissionMatrixViewProps>
         })
       });
 
-      if (res.ok) {
-        const result = await res.json();
-        onNotify?.(`Adaptive execution completed: ${result.status} (${result.executed_tasks} tasks, ${result.adapted_tasks} adapted).`, 'success');
-        fetchAllData();
-      } else {
-        const err = await res.json();
-        onNotify?.(`Execution failed: ${err.detail || 'Unknown error'}`, 'error');
-      }
+      onNotify?.(`Adaptive execution completed: ${result.status} (${result.executed_tasks} tasks, ${result.adapted_tasks} adapted).`, 'success');
+      fetchAllData();
     } catch (err: any) {
       onNotify?.(`Execution error: ${err.message}`, 'error');
     } finally {
@@ -209,28 +170,17 @@ export const AdaptiveMissionMatrixView: React.FC<AdaptiveMissionMatrixViewProps>
 
   const handleTriggerReplan = async (missionId: string) => {
     try {
-      const headers = {
-        'Content-Type': 'application/json',
-        'X-NEXUS-KEY': 'nexus-dev-operator-key-2026'
-      };
-      const res = await fetch('/api/v1/adaptive-execution/replan', {
+      const plan = await nexusFetch<any>('/api/v1/adaptive-execution/replan', {
         method: 'POST',
-        headers,
         body: JSON.stringify({
           mission_id: missionId,
           reason: 'Manual operator bounded replan trigger.'
         })
       });
 
-      if (res.ok) {
-        const plan = await res.json();
-        setSelectedMission(plan);
-        onNotify?.(`Controlled replan applied (Iteration ${plan.replan_count}/${plan.max_replans}).`, 'info');
-        fetchAllData();
-      } else {
-        const err = await res.json();
-        onNotify?.(`Replan failed: ${err.detail || 'Limit reached'}`, 'error');
-      }
+      setSelectedMission(plan);
+      onNotify?.(`Controlled replan applied (Iteration ${plan.replan_count}/${plan.max_replans}).`, 'info');
+      fetchAllData();
     } catch (err: any) {
       onNotify?.(`Replan error: ${err.message}`, 'error');
     }
@@ -238,24 +188,16 @@ export const AdaptiveMissionMatrixView: React.FC<AdaptiveMissionMatrixViewProps>
 
   const handleTriggerAdaptation = async (missionId: string, taskId: string) => {
     try {
-      const headers = {
-        'Content-Type': 'application/json',
-        'X-NEXUS-KEY': 'nexus-dev-operator-key-2026'
-      };
-      const res = await fetch(`/api/v1/adaptive-execution/adapt/${missionId}`, {
+      const event = await nexusFetch<any>(`/api/v1/adaptive-execution/adapt/${missionId}`, {
         method: 'POST',
-        headers,
         body: JSON.stringify({
           task_id: taskId,
           reason: 'Manual operator trigger for dynamic remediation test.'
         })
       });
 
-      if (res.ok) {
-        const event = await res.json();
-        onNotify?.(`In-flight DAG mutation applied: strategy ${event.strategy}`, 'info');
-        fetchAllData();
-      }
+      onNotify?.(`In-flight DAG mutation applied: strategy ${event.strategy}`, 'info');
+      fetchAllData();
     } catch (err: any) {
       onNotify?.(`Adaptation failed: ${err.message}`, 'error');
     }

@@ -20,7 +20,9 @@ import {
   Brain,
   Compass,
   Boxes,
-  Server
+  Server,
+  Globe,
+  FolderPlus
 } from 'lucide-react';
 import { sound } from '../utils/audio';
 
@@ -37,6 +39,8 @@ interface HeaderHUDProps {
   audioEnabled: boolean;
   setAudioEnabled: React.Dispatch<React.SetStateAction<boolean>>;
   pendingApprovalsCount: number;
+  onOpenBridgeSettings?: () => void;
+  onOpenAddProject?: () => void;
 }
 
 export const HeaderHUD = ({
@@ -48,7 +52,9 @@ export const HeaderHUD = ({
   setScanlines,
   audioEnabled,
   setAudioEnabled,
-  pendingApprovalsCount
+  pendingApprovalsCount,
+  onOpenBridgeSettings,
+  onOpenAddProject
 }: HeaderHUDProps) => {
   const [time, setTime] = useState<string>('');
   const [utcTime, setUtcTime] = useState<string>('');
@@ -331,7 +337,37 @@ export const HeaderHUD = ({
       </nav>
 
       {/* Mission Chronometer & Controls */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2.5">
+        {/* Onboard Project Button */}
+        {onOpenAddProject && (
+          <button
+            onClick={() => {
+              sound.click();
+              onOpenAddProject();
+            }}
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-500/50 text-xs font-mono font-bold text-cyan-300 hover:text-cyan-200 transition-all shadow-[0_0_10px_rgba(0,240,255,0.2)]"
+            title="Onboard or Auto-Discover Projects"
+          >
+            <FolderPlus className="w-3.5 h-3.5 text-cyan-400" />
+            <span className="hidden sm:inline">+ PROJECT</span>
+          </button>
+        )}
+
+        {/* Local Bridge Settings Button */}
+        {onOpenBridgeSettings && (
+          <button
+            onClick={() => {
+              sound.click();
+              onOpenBridgeSettings();
+            }}
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded bg-slate-900/90 hover:bg-slate-800 border border-cyan-500/30 text-xs font-mono text-cyan-300 hover:border-cyan-400 transition-all"
+            title="Configure Local Backend Bridge URL & Auth"
+          >
+            <Globe className="w-3.5 h-3.5 text-cyan-400" />
+            <span className="hidden sm:inline">BRIDGE</span>
+          </button>
+        )}
+
         {/* Quick Command Launcher */}
         <button
           onClick={() => {

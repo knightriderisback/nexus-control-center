@@ -29,9 +29,11 @@ class SystemConfig(BaseModel):
     api_key_header: str = "X-NEXUS-KEY"
     token_ttl_seconds: int = int(os.getenv("APPROVAL_TTL_SECONDS", "3600"))
     allowed_project_roots: List[str] = [
+        "/root",
         "/root/control-center",
         "/root/projects",
         "/root/portfolio",
+        "/data/data/com.termux/files/home",
         "/tmp"
     ]
     allowed_origins: list[str] = [

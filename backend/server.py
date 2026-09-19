@@ -65,6 +65,7 @@ from routers.v1.command_control_router import (
     global_router as c2_global_router,
     c2_router
 )
+from routers.v1.connector_router import router as connector_router
 
 
 
@@ -105,7 +106,7 @@ app.add_middleware(TracingMiddleware)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=config.allowed_origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -113,6 +114,7 @@ app.add_middleware(
 
 # Mount Version 1 API protected by provider-neutral auth
 API_V1_PREFIX = "/api/v1"
+app.include_router(connector_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
 app.include_router(overview_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
 app.include_router(projects_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])
 app.include_router(agents_router, prefix=API_V1_PREFIX, dependencies=[Depends(require_auth)])

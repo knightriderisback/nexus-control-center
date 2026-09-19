@@ -20,15 +20,22 @@ import { WorkspaceMissionControl } from './components/WorkspaceMissionControl';
 import { KnowledgeMatrix } from './components/KnowledgeMatrix';
 import { CloudControlView } from './components/CloudControlView';
 import { ProjectsMatrixView } from './components/ProjectsMatrixView';
+import { ProjectDetailDashboardView } from './components/ProjectDetailDashboardView';
 import { ApprovalsMatrixView } from './components/ApprovalsMatrixView';
 import { AuditTrailView } from './components/AuditTrailView';
 import { CommandPaletteModal } from './components/CommandPaletteModal';
+import { BridgeSettingsModal } from './components/BridgeSettingsModal';
+import { AddProjectModal } from './components/AddProjectModal';
 import type { Agent, Task, Telemetry, ApprovalRequest, MemoryNode, WorkspaceProject } from './types';
 import { sound } from './utils/audio';
+import { nexusFetch, getWsUrl, getApiBaseUrl } from './utils/api';
 
 export function App() {
   const [activeTab, setActiveTab] = useState<TabType>('hud');
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);
+  const [isBridgeModalOpen, setIsBridgeModalOpen] = useState<boolean>(false);
+  const [isAddProjectModalOpen, setIsAddProjectModalOpen] = useState<boolean>(false);
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [scanlines, setScanlines] = useState<boolean>(true);
   const [audioEnabled, setAudioEnabled] = useState<boolean>(false);
 
@@ -40,28 +47,30 @@ export function App() {
   const [memories, setMemories] = useState<MemoryNode[]>([]);
   const [workspaceProjects, setWorkspaceProjects] = useState<WorkspaceProject[]>([]);
   const [isConnected, setIsConnected] = useState<boolean>(false);
+  const [bridgeRevision, setBridgeRevision] = useState<number>(0);
 
-  // Fetch initial REST data
+  // Fetch initial REST data via dynamic nexusFetch
   const fetchData = useCallback(async () => {
     try {
       const [resTelem, resAgents, resTasks, resApprovals, resMems, resWork] = await Promise.all([
-        fetch('/api/telemetry').then(r => r.json()),
-        fetch('/api/agents').then(r => r.json()),
-        fetch('/api/tasks').then(r => r.json()),
-        fetch('/api/approvals').then(r => r.json()),
-        fetch('/api/memories').then(r => r.json()),
-        fetch('/api/workspace').then(r => r.json())
+        nexusFetch<any>('/api/telemetry').catch(() => null),
+        nexusFetch<any[]>('/api/agents').catch(() => []),
+        nexusFetch<any[]>('/api/tasks').catch(() => []),
+        nexusFetch<any[]>('/api/approvals').catch(() => []),
+        nexusFetch<any[]>('/api/memories').catch(() => []),
+        nexusFetch<any>('/api/workspace').catch(() => ({ active_projects: [] }))
       ]);
 
-      setTelemetry(resTelem);
-      setAgents(resAgents);
-      setTasks(resTasks);
-      setApprovals(resApprovals);
-      setMemories(resMems);
-      setWorkspaceProjects(resWork.active_projects || []);
+      if (resTelem) setTelemetry(resTelem);
+      if (resAgents) setAgents(resAgents);
+      if (resTasks) setTasks(resTasks);
+      if (resApprovals) setApprovals(resApprovals);
+      if (resMems) setMemories(resMems);
+      if (resWork?.active_projects) setWorkspaceProjects(resWork.active_projects);
       setIsConnected(true);
     } catch (err) {
       console.warn('REST poll fallback error:', err);
+      setIsConnected(false);
     }
   }, []);
 
@@ -69,8 +78,7 @@ export function App() {
   useEffect(() => {
     fetchData();
 
-    const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const wsUrl = `${wsProtocol}//${window.location.host}/ws`;
+    const wsUrl = getWsUrl();
     let socket: WebSocket | null = null;
     let pollInterval: ReturnType<typeof setInterval> | null = null;
 
@@ -100,7 +108,7 @@ export function App() {
           setIsConnected(false);
           // Fallback to REST polling if socket closes
           if (!pollInterval) {
-            pollInterval = setInterval(fetchData, 2000);
+            pollInterval = setInterval(fetchData, 3000);
           }
         };
 
@@ -109,7 +117,7 @@ export function App() {
         };
       } catch (e) {
         if (!pollInterval) {
-          pollInterval = setInterval(fetchData, 2000);
+          pollInterval = setInterval(fetchData, 3000);
         }
       }
     };
@@ -120,7 +128,7 @@ export function App() {
       if (socket) socket.close();
       if (pollInterval) clearInterval(pollInterval);
     };
-  }, [fetchData]);
+  }, [fetchData, bridgeRevision]);
 
   // Global Keyboard Shortcuts
   useEffect(() => {
@@ -166,9 +174,8 @@ export function App() {
 
   // Task Dispatch
   const handleDispatchTask = async (agentId: string, title: string, instructions: string, tier: string) => {
-    const res = await fetch('/api/tasks/dispatch', {
+    const data = await nexusFetch<{ task: Task }>('/api/tasks/dispatch', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         title,
         agent_id: agentId,
@@ -176,8 +183,7 @@ export function App() {
         instructions
       })
     });
-    const data = await res.json();
-    if (data.task) {
+    if (data?.task) {
       setTasks(prev => [data.task, ...prev]);
     }
   };
@@ -189,9 +195,8 @@ export function App() {
 
   // Approval Decision
   const handleDecideApproval = async (id: string, decision: 'approved' | 'rejected') => {
-    await fetch('/api/approvals/decide', {
+    await nexusFetch('/api/approvals/decide', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ approval_id: id, decision })
     });
     setApprovals(prev => prev.map(a => a.id === id ? { ...a, status: decision } : a));
@@ -199,21 +204,18 @@ export function App() {
 
   // Emergency Panic Protocol
   const handleTriggerPanic = async () => {
-    const res = await fetch('/api/panic', { method: 'POST' });
-    const data = await res.json();
+    const data = await nexusFetch<{ missions_aborted?: number }>('/api/panic', { method: 'POST' });
     sound.panic();
     fetchData();
-    alert(`[EMERGENCY PANIC PROTOCOL ACTIVE]\nHalted ${data.missions_aborted || 0} active agent missions. Systems locked in safe state.`);
+    alert(`[EMERGENCY PANIC PROTOCOL ACTIVE]\nHalted ${data?.missions_aborted || 0} active agent missions. Systems locked in safe state.`);
   };
 
   // Run Macro
   const handleRunMacro = async (macroId: string) => {
-    const res = await fetch('/api/macros/run', {
+    return await nexusFetch('/api/macros/run', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ macro_id: macroId })
     });
-    return await res.json();
   };
 
   // Create Memory
@@ -224,19 +226,26 @@ export function App() {
     tags: string[], 
     pinned: boolean
   ) => {
-    const res = await fetch('/api/memories', {
+    const newMem = await nexusFetch('/api/memories', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title, category, content, tags, pinned })
     });
-    const newMem = await res.json();
-    setMemories(prev => [newMem, ...prev]);
+    if (newMem) {
+      setMemories(prev => [newMem, ...prev]);
+    }
   };
 
   // Delete Memory
   const handleDeleteMemory = async (id: string) => {
-    await fetch(`/api/memories/${id}`, { method: 'DELETE' });
+    await nexusFetch(`/api/memories/${id}`, { method: 'DELETE' });
     setMemories(prev => prev.filter(m => m.id !== id));
+  };
+
+  const handleTabChange = (tab: TabType) => {
+    setActiveTab(tab);
+    if (tab !== 'projects') {
+      setSelectedProjectId(null);
+    }
   };
 
   return (
@@ -247,8 +256,10 @@ export function App() {
       {/* Main HUD Header */}
       <HeaderHUD
         activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        setActiveTab={handleTabChange}
         onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
+        onOpenBridgeSettings={() => setIsBridgeModalOpen(true)}
+        onOpenAddProject={() => setIsAddProjectModalOpen(true)}
         onTriggerPanic={handleTriggerPanic}
         scanlines={scanlines}
         setScanlines={setScanlines}
@@ -266,7 +277,7 @@ export function App() {
         {activeTab === 'hud' && (
           <CyberHudLiveView
             onTriggerPanic={handleTriggerPanic}
-            onNavigateTab={(tab) => setActiveTab(tab as TabType)}
+            onNavigateTab={(tab) => handleTabChange(tab as TabType)}
           />
         )}
 
@@ -337,7 +348,21 @@ export function App() {
         )}
 
         {activeTab === 'projects' && (
-          <ProjectsMatrixView />
+          selectedProjectId ? (
+            <ProjectDetailDashboardView
+              projectId={selectedProjectId}
+              onBack={() => setSelectedProjectId(null)}
+              onCreateMissionForProject={(_pid, _name) => {
+                handleTabChange('missions');
+              }}
+            />
+          ) : (
+            <ProjectsMatrixView
+              onSelectProject={(id) => setSelectedProjectId(id)}
+              onOpenAddProject={() => setIsAddProjectModalOpen(true)}
+              onCreateMission={() => handleTabChange('missions')}
+            />
+          )
         )}
 
         {activeTab === 'cloud' && (
@@ -368,7 +393,7 @@ export function App() {
       <CommandPaletteModal
         isOpen={isCommandPaletteOpen}
         onClose={() => setIsCommandPaletteOpen(false)}
-        setActiveTab={setActiveTab}
+        setActiveTab={handleTabChange}
         onRunMacro={handleRunMacro}
         onTriggerPanic={handleTriggerPanic}
         toggleScanlines={() => setScanlines(p => !p)}
@@ -379,23 +404,54 @@ export function App() {
         onQuickDispatch={handleQuickDispatch}
       />
 
+      {/* Bridge Settings Modal */}
+      <BridgeSettingsModal
+        isOpen={isBridgeModalOpen}
+        onClose={() => setIsBridgeModalOpen(false)}
+        onBridgeUpdated={() => {
+          setBridgeRevision(prev => prev + 1);
+          fetchData();
+        }}
+      />
+
+      {/* Add Project Modal */}
+      <AddProjectModal
+        isOpen={isAddProjectModalOpen}
+        onClose={() => setIsAddProjectModalOpen(false)}
+        onProjectAdded={(newProjId) => {
+          setIsAddProjectModalOpen(false);
+          handleTabChange('projects');
+          if (newProjId && newProjId !== 'all') {
+            setSelectedProjectId(newProjId);
+          }
+        }}
+      />
+
       {/* Bottom Status Ticker */}
       <footer className="hud-panel border-t border-cyan-500/20 py-2 px-4 fixed bottom-0 left-0 right-0 z-40 bg-[#060910]/95 flex items-center justify-between text-[10px] font-mono text-slate-500">
         <div className="flex items-center gap-3">
           <span className="flex items-center gap-1">
             <span className={`w-2 h-2 rounded-full ${isConnected ? 'bg-emerald-400 animate-pulse' : 'bg-rose-500'}`}></span>
             <span className={isConnected ? 'text-emerald-400' : 'text-rose-400'}>
-              {isConnected ? 'WEBSOCKET TELEMETRY STREAM ONLINE' : 'TELEMETRY DISCONNECTED'}
+              {isConnected ? 'TELEMETRY BRIDGE ONLINE' : 'BRIDGE DISCONNECTED'}
             </span>
           </span>
           <span>•</span>
-          <span className="text-slate-400">HOST: LOCALHOST</span>
+          <span className="text-slate-400">
+            BRIDGE: {getApiBaseUrl() ? getApiBaseUrl() : 'DIRECT LOCAL DAEMON'}
+          </span>
           <span>•</span>
-          <span className="text-cyan-400">{telemetry?.agent_summary.active || 2} NEURAL THREADS ENGAGED</span>
+          <span className="text-cyan-400">{telemetry?.agent_summary?.active || 2} NEURAL THREADS ENGAGED</span>
         </div>
 
         <div className="hidden sm:flex items-center gap-4">
-          <span>Shortcuts: <kbd className="text-cyan-400">Ctrl+K</kbd> Omnibar | <kbd className="text-cyan-400">1-5</kbd> Tabs</span>
+          <button 
+            onClick={() => setIsBridgeModalOpen(true)}
+            className="text-cyan-400 hover:underline flex items-center gap-1 cursor-pointer"
+          >
+            ⚙ BRIDGE CONFIG
+          </button>
+          <span>Shortcuts: <kbd className="text-cyan-400">Ctrl+K</kbd> Omnibar</span>
           <span className="text-slate-600">NEXUS PERSONAL ENGINEERING SYSTEM</span>
         </div>
       </footer>

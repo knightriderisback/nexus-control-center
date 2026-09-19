@@ -15,6 +15,7 @@ import type {
   FleetOverviewItem,
   ProjectOperationsRecordItem
 } from '../types';
+import { nexusFetch } from '../utils/api';
 
 export const ProjectOperationsMatrixView: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'fleet' | 'releases' | 'drifts' | 'sla' | 'maintenance'>('fleet');
@@ -32,18 +33,13 @@ export const ProjectOperationsMatrixView: React.FC = () => {
   const fetchFleetData = async () => {
     setLoading(true);
     try {
-      const authHeaders = { 'X-NEXUS-KEY': 'nexus-dev-operator-key-2026' };
-      const [fleetRes, projRes] = await Promise.all([
-        fetch('/api/v1/project-operations/fleet', { headers: authHeaders }),
-        fetch('/api/v1/project-operations/projects', { headers: authHeaders })
+      const [fData, pData] = await Promise.all([
+        nexusFetch<FleetOverviewItem>('/api/v1/project-operations/fleet'),
+        nexusFetch<ProjectOperationsRecordItem[]>('/api/v1/project-operations/projects')
       ]);
 
-      if (fleetRes.ok) {
-        const fData = await fleetRes.json();
-        setFleetOverview(fData);
-      }
-      if (projRes.ok) {
-        const pData = await projRes.json();
+      if (fData) setFleetOverview(fData);
+      if (pData) {
         setProjects(pData);
         if (pData.length > 0 && !selectedProject) {
           setSelectedProject(pData[0]);
@@ -66,12 +62,8 @@ export const ProjectOperationsMatrixView: React.FC = () => {
     if (!selectedProject) return;
     setLoading(true);
     try {
-      const res = await fetch('/api/v1/project-operations/releases', {
+      await nexusFetch('/api/v1/project-operations/releases', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-NEXUS-KEY': 'nexus-dev-operator-key-2026'
-        },
         body: JSON.stringify({
           project_id: selectedProject.project_id,
           version_bump: versionBump,
@@ -79,12 +71,11 @@ export const ProjectOperationsMatrixView: React.FC = () => {
           changelog_summary: `Manual release triggered via Cyber-HUD`
         })
       });
-      if (res.ok) {
-        setActionMessage(`Release initiated successfully for ${selectedProject.project_name}`);
-        fetchFleetData();
-      }
-    } catch (err) {
+      setActionMessage(`Release initiated successfully for ${selectedProject.project_name}`);
+      fetchFleetData();
+    } catch (err: any) {
       console.error(err);
+      setActionMessage(`Release error: ${err.message}`);
     } finally {
       setLoading(false);
     }
@@ -93,20 +84,15 @@ export const ProjectOperationsMatrixView: React.FC = () => {
   const handlePromoteRelease = async (releaseId: string) => {
     setLoading(true);
     try {
-      const res = await fetch('/api/v1/project-operations/releases/promote', {
+      await nexusFetch('/api/v1/project-operations/releases/promote', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-NEXUS-KEY': 'nexus-dev-operator-key-2026'
-        },
         body: JSON.stringify({ release_id: releaseId })
       });
-      if (res.ok) {
-        setActionMessage(`Release ${releaseId} promoted to next stage`);
-        fetchFleetData();
-      }
-    } catch (err) {
+      setActionMessage(`Release ${releaseId} promoted to next stage`);
+      fetchFleetData();
+    } catch (err: any) {
       console.error(err);
+      setActionMessage(`Promote error: ${err.message}`);
     } finally {
       setLoading(false);
     }
@@ -115,23 +101,18 @@ export const ProjectOperationsMatrixView: React.FC = () => {
   const handleRollbackRelease = async (projectId: string) => {
     setLoading(true);
     try {
-      const res = await fetch('/api/v1/project-operations/releases/rollback', {
+      await nexusFetch('/api/v1/project-operations/releases/rollback', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-NEXUS-KEY': 'nexus-dev-operator-key-2026'
-        },
         body: JSON.stringify({
           project_id: projectId,
           reason: 'Manual operator rollback from Cyber-HUD'
         })
       });
-      if (res.ok) {
-        setActionMessage(`Rollback executed cleanly for ${projectId}`);
-        fetchFleetData();
-      }
-    } catch (err) {
+      setActionMessage(`Rollback executed cleanly for ${projectId}`);
+      fetchFleetData();
+    } catch (err: any) {
       console.error(err);
+      setActionMessage(`Rollback error: ${err.message}`);
     } finally {
       setLoading(false);
     }
@@ -140,20 +121,15 @@ export const ProjectOperationsMatrixView: React.FC = () => {
   const handleReconcileDrift = async (driftId: string) => {
     setLoading(true);
     try {
-      const res = await fetch('/api/v1/project-operations/drift/reconcile', {
+      await nexusFetch('/api/v1/project-operations/drift/reconcile', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-NEXUS-KEY': 'nexus-dev-operator-key-2026'
-        },
         body: JSON.stringify({ drift_id: driftId })
       });
-      if (res.ok) {
-        setActionMessage(`Drift ${driftId} reconciled autonomously`);
-        fetchFleetData();
-      }
-    } catch (err) {
+      setActionMessage(`Drift ${driftId} reconciled autonomously`);
+      fetchFleetData();
+    } catch (err: any) {
       console.error(err);
+      setActionMessage(`Reconcile error: ${err.message}`);
     } finally {
       setLoading(false);
     }
@@ -163,33 +139,23 @@ export const ProjectOperationsMatrixView: React.FC = () => {
     if (!selectedProject) return;
     setLoading(true);
     try {
-      const res = await fetch('/api/v1/project-operations/maintenance/schedule', {
+      const task = await nexusFetch<{ task_id: string }>('/api/v1/project-operations/maintenance/schedule', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-NEXUS-KEY': 'nexus-dev-operator-key-2026'
-        },
         body: JSON.stringify({
           project_id: selectedProject.project_id,
           task_type: maintTaskType
         })
       });
-      if (res.ok) {
-        const task = await res.json();
-        // Immediately execute task
-        await fetch('/api/v1/project-operations/maintenance/execute', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-NEXUS-KEY': 'nexus-dev-operator-key-2026'
-          },
-          body: JSON.stringify({ task_id: task.task_id })
-        });
-        setActionMessage(`Maintenance task ${maintTaskType} completed.`);
-        fetchFleetData();
-      }
-    } catch (err) {
+      // Immediately execute task
+      await nexusFetch('/api/v1/project-operations/maintenance/execute', {
+        method: 'POST',
+        body: JSON.stringify({ task_id: task.task_id })
+      });
+      setActionMessage(`Maintenance task ${maintTaskType} completed.`);
+      fetchFleetData();
+    } catch (err: any) {
       console.error(err);
+      setActionMessage(`Maintenance error: ${err.message}`);
     } finally {
       setLoading(false);
     }
@@ -199,20 +165,15 @@ export const ProjectOperationsMatrixView: React.FC = () => {
     if (!confirm(`Are you sure you want to archive project ${projectId} into tombstone vault?`)) return;
     setLoading(true);
     try {
-      const res = await fetch(`/api/v1/project-operations/projects/${projectId}/archive`, {
+      await nexusFetch(`/api/v1/project-operations/projects/${projectId}/archive`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-NEXUS-KEY': 'nexus-dev-operator-key-2026'
-        },
         body: JSON.stringify({ project_id: projectId })
       });
-      if (res.ok) {
-        setActionMessage(`Project ${projectId} archived into tombstone vault`);
-        fetchFleetData();
-      }
-    } catch (err) {
+      setActionMessage(`Project ${projectId} archived into tombstone vault`);
+      fetchFleetData();
+    } catch (err: any) {
       console.error(err);
+      setActionMessage(`Archive error: ${err.message}`);
     } finally {
       setLoading(false);
     }

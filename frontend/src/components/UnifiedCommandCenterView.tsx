@@ -20,6 +20,7 @@ import {
   FileCheck2
 } from 'lucide-react';
 import { sound } from '../utils/audio';
+import { nexusFetch } from '../utils/api';
 
 interface ExecutionTraceStep {
   step_index: number;
@@ -39,57 +40,82 @@ interface CommandDirectiveResult {
   risk_level: string;
   dispatched_subsystems: string[];
   execution_trace: ExecutionTraceStep[];
-  artifacts: string[];
-  stdout: string;
-  stderr: string;
-  finops_cost_usd: number;
-  duration_ms: number;
-  requires_approval: boolean;
+  artifacts?: string[];
+  stdout?: string;
+  stderr?: string;
+  finops_cost_usd?: number;
+  duration_ms?: number;
+  requires_approval?: boolean;
   approval_id?: string;
-  completed_at: string;
+  governance_approval_required?: boolean;
+  error_message?: string;
+  created_at: string;
+  completed_at?: string;
+}
+
+interface GlobalOperationsState {
+  projects?: any[];
+  missions?: any[];
+  factory_runs?: any[];
+  deployments?: any[];
+  incidents?: any[];
+  security_findings?: any[];
+  agents?: any[];
+  tools?: any[];
+  providers?: any[];
+  worktrees?: any[];
+  knowledge_nodes?: any[];
+  approvals?: any[];
+  finops?: any;
+  global_health_score?: number;
+  fleet_health_score?: number;
+  kill_switch_active?: boolean;
+  system_state?: string;
+  system_alert?: boolean;
+  alert_level?: string;
+  active_missions_count?: number;
+  active_deployments_count?: number;
+  unresolved_incidents_count?: number;
+  registered_projects_count?: number;
+  idle_agents_count?: number;
+  registered_tools_count?: number;
+  finops_total_spend?: number;
+  finops_policy_invariant_held?: boolean;
+  unresolved_security_findings?: number;
+  pending_approvals_count?: number;
+  timestamp?: string;
 }
 
 interface OperationsTimelineEntry {
-  entry_id: string;
-  command_id: string;
-  stage: string;
-  action: string;
-  actor: string;
-  target_projects: string[];
-  risk_level: string;
-  data: any;
+  entry_id?: string;
+  timeline_id?: string;
+  command_id?: string;
+  stage?: string;
+  action?: string;
+  actor?: string;
+  target_projects?: string[];
+  target_project_id?: string;
+  event_type?: string;
+  source_subsystem?: string;
+  risk_level?: string;
+  status?: string;
+  summary?: string;
+  data?: any;
   evidence?: string;
   timestamp: string;
 }
 
 interface GlobalEventBusMessage {
   event_id: string;
-  event_type: string;
-  source_subsystem: string;
+  event_type?: string;
+  source_subsystem?: string;
   project_id?: string;
   mission_id?: string;
   command_id?: string;
-  payload: any;
-  provenance_hash: string;
-  timestamp: string;
-}
-
-interface GlobalOperationsState {
-  projects: any[];
-  missions: any[];
-  factory_runs: any[];
-  deployments: any[];
-  incidents: any[];
-  security_findings: any[];
-  agents: any[];
-  tools: any[];
-  providers: any[];
-  worktrees: any[];
-  knowledge_nodes: any[];
-  approvals: any[];
-  finops: any;
-  global_health_score: number;
-  kill_switch_active: boolean;
+  topic?: string;
+  publisher?: string;
+  payload?: any;
+  provenance_hash?: string;
   timestamp: string;
 }
 
@@ -108,15 +134,9 @@ export const UnifiedCommandCenterView: React.FC = () => {
   const fetchUnifiedData = useCallback(async () => {
     try {
       const [resState, resTimeline, resEvents] = await Promise.all([
-        fetch('/api/v1/operations/global', {
-          headers: { 'X-NEXUS-KEY': 'nexus-dev-operator-key-2026' }
-        }).then(r => r.json()),
-        fetch('/api/v1/operations/timeline?limit=40', {
-          headers: { 'X-NEXUS-KEY': 'nexus-dev-operator-key-2026' }
-        }).then(r => r.json()),
-        fetch('/api/v1/operations/events?limit=30', {
-          headers: { 'X-NEXUS-KEY': 'nexus-dev-operator-key-2026' }
-        }).then(r => r.json())
+        nexusFetch<any>('/api/v1/operations/global'),
+        nexusFetch<any[]>('/api/v1/operations/timeline?limit=40'),
+        nexusFetch<any[]>('/api/v1/operations/events?limit=30')
       ]);
 
       if (resState && !resState.detail) setGlobalState(resState);
@@ -140,12 +160,8 @@ export const UnifiedCommandCenterView: React.FC = () => {
 
     try {
       const endpoint = dryRun ? '/api/v1/command/preview' : '/api/v1/command';
-      const res = await fetch(endpoint, {
+      const data = await nexusFetch<CommandDirectiveResult>(endpoint, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-NEXUS-KEY': 'nexus-dev-operator-key-2026'
-        },
         body: JSON.stringify({
           raw_prompt: promptInput,
           target_project_id: targetProject || undefined,
@@ -154,7 +170,6 @@ export const UnifiedCommandCenterView: React.FC = () => {
         })
       });
 
-      const data = await res.json();
       setLatestResult(data);
       if (data.state === 'COMPLETED') {
         sound.success();
@@ -173,12 +188,8 @@ export const UnifiedCommandCenterView: React.FC = () => {
   const handleEmergencyKill = async () => {
     try {
       sound.panic();
-      await fetch('/api/v1/c2/emergency/kill', {
+      await nexusFetch('/api/v1/c2/emergency/kill', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-NEXUS-KEY': 'nexus-dev-operator-key-2026'
-        },
         body: JSON.stringify({
           operator: 'nexus-operator',
           reason: killReason,
@@ -197,12 +208,8 @@ export const UnifiedCommandCenterView: React.FC = () => {
   const handleEmergencyReset = async () => {
     try {
       sound.click();
-      await fetch('/api/v1/c2/emergency/reset', {
+      await nexusFetch('/api/v1/c2/emergency/reset', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-NEXUS-KEY': 'nexus-dev-operator-key-2026'
-        },
         body: JSON.stringify({ operator: 'nexus-operator' })
       });
       fetchUnifiedData();
@@ -477,7 +484,7 @@ export const UnifiedCommandCenterView: React.FC = () => {
                       {entry.stage}
                     </span>
                     <span className="text-zinc-300 font-bold">{entry.action}</span>
-                    {entry.target_projects?.length > 0 && (
+                    {entry.target_projects && entry.target_projects.length > 0 && (
                       <span className="text-zinc-500 text-[10px]">[{entry.target_projects.join(', ')}]</span>
                     )}
                   </div>

@@ -12,6 +12,7 @@ class RiskLevel(str, Enum):
 
 class ProjectStatus(str, Enum):
     HEALTHY = "HEALTHY"
+    ACTIVE = "ACTIVE"
     WARNING = "WARNING"
     ALERT = "ALERT"
     UNKNOWN = "UNKNOWN"
@@ -21,6 +22,9 @@ class ProjectRegistryItem(BaseModel):
     name: str
     path: str
     github_repo: Optional[str] = None
+    repository: Optional[str] = None
+    branch: str = "main"
+    type: Optional[str] = "generic_git"
     environment: str = "production"
     deployment_provider: str = "Cloud Run / Local"
     domain: Optional[str] = None
@@ -33,6 +37,7 @@ class ProjectRegistryItem(BaseModel):
     owner: str = "knightriderisback"
     risk: RiskLevel = RiskLevel.LOW
     description: Optional[str] = ""
+    tags: List[str] = []
 
 class AgentManifest(BaseModel):
     id: str
@@ -922,6 +927,7 @@ class MissionSubtask(BaseModel):
 
 class MissionPlanRequest(BaseModel):
     goal: str
+    project_id: Optional[str] = None
     repo_path: str = "/root/control-center"
     target_branch: str = "main"
     context_files: List[str] = []
@@ -935,6 +941,7 @@ class MissionPlanRequest(BaseModel):
 
 class MissionRunRequest(BaseModel):
     goal: str
+    project_id: Optional[str] = None
     repo_path: str = "/root/control-center"
     target_branch: str = "main"
     context_files: List[str] = []
@@ -949,6 +956,7 @@ class MissionRunRequest(BaseModel):
 
 class EngineeringMission(BaseModel):
     mission_id: str
+    project_id: Optional[str] = None
     goal: str
     repo_path: str
     target_branch: str = "main"
@@ -2731,19 +2739,26 @@ class DiscoveredProjectItem(BaseModel):
     project_id: str
     name: str
     path: str
-    detected_type: str  # fastapi, node, react_vite, python_package, cli_tool, generic_git
-    has_git: bool
+    root_path: Optional[str] = None
+    detected_type: str = "generic_git"  # fastapi, node, react_vite, python_package, cli_tool, generic_git
+    archetype: Optional[str] = None
+    has_git: bool = True
+    is_git: bool = True
     branch: Optional[str] = None
+    git_branch: Optional[str] = None
+    git_remote_url: Optional[str] = None
     commit_hash: Optional[str] = None
     has_dockerfile: bool = False
     has_tests: bool = False
     is_registered: bool = False
+    already_registered: bool = False
     build_config: Dict[str, Any] = {}
 
 
 class ProjectDiscoveryResponse(BaseModel):
     scanned_roots: List[str]
     discovered_projects: List[DiscoveredProjectItem] = []
+    total_discovered: int = 0
     registered_count: int
     unregistered_count: int
     timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
@@ -3001,6 +3016,106 @@ class GlobalEventBusMessage(BaseModel):
     payload: Dict[str, Any] = Field(default_factory=dict)
     provenance_hash: str
     timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+
+
+# -----------------------------------------------------------------------------
+# Phase 23+ Local Connector & Unified Project Dashboard Schemas
+# -----------------------------------------------------------------------------
+
+class ConnectorStatusResponse(BaseModel):
+    connector_id: str
+    status: str = "ONLINE"  # ONLINE, CONNECTED, DEGRADED
+    os_environment: str     # Linux, Ubuntu, Termux, Android
+    is_termux: bool = False
+    hostname: str
+    pid: int
+    uptime_seconds: float
+    listening_host: str
+    listening_port: int
+    bridge_auth_required: bool = False
+    allowed_roots: List[str] = []
+    connected_projects_count: int = 0
+    active_missions_count: int = 0
+    active_worktrees_count: int = 0
+    timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+
+
+class ProjectOnboardRequest(BaseModel):
+    project_id: Optional[str] = None
+    name: Optional[str] = None
+    path: Optional[str] = None
+    root_path: Optional[str] = None
+    repository: Optional[str] = None
+    git_remote_url: Optional[str] = None
+    branch: Optional[str] = "main"
+    git_branch: Optional[str] = "main"
+    project_type: Optional[str] = "generic_git"
+    description: Optional[str] = None
+    owner: str = "knightriderisback"
+    tags: List[str] = []
+    auto_discover_git: bool = True
+
+
+class ProjectDashboardGitStatus(BaseModel):
+    branch: str = "main"
+    commit_sha: Optional[str] = None
+    commit_message: Optional[str] = None
+    remote_url: Optional[str] = None
+    is_clean: bool = True
+    dirty_files_count: int = 0
+    modified_files: List[str] = []
+    untracked_files: List[str] = []
+    ahead: int = 0
+    behind: int = 0
+
+
+class ProjectDashboardResponse(BaseModel):
+    project: ProjectRegistryItem
+    operations_record: Optional[ProjectOperationsRecord] = None
+    git: ProjectDashboardGitStatus
+    health: Optional[ProjectHealthDetail] = None
+    missions: List[Dict[str, Any]] = []
+    deployments: List[Dict[str, Any]] = []
+    incidents: List[Dict[str, Any]] = []
+    security_findings: List[Dict[str, Any]] = []
+    knowledge_nodes: List[Dict[str, Any]] = []
+    available_actions: List[str] = [
+        "AUDIT", "TEST", "SECURITY_SCAN", "DEPLOY", "RUN_MISSION", "RECONCILE_DRIFT"
+    ]
+    timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+
+
+class ProjectActionRequest(BaseModel):
+    action: str  # AUDIT, TEST, SECURITY_SCAN, DEPLOY, RUN_MISSION, RECONCILE_DRIFT
+    payload: Dict[str, Any] = Field(default_factory=dict)
+    operator: str = "cyber-operator"
+
+
+class ProjectActionResult(BaseModel):
+    project_id: str
+    action: str
+    status: str  # SUCCESS, FAILED, PENDING_APPROVAL, COMPLETED
+    message: str = ""
+    output: Optional[str] = None
+    health_score_delta: Optional[int] = 0
+    duration_ms: float = 0.0
+    details: Dict[str, Any] = Field(default_factory=dict)
+    artifacts: List[str] = []
+    timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+
+
+class ConnectorSyncRequest(BaseModel):
+    project_ids: Optional[List[str]] = None  # None or empty means all discovered
+    roots: Optional[List[str]] = None
+
+
+class ConnectorSyncResponse(BaseModel):
+    synced_count: int
+    synced_projects: List[ProjectRegistryItem]
+    skipped_count: int = 0
+    errors: List[str] = []
+    timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+
 
 
 

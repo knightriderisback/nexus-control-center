@@ -25,6 +25,7 @@ import type {
   KnowledgeTelemetryItem,
   DAGOptimizationPlanItem
 } from '../types';
+import { nexusFetch } from '../utils/api';
 
 interface KnowledgeLearningMatrixViewProps {
   onNotify?: (msg: string, type: 'info' | 'success' | 'warning' | 'error') => void;
@@ -60,21 +61,19 @@ export const KnowledgeLearningMatrixView: React.FC<KnowledgeLearningMatrixViewPr
   const fetchTelemetryAndData = async () => {
     setLoading(true);
     try {
-      const headers = { 'Authorization': 'Bearer nexus-dev-operator-key-2026' };
-      
       const [telRes, nodesRes, insRes, optRes, toolsRes] = await Promise.all([
-        fetch('/api/v1/knowledge/telemetry', { headers }),
-        fetch('/api/v1/knowledge/nodes', { headers }),
-        fetch('/api/v1/learning/insights', { headers }),
-        fetch('/api/v1/optimization/recommendations', { headers }),
-        fetch('/api/v1/optimization/tools/performance', { headers })
+        nexusFetch<KnowledgeTelemetryItem>('/api/v1/knowledge/telemetry'),
+        nexusFetch<KnowledgeNodeItem[]>('/api/v1/knowledge/nodes'),
+        nexusFetch<LearningInsightItem[]>('/api/v1/learning/insights'),
+        nexusFetch<OptimizationRecommendationItem[]>('/api/v1/optimization/recommendations'),
+        nexusFetch<ToolPerformanceMetricItem[]>('/api/v1/optimization/tools/performance')
       ]);
 
-      if (telRes.ok) setTelemetry(await telRes.json());
-      if (nodesRes.ok) setNodes(await nodesRes.json());
-      if (insRes.ok) setInsights(await insRes.json());
-      if (optRes.ok) setOptimizations(await optRes.json());
-      if (toolsRes.ok) setToolMetrics(await toolsRes.json());
+      if (telRes) setTelemetry(telRes);
+      if (nodesRes) setNodes(nodesRes);
+      if (insRes) setInsights(insRes);
+      if (optRes) setOptimizations(optRes);
+      if (toolsRes) setToolMetrics(toolsRes);
     } catch (err) {
       console.error('Failed to load knowledge telemetry:', err);
     } finally {
@@ -94,11 +93,10 @@ export const KnowledgeLearningMatrixView: React.FC<KnowledgeLearningMatrixViewPr
     }
     setLoading(true);
     try {
-      const headers = { 'Authorization': 'Bearer nexus-dev-operator-key-2026' };
       const url = `/api/v1/knowledge/search?q=${encodeURIComponent(searchQuery)}${selectedTier !== 'ALL' ? `&tier=${selectedTier}` : ''}`;
-      const res = await fetch(url, { headers });
-      if (res.ok) {
-        setNodes(await res.json());
+      const res = await nexusFetch<KnowledgeNodeItem[]>(url);
+      if (res) {
+        setNodes(res);
       }
     } catch (err) {
       console.error('Search failed:', err);
@@ -110,10 +108,8 @@ export const KnowledgeLearningMatrixView: React.FC<KnowledgeLearningMatrixViewPr
   const handleTriggerSweep = async () => {
     setIsSweeping(true);
     try {
-      const headers = { 'Authorization': 'Bearer nexus-dev-operator-key-2026' };
-      const res = await fetch('/api/v1/learning/sweep', { method: 'POST', headers });
-      if (res.ok) {
-        const newIns = await res.json();
+      const newIns = await nexusFetch<LearningInsightItem[]>('/api/v1/learning/sweep', { method: 'POST' });
+      if (newIns) {
         if (onNotify) onNotify(`Learning sweep complete: distilled ${newIns.length} insights`, 'success');
         fetchTelemetryAndData();
       }
@@ -127,10 +123,8 @@ export const KnowledgeLearningMatrixView: React.FC<KnowledgeLearningMatrixViewPr
   const handleRevalidate = async () => {
     setIsRevalidating(true);
     try {
-      const headers = { 'Authorization': 'Bearer nexus-dev-operator-key-2026' };
-      const res = await fetch('/api/v1/knowledge/revalidate', { method: 'POST', headers });
-      if (res.ok) {
-        const data = await res.json();
+      const data = await nexusFetch<any>('/api/v1/knowledge/revalidate', { method: 'POST' });
+      if (data) {
         if (onNotify) onNotify(`Revalidation complete: ${data.revalidated_nodes_count} checked, ${data.stale_nodes_count} flagged stale`, 'success');
         fetchTelemetryAndData();
       }
@@ -143,12 +137,9 @@ export const KnowledgeLearningMatrixView: React.FC<KnowledgeLearningMatrixViewPr
 
   const handleArchiveNode = async (nodeId: string) => {
     try {
-      const headers = { 'Authorization': 'Bearer nexus-dev-operator-key-2026' };
-      const res = await fetch(`/api/v1/knowledge/${nodeId}/archive`, { method: 'POST', headers });
-      if (res.ok) {
-        if (onNotify) onNotify(`Node '${nodeId}' archived`, 'info');
-        fetchTelemetryAndData();
-      }
+      await nexusFetch(`/api/v1/knowledge/${nodeId}/archive`, { method: 'POST' });
+      if (onNotify) onNotify(`Node '${nodeId}' archived`, 'info');
+      fetchTelemetryAndData();
     } catch (err) {
       if (onNotify) onNotify('Archive failed', 'error');
     }
@@ -156,12 +147,9 @@ export const KnowledgeLearningMatrixView: React.FC<KnowledgeLearningMatrixViewPr
 
   const handleRetireNode = async (nodeId: string) => {
     try {
-      const headers = { 'Authorization': 'Bearer nexus-dev-operator-key-2026' };
-      const res = await fetch(`/api/v1/knowledge/${nodeId}/retire`, { method: 'POST', headers });
-      if (res.ok) {
-        if (onNotify) onNotify(`Node '${nodeId}' retired`, 'warning');
-        fetchTelemetryAndData();
-      }
+      await nexusFetch(`/api/v1/knowledge/${nodeId}/retire`, { method: 'POST' });
+      if (onNotify) onNotify(`Node '${nodeId}' retired`, 'warning');
+      fetchTelemetryAndData();
     } catch (err) {
       if (onNotify) onNotify('Retire failed', 'error');
     }
@@ -169,10 +157,8 @@ export const KnowledgeLearningMatrixView: React.FC<KnowledgeLearningMatrixViewPr
 
   const handleInspectProvenance = async (itemId: string) => {
     try {
-      const headers = { 'Authorization': 'Bearer nexus-dev-operator-key-2026' };
-      const res = await fetch(`/api/v1/knowledge/provenance/${itemId}`, { headers });
-      if (res.ok) {
-        const data = await res.json();
+      const data = await nexusFetch(`/api/v1/knowledge/provenance/${itemId}`);
+      if (data) {
         setProvenanceData(data);
       }
     } catch (err) {
@@ -182,12 +168,9 @@ export const KnowledgeLearningMatrixView: React.FC<KnowledgeLearningMatrixViewPr
 
   const handleAcceptOptimization = async (optId: string) => {
     try {
-      const headers = { 'Authorization': 'Bearer nexus-dev-operator-key-2026' };
-      const res = await fetch(`/api/v1/optimization/${optId}/accept`, { method: 'POST', headers });
-      if (res.ok) {
-        if (onNotify) onNotify(`Optimization '${optId}' accepted and applied`, 'success');
-        fetchTelemetryAndData();
-      }
+      await nexusFetch(`/api/v1/optimization/${optId}/accept`, { method: 'POST' });
+      if (onNotify) onNotify(`Optimization '${optId}' accepted and applied`, 'success');
+      fetchTelemetryAndData();
     } catch (err) {
       if (onNotify) onNotify('Accept optimization failed', 'error');
     }
@@ -195,19 +178,12 @@ export const KnowledgeLearningMatrixView: React.FC<KnowledgeLearningMatrixViewPr
 
   const handleRejectOptimization = async (optId: string) => {
     try {
-      const headers = {
-        'Authorization': 'Bearer nexus-dev-operator-key-2026',
-        'Content-Type': 'application/json'
-      };
-      const res = await fetch(`/api/v1/optimization/${optId}/reject`, {
+      await nexusFetch(`/api/v1/optimization/${optId}/reject`, {
         method: 'POST',
-        headers,
         body: JSON.stringify({ reason: 'Rejected by operator in Cyber-HUD' })
       });
-      if (res.ok) {
-        if (onNotify) onNotify(`Optimization '${optId}' rejected`, 'info');
-        fetchTelemetryAndData();
-      }
+      if (onNotify) onNotify(`Optimization '${optId}' rejected`, 'info');
+      fetchTelemetryAndData();
     } catch (err) {
       if (onNotify) onNotify('Reject optimization failed', 'error');
     }
@@ -215,10 +191,8 @@ export const KnowledgeLearningMatrixView: React.FC<KnowledgeLearningMatrixViewPr
 
   const handleCreateGovernedMission = async (optId: string) => {
     try {
-      const headers = { 'Authorization': 'Bearer nexus-dev-operator-key-2026' };
-      const res = await fetch(`/api/v1/optimization/${optId}/govern`, { method: 'POST', headers });
-      if (res.ok) {
-        const proposal = await res.json();
+      const proposal = await nexusFetch<any>(`/api/v1/optimization/${optId}/govern`, { method: 'POST' });
+      if (proposal) {
         if (onNotify) onNotify(`Created governed mission proposal: ${proposal.proposal_id}`, 'success');
         fetchTelemetryAndData();
       }
@@ -230,21 +204,15 @@ export const KnowledgeLearningMatrixView: React.FC<KnowledgeLearningMatrixViewPr
   const handleOptimizePrompt = async () => {
     setIsOptimizingPrompt(true);
     try {
-      const headers = {
-        'Authorization': 'Bearer nexus-dev-operator-key-2026',
-        'Content-Type': 'application/json'
-      };
-      const res = await fetch('/api/v1/knowledge/optimize-context', {
+      const data = await nexusFetch<any>('/api/v1/knowledge/optimize-context', {
         method: 'POST',
-        headers,
         body: JSON.stringify({
           query_context: promptQuery,
           max_token_budget: tokenBudget,
           target_agent_role: 'Engineer'
         })
       });
-      if (res.ok) {
-        const data = await res.json();
+      if (data) {
         setOptimizedContext(data.optimized_context);
         setTokensSaved(data.tokens_saved);
         if (onNotify) onNotify(`Context optimized! Saved approx ${data.tokens_saved} tokens`, 'success');
@@ -258,10 +226,6 @@ export const KnowledgeLearningMatrixView: React.FC<KnowledgeLearningMatrixViewPr
 
   const handleRunDagOptimizerDemo = async () => {
     try {
-      const headers = {
-        'Authorization': 'Bearer nexus-dev-operator-key-2026',
-        'Content-Type': 'application/json'
-      };
       const demoSubtasks = [
         { subtask_id: 'task-1-schema', dependencies: [] },
         { subtask_id: 'task-2-models', dependencies: ['task-1-schema'] },
@@ -270,16 +234,14 @@ export const KnowledgeLearningMatrixView: React.FC<KnowledgeLearningMatrixViewPr
         { subtask_id: 'task-5-tests', dependencies: ['task-2-models', 'task-3-router'] },
         { subtask_id: 'task-6-deploy', dependencies: ['task-4-frontend', 'task-5-tests'] }
       ];
-      const res = await fetch('/api/v1/optimization/recommendations/dag', {
+      const plan = await nexusFetch<any>('/api/v1/optimization/recommendations/dag', {
         method: 'POST',
-        headers,
         body: JSON.stringify({
           mission_id: 'demo-mission-dag',
           subtasks: demoSubtasks
         })
       });
-      if (res.ok) {
-        const plan = await res.json();
+      if (plan) {
         setDagPlan(plan);
         if (onNotify) onNotify(`DAG optimized: ${plan.estimated_speedup_percent}% critical path speedup`, 'success');
         fetchTelemetryAndData();
