@@ -21,6 +21,7 @@ from models.schemas import (
     ReconcileFleetResponse
 )
 from orchestrator.local_connector import local_connector_engine
+from orchestrator.external_source_sync import discover_github, discover_vercel, sync_external_sources
 
 router = APIRouter(prefix="/connector", tags=["NEXUS Local Connector & Project Operations Bridge"])
 
@@ -43,6 +44,27 @@ def discover_local_projects(roots: Optional[List[str]] = None):
     """Scans configured workspace roots for Git repositories and project manifests."""
     try:
         return local_connector_engine.discover_projects(roots)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/external/sources", response_model=Dict[str, Any])
+def get_external_sources():
+    """Returns the live GitHub and Vercel inventories available to the authenticated local CLIs."""
+    github, github_errors = discover_github()
+    vercel, vercel_errors = discover_vercel()
+    return {
+        "github": github,
+        "vercel": vercel,
+        "errors": github_errors + vercel_errors,
+    }
+
+
+@router.post("/external/sync", response_model=Dict[str, Any])
+def sync_external_source_projects():
+    """Immediately merges live GitHub + Vercel inventories into the NEXUS registry."""
+    try:
+        return sync_external_sources()
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
