@@ -38,6 +38,7 @@ class ProjectRegistryItem(BaseModel):
     risk: RiskLevel = RiskLevel.LOW
     description: Optional[str] = ""
     tags: List[str] = []
+    sources: List[str] = []
 
 class AgentManifest(BaseModel):
     id: str
