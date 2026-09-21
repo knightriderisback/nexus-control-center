@@ -436,6 +436,16 @@ export function ProjectsMatrixView({
                     <span className="text-slate-500">ENVIRONMENT:</span>
                     <span className="text-cyan-300 uppercase">{p.environment}</span>
                   </div>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-slate-500">SOURCES:</span>
+                    <div className="flex flex-wrap justify-end gap-1">
+                      {(p.sources && p.sources.length > 0 ? p.sources : ['local']).map((source) => (
+                        <span key={source} className="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-700 text-[9px] uppercase text-slate-300">
+                          {source}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500">LAST AUDIT:</span>
                     <span className="text-slate-400">{p.last_audit ? p.last_audit.split('T')[0] : 'Never'}</span>
