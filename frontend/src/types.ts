@@ -118,6 +118,7 @@ export interface ProjectItem {
   branch?: string;
   type?: string;
   tags?: string[];
+  sources?: string[];
   environment: string;
   deployment_provider: string;
   domain?: string;
