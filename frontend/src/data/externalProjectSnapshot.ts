@@ -25,7 +25,8 @@ export const EXTERNAL_PROJECT_SNAPSHOT: ProjectItem[] = [
     "risk": "LOW",
     "description": "Provider-discovered project: Portfolio Partner.",
     "sources": [
-      "github"
+      "github",
+      "vercel"
     ]
   },
   {
