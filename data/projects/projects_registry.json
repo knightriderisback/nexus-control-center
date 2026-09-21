@@ -33,13 +33,22 @@
     "documentation_url": "/api/v1/docs/nexus",
     "owner": "knightriderisback",
     "risk": "LOW",
-    "description": "FastAPI backend + React Cyber-HUD engine serving real-time system & cloud telemetry."
+    "description": "FastAPI backend + React Cyber-HUD engine serving real-time system & cloud telemetry.",
+    "repository": "https://github.com/knightriderisback/nexus-control-center.git",
+    "branch": "main",
+    "sources": [
+      "github"
+    ],
+    "tags": [
+      "external-sync",
+      "source:github"
+    ]
   },
   {
     "id": "portfolio",
     "name": "Personal Portfolio Website",
     "path": "/root/portfolio",
-    "github_repo": "knightriderisback/portfolio",
+    "github_repo": "knightriderisback/Portfolio",
     "environment": "production",
     "deployment_provider": "Vercel / GitHub Pages",
     "domain": "https://portfolio.local",
@@ -51,7 +60,16 @@
     "documentation_url": "/api/v1/docs/portfolio",
     "owner": "knightriderisback",
     "risk": "LOW",
-    "description": "Production personal developer portfolio and interactive project showcase."
+    "description": "Production personal developer portfolio and interactive project showcase.",
+    "repository": "https://github.com/knightriderisback/Portfolio.git",
+    "branch": "main",
+    "sources": [
+      "github"
+    ],
+    "tags": [
+      "external-sync",
+      "source:github"
+    ]
   },
   {
     "id": "project-analytics-ingestion-engine",
@@ -358,5 +376,364 @@
     "owner": "knightriderisback",
     "risk": "LOW",
     "description": "Test c2 service"
+  },
+  {
+    "id": "github-knightriderisback-fresh-cart-pro-86",
+    "name": "fresh-cart-pro-86",
+    "path": "/__nexus_external__/github/knightriderisback-fresh-cart-pro-86",
+    "github_repo": "knightriderisback/fresh-cart-pro-86",
+    "repository": "https://github.com/knightriderisback/fresh-cart-pro-86.git",
+    "branch": "main",
+    "type": "external",
+    "environment": "external",
+    "deployment_provider": "Vercel",
+    "status": "ACTIVE",
+    "health_score": 100,
+    "owner": "knightriderisback",
+    "risk": "LOW",
+    "description": "Externally discovered from GitHub.",
+    "tags": [
+      "external-sync",
+      "source:github",
+      "source:vercel"
+    ],
+    "sources": [
+      "github",
+      "vercel"
+    ]
+  },
+  {
+    "id": "github-knightriderisback-grocery-app-template",
+    "name": "grocery-app-template",
+    "path": "/__nexus_external__/github/knightriderisback-grocery-app-template",
+    "github_repo": "knightriderisback/grocery-app-template",
+    "repository": "https://github.com/knightriderisback/grocery-app-template.git",
+    "branch": "main",
+    "type": "external",
+    "environment": "external",
+    "deployment_provider": "Vercel",
+    "status": "ACTIVE",
+    "health_score": 100,
+    "owner": "knightriderisback",
+    "risk": "LOW",
+    "description": "Externally discovered from GitHub.",
+    "tags": [
+      "external-sync",
+      "source:github",
+      "source:vercel"
+    ],
+    "sources": [
+      "github",
+      "vercel"
+    ]
+  },
+  {
+    "id": "github-knightriderisback-portfolio-partner",
+    "name": "portfolio-partner",
+    "path": "/__nexus_external__/github/knightriderisback-portfolio-partner",
+    "github_repo": "knightriderisback/portfolio-partner",
+    "repository": "https://github.com/knightriderisback/portfolio-partner.git",
+    "branch": "main",
+    "type": "external",
+    "environment": "external",
+    "deployment_provider": "Vercel",
+    "status": "ACTIVE",
+    "health_score": 100,
+    "owner": "knightriderisback",
+    "risk": "LOW",
+    "description": "Externally discovered from GitHub.",
+    "tags": [
+      "external-sync",
+      "source:github",
+      "source:vercel"
+    ],
+    "sources": [
+      "github",
+      "vercel"
+    ]
+  },
+  {
+    "id": "github-knightriderisback-ai-generalist-agent",
+    "name": "AI-Generalist-agent",
+    "path": "/__nexus_external__/github/knightriderisback-ai-generalist-agent",
+    "github_repo": "knightriderisback/AI-Generalist-agent",
+    "repository": "https://github.com/knightriderisback/AI-Generalist-agent.git",
+    "branch": "main",
+    "type": "external",
+    "environment": "external",
+    "deployment_provider": "Vercel",
+    "status": "ACTIVE",
+    "health_score": 100,
+    "owner": "knightriderisback",
+    "risk": "LOW",
+    "description": "Externally discovered from GitHub.",
+    "tags": [
+      "external-sync",
+      "source:github",
+      "source:vercel"
+    ],
+    "sources": [
+      "github",
+      "vercel"
+    ]
+  },
+  {
+    "id": "github-knightriderisback-taj-handloom",
+    "name": "Taj-handloom",
+    "path": "/__nexus_external__/github/knightriderisback-taj-handloom",
+    "github_repo": "knightriderisback/Taj-handloom",
+    "repository": "https://github.com/knightriderisback/Taj-handloom.git",
+    "branch": "main",
+    "type": "external",
+    "environment": "external",
+    "deployment_provider": "Vercel",
+    "status": "ACTIVE",
+    "health_score": 100,
+    "owner": "knightriderisback",
+    "risk": "LOW",
+    "description": "Externally discovered from GitHub.",
+    "tags": [
+      "external-sync",
+      "source:github",
+      "source:vercel"
+    ],
+    "sources": [
+      "github",
+      "vercel"
+    ]
+  },
+  {
+    "id": "github-knightriderisback-matang-connect-app",
+    "name": "matang-connect-app",
+    "path": "/__nexus_external__/github/knightriderisback-matang-connect-app",
+    "github_repo": "knightriderisback/matang-connect-app",
+    "repository": "https://github.com/knightriderisback/matang-connect-app.git",
+    "branch": "main",
+    "type": "external",
+    "environment": "external",
+    "deployment_provider": "GitHub",
+    "status": "ACTIVE",
+    "health_score": 100,
+    "owner": "knightriderisback",
+    "risk": "LOW",
+    "description": "Externally discovered from GitHub.",
+    "tags": [
+      "external-sync",
+      "source:github"
+    ],
+    "sources": [
+      "github"
+    ]
+  },
+  {
+    "id": "github-knightriderisback-portyourfolio",
+    "name": "portyourfolio",
+    "path": "/__nexus_external__/github/knightriderisback-portyourfolio",
+    "github_repo": "knightriderisback/portyourfolio",
+    "repository": "https://github.com/knightriderisback/portyourfolio.git",
+    "branch": "main",
+    "type": "external",
+    "environment": "external",
+    "deployment_provider": "Vercel",
+    "status": "ACTIVE",
+    "health_score": 100,
+    "owner": "knightriderisback",
+    "risk": "LOW",
+    "description": "Externally discovered from GitHub.",
+    "tags": [
+      "external-sync",
+      "source:github",
+      "source:vercel"
+    ],
+    "sources": [
+      "github",
+      "vercel"
+    ]
+  },
+  {
+    "id": "github-knightriderisback-my-phone-termux",
+    "name": "My-Phone-Termux",
+    "path": "/__nexus_external__/github/knightriderisback-my-phone-termux",
+    "github_repo": "knightriderisback/My-Phone-Termux",
+    "repository": "https://github.com/knightriderisback/My-Phone-Termux.git",
+    "branch": "main",
+    "type": "external",
+    "environment": "external",
+    "deployment_provider": "GitHub",
+    "status": "ACTIVE",
+    "health_score": 100,
+    "owner": "knightriderisback",
+    "risk": "LOW",
+    "description": "Externally discovered from GitHub.",
+    "tags": [
+      "external-sync",
+      "source:github"
+    ],
+    "sources": [
+      "github"
+    ]
+  },
+  {
+    "id": "github-knightriderisback-antigravity-portfolio",
+    "name": "antigravity-portfolio",
+    "path": "/__nexus_external__/github/knightriderisback-antigravity-portfolio",
+    "github_repo": "knightriderisback/antigravity-portfolio",
+    "repository": "https://github.com/knightriderisback/antigravity-portfolio.git",
+    "branch": "main",
+    "type": "external",
+    "environment": "external",
+    "deployment_provider": "Vercel",
+    "status": "ACTIVE",
+    "health_score": 100,
+    "owner": "knightriderisback",
+    "risk": "LOW",
+    "description": "Externally discovered from GitHub.",
+    "tags": [
+      "external-sync",
+      "source:github",
+      "source:vercel"
+    ],
+    "sources": [
+      "github",
+      "vercel"
+    ]
+  },
+  {
+    "id": "github-knightriderisback-ai-social-creator",
+    "name": "ai-social-creator",
+    "path": "/__nexus_external__/github/knightriderisback-ai-social-creator",
+    "github_repo": "knightriderisback/ai-social-creator",
+    "repository": "https://github.com/knightriderisback/ai-social-creator.git",
+    "branch": "master",
+    "type": "external",
+    "environment": "external",
+    "deployment_provider": "Vercel",
+    "status": "ACTIVE",
+    "health_score": 100,
+    "owner": "knightriderisback",
+    "risk": "LOW",
+    "description": "Externally discovered from GitHub.",
+    "tags": [
+      "external-sync",
+      "source:github",
+      "source:vercel"
+    ],
+    "sources": [
+      "github",
+      "vercel"
+    ]
+  },
+  {
+    "id": "github-knightriderisback-vanshawali",
+    "name": "vanshawali",
+    "path": "/__nexus_external__/github/knightriderisback-vanshawali",
+    "github_repo": "knightriderisback/vanshawali",
+    "repository": "https://github.com/knightriderisback/vanshawali.git",
+    "branch": "main",
+    "type": "external",
+    "environment": "external",
+    "deployment_provider": "Vercel",
+    "status": "ACTIVE",
+    "health_score": 100,
+    "owner": "knightriderisback",
+    "risk": "LOW",
+    "description": "Externally discovered from GitHub.",
+    "tags": [
+      "external-sync",
+      "source:github",
+      "source:vercel"
+    ],
+    "sources": [
+      "github",
+      "vercel"
+    ]
+  },
+  {
+    "id": "github-knightriderisback-creative-engine-studio-2026",
+    "name": "creative-engine-studio-2026",
+    "path": "/__nexus_external__/github/knightriderisback-creative-engine-studio-2026",
+    "github_repo": "knightriderisback/creative-engine-studio-2026",
+    "repository": "https://github.com/knightriderisback/creative-engine-studio-2026.git",
+    "branch": "main",
+    "type": "external",
+    "environment": "external",
+    "deployment_provider": "Vercel",
+    "status": "ACTIVE",
+    "health_score": 100,
+    "owner": "knightriderisback",
+    "risk": "LOW",
+    "description": "Externally discovered from GitHub.",
+    "tags": [
+      "external-sync",
+      "source:github",
+      "source:vercel"
+    ],
+    "sources": [
+      "github",
+      "vercel"
+    ]
+  },
+  {
+    "id": "vercel-matang-connect",
+    "name": "matang-connect",
+    "path": "/__nexus_external__/vercel/matang-connect",
+    "branch": "main",
+    "type": "external",
+    "environment": "external",
+    "deployment_provider": "Vercel",
+    "status": "ACTIVE",
+    "health_score": 100,
+    "owner": "knightriderisback",
+    "risk": "LOW",
+    "description": "Externally discovered from Vercel.",
+    "tags": [
+      "external-sync",
+      "source:vercel"
+    ],
+    "sources": [
+      "vercel"
+    ]
+  },
+  {
+    "id": "vercel-nexus-control-center",
+    "name": "nexus-control-center",
+    "path": "/__nexus_external__/vercel/nexus-control-center",
+    "branch": "main",
+    "type": "external",
+    "environment": "external",
+    "deployment_provider": "Vercel",
+    "status": "ACTIVE",
+    "health_score": 100,
+    "owner": "knightriderisback",
+    "risk": "LOW",
+    "description": "Externally discovered from Vercel.",
+    "tags": [
+      "external-sync",
+      "source:vercel"
+    ],
+    "sources": [
+      "vercel"
+    ]
+  },
+  {
+    "id": "vercel-taj-handloom-fast",
+    "name": "taj-handloom-fast",
+    "path": "/__nexus_external__/vercel/taj-handloom-fast",
+    "branch": "main",
+    "type": "external",
+    "environment": "external",
+    "deployment_provider": "Vercel",
+    "status": "ACTIVE",
+    "health_score": 100,
+    "owner": "knightriderisback",
+    "risk": "LOW",
+    "description": "Externally discovered from Vercel.",
+    "tags": [
+      "external-sync",
+      "source:vercel"
+    ],
+    "sources": [
+      "vercel"
+    ]
   }
 ]
