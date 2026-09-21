@@ -53,6 +53,7 @@ from orchestrator.self_healing_engine import self_healing_engine
 from orchestrator.security_compliance_engine import security_compliance_engine
 from orchestrator.knowledge_learning_engine import knowledge_learning_engine
 from registry.projects import load_projects, save_projects, get_project_by_id, audit_project
+from orchestrator.external_source_sync import sync_external_sources
 
 logger = logging.getLogger("nexus.local_connector")
 
@@ -399,6 +400,10 @@ class LocalConnectorEngine:
             t0 = time.time()
 
             try:
+                # 0. External source discovery (GitHub + Vercel), using authenticated local CLIs.
+                external_sync = sync_external_sources()
+                errors.extend(external_sync.get("errors", []))
+
                 # 1. Universal Discovery
                 discovery = self.discover_projects()
                 
@@ -470,6 +475,10 @@ class LocalConnectorEngine:
 
         for p in projects:
             path = os.path.abspath(p.path)
+            # External-only records are source inventory entries, not local workspaces.
+            if "external-sync" in (getattr(p, "tags", []) or []) and not os.path.exists(path):
+                updated_projects.append(p)
+                continue
             if not os.path.exists(path):
                 # Directory removed / disconnected
                 drift_count += 1
