@@ -17,6 +17,7 @@ import {
 import type { ProjectItem, AutoSyncStatus, ReconcileFleetResponse } from '../types';
 import { sound } from '../utils/audio';
 import { nexusFetch } from '../utils/api';
+import { EXTERNAL_PROJECT_SNAPSHOT, EXTERNAL_PROJECT_SNAPSHOT_GENERATED_AT } from '../data/externalProjectSnapshot';
 
 interface ProjectsMatrixViewProps {
   onSelectProject?: (projectId: string) => void;
@@ -40,14 +41,23 @@ export function ProjectsMatrixView({
   const [syncingFleet, setSyncingFleet] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [selectedType, setSelectedType] = useState<string>('ALL');
+  const [usingSnapshotFallback, setUsingSnapshotFallback] = useState<boolean>(false);
 
   const fetchProjects = async () => {
     try {
       setLoading(true);
       const data = await nexusFetch<ProjectItem[]>('/api/v1/projects');
-      setProjects(data || []);
+      if (Array.isArray(data) && data.length > 0) {
+        setProjects(data);
+        setUsingSnapshotFallback(false);
+      } else {
+        setProjects(EXTERNAL_PROJECT_SNAPSHOT);
+        setUsingSnapshotFallback(true);
+      }
     } catch (e) {
-      console.error('Failed to load projects:', e);
+      console.warn('Project API unavailable; using provider inventory snapshot:', e);
+      setProjects(EXTERNAL_PROJECT_SNAPSHOT);
+      setUsingSnapshotFallback(true);
     } finally {
       setLoading(false);
     }
@@ -255,6 +265,11 @@ export function ProjectsMatrixView({
             <span className="px-2 py-0.5 text-[10px] rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
               {projects.length} REGISTERED
             </span>
+            {usingSnapshotFallback && (
+              <span className="px-2 py-0.5 text-[10px] rounded bg-amber-500/10 text-amber-300 border border-amber-500/30">
+                PROVIDER SNAPSHOT • {EXTERNAL_PROJECT_SNAPSHOT_GENERATED_AT}
+              </span>
+            )}
             {autoSyncStatus && (
               <span className={`px-2 py-0.5 text-[10px] rounded border flex items-center gap-1 font-bold ${
                 autoSyncStatus.enabled 
